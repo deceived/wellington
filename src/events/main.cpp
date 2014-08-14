@@ -24,8 +24,8 @@ class MoveCommand : public ICommand
 
 public:
 
-    MoveCommand( const std::string& command )
-        : command_( command )
+    MoveCommand( const std::vector< std::string >& commands )
+        : commands_( commands )
     {}
 
     virtual void Execute()
@@ -33,13 +33,15 @@ public:
 
     virtual std::string ToString()
     {
-        return command_;
+        return commands_[0];
     }
     
 private:
 
-// state
-    std::string command_;
+    void ParseCommands()
+    {}
+
+    std::vector< std::string > commands_;
 
 };
 
@@ -48,8 +50,8 @@ class EngagementCommand : public ICommand
 
 public:
 
-    EngagementCommand( const std::string& command )
-        : command_( command )
+    EngagementCommand( const std::vector< std::string >& commands )
+        : commands_( commands )
     {}
 
     virtual void Execute()
@@ -57,58 +59,36 @@ public:
 
     virtual std::string ToString()
     {
-        return command_;
+        return commands_[0];
     }
 
 private:
 
-// state
-    std::string command_;
+    void ParseCommands()
+    {}
+    std::vector< std::string > commands_;
 
 };
 
-class ExitCommand : public ICommand
-{
-
-public:
-
-    ExitCommand( const std::string& command )
-        : command_( command )
-    {}
-
-    virtual void Execute()
-    {}
-
-    virtual std::string ToString()
-    {
-        return command_;
-    }
-
-private:
-
-// state
-    std::string command_;
-
-};
 
 class CommandFactory
 {
 
 public:
 
-    static shared_ptr<ICommand> Create( const std::string name )
+    static shared_ptr<ICommand> Create( std::vector<std::string>& params )
     {
-        if( name == "move" )
+        if( params[0] == "move" )
         {
-            return make_shared<MoveCommand>( name ); 
+            return make_shared<MoveCommand>( params ); 
         }
-        if( name == "defend" )
+        if( params[0] == "defend" )
         {
-            return make_shared<EngagementCommand>( name ); 
+            return make_shared<EngagementCommand>( params ); 
         }
-        if( name == "attack" )
+        if( params[0] == "attack" )
         {
-            return make_shared<EngagementCommand>( name ); 
+            return make_shared<EngagementCommand>( params ); 
         }
         return shared_ptr<ICommand>();
     }
@@ -120,8 +100,8 @@ shared_ptr<ICommand>   ParseCommand( const std::string& line )
     std::vector< std::string > split_vector;
 
     split(  split_vector, line, is_any_of( " " ) );
-    
-    return CommandFactory::Create( split_vector[0] );
+   
+    return CommandFactory::Create( split_vector );
 }
 
 int main( int argc, char** argv )
