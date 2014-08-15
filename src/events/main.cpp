@@ -19,6 +19,13 @@ public:
     virtual std::string ToString() = 0;
 };
 
+/***
+
+  move [to <destination>] [via <location>]* 
+  move [<compass direction>] [for <distance>] [via <location>]
+  move [towards <destination`>] [via <location>]*
+
+***/
 class MoveCommand : public ICommand
 {
 
@@ -26,7 +33,9 @@ public:
 
     MoveCommand( const std::vector< std::string >& commands )
         : commands_( commands )
-    {}
+    {
+        ParseCommands();
+    }
 
     virtual void Execute()
     {}
@@ -39,12 +48,25 @@ public:
 private:
 
     void ParseCommands()
-    {}
+    {
+    }
 
     std::vector< std::string > commands_;
 
+    std::string destination_;
+    std::list< std::string > location_;
+    std::string direction_;
+    unsigned int distance_;
+
 };
 
+
+/***
+
+    attack [if inferior force encountered] || [if no alternative] || [<unit specification>] [at <location>] 
+    defend [position] || [if attacked [and retreat [to <location>]]] 
+
+***/
 class EngagementCommand : public ICommand
 {
 
@@ -52,7 +74,9 @@ public:
 
     EngagementCommand( const std::vector< std::string >& commands )
         : commands_( commands )
-    {}
+    {
+        ParseCommands();
+    }
 
     virtual void Execute()
     {}
@@ -65,7 +89,10 @@ public:
 private:
 
     void ParseCommands()
-    {}
+    {
+    }
+
+    std::string location_;
     std::vector< std::string > commands_;
 
 };
