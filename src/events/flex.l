@@ -8,6 +8,7 @@ enum Tokens
    VIA,
    FOR,
    TOWARDS,
+   THE,
    N,
    S,
    E,
@@ -37,25 +38,34 @@ enum Tokens
 WORD [a-zA-Z]+
 NUMBER [0-9]+
 
+%x MOVE
+%x ATTACK
+%x DEFEND
+
 %%
 
-move    { return( MOVE ); }
-attack  { return( ATTACK ); }
-to      { return( TO ); }
-via     { return( VIA ); }
-for     { return( FOR ); }
-towards { return( TOWARDS ); }
-n       { return( N ); }
-s       { return( S ); }
-w       { return( W ); }
-e       { return( E ); }
-nw      { return( NW ); }
-sw      { return( SW ); }
-ne      { return( NE ); }
-se      { return( SE ); }
-m       { return( M ); }
-km      { return( KM ); }
-if      { return( IF ); }
+<INITIAL>move       { BEGIN( MOVE); return( MOVE ); }
+<INITIAL>attack     { BEGIN( ATTACK ); return( ATTACK ); }
+<INITIAL>defend     { BEGIN( DEFEND ); return( DEFEND ); }
+
+<MOVE>to            { return( TO ); }
+<MOVE>towards       { return( TOWARDS ); }
+<MOVE>for           { return( FOR ); }
+
+via         { return( VIA ); }
+for         { return( FOR ); }
+towards     { return( TOWARDS ); }
+n           { return( N ); }
+s           { return( S ); }
+w           { return( W ); }
+e           { return( E ); }
+nw          { return( NW ); }
+sw          { return( SW ); }
+ne          { return( NE ); }
+se          { return( SE ); }
+m           { return( M ); }
+km          { return( KM ); }
+if          { return( IF ); }
 inferior    { return( INFERIOR ); }
 force       { return( FORCE ); }
 encountered { return( ENCOUNTERED ); }
@@ -65,6 +75,6 @@ at          { return( AT ); }
 and         { return( AND ); }
 attacked    { return( ATTACKED ); }
 retreat     { return( RETREAT ); }
-defend      { return( DEFEND ); }
 position    { return( POSITION ); }
+the         { return( THE ); }
 
