@@ -22,7 +22,7 @@ public:
 /***
 
   move [to <destination>] [via <location>]* 
-  move [<compass direction>] [for <distance>] [via <location>]
+  move [for <distance> to the <compass direction>] [via <location>]
   move [towards <destination`>] [via <location>]*
 
 ***/
@@ -63,8 +63,8 @@ private:
 
 /***
 
-    attack [if inferior force encountered] || [if no alternative] || [<unit specification>] [at <location>] 
-    defend [position] || [if attacked [and retreat [to <location>]]] 
+    attack [if inferior force encountered] || [if no alternative] [<unit specification> [at <location>]]
+    defend [at <location>] || [if attacked [and retreat [to <location>]]] 
 
 ***/
 class EngagementCommand : public ICommand

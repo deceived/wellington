@@ -5,6 +5,7 @@ enum Tokens
    MOVE,
    ATTACK,
    TO,
+   TO_THE,
    VIA,
    FOR,
    TOWARDS,
@@ -20,15 +21,12 @@ enum Tokens
    M,
    KM,
    IF,
-   INFERIOR,
-   FORCE,
-   ENCOUNTERED,
-   NO,
-   ALTERNATIVE,
+   INFERIOR_FORCE_ENCOUNTERED,
+   NO_ALTERNATIVE,
    AT,
    AND,
-   ATTACKED,
-   RETREAT,
+   IF_ATTACKED,
+   AND_RETREAT,
    DEFEND,
    POSITION
 };
@@ -52,6 +50,12 @@ NUMBER [0-9]+
 <MOVE>towards       { return( TOWARDS ); }
 <MOVE>for           { return( FOR ); }
 
+<ATTACK>if          { return( IF ); }
+<ATTACK>WORD        { return( WORD ); }
+
+<DEFEND>at          { return( AT ); }
+<DEFEND>if          { return( IF ); }
+
 via         { return( VIA ); }
 for         { return( FOR ); }
 towards     { return( TOWARDS ); }
@@ -66,11 +70,6 @@ se          { return( SE ); }
 m           { return( M ); }
 km          { return( KM ); }
 if          { return( IF ); }
-inferior    { return( INFERIOR ); }
-force       { return( FORCE ); }
-encountered { return( ENCOUNTERED ); }
-no          { return( NO ); }
-alternative { return( ALTERNATIVE ); }
 at          { return( AT ); }
 and         { return( AND ); }
 attacked    { return( ATTACKED ); }
