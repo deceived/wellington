@@ -1,5 +1,14 @@
 %{
 
+/* build with
+
+   flex flex.l
+   gcc lex.yy.c -lfl
+   ./a.out
+
+   defaults to copy stdin to stdout - useful to test rules
+*/
+
 enum Tokens
 {
    MOVE,
@@ -28,7 +37,8 @@ enum Tokens
    IF_ATTACKED,
    AND_RETREAT,
    DEFEND,
-   POSITION
+   POSITION,
+   LOCATION
 };
 
 %}
@@ -46,10 +56,24 @@ NUMBER [0-9]+
 <INITIAL>attack     { BEGIN( ATTACK ); return( ATTACK ); }
 <INITIAL>defend     { BEGIN( DEFEND ); return( DEFEND ); }
 
-<MOVE>to            { return( TO ); }
-<MOVE>towards       { return( TOWARDS ); }
-<MOVE>for           { return( FOR ); }
+<MOVE>to            { printf( "[move to]" ); return( TO ); }
+<MOVE>towards       { printf( "[move towards]" ); return( TOWARDS ); }
+<MOVE>for           { printf( "[move for]" ); return( FOR ); }
+<MOVE>{NUMBER}km    { printf( "[km]" ); return( KM ); }
+<MOVE>{NUMBER}m     { printf( "[m]" ); return( M ); }
+<MOVE>to[ \t]+the   { printf( "[to the]" ); return( TO_THE ); }
+<MOVE>via           { printf( "[via]" ); return( VIA ); }
+<MOVE>{WORD}        { printf( "[location]" ); printf( "%s", yytext ); return( LOCATION ); }
+<MOVE>[ \t]+n[ \t]+   { printf( "[north]" ); return( N ); }
+<MOVE>[ \t]+s[ \t]+   { printf( "[south]" ); return( S ); }
+<MOVE>[ \t]+w[ \t]+   { printf( "[west]" ); return( W ); }
+<MOVE>[ \t]+e[ \t]+   { printf( "[east]" ); return( E ); }
+<MOVE>[ \t]+nw[ \t]+  { printf( "[north west]" ); return( NW ); }
+<MOVE>[ \t]+sw[ \t]+  { printf( "[south west]" ); return( SW ); }
+<MOVE>[ \t]+ne[ \t]+  { printf( "[north east]" ); return( NE ); }
+<MOVE>[ \t]+se[ \t]+  { printf( "[south east]" ); return( SE ); }
 
+   /*
 <ATTACK>if          { return( IF ); }
 <ATTACK>WORD        { return( WORD ); }
 
@@ -76,4 +100,4 @@ attacked    { return( ATTACKED ); }
 retreat     { return( RETREAT ); }
 position    { return( POSITION ); }
 the         { return( THE ); }
-
+   */
