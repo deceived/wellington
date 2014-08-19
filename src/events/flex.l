@@ -29,23 +29,24 @@ enum Tokens
    SE,
    M,
    KM,
-   IF,
-   INFERIOR_FORCE_ENCOUNTERED,
-   NO_ALTERNATIVE,
+   IF_INFERIOR_FORCE_ENCOUNTERED,
+   IF_NO_ALTERNATIVE,
    AT,
    AND,
    IF_ATTACKED,
    AND_RETREAT,
    DEFEND,
    POSITION,
-   LOCATION
+   LOCATION,
+   UNIT_SPECIFICATION
 };
 
 %}
 
 WORD [a-zA-Z]+
 NUMBER [0-9]+
-
+UNIT {NUMBER}[ \t]+{WORD}
+ 
 %x MOVE
 %x ATTACK
 %x DEFEND
@@ -63,7 +64,7 @@ NUMBER [0-9]+
 <MOVE>{NUMBER}m     { printf( "[m]" ); return( M ); }
 <MOVE>to[ \t]+the   { printf( "[to the]" ); return( TO_THE ); }
 <MOVE>via           { printf( "[via]" ); return( VIA ); }
-<MOVE>{WORD}        { printf( "[location]" ); printf( "%s", yytext ); return( LOCATION ); }
+<MOVE>{WORD}        { printf( "[location]" ); printf( "%s", yytext ); BEGIN( INITIAL ); return( LOCATION ); }
 <MOVE>[ \t]+n[ \t]+   { printf( "[north]" ); return( N ); }
 <MOVE>[ \t]+s[ \t]+   { printf( "[south]" ); return( S ); }
 <MOVE>[ \t]+w[ \t]+   { printf( "[west]" ); return( W ); }
@@ -73,31 +74,15 @@ NUMBER [0-9]+
 <MOVE>[ \t]+ne[ \t]+  { printf( "[north east]" ); return( NE ); }
 <MOVE>[ \t]+se[ \t]+  { printf( "[south east]" ); return( SE ); }
 
-   /*
-<ATTACK>if          { return( IF ); }
-<ATTACK>WORD        { return( WORD ); }
+<ATTACK>if[ \t]+inferior[ \t]+force[ \t]+encountered  { printf( "[inferior force encountered]" ); BEGIN( INITIAL ); return( IF_INFERIOR_FORCE_ENCOUNTERED ); }
+<ATTACK>if[ \t]+no[ \t]+alternative  { printf( "[no alternative]" ); BEGIN( INITIAL ); return( IF_NO_ALTERNATIVE ); }
+<ATTACK>{UNIT}        { printf( "[unit spec]" ); printf( "%s", yytext ); return( UNIT_SPECIFICATION ); }
+<ATTACK>at            { printf( "[at]" ); return( AT ); }
+<ATTACK>{WORD}        { printf( "[location]" ); printf( "%s", yytext ); BEGIN( INITIAL ); return( LOCATION ); }
 
-<DEFEND>at          { return( AT ); }
-<DEFEND>if          { return( IF ); }
+<DEFEND>if[ \t]+attacked { printf( "[if attacked]" ); return( IF_ATTACKED ); }
+<DEFEND>and[ \t]+retreat { printf( "[and retreat]" ); return( AND_RETREAT ); }
+<DEFEND>at            { printf( "[at]" ); return( AT ); }
+<DEFEND>to            { printf( "[to]" ); return( TO ); }
+<DEFEND>{WORD}        { printf( "[location]" ); printf( "%s", yytext ); BEGIN( INITIAL ); return( LOCATION ); }
 
-via         { return( VIA ); }
-for         { return( FOR ); }
-towards     { return( TOWARDS ); }
-n           { return( N ); }
-s           { return( S ); }
-w           { return( W ); }
-e           { return( E ); }
-nw          { return( NW ); }
-sw          { return( SW ); }
-ne          { return( NE ); }
-se          { return( SE ); }
-m           { return( M ); }
-km          { return( KM ); }
-if          { return( IF ); }
-at          { return( AT ); }
-and         { return( AND ); }
-attacked    { return( ATTACKED ); }
-retreat     { return( RETREAT ); }
-position    { return( POSITION ); }
-the         { return( THE ); }
-   */
