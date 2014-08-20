@@ -22,8 +22,8 @@ public:
 /***
 
   move [to <destination>] [via <location>]* 
-  move [for <distance> to the <compass direction>] [via <location>]
-  move [towards <destination`>] [via <location>]*
+  move [for <distance> to the <compass direction>] [via <location>]*
+  move [towards <destination>] [via <location>]*
 
 ***/
 class MoveCommand : public ICommand
