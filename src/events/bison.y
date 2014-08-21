@@ -1,34 +1,36 @@
-%{
-
-
-%oken   MOVE,
-   ATTACK,
-   TO,
-   TO_THE,
-   VIA,
-   FOR,
-   TOWARDS,
-   THE,
-   N,
-   S,
-   E,
-   W,
-   NW,
-   NE,
-   SW,
-   SE,
-   M,
-   YD,
-   IF_INFERIOR_FORCE_ENCOUNTERED,
-   IF_NO_ALTERNATIVE,
-   AT,
-   IF_ATTACKED,
-   AND_RETREAT,
-   DEFEND,
-   POSITION,
-   LOCATION,
-   UNIT_SPECIFICATION,
+%token   MOVE
+   ATTACK
+   TO
+   VIA
+   FOR
+   TOWARDS
+   THE
+   N
+   S
+   E
+   W
+   NW
+   NE
+   SW
+   SE
+   M
+   YD
+   IF
+   AND
+   INFERIOR
+   FORCE
+   ENCOUNTERED
+   NO
+   ALTERNATIVE
+   AT
+   ATTACKED
+   RETREAT
+   DEFEND
+   POSITION
+   LOCATION
+   UNIT_SPECIFICATION
    PERIOD
+   WORD
 
 %%
 
@@ -37,9 +39,9 @@ command :   MOVE move_qualifiers PERIOD
         |   DEFEND defend_qualifiers PERIOD
         ;
 
-move_qualifiers :   TO destination location_list 
-                |   FOR distance TO_THE compass_direction location_list 
-                |   TOWARDS destination location_list 
+move_qualifiers :   TO location location_list 
+                |   FOR distance TO THE compass_direction location_list 
+                |   TOWARDS location location_list 
                 ;
 
 location_list   :   
@@ -56,21 +58,22 @@ compass_direction   :   N
                     |   SE
                     ;
 
-attack_qualifiers   :   IF_INFERIOR_FORCE_ENCOUNTERED
-                    |   IF_NO_ALTERNATIVE
+attack_qualifiers   :   IF INFERIOR FORCE ENCOUNTERED
+                    |   IF NO ALTERNATIVE
                     |   unit AT location 
                     ;
 
 defend_qualifiers   :   AT location
-                    |   IF_ATTACKED 
-
-retreat_clause      :   
-                    |   AND_RETREAT to_location
-                    |   AND_RETREAT location_list
+                    |   IF ATTACKED retreat_clause
                     ;
 
-to_location         :
-                    |   TO location location_list
+retreat_clause      :   
+                    |   AND RETREAT retreat_location 
+                    ;
+
+retreat_location    :
+                    |   TO location
+                    |   location_list TO location
                     ;
 
 distance            :   M
