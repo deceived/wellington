@@ -30,23 +30,34 @@
    LOCATION
    UNIT_SPECIFICATION
    PERIOD
+   NUMBER
    WORD
 
 %%
 
-command :   MOVE move_qualifiers PERIOD 
-        |   ATTACK attack_qualifiers PERIOD
-        |   DEFEND defend_qualifiers PERIOD
-        ;
+command             :   MOVE move_qualifiers PERIOD
+                    |   ATTACK attack_qualifiers PERIOD
+                    |   DEFEND defend_qualifiers PERIOD
+                    ;
 
-move_qualifiers :   TO location location_list 
-                |   FOR distance TO THE compass_direction location_list 
-                |   TOWARDS location location_list 
-                ;
+move_qualifiers     :   TO location location_list
+                    |   FOR distance TO THE compass_direction location_list
+                    |   TOWARDS location location_list
+                    ;
 
-location_list   :   
-                |   location_list VIA location
-                ;
+location            :   WORD
+                    ;
+
+location_list       :   
+                    |   location_list VIA location
+                    ;
+
+distance            :   NUMBER unit
+                    ;
+
+unit                :   M
+                    |   YD
+                    ;
 
 compass_direction   :   N
                     |   S
@@ -58,9 +69,15 @@ compass_direction   :   N
                     |   SE
                     ;
 
-attack_qualifiers   :   IF INFERIOR FORCE ENCOUNTERED
-                    |   IF NO ALTERNATIVE
-                    |   unit AT location 
+attack_qualifiers   :   IF if_commands 
+                    |   unit_name AT location 
+                    ;
+
+if_commands         :   INFERIOR FORCE ENCOUNTERED
+                    |   NO ALTERNATIVE
+                    ;
+
+unit_name           :   UNIT_SPECIFICATION
                     ;
 
 defend_qualifiers   :   AT location
@@ -72,17 +89,6 @@ retreat_clause      :
                     ;
 
 retreat_location    :
-                    |   TO location
                     |   location_list TO location
-                    ;
-
-distance            :   M
-                    |   YD 
-                    ;
-
-location            :   WORD
-                    ;
-
-unit                :   UNIT_SPECIFICATION
                     ;
 
