@@ -1,7 +1,7 @@
 #ifndef SCAN_H
 #define SCAN_H
 
-enum Tokens
+enum Token_t
 {
    MOVE,
    ATTACK,
@@ -23,7 +23,6 @@ enum Tokens
    AT,
    DEFEND,
    POSITION,
-   LOCATION,
    UNIT_SPECIFICATION,
    PERIOD,
    IF,
@@ -35,9 +34,8 @@ enum Tokens
    ALTERNATIVE,
    ATTACKED,
    RETREAT,
-   DEFEND,
    NUMBER,
    WORD
-};
+} Tokens;
 
 #endif
