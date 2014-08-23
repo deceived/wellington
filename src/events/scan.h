@@ -1,3 +1,6 @@
+#ifndef SCAN_H
+#define SCAN_H
+
 enum Tokens
 {
    MOVE,
@@ -36,3 +39,5 @@ enum Tokens
    NUMBER,
    WORD
 };
+
+#endif

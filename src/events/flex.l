@@ -52,6 +52,6 @@ attacked        { return( ATTACKED ); }
 and             { return( RETURN ); }
 retreat         { return( RETREAT ); }
 
-{unit}        { return( UNIT_SPECIFICATION ); }
-{word}        { return( WORD ); }
+{unit}          { return( UNIT_SPECIFICATION ); }
+{word}          { return( WORD ); }
 
