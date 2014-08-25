@@ -97,6 +97,42 @@ private:
 
 };
 
+/***
+    load rules [filename]
+    load start [filename]
+    load commands <filename> 
+
+***/
+
+class LoadCommand : public ICommand
+{
+
+public:
+
+    LoadCommand( const std::vector< std::string >& commands )
+        : commands_( commands )
+    {
+        ParseCommands();
+    }
+
+    virtual void Execute()
+    {}
+
+    virtual std::string ToString()
+    {
+        return commands_[0];
+    }
+
+private:
+
+    void ParseCommands()
+    {
+    }
+
+    std::vector< std::string > commands_;
+};
+
+
 
 class CommandFactory
 {
@@ -117,6 +153,11 @@ public:
         {
             return make_shared<EngagementCommand>( params ); 
         }
+        if( params[0] == "load" )
+        {
+            return make_shared<LoadCommand>( params );
+        }
+
         return shared_ptr<ICommand>();
     }
  
