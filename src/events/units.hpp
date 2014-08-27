@@ -6,6 +6,12 @@ class   IUnit
 
 public:
 
+    unsigned int Range();
+
+    unsigned int Move();
+    unsigned int Charge();
+    unsigned int Manhandled();
+
 };
 
 class   Infantry    : public IUnit
@@ -114,7 +120,7 @@ private:
 
 
 
-class   Cavalry     : public IUnit
+class   Cavalry : public IUnit
 {
 
 public:
