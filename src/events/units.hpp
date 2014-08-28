@@ -1,20 +1,27 @@
 #ifndef UNITS_HPP
 #define UNITS_HPP
 
+
+
 class   IUnit
 {
 
 public:
 
-    unsigned int Range();
+    virtual unsigned int Range() = 0;
 
-    unsigned int Move();
-    unsigned int Charge();
-    unsigned int Manhandled();
+    virtual unsigned int Move() = 0;
+    virtual unsigned int Charge() = 0;
+    virtual unsigned int Manhandled() = 0;
 
+    virtual unsigned int Front() = 0;
+
+    virtual unsigned int Points() = 0;
 };
 
-class   Infantry    : public IUnit
+
+
+class   Riflemen    : public IUnit
 {
 
 public:
@@ -23,7 +30,7 @@ private:
 
 };
 
-class   Riflemen    : public Infantry
+class   LightInfantry : public IUnit
 {
 
 public:
@@ -32,83 +39,7 @@ private:
 
 };
 
-class   Light : public Infantry
-{
-
-public:
-
-private:
-
-};
-
-class   Line : public Infantry 
-{
-
-public:
-
-private:
-
-};
-
-
-
-
-
-class   Artillery   : public IUnit
-{
-
-public:
-
-private:
-
-};
-
-class   Rocket : public Artillery
-{
-
-public:
-
-private:
-
-};
-
-class   Seige : public Artillery
-{
-
-public:
-
-private:
-
-};
-
-class   HeavyField : public Artillery
-{
-
-public:
-
-private:
-
-};
-
-class   LightField : public Artillery
-{
-
-public:
-
-private:
-
-};
-
-class   HeavyHorse : public Artillery
-{
-
-public:
-
-private:
-
-};
-
-class   LightHorse : public Artillery
+class   LineInfantry : public IUnit
 {
 
 public:
@@ -120,7 +51,8 @@ private:
 
 
 
-class   Cavalry : public IUnit
+
+class   RocketArtillery : public IUnit
 {
 
 public:
@@ -129,7 +61,7 @@ private:
 
 };
 
-class  Officer : public Cavalry
+class   SeigeArtillery : public IUnit
 {
 
 public:
@@ -138,7 +70,7 @@ private:
 
 };
 
-class  Heavy : public Cavalry
+class   HeavyFieldArtillery : public IUnit
 {
 
 public:
@@ -147,7 +79,7 @@ private:
 
 };
 
-class  Medium : public Cavalry
+class   LightFieldArtillery : public IUnit
 {
 
 public:
@@ -156,7 +88,7 @@ private:
 
 };
 
-class  Light : public Cavalry
+class   HeavyHorseArtillery : public IUnit
 {
 
 public:
@@ -165,7 +97,217 @@ private:
 
 };
 
-class  Lancers : public Cavalry
+class   LightHorseArtillery : public IUnit
+{
+
+public:
+
+private:
+
+};
+
+
+
+
+class  General : public IUnit 
+{
+
+public:
+
+    virtual unsigned int Range()
+    {
+        return 0;
+    }
+
+    virtual unsigned int Move()
+    {
+        return 140;
+    }
+
+    virtual unsigned int Charge()
+    {
+        return 260;
+    }
+
+    virtual unsigned int Manhandled()
+    {
+        return 0;
+    }
+
+    virtual unsigned int Front()
+    {
+        return 20;
+    }
+
+    virtual unsigned int Points()
+    {
+        return 75;
+    }
+
+private:
+
+};
+
+class  Officer : public IUnit 
+{
+
+public:
+
+    virtual unsigned int Range()
+    {
+        return 0;
+    }
+
+    virtual unsigned int Move()
+    {
+        return 140;
+    }
+
+    virtual unsigned int Charge()
+    {
+        return 260;
+    }
+
+    virtual unsigned int Manhandled()
+    {
+        return 0;
+    }
+
+    virtual unsigned int Front()
+    {
+        return 20;
+    }
+
+    virtual unsigned int Points()
+    {
+        return 50;
+    }
+
+private:
+
+};
+
+class  HeavyCavalry : public IUnit
+{
+
+public:
+
+    virtual unsigned int Range()
+    {
+        return 0;
+    }
+
+    virtual unsigned int Move()
+    {
+        return 100;
+    }
+
+    virtual unsigned int Charge()
+    {
+        return 240;
+    }
+
+    virtual unsigned int Manhandled()
+    {
+        return 0;
+    }
+
+    virtual unsigned int Front()
+    {
+        return 25;
+    }
+
+    virtual unsigned int Points()
+    {
+        return 5;
+    }
+
+
+private:
+
+};
+
+class  MediumCavalry : public IUnit
+{
+
+public:
+
+    virtual unsigned int Range()
+    {
+        return 0;
+    }
+
+    virtual unsigned int Move()
+    {
+        return 100;
+    }
+
+    virtual unsigned int Charge()
+    {
+        return 240;
+    }
+
+    virtual unsigned int Manhandled()
+    {
+        return 0;
+    }
+
+    virtual unsigned int Front()
+    {
+        return 25;
+    }
+
+    virtual unsigned int Points()
+    {
+        return 5;
+    }
+
+
+private:
+
+};
+
+class  LightCavalry : public IUnit
+{
+
+public:
+
+    virtual unsigned int Range()
+    {
+        return 0;
+    }
+
+    virtual unsigned int Move()
+    {
+        return 140;
+    }
+
+    virtual unsigned int Charge()
+    {
+        return 260;
+    }
+
+    virtual unsigned int Manhandled()
+    {
+        return 0;
+    }
+
+    virtual unsigned int Front()
+    {
+        return 25;
+    }
+
+    virtual unsigned int Points()
+    {
+        return 5;
+    }
+
+
+private:
+
+};
+
+class  Lancers : public IUnit 
 {
 
 public:
