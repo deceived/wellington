@@ -6,6 +6,10 @@
 #include <boost/algorithm/string.hpp>
 #include <boost/smart_ptr.hpp>
 
+#include "properties.hpp"
+
+
+
 class ICommand
 {
 
@@ -173,13 +177,13 @@ class LoadUnitsCommand : public ICommand
 public:
 
     LoadUnitsCommand( const std::vector< std::string >& commands )
-        : commands_( commands )
-    {
-        ParseCommands();
-    }
+        :   commands_( commands ),
+            properties_( commands_[1] _
+    {}
 
     virtual void Execute()
-    {}
+    {
+    }
 
     virtual std::string ToString()
     {
@@ -188,11 +192,10 @@ public:
 
 private:
 
-    void ParseCommands()
-    {
-    }
-
     std::vector< std::string > commands_;
+
+    Properties  properties_;
+
 };
 
 

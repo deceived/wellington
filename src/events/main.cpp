@@ -19,6 +19,7 @@ int main( int argc, char** argv )
         if( command != 0 )
         {
             std::cout << command->ToString() << std::endl;
+            command->Execute();
         }
 
     } while( line != "done" );    
