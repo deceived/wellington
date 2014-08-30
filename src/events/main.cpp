@@ -38,13 +38,9 @@ int main( int argc, char** argv )
             std::cout << "unit details read from " 
                       << vm["units"].as<std::string>() << ".\n";
             Properties  units( vm["units"].as<std::string>() );
-            boost::shared_ptr< boost::property_tree::ptree > props = units.Get(); 
+            Properties::ptr props = units.Get(); 
             write_json( std::cout, *props );
         } 
-        else 
-        {
-            std::cout << "no unit details specified.\n";
-        }
 
         if( vm.count("map") ) 
         {

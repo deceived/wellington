@@ -11,6 +11,8 @@ class Properties
 
 public:
 
+    typedef boost::shared_ptr< boost::property_tree::ptree > ptr;
+
     Properties( const std::string& filename )
         : fileName_( filename )
     {
@@ -19,7 +21,7 @@ public:
         read_json( fileName_, *properties_ );        
     }
 
-    boost::shared_ptr< boost::property_tree::ptree > Get()
+    ptr Get()
     {
         return properties_;
     }
@@ -28,7 +30,7 @@ private:
 
     std::string fileName_;
 
-    boost::shared_ptr< boost::property_tree::ptree > properties_;
+    ptr properties_;
 
 };
 
