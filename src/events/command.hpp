@@ -178,7 +178,7 @@ public:
 
     LoadUnitsCommand( const std::vector< std::string >& commands )
         :   commands_( commands ),
-            properties_( commands_[1] _
+            properties_( commands_[1] ) 
     {}
 
     virtual void Execute()
