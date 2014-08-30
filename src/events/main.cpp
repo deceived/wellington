@@ -38,6 +38,8 @@ int main( int argc, char** argv )
             std::cout << "unit details read from " 
                       << vm["units"].as<std::string>() << ".\n";
             Properties  units( vm["units"].as<std::string>() );
+            boost::shared_ptr< boost::property_tree::ptree > props = units.Get(); 
+            write_json( std::cout, *props );
         } 
         else 
         {
@@ -87,7 +89,7 @@ int main( int argc, char** argv )
             command->Execute();
         }
 
-    } while( line != "done" );    
+    } while( line != "q" );    
 
     return 0;
 }
