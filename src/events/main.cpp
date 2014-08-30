@@ -4,6 +4,7 @@
 #include <boost/program_options.hpp>
 
 #include "command.hpp"
+#include "properties.hpp"
 
 namespace po = boost::program_options;
 
@@ -16,7 +17,7 @@ int main( int argc, char** argv )
         po::options_description desc("Allowed options");
         desc.add_options()
             ("help", "help message")
-            ("units", po::value<std::string>(), "unit definitions")
+            ("units", po::value<std::string>()->default_value( "units.json" ), "unit definitions")
             ("map", po::value<std::string>(), "load current map")
             ("rules", po::value<std::string>(), "load rule set")
             ("moves", po::value<std::string>(), "load moves")
@@ -36,6 +37,7 @@ int main( int argc, char** argv )
         {
             std::cout << "unit details read from " 
                       << vm["units"].as<std::string>() << ".\n";
+            Properties  units( vm["units"].as<std::string>() );
         } 
         else 
         {

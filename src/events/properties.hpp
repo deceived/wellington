@@ -14,13 +14,21 @@ public:
     Properties( const std::string& filename )
         : fileName_( filename )
     {
-        read_json( fileName_, properties_ );        
+        properties_ = boost::make_shared< boost::property_tree::ptree >();
+
+        read_json( fileName_, *properties_ );        
+    }
+
+    boost::shared_ptr< boost::property_tree::ptree > Get()
+    {
+        return properties_;
     }
 
 private:
 
     std::string fileName_;
-    boost::property_tree::ptree properties_;
+
+    boost::shared_ptr< boost::property_tree::ptree > properties_;
 
 };
 

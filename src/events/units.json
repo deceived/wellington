@@ -1,24 +1,64 @@
 {
     "british":
     {
-    }
-}
+        "cavalry":
+        {
+            "value":
+            {
+                "c-in-c": 75,
+                "general": 50,
+                "regiment": 20,
+                "squadron": 5,
+                "elephant": 25,
+                "camel": 15
+            }
+        },
 
-{
+        "infantry":
+        {
+            "value":
+            {
+                "battalion": 20,
+                "regiment": 20,
+                "company": 5
+            }
+        },
+
+        "artillery":
+        {
+            "value":
+            {
+                "battery": 20,
+                "siege": 25,
+                "heavy_field": 20,
+                "heavy_horse": 20,
+                "light_field": 15,
+                "light_horse": 15
+            }
+        },
+
+        "transport":
+        {
+            "value":
+            {
+                "wagon": 20,
+                "elephant": 25,
+                "camel": 15,
+                "mule": 10
+            }
+        }
+    },
+
     "portuguese":
     {
-    }
-}
+    },
 
-{
     "spanish":
     {
-    }
-}
+    },
 
-{
     "french":
     {
     }
-}
 
+}
