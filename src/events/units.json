@@ -1,64 +1,121 @@
 {
-    "british":
+    "units":
     {
-        "cavalry":
-        {
-            "value":
+            "c-in-c":
             {
-                "c-in-c": 75,
-                "general": 50,
-                "regiment": 20,
-                "squadron": 5,
-                "elephant": 25,
-                "camel": 15
-            }
-        },
-
-        "infantry":
-        {
-            "value":
+                "value": 75,
+                "front": 30,
+                "move": 140,
+                "charge": 260
+            },
+            "general":
             {
-                "battalion": 20,
-                "regiment": 20,
-                "company": 5
-            }
-        },
-
-        "artillery":
-        {
-            "value":
+                "value": 50,
+                "front": 30,
+                "move": 140,
+                "charge": 260
+            },
+            "cavalry":
             {
-                "battery": 20,
-                "siege": 25,
-                "heavy_field": 20,
-                "heavy_horse": 20,
-                "light_field": 15,
-                "light_horse": 15
-            }
-        },
-
-        "transport":
-        {
-            "value":
+                "light": 
+                {
+                    "value": 20,
+                    "front": 30,
+                    "move": 140,
+                    "charge": 260
+                },
+                "heavy":
+                {
+                    "value": 5,
+                    "front": 25,
+                    "move": 100,
+                    "charge": 240
+                },
+                "lancer":
+                {
+                    "value": 5,
+                    "front": 25,
+                    "move": 100,
+                    "charge": 240
+                }
+            },
+            "infantry":
             {
-                "wagon": 20,
-                "elephant": 25,
-                "camel": 15,
-                "mule": 10
+                "light": 
+                {
+                    "value": 20,
+                    "move": 140,
+                    "charge": 260
+                },
+            },
+            "artillery":
+            {
+               "light":
+                {
+                    "horse":
+                    {
+                        "front": 75,
+                        "move": 140,
+                        "charge": 130,
+                        "manhandle": 30
+                    },
+                    "field":
+                    {
+                        "front": 75,
+                        "move": 80,
+                        "charge": 60,
+                        "manhandle": 40
+                    } 
+                },
+                "heavy":
+                {
+                    "horse":
+                    {
+                        "front": 75,
+                        "move": 100,
+                        "charge": 120,
+                        "manhandle": 20
+                    },
+                    "field":
+                    {
+                        "front": 75,
+                        "move": 80,
+                        "charge": 60,
+                        "manhandle": 20
+                    } 
+                },
+                "seige":
+                {
+                    "front": 75,
+                    "move": 80,
+                    "charge": 60,
+                    "manhandle": 10
+                },
+                "rockets":
+                {
+                    "front": 30,
+                    "move": 140,
+                    "charge": 130,
+                    "manhandle": 60
+                } 
+            },
+            "transport":
+            {
+                "wagon":
+                {
+                    "front": 40,
+                    "move": 40,
+                    "charge": 0,
+                    "manhandle": 0
+                },
+                "mule":
+                {
+                    "front": 25,
+                    "move": 60,
+                    "charge": 0,
+                    "manhandle": 0
+                }
             }
         }
-    },
-
-    "portuguese":
-    {
-    },
-
-    "spanish":
-    {
-    },
-
-    "french":
-    {
     }
-
 }
