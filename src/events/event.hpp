@@ -22,6 +22,7 @@ public:
 
     typedef unsigned long EventType;
     typedef boost::shared_ptr<IEvent> IEventPtr;
+    typedef fastdelegate::FastDelegate1<IEventPtr> EventListenerDelegate;
     
     virtual const EventType GetEventType() = 0;
     virtual clock_t GetTimeStamp() = 0;

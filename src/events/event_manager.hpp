@@ -6,8 +6,8 @@
 
 #include <boost/smart_ptr.hpp>
 
+#include "FastDelegate.h"
 #include "event.hpp"
-
 
 
 class EventManager
@@ -15,15 +15,15 @@ class EventManager
 
 public:
 
-    typedef std::list<EventListenerDelegate> EventListenerList;
+    typedef std::list<IEvent::EventListenerDelegate> EventListenerList;
     typedef std::map<IEvent::EventType, EventListenerList> EventListenerMap;
     typedef std::list<IEvent::IEventPtr> EventQueue;
 
 	explicit EventManager( const char* pName );
 	virtual ~EventManager();
 
-    virtual bool AddListener( const EventListenerDelegate& eventDelegate, const IEvent::EventType type);
-	virtual bool RemoveListener( const EventListenerDelegate& eventDelegate, const IEvent::EventType type);
+    virtual bool AddListener( const IEvent::EventListenerDelegate& eventDelegate, const IEvent::EventType type);
+	virtual bool RemoveListener( const IEvent::EventListenerDelegate& eventDelegate, const IEvent::EventType type);
 
 	virtual bool TriggerEvent( const IEvent::IEventPtr event ) const;
 
