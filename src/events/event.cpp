@@ -1,6 +1,6 @@
-#include "event.hpp"
+#include "event_manager.hpp"
 
-int main( int argc, char** argc )
+int main( int argc, char** argv )
 {
     return 0;
 }

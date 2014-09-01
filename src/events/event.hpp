@@ -19,8 +19,11 @@ class   IEvent
 {
 
 public:
+
+    typedef unsigned long EventType;
+    typedef boost::shared_ptr<IEvent> IEventPtr;
     
-    virtual const EventType& GetEventType() = 0;
+    virtual const EventType GetEventType() = 0;
     virtual clock_t GetTimeStamp() = 0;
     virtual const char* GetName() = 0;
  
@@ -29,20 +32,23 @@ public:
 class EventBase : public IEvent
 {
 
-    const clock_t timeStamp_;
-
 public:
 
     explicit EventBase( const clock_t timeStamp = 0 )
         : timeStamp_( timeStamp )
     {}
 
-    virtual const EventType& GetEventType() const = 0;
+    virtual const EventType GetEventType() const = 0;
 
     clock_t GetTimeStamp() const
     {
         return timeStamp_;
     }
+
+private:
+
+    const clock_t timeStamp_;
+
 };
 
 #endif
