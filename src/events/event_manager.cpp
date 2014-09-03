@@ -17,7 +17,6 @@ bool EventManager::AddListener( const IEvent::EventListenerDelegate eventDelegat
 	return true;
 }
 
-
 bool EventManager::RemoveListener( const IEvent::EventListenerDelegate eventDelegate, const IEvent::EventType type )
 {
 	bool success = false;
@@ -40,7 +39,6 @@ bool EventManager::RemoveListener( const IEvent::EventListenerDelegate eventDele
     return success;
 }
 
-
 bool EventManager::TriggerEvent( const IEvent::IEventPtr event ) const
 {
     bool processed = false;
@@ -59,7 +57,6 @@ bool EventManager::TriggerEvent( const IEvent::IEventPtr event ) const
 	
 	return processed;
 }
-
 
 bool EventManager::QueueEvent( const IEvent::IEventPtr event )
 {
@@ -81,7 +78,6 @@ bool EventManager::QueueEvent( const IEvent::IEventPtr event )
         return false;
     }
 }
-
 
 bool EventManager::AbortEvent( const IEvent::EventType type, bool allOfType )
 {
@@ -111,10 +107,9 @@ bool EventManager::AbortEvent( const IEvent::EventType type, bool allOfType )
 	return success;
 }
 
-
 bool EventManager::Update( unsigned long maxMillis )
 {
-	unsigned long currMs = GetTickCount();
+	unsigned long currMs = clock();
 	unsigned long maxMs = currMs + maxMillis;
 
 	eventQueue_.clear();
@@ -138,7 +133,7 @@ bool EventManager::Update( unsigned long maxMillis )
 			}
 		}
 
-		currMs = GetTickCount();
+		currMs = clock();
 		if ( currMs >= maxMs )
         {
 			break;
@@ -147,4 +142,3 @@ bool EventManager::Update( unsigned long maxMillis )
 	
 	return eventQueue_.empty();
 }
-
