@@ -1,0 +1,216 @@
+{
+    "units":
+    {
+        "c-in-c":
+        {
+            "value": 75,
+            "front": 30,
+            "move": 140,
+            "charge": 260
+        },
+
+        "general":
+        {
+            "value": 50,
+            "front": 30,
+            "move": 140,
+            "charge": 260
+        },
+
+        "cavalry":
+        {
+            "light": 
+            {
+                "value": 20,
+                "front": 30,
+                "move": 140,
+                "charge": 260
+            },
+
+            "heavy":
+            {
+                "value": 5,
+                "front": 25,
+                "move": 100,
+                "charge": 240
+            },
+
+            "lancer":
+            {
+                "value": 5,
+                "front": 25,
+                "move": 100,
+                "charge": 240
+            }
+        },
+
+        "infantry":
+        {
+            "light": 
+            {
+                "value": 25,
+                "move": 80,
+                "charge": 80,
+                "close":
+                {
+                    "column":
+                    {
+                        "front": 15,
+                        "move": 60,
+                        "charge": 80
+                    },
+
+                    "line":
+                    {
+                        "front": 15,
+                        "move": 40,
+                        "charge": 80
+                    },
+
+                    "square":
+                    {
+                        "front": 0,
+                        "move": 40,
+                        "charge": 0
+                    }
+                }
+            },
+
+            "line": 
+            {
+                "value": 20,
+                "move": 140,
+                "charge": 260,
+                "close":
+                {
+                    "column":
+                    {
+                        "front": 15,
+                        "move": 60,
+                        "charge": 80
+                    },
+
+                    "line":
+                    {
+                        "front": 15,
+                        "move": 40,
+                        "charge": 80
+                    },
+
+                    "square":
+                    {
+                        "front": 0,
+                        "move": 40,
+                        "charge": 0
+                    }
+                }
+            },
+
+            "riflemen": 
+            {
+                "value": 25,
+                "move": 80,
+                "charge": 80,
+                "close":
+                {
+                    "column":
+                    {
+                        "front": 15,
+                        "move": 60,
+                        "charge": 80
+                    },
+
+                    "line":
+                    {
+                        "front": 15,
+                        "move": 40,
+                        "charge": 80
+                    },
+
+                    "square":
+                    {
+                        "front": 0,
+                        "move": 40,
+                        "charge": 0
+                    }
+                }
+            },
+
+            "artillery":
+            {
+               "light":
+                {
+                    "horse":
+                    {
+                        "front": 75,
+                        "move": 140,
+                        "charge": 130,
+                        "manhandle": 30
+                    },
+
+                    "field":
+                    {
+                        "front": 75,
+                        "move": 80,
+                        "charge": 60,
+                        "manhandle": 40
+                    } 
+                },
+
+                "heavy":
+                {
+                    "horse":
+                    {
+                        "front": 75,
+                        "move": 100,
+                        "charge": 120,
+                        "manhandle": 20
+                    },
+
+                    "field":
+                    {
+                        "front": 75,
+                        "move": 80,
+                        "charge": 60,
+                        "manhandle": 20
+                    } 
+                },
+
+                "seige":
+                {
+                    "front": 75,
+                    "move": 80,
+                    "charge": 60,
+                    "manhandle": 10
+                },
+
+                "rockets":
+                {
+                    "front": 30,
+                    "move": 140,
+                    "charge": 130,
+                    "manhandle": 60
+                } 
+            },
+
+            "transport":
+            {
+                "wagon":
+                {
+                    "front": 40,
+                    "move": 40,
+                    "charge": 0,
+                    "manhandle": 0
+                },
+
+                "mule":
+                {
+                    "front": 25,
+                    "move": 60,
+                    "charge": 0,
+                    "manhandle": 0
+                }
+            }
+        }
+    }
+}

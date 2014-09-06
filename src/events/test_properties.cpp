@@ -10,12 +10,19 @@ int main( int argc, char** argv )
     Properties properties;
 
     properties.ReadXml( "ptree.xml" );
+    Properties::ptr p = properties.Get();
+    write_xml( std::cout, *p );
 
-    Properties::ptr pxml = properties.Get();
+    BOOST_FOREACH( boost::property_tree::ptree::value_type &v, (*p).get_child("Actor") )
+    {
+        std::cout << v.second.data() << "\n";
+    }
 
-    write_xml( std::cout, *pxml );
+    properties.ReadJson( "ptree.json" );
+    p = properties.Get();
+    write_json( std::cout, *p );
 
-    BOOST_FOREACH( boost::property_tree::ptree::value_type &v, (*pxml).get_child("Actor") )
+    BOOST_FOREACH( boost::property_tree::ptree::value_type &v, (*p).get_child("units") )
     {
         std::cout << v.second.data() << "\n";
     }
