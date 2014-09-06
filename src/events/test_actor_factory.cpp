@@ -4,5 +4,8 @@
 
 int main( int argc, char** argv )
 {
+
+    ActorFactory    actorFactory;
+
     return 0;
 }
