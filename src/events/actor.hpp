@@ -11,6 +11,7 @@ class   Actor
 public:
 
     typedef unsigned long Id;
+    typedef boost::shared_ptr< Actor > ptr;
 
 //    typedef std::map< Component::Id, ActorComponent::Ptr > ActorComponents;
 
