@@ -24,13 +24,19 @@ public:
     typedef std::map< std::string, ActorComponentCreator > ActorComponentCreatorMap;
 #endif
 
-    ActorFactory() { std::cout << "ctor()" << "\n"; }
+    ActorFactory() 
+        : id_( 0 )
+    {}
 
     Actor::ptr    CreateActor( const std::string& actorResource );
 
 private:
 
-    Actor::Id   GetNextId() {}
+    Actor::Id   GetNextId() 
+    {
+        ++id_;
+        return id_;
+    }
 
     virtual ActorComponent::ptr CreateComponent( boost::property_tree::ptree& data );
 
