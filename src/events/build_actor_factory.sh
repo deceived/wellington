@@ -1,3 +1,3 @@
 #!/bin/bash
-g++ -o actor_factory test_actor_factory.cpp actor_factory.cpp
+g++ -std=c++11 -o actor_factory test_actor_factory.cpp actor_factory.cpp
 ./actor_factory
