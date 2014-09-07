@@ -19,9 +19,7 @@ public:
     typedef boost::shared_ptr<ActorComponent> (*ActorComponentCreator)();
     typedef std::map< std::string, ActorComponentCreator > ActorComponentCreatorMap;
 
-    ActorFactory() 
-        : id_( 0 )
-    {}
+    ActorFactory();
 
     Actor::ptr    CreateActor( const std::string& actorResource );
 

@@ -1,6 +1,9 @@
 #include "actor_factory.hpp"
 
 
+ActorFactory::ActorFactory()
+{
+}
 
 Actor::ptr    ActorFactory::CreateActor( const std::string& actorResource )
 {
