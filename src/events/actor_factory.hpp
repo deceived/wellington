@@ -64,12 +64,13 @@ class   ActorFactory : public boost::noncopyable
 
 public:
 
-    typedef boost::shared_ptr<ActorComponent> (*ActorComponentCreator)();
+    typedef boost::shared_ptr< ActorComponent > (*ActorComponentCreator)();
     typedef std::map< std::string, ActorComponentCreator > ActorComponentCreatorMap;
 
     ActorFactory();
 
     Actor::ptr    CreateActor( const std::string& actorResource );
+    virtual ActorComponent::ptr CreateComponent( Properties::ptr data );
 
 private:
 
@@ -79,7 +80,7 @@ private:
         return id_;
     }
 
-    virtual ActorComponent::ptr CreateComponent( Properties::ptr data );
+    GenericObjectFactory< ActorComponent, ActorComponent::Id > componentFactory_;
 
     ActorComponentCreatorMap    actorComponentCreators_;
 
