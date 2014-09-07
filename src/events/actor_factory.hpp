@@ -16,10 +16,8 @@ class   ActorFactory : public boost::noncopyable
 
 public:
 
-#if 0
     typedef boost::shared_ptr<ActorComponent> (*ActorComponentCreator)();
     typedef std::map< std::string, ActorComponentCreator > ActorComponentCreatorMap;
-#endif
 
     ActorFactory() 
         : id_( 0 )
@@ -37,7 +35,7 @@ private:
 
     virtual ActorComponent::ptr CreateComponent( Properties::ptr data );
 
-//    ActorComponentCreatorMap    actorComponentCreators_;
+    ActorComponentCreatorMap    actorComponentCreators_;
 
     Actor::Id   id_;
 };

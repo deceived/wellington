@@ -10,7 +10,7 @@
     <Action>260</Action>
   </MoveComponent>
   <RepresentationComponent>
-    <Image>general-c-in-c</Image>
+    <Image>general-c-in-c.png</Image>
   </RepresentationComponent>
   <FireComponent>
     <Weapon>None</Weapon>

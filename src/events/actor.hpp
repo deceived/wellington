@@ -6,6 +6,9 @@
 #include <boost/property_tree/ptree.hpp>
 
 #include "properties.hpp"
+#include "actor_component.hpp"
+
+
 
 class   Actor
 {
@@ -15,7 +18,7 @@ public:
     typedef unsigned long Id;
     typedef boost::shared_ptr< Actor > ptr;
 
-//    typedef std::map< Component::Id, ActorComponent::Ptr > ActorComponents;
+    typedef std::map< ActorComponent::Id, ActorComponent::ptr > ActorComponents;
 
     explicit Actor( Id id )
     {

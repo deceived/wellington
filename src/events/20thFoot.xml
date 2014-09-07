@@ -23,7 +23,7 @@
     </Square>
   </MoveComponent>
   <RepresentationComponent>
-    <Image>line-infantry-company</Image>
+    <Image>line-infantry-company.png</Image>
   </RepresentationComponent>
   <FireComponent>
     <Weapon>Musket</Weapon>

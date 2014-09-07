@@ -40,12 +40,11 @@ Actor::ptr    ActorFactory::CreateActor( const std::string& actorResource )
 
 ActorComponent::ptr ActorFactory::CreateComponent( Properties::ptr data )
 {
+    std::string name( data->data() );
+
+    ActorComponent::ptr   component;
 
 #if 0
-    std::string name( data.data() );
-
-    ActorComponentPtr   component;
-
     auto it = ActorComponentCreators.find( name );
     if( it != ActorComponentCreators.end() )
     {

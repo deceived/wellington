@@ -10,7 +10,7 @@
     <Action>260</Action>
   </MoveComponent>
   <RepresentationComponent>
-    <Image>heavy-cavalry</Image>
+    <Image>heavy-cavalry.png</Image>
   </RepresentationComponent>
   <FireComponent>
     <Weapon>Sabre</Weapon>
