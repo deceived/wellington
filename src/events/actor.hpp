@@ -5,6 +5,8 @@
 
 #include <boost/property_tree/ptree.hpp>
 
+#include "properties.hpp"
+
 class   Actor
 {
 
@@ -22,7 +24,7 @@ public:
 
     ~Actor() {};
 
-    bool Init( boost::property_tree::ptree& data );
+    bool Init( Properties::ptr data ) {}
     void PostInit();
     void Destroy();
 

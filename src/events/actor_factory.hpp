@@ -4,7 +4,6 @@
 #include <boost/smart_ptr.hpp>
 #include <boost/utility.hpp>
 #include <boost/foreach.hpp>
-#include <boost/property_tree/ptree.hpp>
 
 #include "actor.hpp"
 #include "actor_component.hpp"
@@ -18,8 +17,6 @@ class   ActorFactory : public boost::noncopyable
 public:
 
 #if 0
-    typedef boost::shared_ptr<ActorComponent> ActorComponent::ptr;
-
     typedef boost::shared_ptr<ActorComponent> (*ActorComponentCreator)();
     typedef std::map< std::string, ActorComponentCreator > ActorComponentCreatorMap;
 #endif
@@ -38,12 +35,11 @@ private:
         return id_;
     }
 
-    virtual ActorComponent::ptr CreateComponent( boost::property_tree::ptree& data );
+    virtual ActorComponent::ptr CreateComponent( Properties::ptr data );
 
 //    ActorComponentCreatorMap    actorComponentCreators_;
 
     Actor::Id   id_;
-
 };
 
 #endif

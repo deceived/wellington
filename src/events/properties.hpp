@@ -12,6 +12,7 @@
 #include <boost/property_tree/ini_parser.hpp>
 
 
+
 class Properties
 {
 
@@ -20,35 +21,29 @@ public:
     typedef boost::property_tree::ptree property_tree;
     typedef boost::shared_ptr< property_tree > ptr;
 
-    Properties()
-        : properties_( boost::make_shared< property_tree >() )
-    { std::cout << "ctor()"; }
- 
-    void ReadXml( const std::string& fileName )
+    static ptr ReadXml( const std::string& fileName )
     {
-        read_xml( fileName, *properties_ );        
+        ptr properties = boost::make_shared< property_tree >();
+        read_xml( fileName, *properties );        
+        return properties;
     }
 
-    void ReadJson( const std::string& fileName )
+    static ptr ReadJson( const std::string& fileName )
     {
-        read_json( fileName, *properties_ );        
+        ptr properties = boost::make_shared< property_tree >();
+        read_json( fileName, *properties );        
+        return properties;
     }
 
-    void ReadIni( const std::string& fileName )
+    static ptr ReadIni( const std::string& fileName )
     {
-        read_json( fileName, *properties_ );        
+        ptr properties = boost::make_shared< property_tree >();
+        read_json( fileName, *properties );        
+        return properties;
     }
-
-    ptr Get()
-    {
-        return properties_;
-    }
-
-private:
-
-    ptr properties_;
 
 };
 
-#endif
 
+
+#endif

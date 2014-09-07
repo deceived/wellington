@@ -10,12 +10,12 @@
       <Front>15</Front>
       <Normal>60</Normal>
       <Action>80</Action>
-    <CloseOrderColumn>
+    </CloseOrderColumn>
     <CloseOrderLine>
       <Front>15</Front>
       <Normal>40</Normal>
       <Action>80</Action>
-    <CloseOrderLine>
+    </CloseOrderLine>
     <Square>
       <Front>NA</Front>
       <Normal>40</Normal>
