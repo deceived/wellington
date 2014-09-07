@@ -1,0 +1,32 @@
+<Actor>
+  <IdentityComponent>
+    <Name>20th Foot</Name>
+    <Type>Line Infantry</Name>
+    <Points>3</Points>
+    <Unit>Company</Unit>
+  </IdentityComponent>
+  <MoveComponent>
+    <CloseOrderColumn>
+      <Front>15</Front>
+      <Normal>60</Normal>
+      <Action>80</Action>
+    <CloseOrderColumn>
+    <CloseOrderLine>
+      <Front>15</Front>
+      <Normal>40</Normal>
+      <Action>80</Action>
+    <CloseOrderLine>
+    <Square>
+      <Front>NA</Front>
+      <Normal>40</Normal>
+      <Action>NA</Action>
+    </Square>
+  </MoveComponent>
+  <RepresentationComponent>
+    <Image>line-infantry-company</Image>
+  </RepresentationComponent>
+  <FireComponent>
+    <Weapon>Musket</Weapon>
+    <Range>120</Range>
+  </FireComponent>
+</Actor>

@@ -1,0 +1,19 @@
+<Actor>
+  <IdentityComponent>
+    <Name>Wellington</Name>
+    <Type>C-in-C</Name>
+    <Points>75</Points>
+  </IdentityComponent>
+  <MoveComponent>
+    <Front>30</Front>
+    <Normal>140</Normal>
+    <Action>260</Action>
+  </MoveComponent>
+  <RepresentationComponent>
+    <Image>general-c-in-c</Image>
+  </RepresentationComponent>
+  <FireComponent>
+    <Weapon>None</Weapon>
+    <Range>NA</Range>
+  </FireComponent>
+</Actor>
