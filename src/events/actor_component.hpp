@@ -21,6 +21,15 @@ public:
         //owner_.reset(); 
     }
 
+	virtual void PostInit() { }
+	virtual void Update( int deltaMs) { }
+	virtual ActorComponent::Id GetId() const 
+    {
+        return 0; 
+        //return GetIdFromName( GetName() ); 
+    }
+	virtual const std::string GetName() const = 0;
+
 #if 0
 	virtual bool Init(XmlElement* data) = 0;
 	virtual void PostInit() { }

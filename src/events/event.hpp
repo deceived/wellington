@@ -4,10 +4,16 @@
 /***
 
    Heavily borrowed from Game Coding Complete, 4th Edition. But I figure
-   Mike McShaffrey owes me, as he borrowed my review of the original,
+   Mike McShaffrey owes me, as he borrowed my review of the original
    for the 2nd and 3rd Editions. 
 
-   Thanks for a great series.
+   Thanks for a great series. I have bought all editions as requested.
+
+   I plan on using the basic code for actor, actor configuration and event code to get me
+   started. The rest will be mine. My main changes to the original code are style, more use 
+   of boost, some simplication, and logging will be replaced.
+
+   I will read the GPL3 soon....
 
    -- spotland (Rochdale AFC's ground)
 

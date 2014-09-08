@@ -20,18 +20,16 @@ public:
 
     typedef std::map< ActorComponent::Id, ActorComponent::ptr > ActorComponents;
 
-    explicit Actor( Id id )
-    {
-        actorId_ = id;
-    }
+    explicit Actor( Id id );
+    ~Actor();
 
-    ~Actor() {};
-
-    bool Init( Properties::ptr data ) {}
+    bool Init( Properties::ptr data );
     void PostInit();
     void Destroy();
 
     void Update( int deltaMs );
+
+    std::string ToXML();
 
     Actor::Id   GetId()
     {
@@ -77,11 +75,11 @@ public:
 
 private:
 
-//    void AddComponent( ActorComponent::Ptr component );
+    void AddComponent( ActorComponent::ptr component );
 
     Id actorId_;
 
-//    ActorComponents components_;
+    ActorComponents components_;
 
 };
 
