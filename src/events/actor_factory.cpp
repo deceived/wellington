@@ -1,8 +1,18 @@
 #include "actor_factory.hpp"
-
+#include "identity_component.hpp"
 
 ActorFactory::ActorFactory()
 {
+    componentFactory_.Register< IdentityComponent >( ActorComponent::GetIdFromName( "IdentityComponent" ) );
+#if 0
+    componentFactory_.Register< SpriteComponent >( ActorComponent::GetIdFromName( "SpriteComponent" ) );
+    componentFactory_.Register< IdentityComponent >( ActorComponent::GetIdFromName( "IdentityComponent" ) );
+    componentFactory_.Register< MoveComponent >( ActorComponent::GetIdFromName( "MoveComponent" ) );
+    componentFactory_.Register< FightComponent >( ActorComponent::GetIdFromName( "FightComponent" ) );
+    componentFactory_.Register< OrderComponent >( ActorComponent::GetIdFromName( "OrderComponent" ) );
+    componentFactory_.Register< ReactionComponent >( ActorComponent::GetIdFromName( "ReactionComponent" ) );
+    componentFactory_.Register< AIComponent >( ActorComponent::GetIdFromName( "AIComponent" ) );
+#endif
 }
 
 Actor::ptr    ActorFactory::CreateActor( const std::string& actorResource )

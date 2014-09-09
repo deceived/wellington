@@ -15,7 +15,7 @@
 
 
 template <class BaseType, class SubType>
-BaseType* GenericObjectCreationFunction(void) 
+BaseType* GenericObjectCreationFunction() 
 { 
     return new SubType; 
 }
