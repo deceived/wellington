@@ -28,7 +28,7 @@ public:
         return 0; 
         //return GetIdFromName( GetName() ); 
     }
-	virtual const std::string GetName() const;
+	virtual const std::string GetName() const {};
 
 #if 0
 	virtual bool Init(XmlElement* data) = 0;
