@@ -1,18 +1,22 @@
 #include "actor_factory.hpp"
+
+#include "ai_component.hpp"
+#include "fight_component.hpp"
 #include "identity_component.hpp"
+#include "move_component.hpp"
+#include "order_component.hpp"
+#include "reaction_component.hpp"
+#include "sprite_component.hpp"
 
 ActorFactory::ActorFactory()
 {
     componentFactory_.Register< IdentityComponent >( ActorComponent::GetIdFromName( "IdentityComponent" ) );
-#if 0
     componentFactory_.Register< SpriteComponent >( ActorComponent::GetIdFromName( "SpriteComponent" ) );
-    componentFactory_.Register< IdentityComponent >( ActorComponent::GetIdFromName( "IdentityComponent" ) );
     componentFactory_.Register< MoveComponent >( ActorComponent::GetIdFromName( "MoveComponent" ) );
     componentFactory_.Register< FightComponent >( ActorComponent::GetIdFromName( "FightComponent" ) );
     componentFactory_.Register< OrderComponent >( ActorComponent::GetIdFromName( "OrderComponent" ) );
     componentFactory_.Register< ReactionComponent >( ActorComponent::GetIdFromName( "ReactionComponent" ) );
-    componentFactory_.Register< AIComponent >( ActorComponent::GetIdFromName( "AIComponent" ) );
-#endif
+    componentFactory_.Register< AiComponent >( ActorComponent::GetIdFromName( "AiComponent" ) );
 }
 
 Actor::ptr    ActorFactory::CreateActor( const std::string& actorResource )
