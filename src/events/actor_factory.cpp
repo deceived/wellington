@@ -19,19 +19,19 @@ ActorFactory::ActorFactory()
     componentFactory_.Register< AiComponent >( ActorComponent::GetIdFromName( "AiComponent" ) );
 }
 
-Actor::ptr    ActorFactory::CreateActor( const std::string& actorResource )
+ActorPtr    ActorFactory::CreateActor( const std::string& actorResource )
 {
     Properties::ptr resource = Properties::ReadXml( actorResource );
     if( !resource )
     {
-        return Actor::ptr();
+        return ActorPtr();
     }
 
-    Actor::ptr actor = boost::make_shared<Actor>( GetNextId() );
+    ActorPtr actor = boost::make_shared<Actor>( GetNextId() );
 
     if( !actor->Init( resource ) )
     {
-        return Actor::ptr();
+        return ActorPtr();
     }   
 #if 0
     BOOST_FOREACH( boost::property_map::ptree::value_type& v, 
@@ -55,11 +55,11 @@ Actor::ptr    ActorFactory::CreateActor( const std::string& actorResource )
     return actor;
 }
 
-ActorComponent::ptr ActorFactory::CreateComponent( Properties::ptr data )
+ActorComponentPtr ActorFactory::CreateComponent( Properties::ptr data )
 {
     std::string name( data->data() );
 
-    ActorComponent::ptr   component;
+    ActorComponentPtr   component;
 
 #if 0
     auto it = ActorComponentCreators.find( name );

@@ -9,7 +9,6 @@ class AiComponent : public ActorComponent
 public:
 
     typedef std::size_t Id;
-    typedef boost::shared_ptr< ActorComponent > ptr;
 
 	AiComponent() 
     { 
@@ -22,7 +21,7 @@ public:
 
 	virtual void PostInit() { }
 	virtual void Update( int deltaMs) { }
-	virtual ActorComponent::Id GetId() const 
+	virtual ActorComponentId GetId() const 
     {
         return 0; 
         //return GetIdFromName( GetName() ); 

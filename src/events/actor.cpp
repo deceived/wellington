@@ -1,7 +1,7 @@
 #include "actor.hpp"
 #include "actor_component.hpp"
 
-Actor::Actor(Actor::Id id)
+Actor::Actor(ActorId id)
 {
     actorId_ = id;
 //    type_ = "Unknown";
@@ -65,7 +65,7 @@ std::string Actor::ToXML()
 }
 
 
-void Actor::AddComponent( ActorComponent::ptr component )
+void Actor::AddComponent( ActorComponentPtr component )
 {
     std::pair<ActorComponents::iterator, bool> success = components_.insert( std::make_pair( component->GetId(), component ) );
 }

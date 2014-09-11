@@ -6,8 +6,7 @@
 #include <boost/property_tree/ptree.hpp>
 
 #include "properties.hpp"
-#include "actor_component.hpp"
-
+#include "interfaces.h"
 
 
 class   Actor
@@ -15,12 +14,9 @@ class   Actor
 
 public:
 
-    typedef unsigned long Id;
-    typedef boost::shared_ptr< Actor > ptr;
+    typedef std::map< ActorComponentId, ActorComponentPtr > ActorComponents;
 
-    typedef std::map< ActorComponent::Id, ActorComponent::ptr > ActorComponents;
-
-    explicit Actor( Id id );
+    explicit Actor( ActorId id );
     ~Actor();
 
     bool Init( Properties::ptr data );
@@ -31,7 +27,7 @@ public:
 
     std::string ToXML();
 
-    Actor::Id   GetId()
+    ActorId   GetId()
     {
         return actorId_;
     }
@@ -75,9 +71,9 @@ public:
 
 private:
 
-    void AddComponent( ActorComponent::ptr component );
+    void AddComponent( ActorComponentPtr component );
 
-    Id actorId_;
+    ActorId actorId_;
 
     ActorComponents components_;
 

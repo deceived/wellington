@@ -4,17 +4,10 @@
 #include <boost/smart_ptr.hpp>
 #include <boost/functional/hash.hpp>
 
-#include "actor.hpp"
-
-
-
 class ActorComponent
 {
 
 public:
-
-    typedef std::size_t Id;
-    typedef boost::shared_ptr< ActorComponent > ptr;
 
 	virtual ~ActorComponent() 
     { 
@@ -23,7 +16,7 @@ public:
 
 	virtual void PostInit() { }
 	virtual void Update( int deltaMs) { }
-	virtual ActorComponent::Id GetId() const 
+	virtual ActorComponentId GetId() const 
     {
         return 0; 
         //return GetIdFromName( GetName() ); 
@@ -51,7 +44,7 @@ public:
 	}
 #endif
 
-    static Id GetIdFromName( const std::string& name )
+    static ActorComponentId GetIdFromName( const std::string& name )
 	{
         boost::hash<std::string> string_hash;
 
@@ -60,13 +53,12 @@ public:
 
 private:
 
-#if 0
-	void SetOwner(Actor::ptr owner) 
+	void SetOwner(ActorPtr owner) 
     { 
         owner_ = owner; 
     }
-#endif
-    //Actor::ptr  owner_;
+
+    ActorPtr  owner_;
 
 };
 

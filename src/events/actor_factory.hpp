@@ -13,7 +13,6 @@
 
 
 
-
 template <class BaseType, class SubType>
 BaseType* GenericObjectCreationFunction() 
 { 
@@ -69,22 +68,22 @@ public:
 
     ActorFactory();
 
-    Actor::ptr    CreateActor( const std::string& actorResource );
-    virtual ActorComponent::ptr CreateComponent( Properties::ptr data );
+    ActorPtr    CreateActor( const std::string& actorResource );
+    virtual ActorComponentPtr CreateComponent( Properties::ptr data );
 
 private:
 
-    Actor::Id   GetNextId() 
+    ActorId   GetNextId() 
     {
         ++id_;
         return id_;
     }
 
-    GenericObjectFactory< ActorComponent, ActorComponent::Id > componentFactory_;
+    GenericObjectFactory< ActorComponent, ActorComponentId > componentFactory_;
 
     ActorComponentCreatorMap    actorComponentCreators_;
 
-    Actor::Id   id_;
+    ActorId   id_;
 };
 
 #endif

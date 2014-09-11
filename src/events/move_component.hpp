@@ -25,7 +25,7 @@ public:
 
 	virtual void PostInit() { }
 	virtual void Update( int deltaMs) { }
-	virtual ActorComponent::Id GetId() const 
+	virtual ActorComponentId GetId() const 
     {
         return 0; 
         //return GetIdFromName( GetName() ); 
