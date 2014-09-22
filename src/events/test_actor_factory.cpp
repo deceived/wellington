@@ -5,6 +5,8 @@
 int main( int argc, char** argv )
 {
 
+    std::cout << "starting test actor factory...." << std::endl;
+
     ActorFactory    actorFactory;
 
     ActorPtr wellington = actorFactory.CreateActor( "Wellington.xml" );
@@ -12,6 +14,7 @@ int main( int argc, char** argv )
     ActorPtr heavyCavalryScotsGreys = actorFactory.CreateActor( "ScotsGreys.xml" );
     ActorPtr rifles92ndRifles = actorFactory.CreateActor( "95thRifles.xml" );
     
+    std::cout << "test actor factory completed." << std::endl;
 
     return 0;
 }

@@ -22,6 +22,7 @@ BaseType* GenericObjectCreationFunction()
 template <class BaseClass, class IdType>
 class GenericObjectFactory
 {
+
     typedef BaseClass* (*ObjectCreationFunction)(void);
 
 public:
