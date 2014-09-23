@@ -37,7 +37,6 @@ ActorPtr    ActorFactory::CreateActor( const std::string& actorResource )
     BOOST_FOREACH(  boost::property_tree::ptree::value_type& v, 
                     resource->get_child( "Actor" ))
     {
-#if 0
         ActorComponentPtr component( CreateComponent( v.second ) );
         if( component )
         {
@@ -46,9 +45,8 @@ ActorPtr    ActorFactory::CreateActor( const std::string& actorResource )
         }
         else
         {
-            return Actor::ptr();
+            return ActorPtr();
         } 
-#endif
     }
 
     actor->PostInit();
@@ -56,9 +54,9 @@ ActorPtr    ActorFactory::CreateActor( const std::string& actorResource )
     return actor;
 }
 
-ActorComponentPtr ActorFactory::CreateComponent( Properties::ptr data )
+ActorComponentPtr ActorFactory::CreateComponent( boost::property_tree::ptree& data )
 {
-    std::string name( data->data() );
+    std::string name( data.data() );
 
     ActorComponentPtr   component;
 

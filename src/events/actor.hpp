@@ -69,9 +69,9 @@ public:
     }
 #endif
 
-private:
-
     void AddComponent( ActorComponentPtr component );
+
+private:
 
     ActorId actorId_;
 

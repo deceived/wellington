@@ -51,12 +51,12 @@ public:
 		return string_hash( name );
 	}
 
-private:
-
 	void SetOwner(ActorPtr owner) 
     { 
         owner_ = owner; 
     }
+
+private:
 
     ActorPtr  owner_;
 
