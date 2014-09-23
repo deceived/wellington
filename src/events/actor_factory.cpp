@@ -84,7 +84,7 @@ ActorComponentPtr ActorFactory::CreateComponent( boost::property_tree::ptree& da
     return component;
 #endif
 
-    return boost::make_shared< ActorComponent >();
+    return component;
 }
 
 
