@@ -58,7 +58,7 @@ ActorComponentPtr ActorFactory::CreateComponent( boost::property_tree::ptree& da
 {
     std::string name( data.data() );
 
-    ActorComponentPtr   component;
+    ActorComponentPtr   component( componentFactory_.Create( ActorComponent::GetIdFromName( name ) ) );
 
 #if 0
     auto it = ActorComponentCreator.find( name );
