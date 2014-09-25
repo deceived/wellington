@@ -54,35 +54,24 @@ ActorPtr    ActorFactory::CreateActor( const std::string& actorResource )
     return actor;
 }
 
-ActorComponentPtr ActorFactory::CreateComponent( boost::property_tree::ptree& data )
+ActorComponentPtr ActorFactory::CreateComponent( Properties::ptr  data )
+//ActorComponentPtr ActorFactory::CreateComponent( boost::property_tree::ptree& data )
 {
-    std::string name( data.data() );
+    std::string name( data->data() );
 
     ActorComponentPtr   component( componentFactory_.Create( ActorComponent::GetIdFromName( name ) ) );
-
-#if 0
-    auto it = ActorComponentCreator.find( name );
-
-    if( it != ActorComponentCreator.end() )
-    {
-        ActorComponentCreator creator = it->second;
-        component.reset( creator );
-    }
-    else
-    {
-        return ActorComponentCreator();
-    }
 
     if( component )
     {
         if( !component->Init( data ) )
         {
-            return ActorComponentCreator();
+            return ActorComponentPtr();
         }
     }
-
-    return component;
-#endif
+    else
+    {
+        return ActorComponentPtr();
+    }
 
     return component;
 }
