@@ -12,7 +12,7 @@ int main( int argc, char** argv )
 
     BOOST_FOREACH( boost::property_tree::ptree::value_type &v, (*p).get_child("Actor") )
     {
-        std::cout << v.first << "\n";
+        std::cout << "ptree.xml : actor : " << v.first << "\n";
     }
 
     p = Properties::ReadJson( "ptree.json" );
@@ -20,13 +20,13 @@ int main( int argc, char** argv )
 
     BOOST_FOREACH( boost::property_tree::ptree::value_type &v, (*p).get_child("units") )
     {
-        std::cout << v.first << "\n";
+        std::cout << "ptree.json : units : " << v.first << "\n";
         BOOST_FOREACH( boost::property_tree::ptree::value_type &vc, v.second )
         {
-            std::cout << vc.first << "\n";
+            std::cout << "    vc.first : " << vc.first << "\n";
             BOOST_FOREACH( boost::property_tree::ptree::value_type &vcc, vc.second )
             {
-                std::cout << vcc.first <<  " " << vcc.second.data() << "\n";
+                std::cout << "        vcc.first : " << vcc.first <<  " : vcc.second.data() : " << vcc.second.data() << "\n";
             } 
         } 
     }
