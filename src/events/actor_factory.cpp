@@ -35,18 +35,24 @@ ActorPtr    ActorFactory::CreateActor( const std::string& actorResource )
     }   
 
     BOOST_FOREACH(  boost::property_tree::ptree::value_type& v, 
-                    resource->get_child( "Actor" ))
+                    (*resource).get_child( "Actor" ))
     {
-        ActorComponentPtr component( CreateComponent( v.second ) );
+        std::cout << " v.first : " << v.first << std::endl;
+
+        Properties::ptr p = boost::make_shared< Properties::property_tree >( v.second );
+
+        ActorComponentPtr component( CreateComponent( p ) );
+
         if( component )
         {
-            actor->AddComponent( component );
-            component->SetOwner( actor );
+//            actor->AddComponent( component );
+//            component->SetOwner( actor );
         }
         else
         {
             return ActorPtr();
         } 
+
     }
 
     actor->PostInit();
@@ -55,12 +61,11 @@ ActorPtr    ActorFactory::CreateActor( const std::string& actorResource )
 }
 
 ActorComponentPtr ActorFactory::CreateComponent( Properties::ptr  data )
-//ActorComponentPtr ActorFactory::CreateComponent( boost::property_tree::ptree& data )
 {
     std::string name( data->data() );
+    std::cout << name << std::endl;
 
     ActorComponentPtr   component( componentFactory_.Create( ActorComponent::GetIdFromName( name ) ) );
-
     if( component )
     {
         if( !component->Init( data ) )
@@ -72,7 +77,6 @@ ActorComponentPtr ActorFactory::CreateComponent( Properties::ptr  data )
     {
         return ActorComponentPtr();
     }
-
     return component;
 }
 
