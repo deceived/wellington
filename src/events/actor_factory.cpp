@@ -41,6 +41,14 @@ ActorPtr    ActorFactory::CreateActor( const std::string& actorResource )
         Properties::ptr p = boost::make_shared< Properties::property_tree >( v.second );
 
         ActorComponentPtr component( CreateComponent( v.first, p ) );
+        if ( component )
+        {
+            std::cout << "component is initialised" << std::endl;
+        } 
+        else
+        {
+            std::cout << "component is null" << std::endl;
+        }
 #if 0
         if( component )
         {
