@@ -38,21 +38,20 @@ ActorPtr    ActorFactory::CreateActor( const std::string& actorResource )
                     (*resource).get_child( "Actor" ))
     {
         std::cout << " v.first : " << v.first << std::endl;
-
         Properties::ptr p = boost::make_shared< Properties::property_tree >( v.second );
 
-        ActorComponentPtr component( CreateComponent( p ) );
-
+        ActorComponentPtr component( CreateComponent( v.first, p ) );
+#if 0
         if( component )
         {
-//            actor->AddComponent( component );
-//            component->SetOwner( actor );
+            actor->AddComponent( component );
+            component->SetOwner( actor );
         }
         else
         {
             return ActorPtr();
         } 
-
+#endif
     }
 
     actor->PostInit();
@@ -60,11 +59,9 @@ ActorPtr    ActorFactory::CreateActor( const std::string& actorResource )
     return actor;
 }
 
-ActorComponentPtr ActorFactory::CreateComponent( Properties::ptr  data )
+ActorComponentPtr ActorFactory::CreateComponent( const std::string& name, Properties::ptr  data )
 {
-    std::string name( data->data() );
-    std::cout << name << std::endl;
-
+    write_xml( std::cout, *data );
     ActorComponentPtr   component( componentFactory_.Create( ActorComponent::GetIdFromName( name ) ) );
     if( component )
     {

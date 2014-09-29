@@ -70,8 +70,7 @@ public:
     ActorFactory();
 
     ActorPtr    CreateActor( const std::string& actorResource );
-    virtual ActorComponentPtr CreateComponent( Properties::ptr data );
-    //virtual ActorComponentPtr CreateComponent( boost::property_tree::ptree& data );
+    virtual ActorComponentPtr CreateComponent( const std::string& name, Properties::ptr data );
 
 private:
 
