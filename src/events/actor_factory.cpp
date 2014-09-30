@@ -10,13 +10,13 @@
 
 ActorFactory::ActorFactory()
 {
-    componentFactory_.Register< IdentityComponent >( ActorComponent::GetIdFromName( "IdentityComponent" ) );
-    componentFactory_.Register< SpriteComponent >( ActorComponent::GetIdFromName( "SpriteComponent" ) );
-    componentFactory_.Register< MoveComponent >( ActorComponent::GetIdFromName( "MoveComponent" ) );
-    componentFactory_.Register< FightComponent >( ActorComponent::GetIdFromName( "FightComponent" ) );
-    componentFactory_.Register< OrderComponent >( ActorComponent::GetIdFromName( "OrderComponent" ) );
-    componentFactory_.Register< ReactionComponent >( ActorComponent::GetIdFromName( "ReactionComponent" ) );
-    componentFactory_.Register< AiComponent >( ActorComponent::GetIdFromName( "AiComponent" ) );
+    componentFactory_.Register< IdentityComponent >( ActorComponent::GetIdFromName( IdentityComponent::name_ ) );
+    componentFactory_.Register< SpriteComponent >( ActorComponent::GetIdFromName( SpriteComponent::name_ ) );
+    componentFactory_.Register< MoveComponent >( ActorComponent::GetIdFromName( MoveComponent::name_ ) );
+    componentFactory_.Register< FightComponent >( ActorComponent::GetIdFromName( FightComponent::name_ ) );
+    componentFactory_.Register< OrderComponent >( ActorComponent::GetIdFromName( OrderComponent::name_ ) );
+    componentFactory_.Register< ReactionComponent >( ActorComponent::GetIdFromName( ReactionComponent::name_ ) );
+    componentFactory_.Register< AiComponent >( ActorComponent::GetIdFromName( AiComponent::name_ ) );
 }
 
 ActorPtr    ActorFactory::CreateActor( const std::string& actorResource )
