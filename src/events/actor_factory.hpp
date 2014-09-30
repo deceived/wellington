@@ -15,7 +15,8 @@
 
 template <class BaseType, class SubType>
 BaseType* GenericObjectCreationFunction() 
-{ 
+{
+    std::cout << "generic object creation function" << std::endl; 
     return new SubType; 
 }
 

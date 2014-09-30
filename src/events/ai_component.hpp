@@ -21,7 +21,7 @@ public:
 
 	virtual const std::string GetName() const {};
 
-	virtual bool Init(Properties::ptr data) {};
+	virtual bool Init(Properties::ptr data) { return true; };
 	virtual void PostInit() { }
 	virtual void Update(int deltaMs) { }
 	virtual void OnChanged() { }				

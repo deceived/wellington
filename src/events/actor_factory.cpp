@@ -10,13 +10,21 @@
 
 ActorFactory::ActorFactory()
 {
-    componentFactory_.Register< IdentityComponent >( ActorComponent::GetIdFromName( "IdentityComponent" ) );
-    componentFactory_.Register< SpriteComponent >( ActorComponent::GetIdFromName( "SpriteComponent" ) );
-    componentFactory_.Register< MoveComponent >( ActorComponent::GetIdFromName( "MoveComponent" ) );
-    componentFactory_.Register< FightComponent >( ActorComponent::GetIdFromName( "FightComponent" ) );
-    componentFactory_.Register< OrderComponent >( ActorComponent::GetIdFromName( "OrderComponent" ) );
-    componentFactory_.Register< ReactionComponent >( ActorComponent::GetIdFromName( "ReactionComponent" ) );
-    componentFactory_.Register< AiComponent >( ActorComponent::GetIdFromName( "AiComponent" ) );
+    bool ok = false;
+    ok = componentFactory_.Register< IdentityComponent >( ActorComponent::GetIdFromName( "IdentityComponent" ) );
+    if( ok ) { std::cout << "id component registered ok" << std::endl; }
+    ok = componentFactory_.Register< SpriteComponent >( ActorComponent::GetIdFromName( "SpriteComponent" ) );
+    if( ok ) { std::cout << "sprite component registered ok" << std::endl; }
+    ok = componentFactory_.Register< MoveComponent >( ActorComponent::GetIdFromName( "MoveComponent" ) );
+    if( ok ) { std::cout << "move component registered ok" << std::endl; }
+    ok = componentFactory_.Register< FightComponent >( ActorComponent::GetIdFromName( "FightComponent" ) );
+    if( ok ) { std::cout << "fight component registered ok" << std::endl; }
+    ok = componentFactory_.Register< OrderComponent >( ActorComponent::GetIdFromName( "OrderComponent" ) );
+    if( ok ) { std::cout << "order component registered ok" << std::endl; }
+    ok = componentFactory_.Register< ReactionComponent >( ActorComponent::GetIdFromName( "ReactionComponent" ) );
+    if( ok ) { std::cout << "reaction component registered ok" << std::endl; }
+    ok = componentFactory_.Register< AiComponent >( ActorComponent::GetIdFromName( "AiComponent" ) );
+    if( ok ) { std::cout << "ai component registered ok" << std::endl; }
 }
 
 ActorPtr    ActorFactory::CreateActor( const std::string& actorResource )
@@ -73,6 +81,7 @@ ActorComponentPtr ActorFactory::CreateComponent( const std::string& name, Proper
     ActorComponentPtr   component( componentFactory_.Create( ActorComponent::GetIdFromName( name ) ) );
     if( component )
     {
+        std::cout << "component ptr initialised" << std::endl;
         if( !component->Init( data ) )
         {
             return ActorComponentPtr();
