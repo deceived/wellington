@@ -10,21 +10,13 @@
 
 ActorFactory::ActorFactory()
 {
-    bool ok = false;
-    ok = componentFactory_.Register< IdentityComponent >( ActorComponent::GetIdFromName( "IdentityComponent" ) );
-    if( ok ) { std::cout << "id component registered ok" << std::endl; }
-    ok = componentFactory_.Register< SpriteComponent >( ActorComponent::GetIdFromName( "SpriteComponent" ) );
-    if( ok ) { std::cout << "sprite component registered ok" << std::endl; }
-    ok = componentFactory_.Register< MoveComponent >( ActorComponent::GetIdFromName( "MoveComponent" ) );
-    if( ok ) { std::cout << "move component registered ok" << std::endl; }
-    ok = componentFactory_.Register< FightComponent >( ActorComponent::GetIdFromName( "FightComponent" ) );
-    if( ok ) { std::cout << "fight component registered ok" << std::endl; }
-    ok = componentFactory_.Register< OrderComponent >( ActorComponent::GetIdFromName( "OrderComponent" ) );
-    if( ok ) { std::cout << "order component registered ok" << std::endl; }
-    ok = componentFactory_.Register< ReactionComponent >( ActorComponent::GetIdFromName( "ReactionComponent" ) );
-    if( ok ) { std::cout << "reaction component registered ok" << std::endl; }
-    ok = componentFactory_.Register< AiComponent >( ActorComponent::GetIdFromName( "AiComponent" ) );
-    if( ok ) { std::cout << "ai component registered ok" << std::endl; }
+    componentFactory_.Register< IdentityComponent >( ActorComponent::GetIdFromName( "IdentityComponent" ) );
+    componentFactory_.Register< SpriteComponent >( ActorComponent::GetIdFromName( "SpriteComponent" ) );
+    componentFactory_.Register< MoveComponent >( ActorComponent::GetIdFromName( "MoveComponent" ) );
+    componentFactory_.Register< FightComponent >( ActorComponent::GetIdFromName( "FightComponent" ) );
+    componentFactory_.Register< OrderComponent >( ActorComponent::GetIdFromName( "OrderComponent" ) );
+    componentFactory_.Register< ReactionComponent >( ActorComponent::GetIdFromName( "ReactionComponent" ) );
+    componentFactory_.Register< AiComponent >( ActorComponent::GetIdFromName( "AiComponent" ) );
 }
 
 ActorPtr    ActorFactory::CreateActor( const std::string& actorResource )
@@ -45,18 +37,9 @@ ActorPtr    ActorFactory::CreateActor( const std::string& actorResource )
     BOOST_FOREACH(  boost::property_tree::ptree::value_type& v, 
                     (*resource).get_child( "Actor" ))
     {
-        std::cout << " v.first : " << v.first << std::endl;
         Properties::ptr p = boost::make_shared< Properties::property_tree >( v.second );
 
         ActorComponentPtr component( CreateComponent( v.first, p ) );
-        if ( component )
-        {
-            std::cout << "component is initialised" << std::endl;
-        } 
-        else
-        {
-            std::cout << "component is null" << std::endl;
-        }
 #if 0
         if( component )
         {
@@ -77,11 +60,9 @@ ActorPtr    ActorFactory::CreateActor( const std::string& actorResource )
 
 ActorComponentPtr ActorFactory::CreateComponent( const std::string& name, Properties::ptr  data )
 {
-    write_xml( std::cout, *data );
     ActorComponentPtr   component( componentFactory_.Create( ActorComponent::GetIdFromName( name ) ) );
     if( component )
     {
-        std::cout << "component ptr initialised" << std::endl;
         if( !component->Init( data ) )
         {
             return ActorComponentPtr();
@@ -93,5 +74,4 @@ ActorComponentPtr ActorFactory::CreateComponent( const std::string& name, Proper
     }
     return component;
 }
-
 

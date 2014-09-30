@@ -13,6 +13,8 @@ public:
 
     typedef std::size_t Id;
 
+    static const std::string name_;
+
 	ReactionComponent() 
     { 
         //owner_.reset(); 

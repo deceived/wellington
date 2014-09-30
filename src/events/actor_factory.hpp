@@ -16,7 +16,6 @@
 template <class BaseType, class SubType>
 BaseType* GenericObjectCreationFunction() 
 {
-    std::cout << "generic object creation function" << std::endl; 
     return new SubType; 
 }
 
@@ -43,12 +42,9 @@ public:
 
     BaseClass* Create( IdType id )
     {
-        std::cout << "\nCreate() id : " << id << std::endl;
-
         auto it = creationFunctions.find( id );
         if( it != creationFunctions.end() )
         {
-            std::cout << "it != end()" << std::endl;
             ObjectCreationFunction func = it->second;
             return func();
         }

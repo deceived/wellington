@@ -4,6 +4,9 @@
 #include <boost/smart_ptr.hpp>
 #include <boost/functional/hash.hpp>
 
+#include "interfaces.h"
+#include "properties.hpp"
+
 class ActorComponent
 {
 
@@ -11,7 +14,7 @@ public:
 
 	virtual ~ActorComponent() 
     { 
-        //owner_.reset(); 
+        owner_.reset(); 
     }
 
 	virtual ActorComponentId GetId() const 
@@ -33,7 +36,6 @@ public:
     static ActorComponentId GetIdFromName( const std::string& name )
 	{
         boost::hash<std::string> string_hash;
-
 		return string_hash( name );
 	}
 

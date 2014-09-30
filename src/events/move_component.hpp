@@ -14,6 +14,8 @@ public:
     typedef std::size_t Id;
     typedef boost::shared_ptr< ActorComponent > ptr;
 
+    static const std::string name_;
+
 	MoveComponent() 
     { 
     }
