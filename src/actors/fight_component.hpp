@@ -18,7 +18,7 @@ public:
     { 
     }
 
-	virtual ActorComponentId GetId() const 
+	virtual ComponentId GetId() const 
     {
         return GetIdFromName( GetName() ); 
     }
@@ -34,14 +34,9 @@ public:
 	virtual void Update(int deltaMs) { }
 	virtual void OnChanged() { }				
 
-#if 0
-    virtual TiXmlElement* GenerateXml() = 0;
-#endif
-
-    static ActorComponentId GetIdFromName( const std::string& name )
+    static ComponentId GetIdFromName( const std::string& name )
 	{
         boost::hash<std::string> string_hash;
-
 		return string_hash( name );
 	}
 

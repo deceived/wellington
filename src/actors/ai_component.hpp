@@ -16,7 +16,7 @@ public:
     { 
     }
 
-	virtual ActorComponentId GetId() const 
+	virtual ComponentId GetId() const 
     {
         return GetIdFromName( GetName() ); 
     }
@@ -32,7 +32,7 @@ public:
 	virtual void Update(int deltaMs) { }
 	virtual void OnChanged() { }				
 
-    static ActorComponentId GetIdFromName( const std::string& name )
+    static ComponentId GetIdFromName( const std::string& name )
 	{
         boost::hash<std::string> string_hash;
 

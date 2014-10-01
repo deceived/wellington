@@ -9,8 +9,11 @@ class ActorComponent;
 typedef boost::shared_ptr<Actor>    ActorPtr;
 typedef boost::shared_ptr<ActorComponent>   ActorComponentPtr;
 
-typedef unsigned long ActorId;
-typedef unsigned long ActorComponentId;
+//typedef unsigned long ActorId;
+//typedef unsigned long ActorComponentId;
+
+typedef std::size_t ActorId;
+typedef std::size_t ComponentId;
 
 #endif
 

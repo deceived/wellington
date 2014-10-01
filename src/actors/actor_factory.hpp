@@ -80,7 +80,7 @@ private:
         return id_;
     }
 
-    GenericObjectFactory< ActorComponent, ActorComponentId > componentFactory_;
+    GenericObjectFactory< ActorComponent, ComponentId > componentFactory_;
 
     ActorComponentCreatorMap    actorComponentCreators_;
 

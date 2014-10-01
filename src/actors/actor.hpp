@@ -2,6 +2,10 @@
 #define ACTOR_HPP
 
 #include <map>
+#include <memory>
+
+#include <boost/smart_ptr.hpp>
+#include <boost/pointer_cast.hpp>
 
 #include <boost/property_tree/ptree.hpp>
 
@@ -14,7 +18,7 @@ class   Actor
 
 public:
 
-    typedef std::map< ActorComponentId, ActorComponentPtr > ActorComponents;
+    typedef std::map< ComponentId, ActorComponentPtr > ActorComponents;
 
     explicit Actor( ActorId id );
     ~Actor();
@@ -32,15 +36,14 @@ public:
         return actorId_;
     }
 
-#if 0
     template< class ComponentType >
-    boost::weak_ptr<ComponentType> GetComponent( Component::Id id )
+    boost::weak_ptr<ComponentType> GetComponent( ComponentId id )
     {
         ActorComponents::iterator it = components_.find( id );
         if( it != components_.end() )
         {
-            ActorComponent::Ptr base( it->second );
-            boost::shared_ptr< ComponentType > sub( std::static_ptr_cast<ComponentType>( base ) );
+            ActorComponentPtr base( it->second );
+            boost::shared_ptr< ComponentType > sub( boost::static_pointer_cast<ComponentType>( base ) );
             boost::weak_ptr<ComponentType > weakSub( sub );
             return weakSub;
         }
@@ -53,12 +56,12 @@ public:
     template <class ComponentType>
     boost::weak_ptr<ComponentType> GetComponent(const std::string& name)
     {
-		Component::Id id = ActorComponent::GetIdFromName(name);
+		ComponentId id = ActorComponent::GetIdFromName(name);
         ActorComponents::iterator it = components_.find( id );
         if( it != components_.end())
         {
-            ActorComponent::Ptr base( it->second );
-            boost::shared_ptr<ComponentType> sub( std::static_pointer_cast<ComponentType>( base ) );  
+            ActorComponentPtr base( it->second );
+            boost::shared_ptr<ComponentType> sub( boost::static_pointer_cast<ComponentType>( base ) );  
             boost::weak_ptr<ComponentType> weakSub( sub );  
             return weakSub;  
         }
@@ -67,7 +70,6 @@ public:
             return boost::weak_ptr<ComponentType>();
         }
     }
-#endif
 
     void AddComponent( ActorComponentPtr component );
 

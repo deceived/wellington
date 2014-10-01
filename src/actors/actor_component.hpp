@@ -17,7 +17,7 @@ public:
         owner_.reset(); 
     }
 
-	virtual ActorComponentId GetId() const 
+	virtual ComponentId GetId() const 
     {
         return GetIdFromName( GetName() ); 
     }
@@ -26,10 +26,11 @@ public:
 
 	virtual bool Init( Properties::ptr data ) = 0;
 	virtual void PostInit() { }
+
 	virtual void Update(int deltaMs) { }
 	virtual void OnChanged() { }				
 
-    static ActorComponentId GetIdFromName( const std::string& name )
+    static ComponentId GetIdFromName( const std::string& name )
 	{
         boost::hash<std::string> string_hash;
 		return string_hash( name );
