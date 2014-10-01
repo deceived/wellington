@@ -21,16 +21,15 @@ public:
         return GetIdFromName( GetName() ); 
     }
 
-	virtual const std::string GetName() const {};
+	virtual const std::string GetName() const 
+    {
+        return name_;
+    }
 
 	virtual bool Init(Properties::ptr data) { return true; };
 	virtual void PostInit() { }
 	virtual void Update(int deltaMs) { }
 	virtual void OnChanged() { }				
-
-#if 0
-    virtual TiXmlElement* GenerateXml() = 0;
-#endif
 
     static ActorComponentId GetIdFromName( const std::string& name )
 	{

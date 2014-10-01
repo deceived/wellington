@@ -29,10 +29,6 @@ public:
 	virtual void Update(int deltaMs) { }
 	virtual void OnChanged() { }				
 
-#if 0
-    virtual TiXmlElement* GenerateXml() = 0;
-#endif
-
     static ActorComponentId GetIdFromName( const std::string& name )
 	{
         boost::hash<std::string> string_hash;

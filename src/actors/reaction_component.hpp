@@ -25,7 +25,10 @@ public:
         return GetIdFromName( GetName() ); 
     }
 
-	virtual const std::string GetName() const {};
+	virtual const std::string GetName() const 
+    {
+        return name_;
+    }
 
 	virtual bool Init(Properties::ptr data) { return true; };
 	virtual void PostInit() { }
