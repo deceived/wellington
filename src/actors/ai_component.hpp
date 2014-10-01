@@ -26,8 +26,9 @@ public:
         return name_;
     }
 
-	virtual bool Init(Properties::ptr data) { return true; };
-	virtual void PostInit() { }
+	virtual bool Init(Properties::ptr data) override;
+	virtual void PostInit() override;
+
 	virtual void Update(int deltaMs) { }
 	virtual void OnChanged() { }				
 
