@@ -4,7 +4,6 @@
 Actor::Actor(ActorId id)
 {
     actorId_ = id;
-//    type_ = "Unknown";
 }
 
 Actor::~Actor()
@@ -13,8 +12,6 @@ Actor::~Actor()
 
 bool Actor::Init( Properties::ptr data )
 {
-//	m_type = pData->Attribute("type");
-//	m_resource = pData->Attribute("resource");
     return true;
 }
 
@@ -38,32 +35,6 @@ void Actor::Update( int deltaMs )
         it->second->Update( deltaMs );
     }
 }
-
-std::string Actor::ToXML()
-{
-#if 0
-    TiXmlDocument outDoc;
-
-    TiXmlElement* pActorElement = GCC_NEW TiXmlElement("Actor");
-    pActorElement->SetAttribute("type", m_type.c_str());
-	pActorElement->SetAttribute("resource", m_resource.c_str());
-
-    for (auto it = m_components.begin(); it != m_components.end(); ++it)
-    {
-        StrongActorComponentPtr pComponent = it->second;
-        TiXmlElement* pComponentElement = pComponent->VGenerateXml();
-        pActorElement->LinkEndChild(pComponentElement);
-    }
-
-    outDoc.LinkEndChild(pActorElement);
-	TiXmlPrinter printer;
-	outDoc.Accept(&printer);
-
-	return printer.CStr();
-#endif
-    return std::string();
-}
-
 
 void Actor::AddComponent( ActorComponentPtr component )
 {
