@@ -9,9 +9,7 @@
 
 #include <boost/property_tree/ptree.hpp>
 
-#include "properties.hpp"
-#include "interfaces.h"
-
+#include "actor_component.hpp"
 
 class   Actor
 {
