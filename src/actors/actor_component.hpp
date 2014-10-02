@@ -25,6 +25,8 @@ public:
 	virtual const std::string GetName() const = 0;
 
 	virtual bool Init( Properties::ptr data ) = 0;
+	virtual bool Init( Properties::pointer data ) = 0;
+
 	virtual void PostInit() { }
 
 	virtual void Update(int deltaMs) { }

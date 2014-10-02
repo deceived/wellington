@@ -29,6 +29,8 @@ public:
     }
 
 	virtual bool Init(Properties::ptr data);
+	virtual bool Init(Properties::pointer data);
+
 	virtual void PostInit();
 
 	virtual void Update(int deltaMs) { }

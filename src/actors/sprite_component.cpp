@@ -8,6 +8,11 @@ bool SpriteComponent::Init(Properties::ptr data)
     return true;
 }
 
+bool SpriteComponent::Init(Properties::pointer data)
+{
+    return true;
+}
+
 void SpriteComponent::PostInit()
 {
 }

@@ -8,6 +8,11 @@ bool FightComponent::Init(Properties::ptr data)
     return true;
 }
 
+bool FightComponent::Init(Properties::pointer data)
+{
+    return true;
+}
+
 void FightComponent::PostInit()
 {
 }

@@ -5,7 +5,6 @@
 #include <memory>
 
 #include <boost/smart_ptr.hpp>
-#include <boost/pointer_cast.hpp>
 
 #include <boost/property_tree/ptree.hpp>
 
@@ -22,6 +21,8 @@ public:
     ~Actor();
 
     bool Init( Properties::ptr data );
+    bool Init( Properties::pointer data );
+
     void PostInit();
     void Destroy();
 

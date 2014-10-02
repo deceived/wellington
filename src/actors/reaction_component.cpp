@@ -8,6 +8,11 @@ bool ReactionComponent::Init(Properties::ptr data)
     return true;
 }
 
+bool ReactionComponent::Init(Properties::pointer data)
+{
+    return true;
+}
+
 void ReactionComponent::PostInit()
 {
 }
