@@ -6,6 +6,9 @@
 
 #include "interfaces.h"
 #include "properties.hpp"
+#include "pugixml.hpp"
+
+
 
 class ActorComponent
 {
@@ -24,8 +27,7 @@ public:
 
 	virtual const std::string GetName() const = 0;
 
-	virtual bool Init( Properties::ptr data ) = 0;
-	virtual bool Init( Properties::pointer data ) = 0;
+	virtual bool Init( pugi::xml_node data ) = 0;
 
 	virtual void PostInit() { }
 

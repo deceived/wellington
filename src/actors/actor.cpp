@@ -10,11 +10,6 @@ Actor::~Actor()
 {
 }
 
-bool Actor::Init( Properties::ptr data )
-{
-    return true;
-}
-
 bool Actor::Init( Properties::pointer data )
 {
     return true;

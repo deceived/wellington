@@ -20,7 +20,6 @@ public:
     explicit Actor( ActorId id );
     ~Actor();
 
-    bool Init( Properties::ptr data );
     bool Init( Properties::pointer data );
 
     void PostInit();

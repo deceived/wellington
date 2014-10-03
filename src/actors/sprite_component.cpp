@@ -3,12 +3,8 @@
 const std::string SpriteComponent::name_ = "SpriteComponent";
 
 
-bool SpriteComponent::Init(Properties::ptr data)
-{
-    return true;
-}
 
-bool SpriteComponent::Init(Properties::pointer data)
+bool SpriteComponent::Init(pugi::xml_node data)
 {
     return true;
 }

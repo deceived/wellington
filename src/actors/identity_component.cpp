@@ -3,12 +3,7 @@
 const std::string IdentityComponent::name_ = "IdentityComponent";
 
 
-bool IdentityComponent::Init(Properties::ptr data)
-{
-    return true;
-}
-
-bool IdentityComponent::Init(Properties::pointer data)
+bool IdentityComponent::Init( pugi::xml_node data )
 {
     return true;
 }

@@ -26,8 +26,7 @@ public:
         return name_;
     }
 
-	virtual bool Init(Properties::ptr data) override;
-	virtual bool Init(Properties::pointer data) override;
+	virtual bool Init( pugi::xml_node data ) override;
 
 	virtual void PostInit() override;
 
@@ -37,7 +36,6 @@ public:
     static ComponentId GetIdFromName( const std::string& name )
 	{
         boost::hash<std::string> string_hash;
-
 		return string_hash( name );
 	}
 

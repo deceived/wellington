@@ -3,12 +3,8 @@
 const std::string ReactionComponent::name_ = "ReactionComponent";
 
 
-bool ReactionComponent::Init(Properties::ptr data)
-{
-    return true;
-}
 
-bool ReactionComponent::Init(Properties::pointer data)
+bool ReactionComponent::Init( pugi::xml_node data )
 {
     return true;
 }

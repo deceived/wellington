@@ -3,12 +3,7 @@
 const std::string FightComponent::name_ = "FightComponent";
 
 
-bool FightComponent::Init(Properties::ptr data)
-{
-    return true;
-}
-
-bool FightComponent::Init(Properties::pointer data)
+bool FightComponent::Init( pugi::xml_node data )
 {
     return true;
 }

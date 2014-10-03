@@ -21,7 +21,7 @@ ActorFactory::ActorFactory()
 
 ActorPtr    ActorFactory::CreateActor( const std::string& actorResource )
 {
-    Properties::ptr resource = Properties::ReadXml( actorResource );
+    Properties::pointer resource = Properties::ReadXmlDoc( actorResource );
     if( !resource )
     {
         return ActorPtr();
@@ -34,13 +34,11 @@ ActorPtr    ActorFactory::CreateActor( const std::string& actorResource )
         return ActorPtr();
     }   
 
-    BOOST_FOREACH(  boost::property_tree::ptree::value_type& v, 
-                    (*resource).get_child( "Actor" ))
+    for(    pugi::xml_node node = resource->child( "Actor" );
+            node;
+            node = node.next_sibling( "Actor" ) )
     {
-        Properties::ptr p = boost::make_shared< Properties::property_tree >( v.second );
-
-        ActorComponentPtr component( CreateComponent( v.first, p ) );
-#if 0
+        ActorComponentPtr component( CreateComponent( node ) );
         if( component )
         {
             actor->AddComponent( component );
@@ -50,7 +48,6 @@ ActorPtr    ActorFactory::CreateActor( const std::string& actorResource )
         {
             return ActorPtr();
         } 
-#endif
     }
 
     actor->PostInit();
@@ -58,26 +55,10 @@ ActorPtr    ActorFactory::CreateActor( const std::string& actorResource )
     return actor;
 }
 
-ActorComponentPtr ActorFactory::CreateComponent( const std::string& name, Properties::ptr  data )
-{
-    ActorComponentPtr   component( componentFactory_.Create( ActorComponent::GetIdFromName( name ) ) );
-    if( component )
-    {
-        if( !component->Init( data ) )
-        {
-            return ActorComponentPtr();
-        }
-    }
-    else
-    {
-        return ActorComponentPtr();
-    }
-    return component;
-}
 
-ActorComponentPtr ActorFactory::CreateComponent( const std::string& name, Properties::pointer  data )
+ActorComponentPtr ActorFactory::CreateComponent( pugi::xml_node  data )
 {
-    ActorComponentPtr   component( componentFactory_.Create( ActorComponent::GetIdFromName( name ) ) );
+    ActorComponentPtr   component( componentFactory_.Create( ActorComponent::GetIdFromName( data.name() ) ) );
     if( component )
     {
         if( !component->Init( data ) )

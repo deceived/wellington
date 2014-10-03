@@ -29,8 +29,7 @@ public:
         return name_;
     }
 
-	virtual bool Init(Properties::ptr data);
-	virtual bool Init(Properties::pointer data);
+	virtual bool Init( pugi::xml_node data ) override;
 
 	virtual void PostInit();
 
