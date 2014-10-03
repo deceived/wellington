@@ -75,3 +75,20 @@ ActorComponentPtr ActorFactory::CreateComponent( const std::string& name, Proper
     return component;
 }
 
+ActorComponentPtr ActorFactory::CreateComponent( const std::string& name, Properties::pointer  data )
+{
+    ActorComponentPtr   component( componentFactory_.Create( ActorComponent::GetIdFromName( name ) ) );
+    if( component )
+    {
+        if( !component->Init( data ) )
+        {
+            return ActorComponentPtr();
+        }
+    }
+    else
+    {
+        return ActorComponentPtr();
+    }
+    return component;
+}
+

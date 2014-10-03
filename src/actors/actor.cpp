@@ -15,6 +15,11 @@ bool Actor::Init( Properties::ptr data )
     return true;
 }
 
+bool Actor::Init( Properties::pointer data )
+{
+    return true;
+}
+
 void Actor::PostInit(void)
 {
     for( ActorComponents::iterator it = components_.begin(); it != components_.end(); ++it )
