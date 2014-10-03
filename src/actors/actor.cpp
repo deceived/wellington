@@ -12,6 +12,7 @@ Actor::~Actor()
 
 bool Actor::Init( Properties::pointer data )
 {
+    std::cout << "actor::init()" << std::endl;
     return true;
 }
 

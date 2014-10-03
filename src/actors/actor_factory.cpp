@@ -24,6 +24,7 @@ ActorPtr    ActorFactory::CreateActor( const std::string& actorResource )
     Properties::pointer resource = Properties::ReadXmlDoc( actorResource );
     if( !resource )
     {
+        std::cout << "resource read" << std::endl;
         return ActorPtr();
     }
 
@@ -34,10 +35,18 @@ ActorPtr    ActorFactory::CreateActor( const std::string& actorResource )
         return ActorPtr();
     }   
 
+    BOOST_FOREACH(  pugi::xml_node& node,
+                    (*resource).children( "Actor" ) )
+    {
+        std::cout << "node.name():" << node.name() << std::endl;
+        std::cout << "node.child():" << node.child("Actor").name() << std::endl;
+    }
+
     for(    pugi::xml_node node = resource->child( "Actor" );
             node;
             node = node.next_sibling( "Actor" ) )
     {
+        std::cout << "node.name()" << node.name() << std::endl;
         ActorComponentPtr component( CreateComponent( node ) );
         if( component )
         {
