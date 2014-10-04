@@ -24,7 +24,6 @@ ActorPtr    ActorFactory::CreateActor( const std::string& actorResource )
     Properties::pointer resource = Properties::ReadXmlDoc( actorResource );
     if( !resource )
     {
-        std::cout << "resource read" << std::endl;
         return ActorPtr();
     }
 
@@ -35,42 +34,35 @@ ActorPtr    ActorFactory::CreateActor( const std::string& actorResource )
         return ActorPtr();
     }   
 
-    BOOST_FOREACH(  pugi::xml_node& node,
-                    (*resource).children( "Actor" ) )
-    {
-        std::cout << "node.name():" << node.name() << std::endl;
-        std::cout << "node.child():" << node.child("Actor").name() << std::endl;
-    }
+    pugi::xml_node components = resource->child( "Actor" ).child( "Components" );
 
-    for(    pugi::xml_node node = resource->child( "Actor" );
-            node;
-            node = node.next_sibling( "Actor" ) )
+    for( pugi::xml_node component: components.children( "Component" ) )
     {
-        std::cout << "node.name()" << node.name() << std::endl;
-        ActorComponentPtr component( CreateComponent( node ) );
-        if( component )
+        ActorComponentPtr cp( CreateComponent( component ) );
+        if( cp )
         {
-            actor->AddComponent( component );
-            component->SetOwner( actor );
+            actor->AddComponent( cp );
+            cp->SetOwner( actor );
         }
         else
         {
             return ActorPtr();
         } 
     }
-
+ 
     actor->PostInit();
 
     return actor;
 }
 
 
-ActorComponentPtr ActorFactory::CreateComponent( pugi::xml_node  data )
+ActorComponentPtr ActorFactory::CreateComponent( pugi::xml_node  component )
 {
-    ActorComponentPtr   component( componentFactory_.Create( ActorComponent::GetIdFromName( data.name() ) ) );
-    if( component )
+
+    ActorComponentPtr   cp( componentFactory_.Create( ActorComponent::GetIdFromName( component.attribute("name").value() ) ) );
+    if( cp )
     {
-        if( !component->Init( data ) )
+        if( !cp->Init( component ) )
         {
             return ActorComponentPtr();
         }
@@ -79,6 +71,6 @@ ActorComponentPtr ActorFactory::CreateComponent( pugi::xml_node  data )
     {
         return ActorComponentPtr();
     }
-    return component;
+    return cp;
 }
 
