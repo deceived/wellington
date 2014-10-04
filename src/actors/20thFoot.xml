@@ -1,7 +1,7 @@
 <Actor>
   <IdentityComponent>
     <Name>20th Foot</Name>
-    <Type>Line Infantry</Name>
+    <Type>Line Infantry</Type>
     <Points>3</Points>
     <Unit>Company</Unit>
   </IdentityComponent>

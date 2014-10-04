@@ -1,7 +1,8 @@
+<?xml version="1.0" ?>
 <Actor>
   <IdentityComponent>
     <Name>Wellington</Name>
-    <Type>C-in-C</Name>
+    <Type>C-in-C</Type>
     <Points>75</Points>
   </IdentityComponent>
   <MoveComponent>

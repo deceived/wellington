@@ -1,7 +1,7 @@
 <Actor>
   <IdentityComponent>
     <Name></Name>
-    <Type>Heavy Cavalry</Name>
+    <Type>Heavy Cavalry</Type>
     <Points>25</Points>
   </IdentityComponent>
   <MoveComponent>
