@@ -1,19 +1,21 @@
 <Actor>
-  <IdentityComponent>
-    <Name>Wellington</Name>
-    <Type>C-in-C</Type>
-    <Points>75</Points>
-  </IdentityComponent>
-  <MoveComponent>
-    <Front>30</Front>
-    <Normal>140</Normal>
-    <Action>260</Action>
-  </MoveComponent>
-  <RepresentationComponent>
-    <Image>general-c-in-c.png</Image>
-  </RepresentationComponent>
-  <FireComponent>
-    <Weapon>None</Weapon>
-    <Range>NA</Range>
-  </FireComponent>
+  <Components>
+    <Component name="identity" >
+      <Name>Wellington</Name>
+      <Type>C-in-C</Type>
+      <Points>75</Points>
+    </Component>
+    <Component name="move" >
+      <Front>30</Front>
+      <Normal>140</Normal>
+      <Action>260</Action>
+    </Component>
+    <Component name="representation" >
+      <Image>general-c-in-c.png</Image>
+    </Component>
+    <Component name="fire" >
+      <Weapon>None</Weapon>
+      <Range>NA</Range>
+    </Component>
+  </Components>
 </Actor>

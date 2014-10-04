@@ -1,32 +1,34 @@
 <Actor>
-  <IdentityComponent>
-    <Name>20th Foot</Name>
-    <Type>Line Infantry</Type>
-    <Points>3</Points>
-    <Unit>Company</Unit>
-  </IdentityComponent>
-  <MoveComponent>
-    <CloseOrderColumn>
-      <Front>15</Front>
-      <Normal>60</Normal>
-      <Action>80</Action>
-    </CloseOrderColumn>
-    <CloseOrderLine>
-      <Front>15</Front>
-      <Normal>40</Normal>
-      <Action>80</Action>
-    </CloseOrderLine>
-    <Square>
-      <Front>NA</Front>
-      <Normal>40</Normal>
-      <Action>NA</Action>
-    </Square>
-  </MoveComponent>
-  <RepresentationComponent>
-    <Image>line-infantry-company.png</Image>
-  </RepresentationComponent>
-  <FireComponent>
-    <Weapon>Musket</Weapon>
-    <Range>120</Range>
-  </FireComponent>
+  <Components>
+    <Component name="identity" >
+      <Name>20th Foot</Name>
+      <Type>Line Infantry</Type>
+      <Points>3</Points>
+      <Unit>Company</Unit>
+    </Component>
+    <Component name="move" >
+      <CloseOrderColumn>
+        <Front>15</Front>
+        <Normal>60</Normal>
+        <Action>80</Action>
+      </CloseOrderColumn>
+      <CloseOrderLine>
+        <Front>15</Front>
+        <Normal>40</Normal>
+        <Action>80</Action>
+      </CloseOrderLine>
+      <Square>
+        <Front>NA</Front>
+        <Normal>40</Normal>
+        <Action>NA</Action>
+      </Square>
+    </Component>
+    <Component name="representation" >
+      <Image>line-infantry-company.png</Image>
+    </Component>
+    <Component name="fire" >
+      <Weapon>Musket</Weapon>
+      <Range>120</Range>
+    </Component>
+  </Components>
 </Actor>

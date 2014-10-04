@@ -1,19 +1,21 @@
 <Actor>
-  <IdentityComponent>
-    <Name></Name>
-    <Type>Heavy Cavalry</Type>
-    <Points>25</Points>
-  </IdentityComponent>
-  <MoveComponent>
-    <Front>30</Front>
-    <Normal>140</Normal>
-    <Action>260</Action>
-  </MoveComponent>
-  <RepresentationComponent>
-    <Image>heavy-cavalry.png</Image>
-  </RepresentationComponent>
-  <FireComponent>
-    <Weapon>Sabre</Weapon>
-    <Range>NA</Range>
-  </FireComponent>
+  <Components>
+    <Component name="identity" >
+      <Name></Name>
+      <Type>Heavy Cavalry</Type>
+      <Points>25</Points>
+    </Component>
+    <Component name="move" >
+      <Front>30</Front>
+      <Normal>140</Normal>
+      <Action>260</Action>
+    </Component>
+    <Component name="representation" >
+      <Image>heavy-cavalry.png</Image>
+    </Component>
+    <Component name="fire" >
+      <Weapon>Sabre</Weapon>
+      <Range>NA</Range>
+    </Component>
+  </Components>
 </Actor>
