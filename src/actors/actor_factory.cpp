@@ -40,7 +40,7 @@ ActorPtr    ActorFactory::CreateActor( const std::string& actorResource )
     {
         ActorComponentPtr cp( CreateComponent( component ) );
         if( cp )
-        {
+        { 
             actor->AddComponent( cp );
             cp->SetOwner( actor );
         }
