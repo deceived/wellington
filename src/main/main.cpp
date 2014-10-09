@@ -8,14 +8,19 @@ void destroy_win( WINDOW* local_win );
 
 int main( int argc, char** argv )
 {
-	WINDOW* win;
+//	WINDOW* win;
 	int startx, starty, width, height;
-	int ch;
+//	int ch;
+	int row, col;
+
+	char  prompt[] = "Enter command: ";
+	char  cmd[80];
 
     initscr();
 	raw();
 	keypad(stdscr, TRUE);
-	noecho();
+//	noecho();
+	getmaxyx( stdscr, row, col );
 
 	height = 10;
 	width = 10;
@@ -26,7 +31,14 @@ int main( int argc, char** argv )
 
     refresh();
 
-	win = create_win( height, width, starty, startx );
+//	win = create_win( height, width, starty, startx );
+	create_win( height, width, starty, startx );
+	mvprintw( row-1, 0, "%s", prompt );
+	getstr( cmd );
+	mvprintw( 0, 0, "Command: %s", cmd );
+	getch();
+  
+#if 0
 	while(( ch = getch() ) != KEY_F(2))
 	{
 		switch( ch )
@@ -49,6 +61,7 @@ int main( int argc, char** argv )
 				break;	
 		}
 	}
+#endif
 
     endwin();
 
