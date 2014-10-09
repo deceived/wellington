@@ -9,16 +9,20 @@ CXX = g++
 
 DEFS = 
 INCDIRS  = 
-CXXDEBUG =  -g 
-CXXFLAGS = 	$(CXXDEBUG) \
+CXXDEBUG = -g 
+CXXFLAGS = -Wall
+CFLAGS = 	$(CXXDEBUG) \
 			$(INCDIRS) \
-			$(DEFS)
+			$(DEFS) \
+			$(CXXFLAGS)
 
 LIBS    = -lncurses
 LDFLAGS	= 
 
 prefix = ../../game
 tmpprefix = ../../tmp
+
+vpath %.o $(tmpprefix)
  
 SRCS = main.cpp
 OBJS = $(SRCS:.cpp=.o)

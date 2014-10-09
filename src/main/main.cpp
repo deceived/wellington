@@ -13,19 +13,44 @@ int main( int argc, char** argv )
 	int ch;
 
     initscr();
-    cbreak();
+	raw();
+	keypad(stdscr, TRUE);
+	noecho();
 
-	height = 20;
-	width = 30;
-	starty = (LINES - height);
-	startx = (COLS - width);
+	height = 10;
+	width = 10;
+	starty = (LINES - height) / 2;
+	startx = (COLS - width) / 2;
+
+	printw("press F2 to exit");
 
     refresh();
+
 	win = create_win( height, width, starty, startx );
+	while(( ch = getch() ) != KEY_F(2))
+	{
+		switch( ch )
+		{
+			case KEY_LEFT:	
+				destroy_win( win );
+				win = create_win( height, width, starty, --startx );
+				break;
+			case KEY_RIGHT:
+				destroy_win( win );
+				win = create_win( height, width, starty, ++startx );
+				break;
+			case KEY_UP:
+				destroy_win( win );
+				win = create_win( height, width, --starty, startx );
+				break;
+			case KEY_DOWN:
+				destroy_win( win );
+				win = create_win( height, width, ++starty, startx );
+				break;	
+		}
+	}
 
-    getch();
-
-    destroy_win( win );
+    endwin();
 
     return 0;
 }
