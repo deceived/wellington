@@ -7,30 +7,26 @@
 
 namespace po = boost::program_options;
 
+po::options_description desc("Allowed options");
+po::variables_map vm;
 
-int main( int argc, char** argv )
+bool program_options( int argc, char** argv )
 {
-	int row, col;
-
-	char  prompt[] = "Enter command: ";
-	char  cmd[80];
-
-    try
-    {
+	try
+	{
         po::options_description desc("Allowed options");
-        desc.add_options()
-            ("help", "help message")
-            ("map", po::value<std::string>(), "load current map")
-            ;
- 
-        po::variables_map vm;
+		desc.add_options()
+    		("help", "help message")
+    		("map", po::value<std::string>(), "load current map")
+    		;
+
         po::store( po::parse_command_line( argc, argv, desc ), vm );
         po::notify( vm );    
 
         if( vm.count("help") ) 
         {
             std::cout << desc << "\n";
-            return 1;
+            return false;
         }
 
         if( vm.count("map") ) 
@@ -46,8 +42,24 @@ int main( int argc, char** argv )
     catch( const std::exception& e )
     {
         std::cout << "error : " << e.what() << std::endl;
-        return 1; 
+        return false; 
     }
+	return true;
+}
+
+
+
+int main( int argc, char** argv )
+{
+	int row, col;
+
+	char  prompt[] = "Enter command: ";
+	char  cmd[80];
+
+	if( !program_options( argc, argv ) )
+	{
+		exit(1);
+	}
 
     initscr();
 	raw();
