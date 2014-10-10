@@ -10,20 +10,18 @@ CXX = g++
 DEFS = 
 INCDIRS  = 
 CXXDEBUG = -g 
-CXXFLAGS = -Wall
+CXXFLAGS = -Wall 
 CFLAGS = 	$(CXXDEBUG) \
 			$(INCDIRS) \
 			$(DEFS) \
 			$(CXXFLAGS)
 
-LIBS    = -lncurses -lboost_program_options
-LDFLAGS	= 
+LIBS    = -lncurses -l:libboost_program_options.a
+LDFLAGS	=
 
 prefix = ../../game
 tmpprefix = ../../tmp
 
-vpath %.o $(tmpprefix)
- 
 SRCS = main.cpp
 OBJS = $(SRCS:.cpp=.o)
 
