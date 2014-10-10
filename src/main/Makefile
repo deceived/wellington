@@ -16,7 +16,7 @@ CFLAGS = 	$(CXXDEBUG) \
 			$(DEFS) \
 			$(CXXFLAGS)
 
-LIBS    = -lncurses
+LIBS    = -lncurses -lboost_program_options
 LDFLAGS	= 
 
 prefix = ../../game
