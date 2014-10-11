@@ -20,7 +20,7 @@ bool program_options( int argc, char** argv )
         po::options_description desc("Allowed options");
 		desc.add_options()
     		("help", "help message")
-    		("map", po::value<std::string>(), "load current map")
+    		("map", po::value<std::string>()->default_value( "vitoria.txt" ), "load current map")
     		;
 
         po::store( po::parse_command_line( argc, argv, desc ), vm );
@@ -34,8 +34,8 @@ bool program_options( int argc, char** argv )
 
         if( vm.count("map") ) 
         {
-            std::cout << "map details read from " 
-                      << vm["map"].as<std::string>() << ".\n";
+            std::cout << "map details read from '" 
+                      << vm["map"].as<std::string>() << "'.\n";
         } 
         else 
         {
@@ -64,6 +64,10 @@ int main( int argc, char** argv )
 		exit(1);
 	}
 
+	boost::shared_ptr< Map > map = boost::make_shared< Map >();
+	map->Load( vm["map"].as<std::string>() );
+
+	
     initscr();
 	raw();
 	keypad(stdscr, TRUE);

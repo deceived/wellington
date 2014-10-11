@@ -15,8 +15,8 @@ class Map
 
 public:
 
-	typedef std::vector< char > value;
-	typedef std::vector< value > data;
+	static const unsigned int Rows = 128;
+	static const unsigned int Columns = 128;
 
 	void Load( const std::string& fileName )
 	{
@@ -25,9 +25,16 @@ public:
 		std::ifstream input;
 
 		input.open( fileName );
+		input >> rows_ >> cols_;
+
+		unsigned int rowCount = 0;
+
 		while( !input.eof() )
 		{
 			getline( input, line );	
+			boost::shared_ptr< std::string> l = boost::make_shared< std::string >( line );
+			map_.push_back( l );
+			++rowCount;
 		}
 
 		input.close();
@@ -35,8 +42,11 @@ public:
 
 private:
 
-	boost::shared_ptr< data >	map_;
-	
+	unsigned int rows_;
+	unsigned int cols_;
+
+	std::vector< boost::shared_ptr<std::string> >	map_;
+
 };
 
 #endif
