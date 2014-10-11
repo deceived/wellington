@@ -5,8 +5,11 @@
 
 #include <boost/program_options.hpp>
 
-namespace po = boost::program_options;
+#include "map.hpp"
 
+
+
+namespace po = boost::program_options;
 po::options_description desc("Allowed options");
 po::variables_map vm;
 

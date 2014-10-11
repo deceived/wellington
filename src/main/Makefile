@@ -10,7 +10,8 @@ CXX = g++
 DEFS = 
 INCDIRS  = 
 CXXDEBUG = -g 
-CXXFLAGS = -Wall 
+CXXFLAGS = -Wall -std=c++11
+
 CFLAGS = 	$(CXXDEBUG) \
 			$(INCDIRS) \
 			$(DEFS) \
