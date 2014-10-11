@@ -40,6 +40,27 @@ public:
 		input.close();
 	}	
 
+	boost::shared_ptr< std::string > At( unsigned int index )
+	{
+		return map_[ index ];
+	}
+
+	unsigned int GetRows()
+	{
+		return rows_;
+	}
+
+	unsigned int GetColumns()
+	{
+		return cols_;
+	}
+
+	boost::shared_ptr< std::string > GetRow( unsigned int index )
+	{
+		return map_[ index ];
+	}
+
+
 private:
 
 	unsigned int rows_;

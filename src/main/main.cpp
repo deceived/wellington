@@ -72,12 +72,22 @@ int main( int argc, char** argv )
 	raw();
 	keypad(stdscr, TRUE);
 	getmaxyx( stdscr, row, col );
-
     refresh();
 
+	unsigned int rows = map->GetRows();
+	
+	for( unsigned int i = 0; 
+		i < rows;
+		++i
+		)
+	{
+		boost::shared_ptr< std::string > line = map->GetRow( i );
+	    mvprintw( i, 0, "%s", (*line).c_str() );	
+	}
+	
 	mvprintw( row-1, 0, "%s", prompt );
 	getstr( cmd );
-	mvprintw( 0, 0, "Command: %s", cmd );
+//	mvprintw( 0, 0, "Command: %s", cmd );
 	getch();
   
     endwin();
