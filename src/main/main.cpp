@@ -79,6 +79,15 @@ void load_key()
 	}
 }
 
+void reset_cmd( unsigned int row, size_t length )
+{
+	//std::cout << " row = " << row << " len = " << length << std::endl;
+	for( size_t column = 0; column < length; ++column )
+	{	
+		mvaddch( row, column, ' ' );	
+	}
+}
+
 void get_command(unsigned int row)
 {
 	char  prompt[] = "Enter command: ";
@@ -89,7 +98,7 @@ void get_command(unsigned int row)
 	{
 		mvprintw( row-1, 0, "%s", prompt );
 		getstr( cmd );
-
+		reset_cmd( row-1, strlen(prompt) + strlen(cmd) );
 		input = cmd;
 
 	} while ( input != "end" );
