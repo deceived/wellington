@@ -79,12 +79,25 @@ void load_key()
 	}
 }
 
+void get_command(unsigned int row)
+{
+	char  prompt[] = "Enter command: ";
+	char  cmd[80];
+	std::string input;
+
+	do
+	{
+		mvprintw( row-1, 0, "%s", prompt );
+		getstr( cmd );
+
+		input = cmd;
+
+	} while ( input != "end" );
+}
+
 int main( int argc, char** argv )
 {
 	int row, col;
-
-	char  prompt[] = "Enter command: ";
-	char  cmd[80];
 
 	if( !program_options( argc, argv ) )
 	{
@@ -100,11 +113,8 @@ int main( int argc, char** argv )
 	load_map();
 	load_key();
 
-	mvprintw( row-1, 0, "%s", prompt );
-	getstr( cmd );
-//	mvprintw( 0, 0, "Command: %s", cmd );
-	getch();
-  
+ 	get_command( row );
+ 
     endwin();
 
     return 0;
