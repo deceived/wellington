@@ -6,7 +6,7 @@
 #include <boost/program_options.hpp>
 
 #include "map.hpp"
-
+#include "file_reader.hpp"
 
 
 namespace po = boost::program_options;
@@ -84,7 +84,16 @@ int main( int argc, char** argv )
 		boost::shared_ptr< std::string > line = map->GetRow( i );
 	    mvprintw( i, 0, "%s", (*line).c_str() );	
 	}
-	
+
+	FileReader::data keys = FileReader::Load( "map_key.txt" );
+	unsigned int count = 0;
+	for( FileReader::data_type::iterator it = keys->begin();
+		it != keys->end();
+		++it
+		)
+	{
+		mvprintw( count++, 100, "%s", (*it)->c_str() );
+	}
 	mvprintw( row-1, 0, "%s", prompt );
 	getstr( cmd );
 //	mvprintw( 0, 0, "Command: %s", cmd );
