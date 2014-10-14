@@ -4,6 +4,7 @@
 #include <boost/smart_ptr.hpp>
 
 #include "map_model.hpp"
+#include "stdscr_view.hpp"
 
 class MapController
 {
@@ -14,12 +15,17 @@ public:
 		: model_( model )
 	{}
 
-private:
-
 	void LoadMap();
 	void LoadKey();
 
+	void DisplayMap();
+	void DisplayKey();
+	void DisplayCommand();
+
+private:
+
 	boost::shared_ptr< MapModel > model_;
+	boost::shared_ptr< StdScrView > view_;
 
 };
 
