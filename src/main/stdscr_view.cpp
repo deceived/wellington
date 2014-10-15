@@ -1,6 +1,11 @@
 #include "stdscr_view.hpp"
 
 StdScrView::StdScrView()
+	: 	mapView_( boost::make_shared< MapView >() ),
+		keyView_( boost::make_shared< KeyView >() ),
+		cmdView_( boost::make_shared< CmdView >() )
+		rows_( LINES ),
+		columns_( COLS )
 {
 	initscr();
 	raw();
