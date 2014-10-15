@@ -6,15 +6,15 @@ map_ptr	MapModel::GetMap()
 	return map_;
 }
 
-void MapMode::Load( std::string fileName )
+void MapModel::Load( std::string fileName )
 {
 }
 
-size_t MapNode::LineCount()
+size_t MapModel::LineCount()
 {
 }
 
-std::string MapNode::NextLine()
+std::string MapModel::NextLine()
 {
 }
 

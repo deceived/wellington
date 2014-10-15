@@ -5,6 +5,8 @@
 
 #include <boost/smart_ptr.hpp>
 
+#include "key.hpp"
+
 class KeyModel
 {
 

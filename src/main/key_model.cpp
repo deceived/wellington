@@ -1,15 +1,15 @@
-#include "map_model.hpp"
+#include "key_model.hpp"
 
 
-void MapMode::Load( std::string fileName )
+void KeyModel::Load( std::string fileName )
 {
 }
 
-size_t MapNode::LineCount()
+size_t KeyModel::LineCount()
 {
 }
 
-std::string MapNode::NextLine()
+std::string KeyModel::NextLine()
 {
 }
 

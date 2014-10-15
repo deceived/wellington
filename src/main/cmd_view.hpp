@@ -1,6 +1,10 @@
 #ifndef CMD_VIEW_HPP
 #define CMD_VIEW_HPP
 
+#include <ncurses.h>
+
+#include <string>
+
 class CmdView
 {
 	

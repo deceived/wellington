@@ -1,7 +1,7 @@
 #include "cmd_model.hpp"
 
 
-void CmdModel::GetPrompt()
+std::string CmdModel::GetPrompt()
 {
 }
 

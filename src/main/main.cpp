@@ -1,12 +1,11 @@
 #include <iostream>
 #include <string>
 
-#include <ncurses.h>
-
 #include <boost/program_options.hpp>
 
-#include "map.hpp"
-#include "file_reader.hpp"
+#include "stdscr_map_controller.hpp"
+
+
 
 
 namespace po = boost::program_options;
@@ -50,81 +49,10 @@ bool program_options( int argc, char** argv )
 	return true;
 }
 
-void load_map()
-{
-	boost::shared_ptr< Map > map = boost::make_shared< Map >();
-	map->Load( vm["map"].as<std::string>() );
-	unsigned int rows = map->GetRows();
-	
-	for( unsigned int i = 0; 
-		i < rows;
-		++i
-		)
-	{
-		boost::shared_ptr< std::string > line = map->GetRow( i );
-	    mvprintw( i, 0, "%s", (*line).c_str() );	
-	}
-}
-
-void load_key()
-{
-	FileReader::data keys = FileReader::Load( "map_key.txt" );
-	unsigned int count = 0;
-	for( FileReader::data_type::iterator it = keys->begin();
-		it != keys->end();
-		++it
-		)
-	{
-		mvprintw( count++, 100, "%s", (*it)->c_str() );
-	}
-}
-
-void reset_cmd( unsigned int row, size_t length )
-{
-	//std::cout << " row = " << row << " len = " << length << std::endl;
-	for( size_t column = 0; column < length; ++column )
-	{	
-		mvaddch( row, column, ' ' );	
-	}
-}
-
-void get_command(unsigned int row)
-{
-	char  prompt[] = "Enter command: ";
-	char  cmd[80];
-	std::string input;
-
-	do
-	{
-		mvprintw( row-1, 0, "%s", prompt );
-		getstr( cmd );
-		reset_cmd( row-1, strlen(prompt) + strlen(cmd) );
-		input = cmd;
-
-	} while ( input != "end" );
-}
-
 int main( int argc, char** argv )
 {
-	int row, col;
 
-	if( !program_options( argc, argv ) )
-	{
-		exit(1);
-	}
-
-    initscr();
-	raw();
-	keypad(stdscr, TRUE);
-	getmaxyx( stdscr, row, col );
-    refresh();
-
-	load_map();
-	load_key();
-
- 	get_command( row );
- 
-    endwin();
+	StdScrMapController controller;
 
     return 0;
 }

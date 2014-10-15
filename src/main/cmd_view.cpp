@@ -15,7 +15,7 @@ std::string CmdView::Read( unsigned int row, unsigned int col )
 	return std::string( cmd );
 }
 
-void CmdView::ClearLine( unsigned int row, unsigned int column, int length )
+void CmdView::ClearLine( unsigned int row, unsigned int column, unsigned int length )
 {
 	for(unsigned int count = 0; count < length; ++count)
 	{

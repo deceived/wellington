@@ -8,7 +8,7 @@
 
 #include <boost/smart_ptr.hpp>
 
-
+#include "file_reader.hpp"
 
 class MapKey
 {

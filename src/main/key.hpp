@@ -29,7 +29,7 @@ public:
 		{
 			getline( input, line );	
 			boost::shared_ptr< std::string> l = boost::make_shared< std::string >( line );
-			map_.push_back( l );
+			keys_.push_back( l );
 			++rows_;
 		}
 
@@ -48,7 +48,7 @@ public:
 
 	boost::shared_ptr< std::string > GetRow( unsigned int index )
 	{
-		return map_[ index ];
+		return keys_[ index ];
 	}
 
 
