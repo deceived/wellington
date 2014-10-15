@@ -19,7 +19,7 @@ public:
 	typedef std::vector< value > data_type;
 	typedef boost::shared_ptr< data_type > data;
 
-	static data Load( const std::string& fileName )
+	void Load( const std::string& fileName )
 	{
 		std::string line;
 
@@ -36,10 +36,17 @@ public:
 		}
 		input.close();
 
-		return lines;
+		lines_ = lines;
 	}	
 
+	boost::shared_ptr< std::string > GetRow( unsigned int index )
+	{
+		return (*lines_)[ index ];
+	}
+
 private:
+
+	data	lines_;
 
 };
 
