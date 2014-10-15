@@ -19,9 +19,13 @@ public:
 
 	void Load( std::string fileName );
 
+	std::string NextLine();
+	size_t LineCount();
+
 private:
 
 	map_ptr		map_;
+	map_ptr		currentMap_;
 };
 
 #endif
