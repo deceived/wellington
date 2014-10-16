@@ -14,7 +14,8 @@ public:
 	StdScrMapController()
 		: 	model_( boost::make_shared< StdScrModel >() ),
 			view_( boost::make_shared< StdScrView >() )
-	{}
+	{
+	}
 
 	void Init();
 

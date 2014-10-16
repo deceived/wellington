@@ -7,7 +7,6 @@
 
 
 
-
 namespace po = boost::program_options;
 po::options_description desc("Allowed options");
 po::variables_map vm;
@@ -52,7 +51,18 @@ bool program_options( int argc, char** argv )
 int main( int argc, char** argv )
 {
 
+	if( !program_options( argc, argv ) )
+	{
+		exit(1);
+	}
+
+	std::cout << "main()" << std::endl;;
+
 	StdScrMapController controller;
+
+	std::cout << "call init()" << std::endl;;
+	controller.Init();
+	std::cout << "return" << std::endl;;
 
     return 0;
 }

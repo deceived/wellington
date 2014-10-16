@@ -1,6 +1,12 @@
 #include "stdscr_map_controller.hpp"
 
 
+
+void StdScrMapController::Init()
+{
+	std::cout << "init()" << std::endl;
+}
+
 void StdScrMapController::LoadMap()
 {
 //	map_->Load( vm["map"].as<std::string>() );

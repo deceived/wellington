@@ -9,11 +9,9 @@ CXX = g++
 
 DEFS = 
 INCDIRS  = 
-CXXDEBUG = -g 
-CXXFLAGS = -Wall -std=c++11
+CXXFLAGS = -g -Wall -std=c++11
 
-CFLAGS = 	$(CXXDEBUG) \
-			$(INCDIRS) \
+CFLAGS = 	$(INCDIRS) \
 			$(DEFS) \
 			$(CXXFLAGS)
 
@@ -37,7 +35,7 @@ OBJS = $(SRCS:.cpp=.o)
 all: welly
 
 welly: $(OBJS) map.hpp file_reader.hpp
-	$(CXX) $(LDFLAGS) -o $@ $(OBJS) $(LIBS)
+	$(CXX) $(CFLAGS) $(LDFLAGS) -o $@ $(OBJS) $(LIBS)
 
 install: all
 	mv welly $(prefix)
