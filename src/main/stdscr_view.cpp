@@ -7,31 +7,31 @@ StdScrView::StdScrView()
 		rows_( LINES ),
 		columns_( COLS )
 {
-	std::cout << "stdscr_view()" << std::endl;
-#if 0
 	initscr();
 	raw();
 	keypad( stdscr, TRUE );
-	getmaxyx( stdscr, rows_, columns_ );
+	//int rows, cols;
+	//getmaxyx( stdscr, rows, cols );
+	//rows_ = rows;
+	//columns_ = cols;
 	refresh();
-#endif
 }
 
 StdScrView::~StdScrView()
 {
-	//endwin();
+	endwin();
 }
 
 void StdScrView::DisplayLine( unsigned int row, unsigned int column, std::string& line )
 {
-	//mvprintw( row, column, line.c_str() );
+	mvprintw( row, column, line.c_str() );
 }
 
 void StdScrView::ClearLine( unsigned int row, unsigned int column, int length )
 {
 	for(int count = 0; count < length; ++count)
 	{
-	//	mvaddch( row, column, ' ' );
+		mvaddch( row, column, ' ' );
 	} 
 }
 
