@@ -16,39 +16,22 @@ class Map
 
 public:
 
-	static const unsigned int Rows = 128;
-	static const unsigned int Columns = 128;
+	typedef boost::shared_ptr< std::string > line_ptr;
+	typedef std::vector< line_ptr > data_type; 
+	typedef boost::shared_ptr< data_type > data_ptr;
+
+	Map()
+		: map_( nullptr )
+	{}
 
 	void Load( const std::string& fileName )
 	{
-		std::string line;
-
-		std::ifstream input;
-
-		input.open( fileName );
-		input >> rows_ >> cols_;
-
-		unsigned int rowCount = 0;
-
-		while( !input.eof() )
-		{
-			getline( input, line );	
-			boost::shared_ptr< std::string> l = boost::make_shared< std::string >( line );
-			map_.push_back( l );
-			++rowCount;
-		}
-
-		input.close();
+		map_ = FileReader::Load( fileName );
 	}	
-
-	boost::shared_ptr< std::string > At( unsigned int index )
-	{
-		return map_[ index ];
-	}
 
 	unsigned int GetRows()
 	{
-		return rows_;
+		return map_->size();
 	}
 
 	unsigned int GetColumns()
@@ -56,9 +39,9 @@ public:
 		return cols_;
 	}
 
-	boost::shared_ptr< std::string > GetRow( unsigned int index )
+	line_ptr GetRow( unsigned int index )
 	{
-		return map_[ index ];
+		return (*map_)[ index ];
 	}
 
 
@@ -67,7 +50,7 @@ private:
 	unsigned int rows_;
 	unsigned int cols_;
 
-	std::vector< boost::shared_ptr<std::string> >	map_;
+	data_ptr	map_;
 
 };
 

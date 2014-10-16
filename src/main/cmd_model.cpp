@@ -3,5 +3,6 @@
 
 std::string CmdModel::GetPrompt()
 {
+	return "";
 }
 

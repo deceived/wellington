@@ -15,17 +15,17 @@ class FileReader
 
 public:
 
-	typedef boost::shared_ptr< std::string > value;
-	typedef std::vector< value > data_type;
-	typedef boost::shared_ptr< data_type > data;
+	typedef boost::shared_ptr< std::string > line_ptr;
+	typedef std::vector< line_ptr > data_type;
+	typedef boost::shared_ptr< data_type > data_ptr;
 
-	void Load( const std::string& fileName )
+	static data_ptr Load( const std::string& fileName )
 	{
 		std::string line;
 
 		std::ifstream input;
 
-		data lines = boost::make_shared< data_type >();
+		data_ptr lines = boost::make_shared< data_type >();
 
 		input.open( fileName );
 		while( !input.eof() )
@@ -36,17 +36,8 @@ public:
 		}
 		input.close();
 
-		lines_ = lines;
+		return lines;
 	}	
-
-	boost::shared_ptr< std::string > GetRow( unsigned int index )
-	{
-		return (*lines_)[ index ];
-	}
-
-private:
-
-	data	lines_;
 
 };
 

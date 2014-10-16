@@ -15,30 +15,22 @@ class Key
 
 public:
 
+	typedef boost::shared_ptr< std::string > line_ptr;
+	typedef std::vector< line_ptr > data_type;
+	typedef boost::shared_ptr< data_type > data_ptr;
+
+	Key()
+		: keys_( nullptr )
+	{}
+
 	void Load( const std::string& fileName )
 	{
-		std::string line;
-
-		std::ifstream input;
-
-		input.open( fileName );
-
-		rows_ = 0;
-
-		while( !input.eof() )
-		{
-			getline( input, line );	
-			boost::shared_ptr< std::string> l = boost::make_shared< std::string >( line );
-			keys_.push_back( l );
-			++rows_;
-		}
-
-		input.close();
+		keys_ = FileReader::Load( fileName );
 	}	
 
 	unsigned int GetRows()
 	{
-		return rows_;
+		return keys_->size();
 	}
 
 	unsigned int GetColumns()
@@ -46,9 +38,9 @@ public:
 		return cols_;
 	}
 
-	boost::shared_ptr< std::string > GetRow( unsigned int index )
+	line_ptr GetRow( unsigned int index )
 	{
-		return keys_[ index ];
+		return (*keys_)[ index ];
 	}
 
 
@@ -57,7 +49,7 @@ private:
 	unsigned int rows_;
 	unsigned int cols_;
 
-	std::vector< boost::shared_ptr<std::string> >	keys_;
+	data_ptr	keys_;
 
 };
 
