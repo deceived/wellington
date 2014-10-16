@@ -3,13 +3,16 @@
 
 void KeyModel::Load( std::string fileName )
 {
+	key_->Load( fileName );
 }
 
 size_t KeyModel::LineCount()
 {
+	return key_->GetRows();
 }
 
-std::string KeyModel::NextLine()
+KeyModel::line_ptr KeyModel::NextLine()
 {
+	return key_->GetRow( 0 );
 }
 

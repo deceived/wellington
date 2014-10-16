@@ -1,6 +1,8 @@
 #ifndef KEY_VIEW_HPP
 #define KEY_VIEW_HPP
 
+#include <string>
+
 class KeyView
 {
 	

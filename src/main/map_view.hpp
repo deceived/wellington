@@ -1,6 +1,8 @@
 #ifndef MAP_VIEW_HPP
 #define MAP_VIEW_HPP
 
+#include <string>
+
 class MapView
 {
 	

@@ -3,14 +3,14 @@
 StdScrView::StdScrView()
 	: 	mapView_( boost::make_shared< MapView >() ),
 		keyView_( boost::make_shared< KeyView >() ),
-		cmdView_( boost::make_shared< CmdView >() )
+		cmdView_( boost::make_shared< CmdView >() ),
 		rows_( LINES ),
 		columns_( COLS )
 {
 	initscr();
 	raw();
 	keypad( stdscr, TRUE );
-	getmaxyx( rows_, columns_ );
+	getmaxyx( stdscr, rows_, columns_ );
 	refresh();
 }
 
@@ -26,7 +26,7 @@ void StdScrView::DisplayLine( unsigned int row, unsigned int column, std::string
 
 void StdScrView::ClearLine( unsigned int row, unsigned int column, int length )
 {
-	for(unsigned int count = 0; count < length; ++count)
+	for(int count = 0; count < length; ++count)
 	{
 		mvaddch( row, column, ' ' );
 	} 

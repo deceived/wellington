@@ -13,13 +13,14 @@ class KeyModel
 public:
 
 	typedef boost::shared_ptr< Key >	key_ptr;
+	typedef boost::shared_ptr< std::string > line_ptr;
 
 	KeyModel()
 	{}
 
 	void Load( std::string fileName );
 
-	std::string NextLine();
+	line_ptr NextLine();
 	size_t LineCount();
 
 private:

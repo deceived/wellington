@@ -13,6 +13,7 @@ class MapModel
 public:
 
 	typedef boost::shared_ptr< Map >	map_ptr;
+	typedef boost::shared_ptr< std::string > line_ptr;
 
 	MapModel()
 	{}
@@ -21,7 +22,7 @@ public:
 
 	void Load( std::string fileName );
 
-	std::string NextLine();
+	line_ptr NextLine();
 	size_t LineCount();
 
 private:
