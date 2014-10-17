@@ -14,6 +14,10 @@ class StdScrView
 
 public:
 
+	typedef boost::shared_ptr< MapView > map_view;
+	typedef boost::shared_ptr< KeyView > key_view;
+	typedef boost::shared_ptr< CmdView > cmd_view;
+
 	StdScrView();
 	~StdScrView();
 
@@ -21,6 +25,21 @@ public:
 
 	void DisplayLine( unsigned int row, unsigned int column, std::string& line );
 	void ClearLine( unsigned int row, unsigned int column, int length );
+
+	map_view GetMapView()
+	{
+		return mapView_;
+	}
+
+	key_view GetKeyView()
+	{
+		return keyView_;
+	}
+
+	cmd_view GetCmdView()
+	{
+		return cmdView_;
+	}
 
 private:
 

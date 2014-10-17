@@ -23,6 +23,8 @@ void StdScrMapController::LoadKey()
 void StdScrMapController::DisplayMap()
 {
 	StdScrModel::map_model model = model_->GetMapModel();
+	StdScrView::map_view view = view_->GetMapView();
+
 	size_t rows = model->LineCount();
 	for( size_t count = 0;
 			count < rows;
@@ -32,18 +34,6 @@ void StdScrMapController::DisplayMap()
 		MapModel::line_ptr line = model->NextLine( count );
 		std::cout << (*line) << std::endl;
 	}
-
-#if 0
-	
-	for( unsigned int i = 0; 
-		i < rows;
-		++i
-		)
-	{
-		boost::shared_ptr< std::string > line = map->GetRow( i );
-	    mvprintw( i, 0, "%s", (*line).c_str() );	
-	}
-#endif
 }
 
 void StdScrMapController::DisplayKey()
