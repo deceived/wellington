@@ -16,11 +16,13 @@ public:
 	typedef boost::shared_ptr< std::string > line_ptr;
 
 	MapModel()
+		: 	map_( boost::make_shared< Map >() ),
+			currentMap_( boost::make_shared< Map >() )
 	{}
 
 	map_ptr	GetMap();
 
-	void Load( std::string fileName );
+	void Load( const std::string fileName );
 
 	line_ptr NextLine();
 	size_t LineCount();

@@ -7,6 +7,15 @@ StdScrView::StdScrView()
 		rows_( LINES ),
 		columns_( COLS )
 {
+}
+
+StdScrView::~StdScrView()
+{
+	endwin();
+}
+
+void StdScrView::Init()
+{
 	initscr();
 	raw();
 	keypad( stdscr, TRUE );
@@ -15,11 +24,6 @@ StdScrView::StdScrView()
 	//rows_ = rows;
 	//columns_ = cols;
 	refresh();
-}
-
-StdScrView::~StdScrView()
-{
-	endwin();
 }
 
 void StdScrView::DisplayLine( unsigned int row, unsigned int column, std::string& line )

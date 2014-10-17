@@ -1,12 +1,12 @@
 #include "map_model.hpp"
-
+#include <iostream>
 
 MapModel::map_ptr	MapModel::GetMap()
 {
 	return map_;
 }
 
-void MapModel::Load( std::string fileName )
+void MapModel::Load( const std::string fileName )
 {
 	map_->Load( fileName );
 }

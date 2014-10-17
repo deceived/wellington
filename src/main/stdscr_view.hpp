@@ -17,6 +17,8 @@ public:
 	StdScrView();
 	~StdScrView();
 
+	void Init();
+
 	void DisplayLine( unsigned int row, unsigned int column, std::string& line );
 	void ClearLine( unsigned int row, unsigned int column, int length );
 

@@ -20,6 +20,11 @@ public:
 		  cmdModel_( boost::make_shared< CmdModel >() )
 	{}
 
+	void Load( const std::string& fileName )
+	{
+		mapModel_->Load( fileName );
+	}
+
 	map_model	GetMapModel()
 	{
 		return mapModel_;

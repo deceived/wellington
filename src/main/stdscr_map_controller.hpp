@@ -2,6 +2,7 @@
 #define STDSCR_MAP_CONTROLLER_HPP
 
 #include <boost/smart_ptr.hpp>
+#include <boost/program_options.hpp>
 
 #include "stdscr_model.hpp"
 #include "stdscr_view.hpp"
@@ -11,9 +12,10 @@ class StdScrMapController
 
 public:
 
-	StdScrMapController()
+	StdScrMapController( boost::program_options::variables_map& vm )
 		: 	model_( boost::make_shared< StdScrModel >() ),
-			view_( boost::make_shared< StdScrView >() )
+			view_( boost::make_shared< StdScrView >() ),
+			options_( vm )
 	{
 	}
 
@@ -36,6 +38,8 @@ private:
 
 	boost::shared_ptr< StdScrModel > model_;
 	boost::shared_ptr< StdScrView >  view_;
+
+	boost::program_options::variables_map& options_;
 
 };
 

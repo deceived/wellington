@@ -4,12 +4,16 @@
 
 void StdScrMapController::Init()
 {
-	std::cout << "init()" << std::endl;
+	LoadMap();
+	LoadKey();
+
+	DisplayMap();
+	DisplayKey();
 }
 
 void StdScrMapController::LoadMap()
 {
-//	map_->Load( vm["map"].as<std::string>() );
+	model_->Load( options_["map"].as<std::string>() );
 }
 
 void StdScrMapController::LoadKey()
