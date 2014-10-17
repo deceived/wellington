@@ -24,7 +24,7 @@ public:
 
 	void Load( const std::string fileName );
 
-	line_ptr NextLine();
+	line_ptr NextLine( size_t line );
 	size_t LineCount();
 
 private:

@@ -16,8 +16,8 @@ size_t MapModel::LineCount()
 	return map_->GetRows();
 }
 
-MapModel::line_ptr MapModel::NextLine()
+MapModel::line_ptr MapModel::NextLine( size_t line )
 {
-	return map_->GetRow( 0 );
+	return map_->GetRow( line );
 }
 

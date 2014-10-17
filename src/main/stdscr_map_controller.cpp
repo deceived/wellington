@@ -29,7 +29,7 @@ void StdScrMapController::DisplayMap()
 			++count
 		)
 	{
-		MapModel::line_ptr line = model->NextLine();
+		MapModel::line_ptr line = model->NextLine( count );
 		std::cout << (*line) << std::endl;
 	}
 
