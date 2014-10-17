@@ -22,8 +22,18 @@ void StdScrMapController::LoadKey()
 
 void StdScrMapController::DisplayMap()
 {
+	StdScrModel::map_model model = model_->GetMapModel();
+	size_t rows = model->LineCount();
+	for( size_t count = 0;
+			count < rows;
+			++count
+		)
+	{
+		MapModel::line_ptr line = model->NextLine();
+		std::cout << (*line) << std::endl;
+	}
+
 #if 0
-	unsigned int rows = map_->GetRows();
 	
 	for( unsigned int i = 0; 
 		i < rows;
