@@ -3,6 +3,6 @@
 
 std::string CmdModel::GetPrompt()
 {
-	return "";
+	return "Enter command: ";
 }
 
