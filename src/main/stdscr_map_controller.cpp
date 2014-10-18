@@ -74,12 +74,26 @@ void StdScrMapController::ClearCmd()
 {
 }
 
-std::string StdScrMapController::ReadCmd()
+StdScrMapController::line_ptr StdScrMapController::ReadCmd()
 {
-	return "";
+	StdScrView::cmd_view view = view_->GetCmdView();
+	return view->Read();
 }
 
 void StdScrMapController::UpdateMap()
 {
+}
+
+void StdScrMapController::Run()
+{
+	do
+	{
+		line_ptr command = ReadCmd();
+		if( *command == "end" )
+		{
+			break;
+		}
+	}
+	while ( true );
 }
 

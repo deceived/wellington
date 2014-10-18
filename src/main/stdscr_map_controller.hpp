@@ -12,6 +12,8 @@ class StdScrMapController
 
 public:
 
+	typedef boost::shared_ptr< std::string > line_ptr;
+
 	StdScrMapController( boost::program_options::variables_map& vm )
 		: 	model_( boost::make_shared< StdScrModel >() ),
 			view_( boost::make_shared< StdScrView >() ),
@@ -31,9 +33,11 @@ public:
 
 	void ClearCmd();
 
-	std::string ReadCmd();
+	line_ptr ReadCmd();
 
 	void UpdateMap();
+
+	void Run();
 
 private:
 

@@ -5,14 +5,23 @@ void CmdView::Put( unsigned int row, unsigned int col, CmdView::line_ptr line )
 	mvprintw( row, col, (*line).c_str() );
 }
 
-std::string CmdView::Read( unsigned int row, unsigned int col )
+CmdView::line_ptr CmdView::Read( unsigned int row, unsigned int col )
 {
 	char cmd[ 128 ];
 
 	move( row, col );
 	getstr( cmd );
 
-	return std::string( cmd );
+	return boost::make_shared<std::string>( cmd );
+}
+
+CmdView::line_ptr CmdView::Read()
+{
+	char cmd[ 128 ];
+
+	getstr( cmd );
+
+	return boost::make_shared<std::string>( cmd );
 }
 
 void CmdView::ClearLine( unsigned int row, unsigned int column, unsigned int length )
