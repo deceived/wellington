@@ -1,8 +1,8 @@
 #include "cmd_view.hpp"
 
-void CmdView::Put( unsigned int row, unsigned int col, std::string line )
+void CmdView::Put( unsigned int row, unsigned int col, CmdView::line_ptr line )
 {
-	mvprintw( row, col, line.c_str() );
+	mvprintw( row, col, (*line).c_str() );
 }
 
 std::string CmdView::Read( unsigned int row, unsigned int col )

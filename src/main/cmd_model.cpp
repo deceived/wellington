@@ -1,8 +1,8 @@
 #include "cmd_model.hpp"
 
 
-std::string CmdModel::GetPrompt()
+CmdModel::line_ptr CmdModel::GetPrompt()
 {
-	return "Enter command: ";
+	return boost::make_shared<std::string>( "Enter command: " );
 }
 

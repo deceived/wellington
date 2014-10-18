@@ -10,10 +10,12 @@ class CmdModel
 
 public:
 
+	typedef boost::shared_ptr< std::string > line_ptr;
+
 	CmdModel()
 	{}
 
-	std::string GetPrompt();
+	CmdModel::line_ptr  GetPrompt();
 
 private:
 

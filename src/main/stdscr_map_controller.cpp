@@ -66,7 +66,8 @@ void StdScrMapController::DisplayCommand()
 	StdScrModel::cmd_model model = model_->GetCmdModel();
 	StdScrView::cmd_view view = view_->GetCmdView();
 
-	std::string prompt = model->GetPrompt();
+	CmdView::line_ptr prompt = model->GetPrompt();
+	view->Put( 40, 0, prompt );
 }
 
 void StdScrMapController::ClearCmd()

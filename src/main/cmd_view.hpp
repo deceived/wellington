@@ -5,12 +5,16 @@
 
 #include <string>
 
+#include <boost/smart_ptr.hpp>
+
 class CmdView
 {
 	
 public:
 
-	void Put( unsigned int row, unsigned int col, std::string line );
+	typedef boost::shared_ptr< std::string > line_ptr;
+
+	void Put( unsigned int row, unsigned int col, CmdView::line_ptr line );
 	void ClearLine( unsigned int row, unsigned int col, unsigned int length );
 	std::string Read( unsigned int row, unsigned int col );
 
