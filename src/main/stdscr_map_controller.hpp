@@ -1,8 +1,13 @@
 #ifndef STDSCR_MAP_CONTROLLER_HPP
 #define STDSCR_MAP_CONTROLLER_HPP
 
+#include <vector>
+
 #include <boost/smart_ptr.hpp>
 #include <boost/program_options.hpp>
+#include <boost/algorithm/string.hpp>
+
+#include "properties.hpp"
 
 #include "stdscr_model.hpp"
 #include "stdscr_view.hpp"
@@ -13,6 +18,7 @@ class StdScrMapController
 public:
 
 	typedef boost::shared_ptr< std::string > line_ptr;
+	typedef std::vector< std::string > split_vector_type;
 
 	StdScrMapController( boost::program_options::variables_map& vm )
 		: 	model_( boost::make_shared< StdScrModel >() ),
@@ -34,6 +40,7 @@ public:
 
 	void ClearCmd();
 
+	void Load( line_ptr command );
 	line_ptr ReadCmd();
 
 	void UpdateMap();

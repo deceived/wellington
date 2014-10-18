@@ -1,0 +1,34 @@
+{
+	"description":
+	{
+		"type": "battle"
+	},
+
+	"map":
+	{
+		"name": "vitoria.txt",
+		"key": "map_key.txt"
+	},
+
+    "units":
+    {
+        "c-in-c":
+        {
+        },
+
+        "cavalry":
+        {
+        },
+
+        "infantry":
+        {
+            "line": 
+            {
+            },
+
+            "riflemen": 
+            {
+            }
+        }
+    }
+}

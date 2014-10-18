@@ -5,6 +5,7 @@
 void StdScrMapController::Init()
 {
 	view_->Init();
+
 	Reset();
 }
 
@@ -93,6 +94,14 @@ void StdScrMapController::UpdateMap()
 {
 }
 
+void StdScrMapController::Load( line_ptr command )
+{
+	split_vector_type splits;
+	boost::split( splits, *command, boost::is_any_of( " ") );
+
+	Properties::ptr properties = Properties::ReadJson( splits[ 1 ] );
+}
+
 void StdScrMapController::Run()
 {
 	do
@@ -106,6 +115,11 @@ void StdScrMapController::Run()
 		{
 			Reset();
 		}
+		if( command->find( "load" ) == 0 )
+		{
+			Load( command );
+		}
+
 		ClearCmd();
 	}
 	while ( true );

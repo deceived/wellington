@@ -8,12 +8,10 @@ srcdir = .
 CXX = g++
 
 DEFS = 
-INCDIRS  = 
-CXXFLAGS = -g -Wall -std=c++11
+INCDIRS  = -I../xml
+CXXFLAGS = $(INCDIRS) -g -Wall -std=c++11
 
-CFLAGS = 	$(INCDIRS) \
-			$(DEFS) \
-			$(CXXFLAGS)
+CFLAGS = 	$(INCDIRS) $(CXXFLAGS)
 
 LIBS    = -lncurses -l:libboost_program_options.a
 LDFLAGS	=
@@ -34,7 +32,7 @@ OBJS = $(SRCS:.cpp=.o)
 
 all: welly
 
-welly: $(OBJS) map.hpp file_reader.hpp
+welly: $(OBJS) map.hpp file_reader.hpp properties.hpp
 	$(CXX) $(CFLAGS) $(LDFLAGS) -o $@ $(OBJS) $(LIBS)
 
 install: all
