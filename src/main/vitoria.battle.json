@@ -1,13 +1,14 @@
 {
 	"description":
 	{
-		"type": "battle"
+		"type": "battle",
 	},
 
 	"map":
 	{
 		"name": "vitoria.txt",
 		"key": "map_key.txt"
+		"scale": 0.25
 	},
 
     "units":
