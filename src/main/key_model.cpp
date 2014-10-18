@@ -11,8 +11,8 @@ size_t KeyModel::LineCount()
 	return key_->GetRows();
 }
 
-KeyModel::line_ptr KeyModel::NextLine()
+KeyModel::line_ptr KeyModel::NextLine( size_t line )
 {
-	return key_->GetRow( 0 );
+	return key_->GetRow( line );
 }
 

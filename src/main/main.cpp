@@ -18,6 +18,7 @@ bool program_options( int argc, char** argv )
 		desc.add_options()
     		("help", "help message")
     		("map", po::value<std::string>()->default_value( "vitoria.txt" ), "load current map")
+    		("key", po::value<std::string>()->default_value( "map_key.txt" ), "load current map key")
     		;
 
         po::store( po::parse_command_line( argc, argv, desc ), vm );

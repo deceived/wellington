@@ -13,11 +13,12 @@ void StdScrMapController::Init()
 
 void StdScrMapController::LoadMap()
 {
-	model_->Load( options_["map"].as<std::string>() );
+	model_->LoadMap( options_["map"].as<std::string>() );
 }
 
 void StdScrMapController::LoadKey()
 {
+	model_->LoadKey( options_["key"].as<std::string>() );
 }
 
 void StdScrMapController::DisplayMap()
@@ -38,6 +39,18 @@ void StdScrMapController::DisplayMap()
 
 void StdScrMapController::DisplayKey()
 {
+	StdScrModel::key_model model = model_->GetKeyModel();
+	StdScrView::key_view view = view_->GetKeyView();
+
+	size_t rows = model->LineCount();
+	for( size_t count = 0;
+			count < rows;
+			++count
+		)
+	{
+		KeyModel::line_ptr line = model->NextLine( count );
+		std::cout << (*line) << std::endl;
+	}
 }
 
 void StdScrMapController::DisplayCommand()

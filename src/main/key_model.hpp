@@ -16,11 +16,12 @@ public:
 	typedef boost::shared_ptr< std::string > line_ptr;
 
 	KeyModel()
+		: key_( boost::make_shared< Key >() )
 	{}
 
 	void Load( std::string fileName );
 
-	line_ptr NextLine();
+	line_ptr NextLine( size_t line );
 	size_t LineCount();
 
 private:
