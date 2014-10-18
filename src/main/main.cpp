@@ -58,6 +58,7 @@ int main( int argc, char** argv )
 	StdScrMapController controller( vm );
 
 	controller.Init();
+	getch();
 
     return 0;
 }

@@ -11,7 +11,7 @@ StdScrView::StdScrView()
 
 StdScrView::~StdScrView()
 {
-	endwin();
+	Terminate();
 }
 
 void StdScrView::Init()
@@ -24,6 +24,11 @@ void StdScrView::Init()
 	//rows_ = rows;
 	//columns_ = cols;
 	refresh();
+}
+
+void StdScrView::Terminate()
+{
+	endwin();
 }
 
 void StdScrView::DisplayLine( unsigned int row, unsigned int column, std::string& line )

@@ -20,6 +20,7 @@ public:
 	}
 
 	void Init();
+	void Terminate();
 
 	void LoadMap();
 	void LoadKey();

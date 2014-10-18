@@ -4,12 +4,19 @@
 
 void StdScrMapController::Init()
 {
+	view_->Init();
+
 	LoadMap();
 	LoadKey();
 
 	DisplayMap();
 	DisplayKey();
 	DisplayCommand();
+}
+
+void StdScrMapController::Terminate()
+{
+	view_->Terminate();
 }
 
 void StdScrMapController::LoadMap()
@@ -34,7 +41,7 @@ void StdScrMapController::DisplayMap()
 		)
 	{
 		MapModel::line_ptr line = model->NextLine( count );
-		std::cout << (*line) << std::endl;
+		view->Put( count, 0, line );
 	}
 }
 
@@ -50,7 +57,6 @@ void StdScrMapController::DisplayKey()
 		)
 	{
 		KeyModel::line_ptr line = model->NextLine( count );
-		std::cout << (*line) << std::endl;
 	}
 }
 
@@ -60,7 +66,6 @@ void StdScrMapController::DisplayCommand()
 	StdScrView::cmd_view view = view_->GetCmdView();
 
 	std::string prompt = model->GetPrompt();
-	std::cout << prompt << std::endl;
 }
 
 void StdScrMapController::ClearCmd()
