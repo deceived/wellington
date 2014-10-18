@@ -57,6 +57,7 @@ void StdScrMapController::DisplayKey()
 		)
 	{
 		KeyModel::line_ptr line = model->NextLine( count );
+		view->Put( count, 100, line );
 	}
 }
 
