@@ -5,18 +5,22 @@
 void StdScrMapController::Init()
 {
 	view_->Init();
+	Reset();
+}
 
+void StdScrMapController::Terminate()
+{
+	view_->Terminate();
+}
+
+void StdScrMapController::Reset()
+{
 	LoadMap();
 	LoadKey();
 
 	DisplayMap();
 	DisplayKey();
 	DisplayCommand();
-}
-
-void StdScrMapController::Terminate()
-{
-	view_->Terminate();
 }
 
 void StdScrMapController::LoadMap()
@@ -97,6 +101,10 @@ void StdScrMapController::Run()
 		if( *command == "end" )
 		{
 			break;
+		}
+		if( *command == "reset" )
+		{
+			Reset();
 		}
 		ClearCmd();
 	}

@@ -22,6 +22,7 @@ public:
 	}
 
 	void Init();
+	void Reset();
 	void Terminate();
 
 	void LoadMap();
