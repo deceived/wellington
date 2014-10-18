@@ -28,7 +28,7 @@ void CmdView::ClearLine( unsigned int row, unsigned int column, unsigned int len
 {
 	for(unsigned int count = 0; count < length; ++count)
 	{
-		mvaddch( row, column, ' ' );
+		mvaddch( row, column + count, ' ' );
 	} 
 }
 

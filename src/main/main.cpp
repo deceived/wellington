@@ -57,6 +57,7 @@ int main( int argc, char** argv )
 
 	StdScrMapController controller( vm );
 	controller.Init();
+
 	controller.Run();
 
     return 0;

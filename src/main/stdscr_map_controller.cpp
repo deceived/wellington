@@ -67,11 +67,16 @@ void StdScrMapController::DisplayCommand()
 	StdScrView::cmd_view view = view_->GetCmdView();
 
 	CmdView::line_ptr prompt = model->GetPrompt();
+
 	view->Put( 40, 0, prompt );
 }
 
 void StdScrMapController::ClearCmd()
 {
+	StdScrView::cmd_view view = view_->GetCmdView();
+	view->ClearLine( 40, 0, 80 );
+
+	DisplayCommand();
 }
 
 StdScrMapController::line_ptr StdScrMapController::ReadCmd()
@@ -93,6 +98,7 @@ void StdScrMapController::Run()
 		{
 			break;
 		}
+		ClearCmd();
 	}
 	while ( true );
 }
