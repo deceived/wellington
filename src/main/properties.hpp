@@ -52,7 +52,7 @@ public:
     static ptr ReadIni( const std::string& fileName )
     {
         ptr properties = boost::make_shared< property_tree >();
-        read_json( fileName, *properties );        
+        read_ini( fileName, *properties );        
         return properties;
     }
 

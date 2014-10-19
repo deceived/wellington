@@ -3,9 +3,22 @@
 
 #include <string>
 
-#include "properties.hpp"
+#include <boost/smart_ptr.hpp>
 
-class Resource
+
+class IResource
+{
+
+public:
+
+	typedef boost::shared_ptr< IResource >	resource_ptr;
+
+	void Load() = 0;
+	std::string Name() = 0;
+
+};
+
+class Resource : public IResource
 {
 
 public:
@@ -14,28 +27,17 @@ public:
 		: name_( name )
 	{}
 
-private:
-
-	std::string name_;
-
-};
-
-class JsonFileResource : public Resource
-{
-
-public:
-
-	FileResource( std::string& fileName )
-		: fileName_( fileName )
+	void Load()
 	{}
 
-	void Load()
+	std::string Name()
 	{
+		return name_;
 	}
 
 private:
 
-	std::string fileName_;
+	std::string name_;
 
 };
 
