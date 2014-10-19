@@ -15,20 +15,44 @@
     {
         "c-in-c":
         {
+			"name": "Wellington",
+			"startx": 70,
+			"starty": 25
         },
 
         "cavalry":
         {
+			"heavy":
+			{
+				"unit":
+				{
+					"name": "ScotsGreys",
+					"startx": 80,
+					"starty":30
+				}
+			}
         },
 
         "infantry":
         {
             "line": 
             {
+				"unit":
+				{
+					"name": "20thFoot",
+					"startx": 90,
+					"starty": 35
+				}	
             },
 
             "riflemen": 
             {
+				"unit":
+				{
+					"name": "95thRifles",
+					"startx": 85,
+					"starty": 40
+				}
             }
         }
     }
