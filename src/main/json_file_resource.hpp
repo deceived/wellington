@@ -9,6 +9,8 @@ class JsonFileResource : public Resource
 
 public:
 
+	typedef boost::shared_ptr< JsonFileResource > json_resource_ptr;
+
 	JsonFileResource( std::string name, std::string& fileName )
 		: 	
 			Resource( name ),

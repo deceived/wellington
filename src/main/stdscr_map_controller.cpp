@@ -100,6 +100,8 @@ void StdScrMapController::Load( line_ptr command )
 	boost::split( splits, *command, boost::is_any_of( " ") );
 
 	Properties::ptr properties = Properties::ReadJson( splits[ 1 ] );
+
+	JsonFileResource::json_resource_ptr resource = boost::make_shared< JsonFileResource >( "initial_deployment", splits[ 1 ] );
 }
 
 void StdScrMapController::Run()
