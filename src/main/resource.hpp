@@ -13,8 +13,8 @@ public:
 
 	typedef boost::shared_ptr< IResource >	resource_ptr;
 
-	void Load() = 0;
-	std::string Name() = 0;
+	virtual void Load() = 0;
+	virtual std::string Name() = 0;
 
 };
 
@@ -27,10 +27,10 @@ public:
 		: name_( name )
 	{}
 
-	void Load()
+	virtual void Load()
 	{}
 
-	std::string Name()
+	virtual std::string Name()
 	{
 		return name_;
 	}

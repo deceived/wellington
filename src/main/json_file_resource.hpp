@@ -9,12 +9,14 @@ class JsonFileResource : public Resource
 
 public:
 
-	JsonFileResource( std::string& fileName )
-		: 	fileName_( fileName ),
+	JsonFileResource( std::string name, std::string& fileName )
+		: 	
+			Resource( name ),
+			fileName_( fileName ),
 			resource_( nullptr )
 	{}
 
-	void Load()
+	virtual void Load()
 	{
 		resource_ = Properties::ReadJson( fileName_ );
 	}

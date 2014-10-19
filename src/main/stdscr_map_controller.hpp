@@ -7,6 +7,7 @@
 #include <boost/program_options.hpp>
 #include <boost/algorithm/string.hpp>
 
+#include "json_file_resource.hpp"
 #include "properties.hpp"
 
 #include "stdscr_model.hpp"
