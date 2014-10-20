@@ -23,6 +23,11 @@ public:
 		resource_ = Properties::ReadJson( fileName_ );
 	}
 
+	Properties::ptr Get()
+	{
+		return resource_;
+	}
+
 private:
 
 	std::string fileName_;

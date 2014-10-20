@@ -97,11 +97,14 @@ void StdScrMapController::UpdateMap()
 void StdScrMapController::Load( line_ptr command )
 {
 	split_vector_type splits;
-	boost::split( splits, *command, boost::is_any_of( " ") );
-
-	Properties::ptr properties = Properties::ReadJson( splits[ 1 ] );
+	boost::split( splits, *command, boost::is_any_of( " " ) );
 
 	JsonFileResource::json_resource_ptr resource = boost::make_shared< JsonFileResource >( "initial_deployment", splits[ 1 ] );
+
+	resource->Load();
+
+	Properties::ptr data = resource->Get();
+	cache_.Add( resource );
 }
 
 void StdScrMapController::Run()

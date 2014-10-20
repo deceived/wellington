@@ -9,6 +9,7 @@
 
 #include "json_file_resource.hpp"
 #include "properties.hpp"
+#include "resource_cache.hpp"
 
 #include "stdscr_model.hpp"
 #include "stdscr_view.hpp"
@@ -54,6 +55,8 @@ private:
 	boost::shared_ptr< StdScrView >  view_;
 
 	boost::program_options::variables_map& options_;
+
+	ResourceCache	cache_;
 
 };
 

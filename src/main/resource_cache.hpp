@@ -12,17 +12,18 @@ class ResourceCache
 
 public:
 
-	typedef boost::shared_ptr< IResource > resource_value;
-	typedef std::map< std::string, IResource >	resource_data;
+	typedef boost::shared_ptr< Resource > resource_value;
+	typedef std::map< std::string, Resource >	resource_data;
 
 	void Add( resource_value value )
 	{
-		resources_[value->Name()]  = value; 
+		//resources_[value->Name()]  = value; 
 	}
 
 	resource_value Get( const std::string& name )
 	{
-		return resources_[ name ];
+		//return resources_[ name ];
+		return resource_value();
 	}
  
 private:
