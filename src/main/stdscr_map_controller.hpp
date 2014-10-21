@@ -7,7 +7,7 @@
 #include <boost/program_options.hpp>
 #include <boost/algorithm/string.hpp>
 
-#include "json_file_resource.hpp"
+#include "xml_file_resource.hpp"
 #include "properties.hpp"
 #include "resource_cache.hpp"
 
@@ -43,6 +43,7 @@ public:
 	void ClearCmd();
 
 	void Load( line_ptr command );
+	void InitialiseDisplay();
 	line_ptr ReadCmd();
 
 	void UpdateMap();
