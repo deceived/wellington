@@ -9,9 +9,13 @@ CXXFLAGS = -g -std=c++11
 
 LDFLAGS	= -g
 
-INCLUDES = -I../etc -I../xml
+INCLUDES = -I../etc -I../xml -I../res
 
-SRC = 	actor.cpp  actor_component.cpp actor_factory.cpp identity_component.cpp  move_component.cpp
+SRC = 	actor.cpp \
+		actor_factory.cpp \
+		identity_component.cpp \
+		move_component.cpp
+
 OBJ = $(SRC:.cpp=.o)
 OUT = actors.a
 
