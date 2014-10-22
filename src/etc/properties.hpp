@@ -13,8 +13,6 @@
 
 #include "pugixml.hpp"
 
-
-
 class Properties
 {
 
@@ -30,7 +28,11 @@ public:
     {
         pointer doc = boost::make_shared< pugi::xml_document >();
         pugi::xml_parse_result result = doc->load_file( fileName.c_str() );
-        return doc;
+		if( result )
+		{
+        	return doc;
+		}
+		return pointer();
     }
 
     static ptr ReadXml( const std::string& fileName )
@@ -50,7 +52,7 @@ public:
     static ptr ReadIni( const std::string& fileName )
     {
         ptr properties = boost::make_shared< property_tree >();
-        read_json( fileName, *properties );        
+        read_ini( fileName, *properties );        
         return properties;
     }
 
