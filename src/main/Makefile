@@ -18,6 +18,7 @@ LIBS    = -l:ui.a -l:actors.a -l:pugixml.a -lncurses -l:libboost_program_options
 LDFLAGS	= $(LIBDIRS)
 
 prefix = ../../game
+battle = ../../assets/battles/vitoria
 
 SRCS = 	main.cpp 
 OBJS = $(SRCS:.cpp=.o)
@@ -29,6 +30,7 @@ welly: $(OBJS)
 
 install: all
 	cp welly $(prefix)
+	cp $(battle)/* $(prefix)
 
 clean:
 	@rm *.o welly
