@@ -8,35 +8,27 @@ srcdir = .
 CXX = g++
 
 DEFS = 
-INCDIRS  = -I../xml
+INCDIRS  = -I../etc -I../xml -I../ui -I../res -I../actors
+LIBDIRS  = -L../../lib
 CXXFLAGS = $(INCDIRS) -g -Wall -std=c++11
 
 CFLAGS = 	$(INCDIRS) $(CXXFLAGS)
 
-LIBS    = -lncurses -l:libboost_program_options.a
-LDFLAGS	=
+LIBS    = -l:ui.a -l:actors.a -l:pugixml.a -lncurses -l:libboost_program_options.a
+LDFLAGS	= $(LIBDIRS)
 
 prefix = ../../game
-tmpprefix = ../../tmp
 
-SRCS = 	main.cpp \
-		cmd_model.cpp \
-		cmd_view.cpp \
-		key_model.cpp \
-		key_view.cpp \
-		map_model.cpp \
-		map_view.cpp \
-		stdscr_map_controller.cpp \
-		stdscr_view.cpp 
+SRCS = 	main.cpp 
 OBJS = $(SRCS:.cpp=.o)
 
 all: welly
 
-welly: $(OBJS) map.hpp file_reader.hpp properties.hpp
-	$(CXX) $(CFLAGS) $(LDFLAGS) -o $@ $(OBJS) $(LIBS)
+welly: $(OBJS) 
+	$(CXX) $(CFLAGS) -o $@ $(LDFLAGS) $(OBJS) $(LIBS)
 
 install: all
-	mv welly $(prefix)
+	cp welly $(prefix)
 
 clean:
 	@rm *.o welly

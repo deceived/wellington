@@ -26,6 +26,7 @@ all: $(OUT)
 
 $(OUT): $(OBJ)
 	ar rcs $(OUT) $(OBJ)
+	cp $@ ../../lib
 
 clean:
 	@rm *.o *.a
