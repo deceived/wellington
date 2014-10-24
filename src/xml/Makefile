@@ -26,4 +26,5 @@ $(OUT): $(OBJ)
 
 clean:
 	@rm *.o *.a
+	@rm ,,/../lib/$(OUT)
 
