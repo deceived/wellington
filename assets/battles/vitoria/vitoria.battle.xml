@@ -8,24 +8,28 @@
 	<Unit>
 		<Type>General</Type>
 		<Name>Wellington</Name>
+		<Actor>Wellington.xml</Name>
 		<StartX>70</StartX>
 		<StartY>25</StartY>
 	</Unit>
 	<Unit>
 		<Type>Cavalry</Type>
 		<Name>Scots Greys</Name>
+		<Actor>ScotsGreys.xml</Name>
 		<StartX>80</StartX>
 		<StartY>35</StartY>
 	</Unit>
 	<Unit>
 		<Type>Line</Type>
 		<Name>20th Foot</Name>
+		<Actor>20thFoot.xml</Name>
 		<StartX>90</StartX>
 		<StartY>35</StartY>
 	</Unit>
 	<Unit>
 		<Type>Rifles</Type>
 		<Name>95th Rifles</Name>
+		<Actor>95thRifles.xml</Name>
 		<StartX>85</StartX>
 		<StartY>40</StartY>
 	</Unit>
