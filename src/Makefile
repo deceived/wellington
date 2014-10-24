@@ -14,3 +14,6 @@ clean:
 	$(MAKE) -C xml clean
 	$(MAKE) -C actors clean
 	$(MAKE) -C main clean
+
+uninstall:
+	$(MAKE) -C main uninstall

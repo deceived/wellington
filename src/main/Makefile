@@ -34,4 +34,6 @@ install: all
 
 clean:
 	@rm *.o welly
+
+uninstall:
 	@rm $(prefix)/*
