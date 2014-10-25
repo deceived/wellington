@@ -100,9 +100,12 @@ void StdScrMapController::Load( line_ptr command )
 	boost::split( splits, *command, boost::is_any_of( " " ) );
 
 	XmlFileResource::xml_resource_ptr resource = boost::make_shared< XmlFileResource >( "initial_deployment", splits[ 1 ] );
+	XmlDocResource::xml_resource_ptr res = boost::make_shared< XmlDocResource >( "deployment", splits[ 1 ] );
 
 	resource->Load();
+	res->Load();
 
+	cache_.Add( resource );
 	cache_.Add( resource );
 }
 
