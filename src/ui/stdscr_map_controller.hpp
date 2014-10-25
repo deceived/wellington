@@ -23,7 +23,8 @@ public:
 	typedef std::vector< std::string > split_vector_type;
 
 	StdScrMapController( boost::program_options::variables_map& vm )
-		: 	model_( boost::make_shared< StdScrModel >() ),
+		: 	
+			model_( boost::make_shared< StdScrModel >() ),
 			view_( boost::make_shared< StdScrView >() ),
 			options_( vm )
 	{
