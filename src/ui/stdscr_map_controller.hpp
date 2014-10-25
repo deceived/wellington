@@ -8,6 +8,7 @@
 #include <boost/algorithm/string.hpp>
 
 #include "xml_file_resource.hpp"
+#include "xml_doc_resource.hpp"
 #include "properties.hpp"
 #include "resource_cache.hpp"
 
