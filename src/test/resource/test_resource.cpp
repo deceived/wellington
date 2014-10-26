@@ -28,4 +28,7 @@ int main( int argc, char** argv )
 	cache.Add( resource );
 
 	ResourceCache::resource_value resource_value = cache.Get( "deployment" );
+
+	std::cout << "name = " << resource_value->Name() << std::endl;
+
 }
