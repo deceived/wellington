@@ -28,10 +28,10 @@ public:
     {
         pointer doc = boost::make_shared< pugi::xml_document >();
         pugi::xml_parse_result result = doc->load_file( fileName.c_str() );
-		if( result )
-		{
-        	return doc;
-		}
+        if( result )
+	    {
+           return doc;
+	    }
 		return pointer();
     }
 

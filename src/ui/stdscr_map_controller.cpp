@@ -109,6 +109,8 @@ void StdScrMapController::Load( line_ptr command )
 void StdScrMapController::InitialiseDisplay()
 {
 	ResourceCache::resource_value resource = cache_.Get( "deployment" );
+
+
 }
 
 void StdScrMapController::Run()
