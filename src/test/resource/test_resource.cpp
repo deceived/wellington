@@ -30,4 +30,18 @@ int main( int argc, char** argv )
 	ResourceCache::resource_value resource_value = cache.Get( "deployment" );
 
 	std::cout << "name = " << resource_value->Name() << std::endl;
+
+	Properties::pointer r = resource->Get();
+
+	pugi::xml_node map = (*r).child( "Battle" ).child( "Map" );
+	for( pugi::xml_node child: map.children() )
+	{
+		std::cout << "child = " << child.name() << std::endl;
+	}
+
+	pugi::xml_node units = (*r).child( "Battle" ).child( "Units" );
+	for( pugi::xml_node unit:  units.children( "Unit" ))
+	{
+		std::cout << "unit = " << unit.name() << std::endl; 
+	}
 }
