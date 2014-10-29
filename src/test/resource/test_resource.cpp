@@ -43,5 +43,9 @@ int main( int argc, char** argv )
 	for( pugi::xml_node unit:  units.children( "Unit" ))
 	{
 		std::cout << "unit = " << unit.name() << std::endl; 
+		for( pugi::xml_node child: unit.children() )
+		{
+			std::cout << "child = " << child.name() << std::endl;
+		}
 	}
 }
