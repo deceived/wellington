@@ -37,6 +37,7 @@ int main( int argc, char** argv )
 	for( pugi::xml_node child: map.children() )
 	{
 		std::cout << "child = " << child.name() << std::endl;
+		std::cout << "value  = " << child.child_value() << std::endl;
 	}
 
 	pugi::xml_node units = (*r).child( "Battle" ).child( "Units" );
@@ -46,6 +47,7 @@ int main( int argc, char** argv )
 		for( pugi::xml_node child: unit.children() )
 		{
 			std::cout << "child = " << child.name() << std::endl;
+			std::cout << "value = " << child.child_value() << std::endl;
 		}
 	}
 }
