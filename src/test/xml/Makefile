@@ -34,9 +34,9 @@ install: all
 	cp $(battle)/*.xml $(prefix)
 
 clean:
-	@rm *.o $(OUT) 
+	@rm -f *.o $(OUT) 
 
 uninstall:
-	@rm $(prefix)/*.xml
-	@rm $(prefix)/$(OUT)
+	@rm -f $(prefix)/*.xml
+	@rm -f $(prefix)/$(OUT)
 
