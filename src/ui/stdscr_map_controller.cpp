@@ -108,9 +108,19 @@ void StdScrMapController::Load( line_ptr command )
 
 void StdScrMapController::InitialiseDisplay()
 {
-	ResourceCache::resource_value resource = cache_.Get( "deployment" );
+	XmlDocResource::xml_resource_ptr res = boost::static_pointer_cast< XmlDocResource >( cache_.Get( "deployment" ) );
 
+	Properties::pointer xml = res->Get();
 
+	pugi::xml_node map = (*xml).child( "Battle" ).child( "Map" );
+	for( pugi::xml_node child: map.children() )
+	{
+	}
+
+	pugi::xml_node units = (*xml).child( "Battle" ).child( "Units" );
+	for( pugi::xml_node unit: units.children( "Unit" ) )
+	{
+	} 
 }
 
 void StdScrMapController::Run()
