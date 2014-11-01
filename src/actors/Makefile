@@ -29,6 +29,6 @@ $(OUT): $(OBJ)
 	cp $@ ../../lib
 
 clean:
-	@rm *.o *.a
-	@rm ../../lib/$(OUT)
+	@rm -f *.o *.a
+	@rm -f ../../lib/$(OUT)
 
