@@ -12,6 +12,7 @@
     </Component>
     <Component name="representation" >
       <Image>heavy-cavalry.png</Image>
+	  <Char>S</Char>
     </Component>
     <Component name="fire" >
       <Weapon>Sabre</Weapon>

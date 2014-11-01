@@ -25,6 +25,7 @@
     </Component>
     <Component name="representation" >
       <Image>line-infantry-company.png</Image>
+	  <Char>F</Char>
     </Component>
     <Component name="fire" >
       <Weapon>Musket</Weapon>

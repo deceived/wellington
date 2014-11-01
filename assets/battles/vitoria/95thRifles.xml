@@ -1,8 +1,8 @@
 <Actor>
   <Components>
     <Component name="identity" >
-      <Name>Wellington</Name>
-      <Type>C-in-C</Type>
+      <Name>95th Rifles</Name>
+      <Type>Rifles</Type>
       <Points>75</Points>
     </Component>
     <Component name="move" >
@@ -11,7 +11,8 @@
       <Action>260</Action>
     </Component>
     <Component name="representation" >
-      <Image>general-c-in-c.png</Image>
+      <Image>95th-rifles.png</Image>
+	  <Char>R</Char>
     </Component>
     <Component name="fire" >
       <Weapon>None</Weapon>

@@ -13,6 +13,7 @@
     </Component>
     <Component name="representation" >
       <Image>general-c-in-c.png</Image>
+	  <Char>W</Char>
     </Component>
     <Component name="fire" >
       <Weapon>None</Weapon>
