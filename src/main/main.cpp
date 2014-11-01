@@ -2,6 +2,7 @@
 #include <string>
 
 #include <boost/program_options.hpp>
+#include <boost/log/trivial.hpp>
 
 #include "stdscr_map_controller.hpp"
 
@@ -50,6 +51,8 @@ bool program_options( int argc, char** argv )
 
 int main( int argc, char** argv )
 {
+	BOOST_LOG_TRIVIAL( trace ) << "starting...";
+
 	if( !program_options( argc, argv ) )
 	{
 		exit(1);
