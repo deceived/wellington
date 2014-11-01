@@ -120,11 +120,13 @@ void StdScrMapController::InitialiseDisplay()
 	pugi::xml_node units = (*xml).child( "Battle" ).child( "Units" );
 	for( pugi::xml_node unit: units.children( "Unit" ) )
 	{
-		if( unit.name() == "Actor" )
+		for( pugi::xml_node element: unit.children() )
 		{
-			// load actor file
+			if( element.name() == "Actor" )
+			{
+				ActorPtr actor = actorFactory_.CreateActor( element.child_value() );
+			}
 		}
-		// load start location (is this enough - suppose it is for now)
 	} 
 }
 
