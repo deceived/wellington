@@ -33,7 +33,7 @@ install: all
 	cp $(battle)/* $(prefix)
 
 clean:
-	@rm *.o welly
+	@rm -f *.o welly
 
 uninstall:
-	@rm $(prefix)/*
+	@rm -f $(prefix)/*
