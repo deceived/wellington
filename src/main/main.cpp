@@ -2,10 +2,12 @@
 #include <string>
 
 #include <boost/program_options.hpp>
-#include <boost/log/trivial.hpp>
+#include <boost/log/sources/global_logger_storage.hpp>
+namespace src = boost::log::sources;
 
 #include "stdscr_map_controller.hpp"
 
+BOOST_LOG_INLINE_GLOBAL_LOGGER_DEFAULT( the_log, src::logger_mt )
 
 namespace po = boost::program_options;
 po::options_description desc("Allowed options");
@@ -51,8 +53,6 @@ bool program_options( int argc, char** argv )
 
 int main( int argc, char** argv )
 {
-	BOOST_LOG_TRIVIAL( trace ) << "starting...";
-
 	if( !program_options( argc, argv ) )
 	{
 		exit(1);
