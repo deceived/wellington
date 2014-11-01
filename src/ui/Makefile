@@ -9,7 +9,7 @@ CXXFLAGS = -g -std=c++11
 
 LDFLAGS	= -g
 
-INCLUDES = -I../etc -I../xml -I../res
+INCLUDES = -I../actors -I../etc -I../xml -I../res
 
 SRC = 	cmd_model.cpp cmd_view.cpp \
 		key_model.cpp key_view.cpp \

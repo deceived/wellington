@@ -12,6 +12,8 @@
 #include "properties.hpp"
 #include "resource_cache.hpp"
 
+#include "actor_factory.hpp"
+
 #include "stdscr_model.hpp"
 #include "stdscr_view.hpp"
 
@@ -53,6 +55,10 @@ public:
 	void Run();
 
 private:
+
+	void LoadActor( const std::string actorName );
+
+	ActorFactory	actorFactory_;
 
 	boost::shared_ptr< StdScrModel > model_;
 	boost::shared_ptr< StdScrView >  view_;

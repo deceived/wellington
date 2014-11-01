@@ -128,6 +128,10 @@ void StdScrMapController::InitialiseDisplay()
 	} 
 }
 
+void StdScrMapController::LoadActor( const std::string actorName )
+{
+}
+
 void StdScrMapController::Run()
 {
 	do
