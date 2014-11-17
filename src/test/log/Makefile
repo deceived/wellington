@@ -14,7 +14,7 @@ CXXFLAGS = $(INCDIRS) -g -Wall -std=c++11
 
 CFLAGS = 	$(INCDIRS) $(CXXFLAGS)
 
-LIBS    = -l:libboost_log.a -l:libboost_thread.a -l:libboost_system.a -lpthread
+LIBS    = -l:libboost_log.a -l:libboost_log_setup.a -l:libboost_thread.a -l:libboost_filesystem.a -l:libboost_system.a -lpthread
 LDFLAGS	= $(LIBDIRS)
 
 prefix = ../../../test
@@ -33,6 +33,7 @@ install: all
 
 clean:
 	@rm -f *.o $(OUT) 
+	@rm -f *.log
 
 uninstall:
 	@rm -f $(prefix)/$(OUT)
