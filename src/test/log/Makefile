@@ -19,22 +19,33 @@ LDFLAGS	= $(LIBDIRS)
 
 prefix = ../../../test
 
-SRCS = test_log.cpp 
-OBJS = $(SRCS:.cpp=.o)
-OUT  = test_log
+SRCS1 = test_log.cpp 
+SRCS2 = tutorial_log.cpp 
 
-all: $(OUT) 
+OBJS1 = $(SRCS1:.cpp=.o)
+OBJS2 = $(SRCS2:.cpp=.o)
 
-$(OUT): $(OBJS) 
-	$(CXX) $(CFLAGS) -o $@ $(LDFLAGS) $(OBJS) $(LIBS)
+OUT1  = test_log 
+OUT2  = tutorial_log
+
+all: $(OUT1) $(OUT2)
+
+$(OUT1): $(OBJS1) 
+	$(CXX) $(CFLAGS) -o $@ $(LDFLAGS) $(OBJS1) $(LIBS)
+
+$(OUT2): $(OBJS2) 
+	$(CXX) $(CFLAGS) -o $@ $(LDFLAGS) $(OBJS2) $(LIBS)
 
 install: all
-	cp $(OUT) $(prefix)
+	cp $(OUT1) $(prefix)
+	cp $(OUT2) $(prefix)
 
 clean:
-	@rm -f *.o $(OUT) 
+	@rm -f *.o $(OUT1) 
+	@rm -f $(OUT2) 
 	@rm -f *.log
 
 uninstall:
-	@rm -f $(prefix)/$(OUT)
+	@rm -f $(prefix)/$(OUT1)
+	@rm -f $(prefix)/$(OUT2)
 
