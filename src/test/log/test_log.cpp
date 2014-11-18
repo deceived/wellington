@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 
 #include <boost/log/core.hpp>
 #include <boost/log/trivial.hpp>
@@ -9,10 +10,36 @@
 #include <boost/log/sources/severity_logger.hpp>
 #include <boost/log/sources/record_ostream.hpp>
 
+#include <boost/smart_ptr/shared_ptr.hpp>
+#include <boost/smart_ptr/make_shared_object.hpp>
+#include <boost/log/sinks/sync_frontend.hpp>
+#include <boost/log/sinks/text_ostream_backend.hpp>
+#include <boost/log/sources/logger.hpp>
+
+
+
 namespace logging = boost::log;
 namespace src = boost::log::sources;
 namespace sinks = boost::log::sinks;
 namespace keywords = boost::log::keywords;
+
+
+
+
+
+void init_log_sink()
+{
+    // construct the sink
+    typedef sinks::synchronous_sink< sinks::text_ostream_backend > text_sink;
+    boost::shared_ptr< text_sink > sink = boost::make_shared< text_sink >();
+
+    // Add a stream to write log to
+    sink->locked_backend()->add_stream(
+        boost::make_shared< std::ofstream >("sample.log"));
+
+    // Register the sink in the logging core
+    logging::core::get()->add_sink(sink);
+}
 
 void init_log()
 {
@@ -38,6 +65,13 @@ void init()
     );
 }
 
+void boost_trivial_init_log_sink()
+{
+    init_log_sink();
+
+    src::logger lg;
+    BOOST_LOG(lg) << "Hello world!";
+}
 
 void boost_trivial_init_log()
 {
@@ -78,6 +112,7 @@ void boost_trivial()
     BOOST_LOG_TRIVIAL( fatal ) << "A fatal message";
 }
 
+
 int main( int argc, char** argv )
 {
     std::cout << "test log..." << std::endl;
@@ -91,5 +126,10 @@ int main( int argc, char** argv )
     std::cout << "\n\n";
 
     boost_trivial_init_log();
+
+    std::cout << "\n\n";
+
+    boost_trivial_init_log_sink();
+
     return 0;
 }
