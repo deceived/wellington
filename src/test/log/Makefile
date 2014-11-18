@@ -23,18 +23,21 @@ SRCS1 = test_log.cpp
 SRCS2 = tutorial_log.cpp 
 SRCS3 = tutorial_attributes.cpp 
 SRCS4 = tutorial_fmt_stream.cpp 
+SRCS5 = tutorial_fmt_stream_manual.cpp 
 
 OBJS1 = $(SRCS1:.cpp=.o)
 OBJS2 = $(SRCS2:.cpp=.o)
 OBJS3 = $(SRCS3:.cpp=.o)
 OBJS4 = $(SRCS4:.cpp=.o)
+OBJS5 = $(SRCS5:.cpp=.o)
 
 OUT1  = test_log 
 OUT2  = tutorial_log
 OUT3  = tutorial_attributes
 OUT4  = tutorial_fmt_stream
+OUT5  = tutorial_fmt_stream_manual
 
-all: $(OUT1) $(OUT2) $(OUT3) $(OUT4)
+all: $(OUT1) $(OUT2) $(OUT3) $(OUT4) $(OUT5)
 
 $(OUT1): $(OBJS1) 
 	$(CXX) $(CFLAGS) -o $@ $(LDFLAGS) $(OBJS1) $(LIBS)
@@ -48,17 +51,22 @@ $(OUT3): $(OBJS3)
 $(OUT4): $(OBJS4) 
 	$(CXX) $(CFLAGS) -o $@ $(LDFLAGS) $(OBJS4) $(LIBS)
 
+$(OUT5): $(OBJS5) 
+	$(CXX) $(CFLAGS) -o $@ $(LDFLAGS) $(OBJS5) $(LIBS)
+
 install: all
 	cp $(OUT1) $(prefix)
 	cp $(OUT2) $(prefix)
 	cp $(OUT3) $(prefix)
 	cp $(OUT4) $(prefix)
+	cp $(OUT5) $(prefix)
 
 clean:
 	@rm -f *.o $(OUT1) 
 	@rm -f $(OUT2) 
 	@rm -f $(OUT3) 
 	@rm -f $(OUT4) 
+	@rm -f $(OUT5) 
 	@rm -f *.log
 
 uninstall:
@@ -66,4 +74,5 @@ uninstall:
 	@rm -f $(prefix)/$(OUT2)
 	@rm -f $(prefix)/$(OUT3)
 	@rm -f $(prefix)/$(OUT4)
+	@rm -f $(prefix)/$(OUT5)
 
