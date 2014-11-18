@@ -22,16 +22,19 @@ prefix = ../../../test
 SRCS1 = test_log.cpp 
 SRCS2 = tutorial_log.cpp 
 SRCS3 = tutorial_attributes.cpp 
+SRCS4 = tutorial_fmt_stream.cpp 
 
 OBJS1 = $(SRCS1:.cpp=.o)
 OBJS2 = $(SRCS2:.cpp=.o)
 OBJS3 = $(SRCS3:.cpp=.o)
+OBJS4 = $(SRCS4:.cpp=.o)
 
 OUT1  = test_log 
 OUT2  = tutorial_log
 OUT3  = tutorial_attributes
+OUT4  = tutorial_fmt_stream
 
-all: $(OUT1) $(OUT2) $(OUT3)
+all: $(OUT1) $(OUT2) $(OUT3) $(OUT4)
 
 $(OUT1): $(OBJS1) 
 	$(CXX) $(CFLAGS) -o $@ $(LDFLAGS) $(OBJS1) $(LIBS)
@@ -42,18 +45,25 @@ $(OUT2): $(OBJS2)
 $(OUT3): $(OBJS3) 
 	$(CXX) $(CFLAGS) -o $@ $(LDFLAGS) $(OBJS3) $(LIBS)
 
+$(OUT4): $(OBJS4) 
+	$(CXX) $(CFLAGS) -o $@ $(LDFLAGS) $(OBJS4) $(LIBS)
+
 install: all
 	cp $(OUT1) $(prefix)
 	cp $(OUT2) $(prefix)
+	cp $(OUT3) $(prefix)
+	cp $(OUT4) $(prefix)
 
 clean:
 	@rm -f *.o $(OUT1) 
 	@rm -f $(OUT2) 
 	@rm -f $(OUT3) 
+	@rm -f $(OUT4) 
 	@rm -f *.log
 
 uninstall:
 	@rm -f $(prefix)/$(OUT1)
 	@rm -f $(prefix)/$(OUT2)
 	@rm -f $(prefix)/$(OUT3)
+	@rm -f $(prefix)/$(OUT4)
 
