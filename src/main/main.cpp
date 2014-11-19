@@ -7,8 +7,6 @@ namespace src = boost::log::sources;
 
 #include "stdscr_map_controller.hpp"
 
-//BOOST_LOG_INLINE_GLOBAL_LOGGER_DEFAULT( the_log, src::logger_mt )
-
 namespace po = boost::program_options;
 po::options_description desc("Allowed options");
 po::variables_map vm;
