@@ -2,11 +2,11 @@
 
 
 
-BOOST_LOG_ATTRIBUTE_KEYWORD(line_id, "LineID", unsigned int)
-BOOST_LOG_ATTRIBUTE_KEYWORD(severity, "Severity", severity_level)
-BOOST_LOG_ATTRIBUTE_KEYWORD(tag_attr, "Tag", std::string)
-BOOST_LOG_ATTRIBUTE_KEYWORD(scope, "Scope", attrs::named_scope::value_type)
-BOOST_LOG_ATTRIBUTE_KEYWORD(timeline, "Timeline", attrs::timer::value_type)
+BOOST_LOG_ATTRIBUTE_KEYWORD( line_id, "LineID", unsigned int )
+BOOST_LOG_ATTRIBUTE_KEYWORD( severity, "Severity", severity_level )
+BOOST_LOG_ATTRIBUTE_KEYWORD( tag_attr, "Tag", std::string )
+BOOST_LOG_ATTRIBUTE_KEYWORD( scope, "Scope", attrs::named_scope::value_type )
+BOOST_LOG_ATTRIBUTE_KEYWORD( timeline, "Timeline", attrs::timer::value_type )
 
 
 
@@ -21,7 +21,7 @@ void Log::Severity( severity_level severity, const std::string& message )
 
 void Log::NamedScope( severity_level severity, const std::string& scope, const std::string& message )
 {
-    BOOST_LOG_NAMED_SCOPE( scope );
+    BOOST_LOG_NAMED_SCOPE( "named_scope" );
 
     src::severity_logger< severity_level > slg;
 
