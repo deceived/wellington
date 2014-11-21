@@ -1,6 +1,7 @@
 #!/usr/bin/make
 
 all: 
+	$(MAKE) -C log
 	$(MAKE) -C ui
 	$(MAKE) -C xml
 	$(MAKE) -C actors
@@ -10,6 +11,7 @@ install:
 	$(MAKE) -C main install
 
 clean:
+	$(MAKE) -C log clean
 	$(MAKE) -C ui clean
 	$(MAKE) -C xml clean
 	$(MAKE) -C actors clean

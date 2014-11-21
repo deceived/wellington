@@ -5,6 +5,7 @@
 #include <boost/log/sources/global_logger_storage.hpp>
 namespace src = boost::log::sources;
 
+#include "log.hpp"
 #include "stdscr_map_controller.hpp"
 
 namespace po = boost::program_options;
