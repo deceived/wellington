@@ -5,12 +5,14 @@
 #include <boost/log/sources/global_logger_storage.hpp>
 namespace src = boost::log::sources;
 
-#include "log.hpp"
+#include "logger.hpp"
 #include "stdscr_map_controller.hpp"
 
 namespace po = boost::program_options;
 po::options_description desc("Allowed options");
 po::variables_map vm;
+
+Log	logger;
 
 bool program_options( int argc, char** argv )
 {
@@ -52,6 +54,7 @@ bool program_options( int argc, char** argv )
 
 int main( int argc, char** argv )
 {
+	logger.Severity( severity_level::info, "starting..." );
 	if( !program_options( argc, argv ) )
 	{
 		exit(1);
