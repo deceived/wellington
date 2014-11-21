@@ -49,6 +49,11 @@ public:
 
     typedef src::severity_logger< severity_level > slogger;
 
+    Log()
+    {
+	Init();
+    }
+
     void Severity( severity_level severity, const std::string& message );
     void Tagged( severity_level security, const std::string& tag, const std::string& message );    
     slogger TimedStart( severity_level severity, const std::string& message );
