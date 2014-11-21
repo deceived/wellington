@@ -51,7 +51,6 @@ public:
 
     void Severity( severity_level severity, const std::string& message );
     void Tagged( severity_level security, const std::string& tag, const std::string& message );    
-    void NamedScope( severity_level security, const std::string& scope, const std::string& message );
     slogger TimedStart( severity_level severity, const std::string& message );
     void TimedEnd( severity_level severity, slogger logger, const std::string& message );
 

@@ -9,23 +9,12 @@ BOOST_LOG_ATTRIBUTE_KEYWORD( scope, "Scope", attrs::named_scope::value_type )
 BOOST_LOG_ATTRIBUTE_KEYWORD( timeline, "Timeline", attrs::timer::value_type )
 
 
-
+// use this for Named Scope logging by preceding it with BOOST_LOG_NAMED_SCOPE( "scope" );
 void Log::Severity( severity_level severity, const std::string& message )
 {
     src::severity_logger< severity_level > slg;
 
     BOOST_LOG_SEV(slg, severity) << message;
-}
-
-
-
-void Log::NamedScope( severity_level severity, const std::string& scope, const std::string& message )
-{
-    BOOST_LOG_NAMED_SCOPE( "named_scope" );
-
-    src::severity_logger< severity_level > slg;
-
-    BOOST_LOG_SEV( slg, severity ) << message;
 }
 
 
