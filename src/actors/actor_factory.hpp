@@ -7,11 +7,12 @@
 #include <boost/utility.hpp>
 #include <boost/foreach.hpp>
 
+#include "logger.hpp"
 #include "actor.hpp"
 #include "actor_component.hpp"
 #include "properties.hpp"
 
-
+extern Log logger;
 
 template <class BaseType, class SubType>
 BaseType* GenericObjectCreationFunction() 

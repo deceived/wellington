@@ -7,6 +7,7 @@
 
 ActorFactory::ActorFactory()
 {
+    logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
     componentFactory_.Register< IdentityComponent >( ActorComponent::GetIdFromName( IdentityComponent::name_ ) );
     componentFactory_.Register< MoveComponent >( ActorComponent::GetIdFromName( MoveComponent::name_ ) );
 }
@@ -15,6 +16,7 @@ ActorFactory::ActorFactory()
 
 ActorPtr    ActorFactory::CreateActor( const std::string& actorResource )
 {
+    logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
     Properties::pointer resource = Properties::ReadXmlDoc( actorResource );
     if( !resource )
     {
@@ -52,7 +54,7 @@ ActorPtr    ActorFactory::CreateActor( const std::string& actorResource )
 
 ActorComponentPtr ActorFactory::CreateComponent( pugi::xml_node  component )
 {
-
+    logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
     ActorComponentPtr   cp( componentFactory_.Create( ActorComponent::GetIdFromName( component.attribute("name").value() ) ) );
     if( cp )
     {
