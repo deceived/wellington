@@ -129,19 +129,19 @@ void StdScrMapController::InitialiseDisplay()
 	pugi::xml_node map = (*xml).child( "Battle" ).child( "Map" );
 	for( pugi::xml_node child: map.children() )
 	{
-		logger.Severity( severity_level::info, child.name() );
+		logger.Severity( severity_level::info, std::string( "battle.map.child: " ) + child.name() );
 	}
 
 	pugi::xml_node units = (*xml).child( "Battle" ).child( "Units" );
 	for( pugi::xml_node unit: units.children( "Unit" ) )
 	{
-		logger.Severity( severity_level::info, unit.name() );
+		logger.Severity( severity_level::info, std::string( "battle.units.unit: " ) + unit.name() );
 		for( pugi::xml_node element: unit.children() )
 		{
-			logger.Severity( severity_level::info, element.name() );
+			logger.Severity( severity_level::info, std::string( "unit.child: "  ) + element.name() );
 			if( element.name() == "Actor" )
 			{
-				logger.Severity( severity_level::info, element.child_value() );
+				logger.Severity( severity_level::info, std::string( "unit.actor: "  ) + element.child_value() );
 				ActorPtr actor = actorFactory_.CreateActor( element.child_value() );
 			}
 		}
