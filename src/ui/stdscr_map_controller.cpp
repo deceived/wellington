@@ -4,6 +4,8 @@
 
 void StdScrMapController::Init()
 {
+	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
+ 
 	view_->Init();
 
 	Reset();
@@ -11,11 +13,13 @@ void StdScrMapController::Init()
 
 void StdScrMapController::Terminate()
 {
+	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
 	view_->Terminate();
 }
 
 void StdScrMapController::Reset()
 {
+	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
 	LoadMap();
 	LoadKey();
 
@@ -26,16 +30,19 @@ void StdScrMapController::Reset()
 
 void StdScrMapController::LoadMap()
 {
+	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
 	model_->LoadMap( options_["map"].as<std::string>() );
 }
 
 void StdScrMapController::LoadKey()
 {
+	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
 	model_->LoadKey( options_["key"].as<std::string>() );
 }
 
 void StdScrMapController::DisplayMap()
 {
+	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
 	StdScrModel::map_model model = model_->GetMapModel();
 	StdScrView::map_view view = view_->GetMapView();
 
@@ -52,6 +59,7 @@ void StdScrMapController::DisplayMap()
 
 void StdScrMapController::DisplayKey()
 {
+	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
 	StdScrModel::key_model model = model_->GetKeyModel();
 	StdScrView::key_view view = view_->GetKeyView();
 
@@ -68,6 +76,7 @@ void StdScrMapController::DisplayKey()
 
 void StdScrMapController::DisplayCommand()
 {
+	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
 	StdScrModel::cmd_model model = model_->GetCmdModel();
 	StdScrView::cmd_view view = view_->GetCmdView();
 
@@ -78,6 +87,7 @@ void StdScrMapController::DisplayCommand()
 
 void StdScrMapController::ClearCmd()
 {
+	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
 	StdScrView::cmd_view view = view_->GetCmdView();
 	view->ClearLine( 40, 0, 80 );
 
@@ -86,16 +96,19 @@ void StdScrMapController::ClearCmd()
 
 StdScrMapController::line_ptr StdScrMapController::ReadCmd()
 {
+	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
 	StdScrView::cmd_view view = view_->GetCmdView();
 	return view->Read();
 }
 
 void StdScrMapController::UpdateMap()
 {
+	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
 }
 
 void StdScrMapController::Load( line_ptr command )
 {
+	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
 	split_vector_type splits;
 	boost::split( splits, *command, boost::is_any_of( " " ) );
 
@@ -108,6 +121,7 @@ void StdScrMapController::Load( line_ptr command )
 
 void StdScrMapController::InitialiseDisplay()
 {
+	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
 	XmlDocResource::xml_resource_ptr res = boost::static_pointer_cast< XmlDocResource >( cache_.Get( "deployment" ) );
 
 	Properties::pointer xml = res->Get();
@@ -132,10 +146,12 @@ void StdScrMapController::InitialiseDisplay()
 
 void StdScrMapController::LoadActor( const std::string actorName )
 {
+	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
 }
 
 void StdScrMapController::Run()
 {
+	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
 	do
 	{
 		line_ptr command = ReadCmd();
