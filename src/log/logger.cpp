@@ -97,5 +97,6 @@ void Log::Init()
     logging::core::get()->add_sink(sink);
 
     logging::add_common_attributes();
-    logging::core::get()->add_global_attribute("Scope", attrs::named_scope());
+
+    //logging::core::get()->add_global_attribute("Scope", attrs::named_scope());
 }

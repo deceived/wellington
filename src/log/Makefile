@@ -18,10 +18,10 @@ OUT = logger.a
 
 all: $(OUT) 
 
-.cpp.o:
+.cpp.o: 
 	$(CXX) $(INCLUDES) $(CXXFLAGS) -c $< -o $@
 
-$(OUT): $(OBJ)
+$(OUT): $(OBJ) 
 	ar rcs $(OUT) $(OBJ)
 	cp $@ ../../lib
 
