@@ -138,10 +138,11 @@ void StdScrMapController::InitialiseDisplay()
 		logger.Severity( severity_level::info, std::string( "battle.units.unit: " ) + unit.name() );
 		for( pugi::xml_node element: unit.children() )
 		{
-			logger.Severity( severity_level::info, std::string( "unit.child: "  ) + element.name() );
-			if( element.name() == "Actor" )
+			logger.Severity( severity_level::info, std::string( "unit.child.name: "  ) + element.name() );
+			logger.Severity( severity_level::info, std::string( "unit.child.value: "  ) + element.child_value() );
+			if( element.name() == std::string( "Actor" ) )
 			{
-				logger.Severity( severity_level::info, std::string( "unit.actor: "  ) + element.child_value() );
+				logger.Severity( severity_level::info, "Got actor" );
 				ActorPtr actor = actorFactory_.CreateActor( element.child_value() );
 			}
 		}
