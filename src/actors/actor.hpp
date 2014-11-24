@@ -9,6 +9,9 @@
 #include <boost/property_tree/ptree.hpp>
 
 #include "actor_component.hpp"
+#include "logger.hpp"
+
+extern Log logger;
 
 class   Actor
 {
@@ -37,6 +40,7 @@ public:
     template< class ComponentType >
     boost::weak_ptr<ComponentType> GetComponent( ComponentId id )
     {
+	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
         ActorComponents::iterator it = components_.find( id );
         if( it != components_.end() )
         {
@@ -54,7 +58,8 @@ public:
     template <class ComponentType>
     boost::weak_ptr<ComponentType> GetComponent(const std::string& name)
     {
-		ComponentId id = ActorComponent::GetIdFromName(name);
+	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
+	ComponentId id = ActorComponent::GetIdFromName(name);
         ActorComponents::iterator it = components_.find( id );
         if( it != components_.end())
         {

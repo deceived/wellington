@@ -17,30 +17,33 @@ public:
     static const std::string name_;
 
     IdentityComponent()
-    {}
-
-	virtual ComponentId GetId() const 
     {
+	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
+    }
+
+    virtual ComponentId GetId() const 
+    {
+	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
         return GetIdFromName( GetName() ); 
     }
 
-	virtual const std::string GetName() const 
+    virtual const std::string GetName() const 
     {
         return name_;
     }
 
-	virtual bool Init(pugi::xml_node data);
+    virtual bool Init(pugi::xml_node data);
 
-	virtual void PostInit();
+    virtual void PostInit();
 
-	virtual void Update(int deltaMs) { }
-	virtual void OnChanged() { }				
+    virtual void Update(int deltaMs) { }
+    virtual void OnChanged() { }				
 
     static ComponentId GetIdFromName( const std::string& name )
-	{
+    {
         boost::hash<std::string> string_hash;
-		return string_hash( name );
-	}
+	return string_hash( name );
+    }
 
 private:
 

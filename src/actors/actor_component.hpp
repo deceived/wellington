@@ -7,40 +7,41 @@
 #include "interfaces.h"
 #include "properties.hpp"
 #include "pugixml.hpp"
+#include "logger.hpp"
 
-
+extern Log logger;
 
 class ActorComponent
 {
 
 public:
 
-	virtual ~ActorComponent() 
+    virtual ~ActorComponent() 
     { 
         owner_.reset(); 
     }
 
-	virtual ComponentId GetId() const 
+    virtual ComponentId GetId() const 
     {
         return GetIdFromName( GetName() ); 
     }
 
-	virtual const std::string GetName() const = 0;
+    virtual const std::string GetName() const = 0;
 
-	virtual bool Init( pugi::xml_node data ) = 0;
+    virtual bool Init( pugi::xml_node data ) = 0;
 
-	virtual void PostInit() { }
+    virtual void PostInit() { }
 
-	virtual void Update(int deltaMs) { }
-	virtual void OnChanged() { }				
+    virtual void Update(int deltaMs) { }
+    virtual void OnChanged() { }				
 
     static ComponentId GetIdFromName( const std::string& name )
-	{
+    {
         boost::hash<std::string> string_hash;
-		return string_hash( name );
-	}
+	return string_hash( name );
+    }
 
-	void SetOwner(ActorPtr owner) 
+    void SetOwner( ActorPtr owner ) 
     { 
         owner_ = owner; 
     }
