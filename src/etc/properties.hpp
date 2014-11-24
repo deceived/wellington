@@ -11,6 +11,8 @@
 #include <boost/property_tree/json_parser.hpp>
 #include <boost/property_tree/ini_parser.hpp>
 
+#include "logger.hpp"
+
 #include "pugixml.hpp"
 
 class Properties
@@ -26,17 +28,21 @@ public:
 
     static pointer ReadXmlDoc( const std::string& fileName )
     {
+	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
         pointer doc = boost::make_shared< pugi::xml_document >();
         pugi::xml_parse_result result = doc->load_file( fileName.c_str() );
         if( result )
-	    {
+        {
+	   logger.Severity( severity_level::debug, result->description() );
            return doc;
-	    }
-		return pointer();
+        }
+	logger.Severity( severity_level::debug, result->description() );
+	return pointer();
     }
 
     static ptr ReadXml( const std::string& fileName )
     {
+	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
         ptr properties = boost::make_shared< property_tree >();
         read_xml( fileName, *properties );        
         return properties;
@@ -44,6 +50,7 @@ public:
 
     static ptr ReadJson( const std::string& fileName )
     {
+	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
         ptr properties = boost::make_shared< property_tree >();
         read_json( fileName, *properties );        
         return properties;
@@ -51,6 +58,7 @@ public:
 
     static ptr ReadIni( const std::string& fileName )
     {
+	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
         ptr properties = boost::make_shared< property_tree >();
         read_ini( fileName, *properties );        
         return properties;

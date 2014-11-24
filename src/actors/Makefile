@@ -12,9 +12,9 @@ LDFLAGS	= -g
 INCLUDES = -I../log -I../etc -I../xml -I../res
 
 SRC = 	actor.cpp \
-		actor_factory.cpp \
-		identity_component.cpp \
-		move_component.cpp
+	actor_factory.cpp \
+	identity_component.cpp \
+	move_component.cpp
 
 OBJ = $(SRC:.cpp=.o)
 OUT = actors.a

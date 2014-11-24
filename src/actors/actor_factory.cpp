@@ -24,7 +24,6 @@ ActorPtr    ActorFactory::CreateActor( const std::string& actorResource )
     }
 
     ActorPtr actor = boost::make_shared<Actor>( GetNextId() );
-
     if( !actor->Init( resource ) )
     {
         return ActorPtr();
