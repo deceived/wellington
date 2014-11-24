@@ -15,6 +15,8 @@
 
 #include "pugixml.hpp"
 
+extern Log logger;
+
 class Properties
 {
 
@@ -33,10 +35,10 @@ public:
         pugi::xml_parse_result result = doc->load_file( fileName.c_str() );
         if( result )
         {
-	   logger.Severity( severity_level::debug, result->description() );
+	   logger.Severity( severity_level::debug, result.description() );
            return doc;
         }
-	logger.Severity( severity_level::debug, result->description() );
+	logger.Severity( severity_level::debug, result.description() );
 	return pointer();
     }
 
