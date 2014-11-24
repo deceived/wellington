@@ -12,11 +12,13 @@ Actor::~Actor()
 
 bool Actor::Init( Properties::pointer data )
 {
+    logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
     return true;
 }
 
 void Actor::PostInit(void)
 {
+    logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
     for( ActorComponents::iterator it = components_.begin(); it != components_.end(); ++it )
     {
         it->second->PostInit();
@@ -25,11 +27,13 @@ void Actor::PostInit(void)
 
 void Actor::Destroy(void)
 {
+    logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
     components_.clear();
 }
 
 void Actor::Update( int deltaMs )
 {
+    logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
     for( ActorComponents::iterator it = components_.begin(); it != components_.end(); ++it )
     {
         it->second->Update( deltaMs );
@@ -38,6 +42,7 @@ void Actor::Update( int deltaMs )
 
 void Actor::AddComponent( ActorComponentPtr component )
 {
+    logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
     std::pair<ActorComponents::iterator, bool> success = components_.insert( std::make_pair( component->GetId(), component ) );
 }
 
