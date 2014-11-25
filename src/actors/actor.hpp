@@ -78,6 +78,9 @@ public:
 
 private:
 
+    std::string type_;
+    std::string resource_;
+
     ActorId actorId_;
 
     ActorComponents components_;
