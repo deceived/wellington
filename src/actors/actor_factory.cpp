@@ -3,6 +3,8 @@
 #include "identity_component.hpp"
 #include "move_component.hpp"
 #include "representation_component.hpp"
+#include "fire_component.hpp"
+
 
 
 ActorFactory::ActorFactory()
@@ -12,6 +14,7 @@ ActorFactory::ActorFactory()
     componentFactory_.Register< IdentityComponent >( ActorComponent::GetIdFromName( IdentityComponent::name_ ) );
     componentFactory_.Register< MoveComponent >( ActorComponent::GetIdFromName( MoveComponent::name_ ) );
     componentFactory_.Register< RepresentationComponent >( ActorComponent::GetIdFromName( RepresentationComponent::name_ ) );
+    componentFactory_.Register< FireComponent >( ActorComponent::GetIdFromName( FireComponent::name_ ) );
 }
 
 
@@ -35,6 +38,7 @@ ActorPtr    ActorFactory::CreateActor( const std::string& actorResource )
 
     for( pugi::xml_node component: components.children( "Component" ) )
     {
+        logger.Severity( severity_level::debug, component.attribute( "name" ).value() );
         ActorComponentPtr cp( CreateComponent( component ) );
         if( cp )
         { 
