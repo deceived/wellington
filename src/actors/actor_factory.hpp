@@ -31,6 +31,7 @@ public:
     template <class SubClass>
     bool Register( IdType id )
     {
+	logger.Severity( severity_level::debug, __PRETTY_FUNCTION__ );
         auto it = creationFunctions.find( id );
         if ( it == creationFunctions.end() )
         {
@@ -43,6 +44,7 @@ public:
 
     BaseClass* Create( IdType id )
     {
+	logger.Severity( severity_level::debug, __PRETTY_FUNCTION__ );
         auto it = creationFunctions.find( id );
         if( it != creationFunctions.end() )
         {
@@ -77,6 +79,7 @@ private:
 
     ActorId   GetNextId() 
     {
+	logger.Severity( severity_level::debug, __PRETTY_FUNCTION__ );
         ++id_;
         return id_;
     }

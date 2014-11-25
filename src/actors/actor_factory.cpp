@@ -2,14 +2,16 @@
 
 #include "identity_component.hpp"
 #include "move_component.hpp"
-
+#include "representation_component.hpp"
 
 
 ActorFactory::ActorFactory()
 {
     logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
+
     componentFactory_.Register< IdentityComponent >( ActorComponent::GetIdFromName( IdentityComponent::name_ ) );
     componentFactory_.Register< MoveComponent >( ActorComponent::GetIdFromName( MoveComponent::name_ ) );
+    componentFactory_.Register< RepresentationComponent >( ActorComponent::GetIdFromName( RepresentationComponent::name_ ) );
 }
 
 
