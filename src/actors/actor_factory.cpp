@@ -38,6 +38,7 @@ ActorPtr    ActorFactory::CreateActor( const std::string& actorResource )
 
     for( pugi::xml_node component: components.children( "Component" ) )
     {
+        logger.Severity( severity_level::debug, component.name() );
         logger.Severity( severity_level::debug, component.attribute( "name" ).value() );
         ActorComponentPtr cp( CreateComponent( component ) );
         if( cp )
