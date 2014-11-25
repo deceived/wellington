@@ -1,4 +1,4 @@
-<Actor>
+<Actor type="Rifles" resource="95thRifles" >
   <Components>
     <Component name="identity" >
       <Name>95th Rifles</Name>

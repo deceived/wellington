@@ -13,6 +13,8 @@ Actor::~Actor()
 bool Actor::Init( Properties::pointer data )
 {
     logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
+    logger.Severity( severity_level::debug, data->child( "Actor" ).attribute( "type" ) );
+    logger.Severity( severity_level::debug, data->child( "Actor" ).attribute( "resource" ) );
     return true;
 }
 

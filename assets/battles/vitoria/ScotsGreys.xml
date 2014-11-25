@@ -1,4 +1,4 @@
-<Actor>
+<Actor type="Cavalry" resource="ScotsGreys" >
   <Components>
     <Component name="identity" >
       <Name></Name>

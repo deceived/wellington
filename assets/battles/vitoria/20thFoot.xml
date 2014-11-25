@@ -1,4 +1,4 @@
-<Actor>
+<Actor type="Line" resource="20thFoot.xml">
   <Components>
     <Component name="identity" >
       <Name>20th Foot</Name>

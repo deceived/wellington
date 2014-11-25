@@ -1,5 +1,5 @@
 <?xml version="1.0" ?>
-<Actor>
+<Actor type="C-in-C" resource="Wellington.xml" >
   <Components>
     <Component name="identity" >
       <Name>Wellington</Name>
