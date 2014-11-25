@@ -14,8 +14,8 @@ bool Actor::Init( Properties::pointer data )
 {
     logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
 
-    type_( data->child( "Actor" ).attribute( "type" ).value() );
-    resource_( severity_level::debug, data->child( "Actor" ).attribute( "resource" ).value() );
+    type_ = data->child( "Actor" ).attribute( "type" ).value();
+    resource_ = data->child( "Actor" ).attribute( "resource" ).value();
 
     logger.Severity( severity_level::debug, type_ );
     logger.Severity( severity_level::debug, resource_ );
