@@ -56,7 +56,7 @@ ActorPtr    ActorFactory::CreateActor( const std::string& actorResource )
 ActorComponentPtr ActorFactory::CreateComponent( pugi::xml_node  component )
 {
     logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
-    logger.Severitty( severity_level::debug, component.attribute( "name" ).value() );
+    logger.Severity( severity_level::debug, component.attribute( "name" ).value() );
 
     ActorComponentPtr   cp( componentFactory_.Create( ActorComponent::GetIdFromName( component.attribute("name").value() ) ) );
     if( cp )
