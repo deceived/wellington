@@ -22,6 +22,7 @@ ActorFactory::ActorFactory()
 ActorPtr    ActorFactory::CreateActor( const std::string& actorResource )
 {
     logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
+
     Properties::pointer resource = Properties::ReadXmlDoc( actorResource );
     if( !resource )
     {
@@ -43,17 +44,19 @@ ActorPtr    ActorFactory::CreateActor( const std::string& actorResource )
         ActorComponentPtr cp( CreateComponent( component ) );
         if( cp )
         { 
-            actor->AddComponent( cp );
-            cp->SetOwner( actor );
+//            actor->AddComponent( cp );
+//            cp->SetOwner( actor );
         }
         else
         {
+            logger.Severity( severity_level::info, "actor ptr null (component ptr null)" );
             return ActorPtr();
         } 
     }
  
     actor->PostInit();
 
+    logger.Severity( severity_level::info, "actor ptr not null" );
     return actor;
 }
 
@@ -68,13 +71,16 @@ ActorComponentPtr ActorFactory::CreateComponent( pugi::xml_node  component )
     {
         if( !cp->Init( component ) )
         {
+    	    logger.Severity( severity_level::info, "actor component ptr null(0)" );
             return ActorComponentPtr();
         }
     }
     else
     {
+    	logger.Severity( severity_level::info, "actor component ptr null(1)" );
         return ActorComponentPtr();
     }
+    logger.Severity( severity_level::info, "actor component ptr not null" );
     return cp;
 }
 
