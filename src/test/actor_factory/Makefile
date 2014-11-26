@@ -8,13 +8,13 @@ srcdir = .
 CXX = g++
 
 DEFS = 
-INCDIRS  = -I../../etc -I../../xml -I../../ui -I../../res -I../../actors
+INCDIRS  = -I../../log -I../../etc -I../../xml -I../../ui -I../../res -I../../actors
 LIBDIRS  = -L../../../lib
 CXXFLAGS = $(INCDIRS) -g -Wall -std=c++11
 
 CFLAGS = 	$(INCDIRS) $(CXXFLAGS)
 
-LIBS    = -l:ui.a -l:actors.a -l:pugixml.a -lncurses -l:libboost_program_options.a
+LIBS    = -l:logger.a -l:ui.a -l:actors.a -l:pugixml.a -lncurses -l:libboost_program_options.a -l:libboost_system.a -l:libboost_thread.a -l:libboost_log.a -lpthread
 LDFLAGS	= $(LIBDIRS)
 
 prefix = ../../../test

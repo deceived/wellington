@@ -10,6 +10,8 @@
 
 typedef std::vector< std::string > split_vector_type;
 
+Log logger;
+
 int main( int argc, char** argv )
 {
     std::cout << "test resource..." << std::endl;

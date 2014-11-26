@@ -2,6 +2,8 @@
 
 #include "actor_factory.hpp"
 
+Log logger;
+
 int main( int argc, char** argv )
 {
 
