@@ -3,6 +3,7 @@
 
 #include <boost/smart_ptr.hpp>
 #include <boost/functional/hash.hpp>
+#include <boost/lexical_cast.hpp>
 
 #include "interfaces.h"
 #include "properties.hpp"
@@ -23,6 +24,9 @@ public:
 
     virtual ComponentId GetId() const 
     {
+	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
+	logger.Severity( severity_level::debug, GetName() );
+	logger.Severity( severity_level::debug, boost::lexical_cast<std::string>( GetIdFromName( GetName() ) ) );
         return GetIdFromName( GetName() ); 
     }
 
@@ -37,6 +41,8 @@ public:
 
     static ComponentId GetIdFromName( const std::string& name )
     {
+	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
+	logger.Severity( severity_level::debug, name );
         boost::hash<std::string> string_hash;
 	return string_hash( name );
     }
