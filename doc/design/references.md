@@ -29,6 +29,29 @@ restricted. Firepower was limited.
 
 Some more recent references which might prove timely and useful.
 
+A base project in C for OpenGL applications. Written for Windows. :(
+But it might just port easily. Possibly a second project, to create a generic
+hex map based framework. When not wargaming with figures on big tables, the next
+best thing was using hex maps and symbols, also on big tables.
+
 http://www.codeproject.com/Articles/15344/A-multithreaded-OpenGL-enabled-application
+
+A company what does hex map based games including one on the Peninsular War. But
+mine will be better. :)
+
 http://johntillersoftware.com/
+
+For creating hex maps there are a few things to look at.
+
+GIMP
+Inkscape
+AutoREALM
+
+http://www.hexographer.com
+
+www.rptools.net/index.php?page=maptool
+
+rpgmapshare.com
+
+http://tilemap.co.uk/mappy.php
 
