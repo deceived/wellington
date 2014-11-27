@@ -1,20 +1,20 @@
 <Actor type="Cavalry" resource="ScotsGreys" >
   <Components>
-    <Component name="identity" >
+    <Component name="IdentityComponent" >
       <Name></Name>
       <Type>Heavy Cavalry</Type>
       <Points>25</Points>
     </Component>
-    <Component name="move" >
+    <Component name="MoveComponent" >
       <Front>30</Front>
       <Normal>140</Normal>
       <Action>260</Action>
     </Component>
-    <Component name="representation" >
+    <Component name="RepresentationComponent" >
       <Image>heavy-cavalry.png</Image>
 	  <Char>S</Char>
     </Component>
-    <Component name="fire" >
+    <Component name="FireComponent" >
       <Weapon>Sabre</Weapon>
       <Range>NA</Range>
     </Component>
