@@ -27,3 +27,8 @@ War.
 The musket and cannon era seems the easiest to automate. Movements were more
 restricted. Firepower was limited. 
 
+Some more recent references which might prove timely and useful.
+
+http://www.codeproject.com/Articles/15344/A-multithreaded-OpenGL-enabled-application
+http://johntillersoftware.com/
+
