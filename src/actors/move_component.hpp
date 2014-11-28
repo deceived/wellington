@@ -47,6 +47,10 @@ public:
 
 private:
 
+    std::size_t front_;
+    std::size_t normal_;
+    std::size_t action_;
+    
 };
 
 #endif
