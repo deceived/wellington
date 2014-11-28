@@ -47,6 +47,9 @@ public:
 
 private:
 
+    std::string weapon_;
+    std::size_t range_;
+
 };
 
 #endif
