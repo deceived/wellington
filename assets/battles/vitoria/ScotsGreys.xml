@@ -1,7 +1,7 @@
 <Actor type="Cavalry" resource="ScotsGreys" >
   <Components>
     <Component name="IdentityComponent" >
-      <Name></Name>
+      <Name>Scots Greys</Name>
       <Type>Heavy Cavalry</Type>
       <Points>25</Points>
     </Component>
