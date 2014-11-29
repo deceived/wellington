@@ -144,6 +144,12 @@ void StdScrMapController::InitialiseDisplay()
 			{
 				ActorPtr actor = actorFactory_.CreateActor( element.child_value() );
 			}
+			if( element.name() == std::string( "StartX" ) )
+			{
+			}
+			if( element.name() == std::string( "StartY" ) )
+			{
+			}
 		}
 	} 
 }
