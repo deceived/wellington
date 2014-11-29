@@ -47,6 +47,9 @@ public:
 
 private:
 
+    std::string image_;
+    std::string char_;
+
 };
 
 #endif

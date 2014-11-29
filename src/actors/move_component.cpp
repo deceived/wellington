@@ -14,6 +14,18 @@ bool MoveComponent::Init(pugi::xml_node data)
     {
         logger.Severity( severity_level::debug, child.name() );
         logger.Severity( severity_level::debug, child.child_value() );
+        if( child.name() == std::string( "Front" ) )
+        {
+	    front_ = boost::lexical_cast<std::size_t>( child.child_value() );
+        }
+        if( child.name() == std::string( "Normal" ) )
+        {
+	    normal_ = boost::lexical_cast<std::size_t>( child.child_value() );
+	}
+        if( child.name() == std::string( "Action" ) )
+	{
+	    action_ = boost::lexical_cast<std::size_t>( child.child_value() );
+	}
     }
 }
 
