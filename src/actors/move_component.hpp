@@ -47,9 +47,6 @@ public:
 
 private:
 
-    std::size_t startX_;
-    std::size_t startY_;
-
     std::size_t front_;
     std::size_t normal_;
     std::size_t action_;
