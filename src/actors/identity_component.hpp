@@ -47,6 +47,10 @@ public:
 
 private:
 
+    std::string id_;
+    std::string type_;
+    std::size_t points_;
+
 };
 
 #endif
