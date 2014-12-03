@@ -14,7 +14,17 @@ public:
 	:  x_( x ),
 	   y_( y )
 	{}
-	 
+
+    Add( Tile& tile )
+    {
+        map_[ tile.GetY() ][ tile.GetX() ] = tile;
+    }
+	
+    Tile Get( int x, int y )
+    {
+        return map_[ y ][ x ];
+    }
+ 
 private:
 
     int x_;

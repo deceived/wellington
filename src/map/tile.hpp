@@ -1,6 +1,11 @@
 #ifndef TILE_HPP
 #define TILE_HPP
 
+/** it is a bit overworked. might be better to 
+    implement as C. keep this in mind.
+
+**/
+
 class Point
 {
 
@@ -76,6 +81,25 @@ public:
         location_( location )
     {}
 
+    int GetX()
+    {
+        return location_.GetX();
+    }
+
+    int GetY()
+    {
+        return location_.GetY();
+    }
+
+    enum terrain_t GetTerrain()
+    {
+        return terrain_;
+    }
+
+    enum cover_t GetCover()
+    {
+        return cover_;
+    }
 
 private:
 
