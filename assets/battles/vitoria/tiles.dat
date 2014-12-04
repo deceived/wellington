@@ -1,0 +1,46 @@
+enum terrain_t
+{
+	Flat = 0
+	Hill = 1
+	Mountain = 2
+	Lake = 3
+	Stream = 4
+	River = 5
+}
+enum cover_t
+{
+	Grass = 0
+	Marsh = 1
+	Wood = 2
+	Forest = 3
+	Wall = 4
+	Building = 5
+}
+tile( 1 )
+{
+	Flat, Grass
+}
+tile( 2 )
+{
+	Hill, Grass
+}
+tile( 3 )
+{
+	River, Grass
+}
+tile( 4 )
+{
+	Flat, Road
+}
+tile( 5 )
+{
+	Hill, Road
+}
+tile( 6 )
+{
+	Flat, Building
+}
+tile( 7 )
+{
+	Flat, { Building, Road }
+}
