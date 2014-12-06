@@ -31,10 +31,11 @@ typedef enum
 	LEFTPARENTSY,
 	RIGHTPARENTSY,
 	COMMASY,
-	LEFTSQUAREBRACKETSY,
-	RIGHTSQUAREBRACKETSY,
+	LEFTSQUARESY,
+	RIGHTSQUARESY,
 	MAPSY,
-	EQUALSY
+	EQUALSY,
+	INTCONST
 
 } symbolclass;
 
@@ -45,6 +46,9 @@ class ReservedWords
 public:
 
 	typedef std::map< std::string, symbolclass > reserved_type;
+
+	static const char ALPHA = 'a';
+	static const char DIGIT = '0';
 
 	ReservedWords()
 	{
@@ -112,6 +116,7 @@ private:
 	int Class( int c );
 	int index_;
 	std::string line_;
+	std::string token_;
 
 	std::string fileName_;
 	std::ifstream input_;

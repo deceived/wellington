@@ -4,7 +4,7 @@ int TileScanner::Class( int c )
 {
     if( isalpha( c ) )
     {
-	return ALPHA;
+		return ALPHA;
     }
     if( isdigit( c ) )
     {
@@ -19,7 +19,7 @@ int TileScanner::Input()
 	{
 		return line_[ index_++ ];
 	}
-    if( !input.eof() )
+    if( !input_.eof() )
     {
 		getline( input_, line_ );
 		boost::to_lower( line_ );
@@ -46,22 +46,46 @@ int TileScanner::NextSymbol()
 			case '\n':
 				break;
 			case ALPHA:
+				for( j = 0; isalnum( c ); j++ )
+				{
+					token_ += c;
+					c = Input();
+				}
+				Unput();
+				return reserved_.Get( token_ );
 				break;
 		    case DIGIT:
+				for( i = 0; isdigit( c ); j++ )
+				{
+					token_ += c;
+					c = Input();
+				}
+				Unput();
+				return INTCONST;
 				break;
 			case '{':
+				return LEFTBRACKETSY;
 				break;
 			case '}':
+				return RIGHTBRACKETSY;
 				break;
 			case '[':
+				return LEFTSQUARESY;
 				break;
 			case ']':
+				return RIGHTSQUARESY;
 				break;
 			case '(':
+				return LEFTPARENTSY;
 				break;
 			case ')':
+				return RIGHTPARENTSY;
 				break;
 			case '=':
+				return EQUALSY;
+				break;
+			case ',':
+				return COMMASY;
 				break;
 		}
 	}
