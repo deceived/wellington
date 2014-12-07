@@ -29,35 +29,27 @@ restricted. Firepower was limited.
 
 Some more recent references which might prove timely and useful.
 
-A base project in C for OpenGL applications. Written for Windows. :(
-But it might just port easily. Possibly a second project, to create a generic
-hex map based framework. When not wargaming with figures on big tables, the next
-best thing was using hex maps and symbols, also on big tables.
-
-http://www.codeproject.com/Articles/15344/A-multithreaded-OpenGL-enabled-application
-
 A company what does hex map based games including one on the Peninsular War. But
 mine will be better. :)
 
 http://johntillersoftware.com/
 
-For creating hex maps there are a few things to look at.
-
-GIMP
-Inkscape
-AutoREALM
-
-http://www.hexographer.com
-
-www.rptools.net/index.php?page=maptool
-
-rpgmapshare.com
-
-http://tilemap.co.uk/mappy.php
+For creating hex maps there are a few things to look at. But tiled seems to be
+free and simple and worth trying.
 
 http://www.mapeditor.org
 
-http://www.garagegames.com/products/torque-2d
+For a cross platform application the choices are quite limited as far
+as I am concerned. wxWidgets and Qt is pretty much it. Not having any 
+experience of either, I will have to go by other's opinion. This seems
+split, but it looks like wxWidgets may just edge it. I will find out
+after I use it. It should be used for the map editor. It can't be mixed with
+a game library for a number of reasons.
 
-social.consimworld.com
-social.consimworld.com/profile/Nick?xg_source=activity
+I forgot about Crazy Eddie's GUI. It is still going and can be found here:
+
+cegui.org.uk
+
+This seems more active than any of the other's I have looked at. It also
+gets good comment and recommendations.
+ 
