@@ -15,8 +15,15 @@ public:
 		: id_( id )
 	{}
 
-	void AddTerrain( int terrain );
-	void AddCover( int cover );
+	void AddTerrain( int terrain )
+	{
+		terrain_.push_back( terrain );
+	}
+
+	void AddCover( int cover )
+	{
+		cover_.push_back( terrain );
+	}
 
 	int GetId()
 	{
@@ -50,6 +57,10 @@ class TileParser
 	typedef std::map< std::string, int > enum_type;
 	typedef std::map< std::string, enum_type > enum_data;
 
+	typedef std::map< int, Tile > tile_data;
+
+	typedef std::vector< std::vector< int > > map_type;
+
 public:
 
 	TileParser( const std::string& fileName )
@@ -60,8 +71,12 @@ public:
 
 private:
 
+	void AddTile();
+
 	TileScanner scanner_;
 
+	map_type	map_;
+	
 };
 
 #endif
