@@ -111,6 +111,11 @@ public:
 	int Input();
 	void Unput();
 
+	std::string GetToken()
+	{
+		return token_;
+	}
+
 private:
 
 	int Class( int c );
