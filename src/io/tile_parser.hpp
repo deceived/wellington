@@ -71,6 +71,7 @@ public:
 
 private:
 
+	void AddEnum();
 	void AddTile();
 
 	TileScanner scanner_;

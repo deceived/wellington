@@ -4,3 +4,6 @@ void TileParser::AddTile()
 {
 }
 
+void TileParser::AddEnum()
+{
+}
