@@ -4,7 +4,7 @@
 #include <map>
 #include <vector>
 
-#include "tile_scanner.hpp"
+#include "tile_scan.hpp"
 
 class Tile
 {
@@ -22,7 +22,7 @@ public:
 
 	void AddCover( int cover )
 	{
-		cover_.push_back( terrain );
+		cover_.push_back( cover );
 	}
 
 	int GetId()

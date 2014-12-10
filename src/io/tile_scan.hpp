@@ -14,7 +14,7 @@ typedef enum
 	ENUMSY,
 	TERRAINSY,
 	COVERSY,
-	FLATSY
+	FLATSY,
 	HILLSY,
 	MOUNTAINSY,
 	LAKESY,
@@ -35,7 +35,8 @@ typedef enum
 	RIGHTSQUARESY,
 	MAPSY,
 	EQUALSY,
-	INTCONST
+	INTCONST,
+	EOFSY
 
 } symbolclass;
 
@@ -115,6 +116,8 @@ public:
 	{
 		return token_;
 	}
+
+	int NextSymbol();
 
 private:
 

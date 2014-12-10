@@ -4,11 +4,11 @@ int TileScanner::Class( int c )
 {
     if( isalpha( c ) )
     {
-		return ALPHA;
+		return ReservedWords::ALPHA;
     }
     if( isdigit( c ) )
     {
-    	return DIGIT;
+    	return ReservedWords::DIGIT;
     }
     return c;
 }
@@ -30,7 +30,7 @@ int TileScanner::Input()
 
 void TileScanner::Unput()
 {
-	--input_;
+	--index_;
 }
 
 int TileScanner::NextSymbol()
@@ -45,8 +45,8 @@ int TileScanner::NextSymbol()
 			case '\t':
 			case '\n':
 				break;
-			case ALPHA:
-				for( j = 0; isalnum( c ); j++ )
+			case ReservedWords::ALPHA:
+				for( int j = 0; isalnum( c ); j++ )
 				{
 					token_ += c;
 					c = Input();
@@ -54,8 +54,8 @@ int TileScanner::NextSymbol()
 				Unput();
 				return reserved_.Get( token_ );
 				break;
-		    case DIGIT:
-				for( i = 0; isdigit( c ); j++ )
+		    case ReservedWords::DIGIT:
+				for( int j = 0; isdigit( c ); j++ )
 				{
 					token_ += c;
 					c = Input();
