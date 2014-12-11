@@ -17,51 +17,63 @@
 		"forest": 3
 		"wall": 4
 		"building": 5
+		"road": 6
 	}
 
 	"tiles":
 	{
-		"tile":( 1 )
-		{
-			"id": 1
-			Flat, Grass
-		}
+		[
 
-		"tile":
-		{
-			"id": 2
-			Hill, Grass
-		}
+			"tile":
+			{
+				"id": 1
+				"terrain": 0
+				"cover": 0 
+			},
 
-		"tile":
-		{
-			"id": 3
-			River, Grass
-		}
+			"tile":
+			{
+				"id": 2
+				"terrain": 1
+				"cover": 0 
+			},
 
-		"tile":
-		{
-			"id": 4
-			Flat, Road
-		}
+			"tile":
+			{
+				"id": 3
+				"terrain": 5
+				"cover": 0 
+			},
 
-		"tile": 5
-		{
-			"id":
-			Hill, Road
-		}
+			"tile":
+			{
+				"id": 4
+				"terrain": 0
+				"cover": 6 
+			},
 
-		"tile":
-		{
-			"id": 6
-			Flat, Building
-		}
+			"tile": 5
+			{
+				"id":
+				"terrain": 1
+				"cover": 6 
+			},
 
-		"tile":
-		{
-			"id": 7
-			Flat, [ Building, Road ]
-		}
+			"tile":
+			{
+				"id": 6
+				"terrain": 0
+				"cover": 5 
+			},
+
+			"tile":
+			{
+				"id": 7
+				"terrain": 0
+				"cover": [ 5, 6 ]
+			}
+
+		]
 	}
 
 	"map":
