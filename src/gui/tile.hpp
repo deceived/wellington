@@ -1,11 +1,6 @@
 #ifndef TILE_HPP
 #define TILE_HPP
 
-/** it is a bit overworked. might be better to 
-    implement as C. keep this in mind.
-
-**/
-
 class Point
 {
 
