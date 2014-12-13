@@ -13,8 +13,8 @@ public:
 
 	typedef boost::shared_ptr< std::string > line_ptr;
 
-	CmdModel::line_ptr  GetPrompt();
-	void Put( unsigned int row, unsigned int col, CmdView::line_ptr line );
+	Command::line_ptr  GetPrompt();
+	void Put( unsigned int row, unsigned int col, Command::line_ptr line );
 	void ClearLine( unsigned int row, unsigned int col, unsigned int length );
 	line_ptr Read( unsigned int row, unsigned int col );
 	line_ptr Read();

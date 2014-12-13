@@ -11,14 +11,14 @@ LDFLAGS	= -g
 
 INCLUDES = -I../io -I../log -I../actors -I../etc -I../xml -I../res
 
-SRC = 	cmd_model.cpp cmd_view.cpp \
-		key_model.cpp key_view.cpp \
-		map_model.cpp map_view.cpp \
-		stdscr_map_controller.cpp \
+SRC = 	cmd.cpp \
+		key.cpp \
+		map.cpp \
+		stdscr_controller.cpp \
 		stdscr_view.cpp
  
 OBJ = $(SRC:.cpp=.o)
-OUT = ui.a
+OUT = gui.a
 
 all: $(OUT) 
 
