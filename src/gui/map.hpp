@@ -15,7 +15,12 @@ public:
 	   y_( y )
 	{}
 
-    Add( Tile& tile )
+	Properties::ptr Load( const std::string& filenNme )
+	{
+		return Properties::RaedJson( fileName ); 
+	}
+ 
+    void Add( Tile& tile )
     {
         map_[ tile.GetY() ][ tile.GetX() ] = tile;
     }
