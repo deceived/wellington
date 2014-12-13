@@ -1,9 +1,9 @@
 #ifndef STDSCR_MODEL_HPP
 #define STDSCR_MODEL_HPP
 
-#include "map_model.hpp"
-#include "key_model.hpp"
-#include "cmd_model.hpp"
+#include "map.hpp"
+#include "key.hpp"
+#include "cmd.hpp"
 
 class StdScrModel
 {
