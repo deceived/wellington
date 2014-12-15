@@ -1,7 +1,7 @@
 #ifndef MAP_HPP
 #define MAP_HPP
 
-#include <array>
+#include <vector>
 
 #include "tile.hpp"
 
@@ -15,9 +15,9 @@ public:
 	   y_( y )
 	{}
 
-	Properties::ptr Load( const std::string& filenNme )
+	Properties::ptr Load( const std::string& fileName )
 	{
-		return Properties::RaedJson( fileName ); 
+		return Properties::ReadJson( fileName ); 
 	}
  
     void Add( Tile& tile )
@@ -35,7 +35,7 @@ private:
     int x_;
     int y_;
 
-    std::array< std::array< Tile, x_ >, y_ > map_;
+    std::vector< std::vector< Tile > > map_;
  
 };
 

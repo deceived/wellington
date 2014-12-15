@@ -18,7 +18,7 @@ public:
 
     void SetX( int x )
     {
-	x_ = x;
+		x_ = x;
     }
 
     int GetX()
@@ -28,12 +28,12 @@ public:
 
     void SetY( int y )
     {
-	y_ = y;
+		y_ = y;
     }
 
     int GetY()
     {
-	return y;
+		return y_;
     }
 
 private:

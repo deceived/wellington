@@ -1,22 +1,18 @@
 #ifndef STDSCR_VIEW_HPP
 #define STDSCR_VIEW_HPP
 
+#include <ncurses.h>
+
 #include <string>
 
 #include <boost/smart_ptr.hpp>
-
-#include "map_view.hpp"
-#include "key_view.hpp"
-#include "cmd_view.hpp"
 
 class StdScrView
 {
 
 public:
 
-	typedef boost::shared_ptr< MapView > map_view;
-	typedef boost::shared_ptr< KeyView > key_view;
-	typedef boost::shared_ptr< CmdView > cmd_view;
+	typedef boost::shared_ptr< std::string > line_ptr;
 
 	StdScrView();
 	~StdScrView();
@@ -25,28 +21,16 @@ public:
 	void Terminate();
 
 	void DisplayLine( unsigned int row, unsigned int column, std::string& line );
-	void ClearLine( unsigned int row, unsigned int column, int length );
 
-	map_view GetMapView()
-	{
-		return mapView_;
-	}
+	void Put( unsigned int row, unsigned int col, line_ptr line );
+	void Put( unsigned int row, unsigned int col, char ch );
 
-	key_view GetKeyView()
-	{
-		return keyView_;
-	}
+	void ClearLine( unsigned int row, unsigned int col, unsigned int length );
 
-	cmd_view GetCmdView()
-	{
-		return cmdView_;
-	}
+	line_ptr Read( unsigned int row, unsigned int col );
+	line_ptr Read();
 
 private:
-
-	boost::shared_ptr< MapView >	mapView_;
-	boost::shared_ptr< KeyView >	keyView_;
-	boost::shared_ptr< CmdView >	cmdView_;
 
 	int rows_;
 	int columns_;
@@ -54,4 +38,3 @@ private:
 
 
 #endif
-
