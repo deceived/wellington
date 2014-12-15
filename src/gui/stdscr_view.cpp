@@ -44,3 +44,39 @@ void StdScrView::ClearLine( unsigned int row, unsigned int column, int length )
 	} 
 }
 
+void StdScrView::Put( unsigned int row, unsigned int col, line_ptr line )
+{
+	mvprintw( row, col, (*line).c_str() );
+}
+
+line_ptr StdScrView::Read( unsigned int row, unsigned int col )
+{
+	char cmd[ 128 ];
+
+	move( row, col );
+	getstr( cmd );
+
+	return boost::make_shared<std::string>( cmd );
+}
+
+line_ptr StdScrView::Read()
+{
+	char cmd[ 128 ];
+
+	getstr( cmd );
+
+	return boost::make_shared<std::string>( cmd );
+}
+
+void StdScrView::ClearLine( unsigned int row, unsigned int column, unsigned int length )
+{
+	for(unsigned int count = 0; count < length; ++count)
+	{
+		mvaddch( row, column + count, ' ' );
+	} 
+}
+
+void StdScrView::Put( unsigned int row, unsigned int col, char ch )
+{
+}
+
