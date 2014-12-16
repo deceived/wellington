@@ -63,8 +63,8 @@ private:
 
 	ActorFactory	actorFactory_;
 
-	boost::shared_ptr< StdScrModel > model_;
-	boost::shared_ptr< StdScrView >  view_;
+	model_ptr model_;
+	view_ptr  view_;
 
 	boost::program_options::variables_map& options_;
 

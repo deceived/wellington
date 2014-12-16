@@ -10,11 +10,6 @@ class Map
 
 public:
 
-    Map( int x, int y  )
-	:  x_( x ),
-	   y_( y )
-	{}
-
 	Properties::ptr Load( const std::string& fileName )
 	{
 		return Properties::ReadJson( fileName ); 
