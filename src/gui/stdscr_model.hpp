@@ -10,14 +10,9 @@ class StdScrModel
 
 public:
 
-	typedef boost::shared_ptr< Map >	map_type;
-	typedef boost::shared_ptr< Key >	key_type;
-	typedef boost::shared_ptr< Cmd >	cmd_type;
+	typedef boost::shared_ptr< std::string > line_ptr;
 
 	StdScrModel()
-		: mapModel_( boost::make_shared< Map >() ),
-		  keyModel_( boost::make_shared< Key >() ),
-		  cmdModel_( boost::make_shared< Cmd >() )
 	{}
 
 	void LoadMap( const std::string& fileName )
@@ -34,26 +29,12 @@ public:
 	{
 	}
 
-	map_model	GetMapModel()
-	{
-		return map_;
-	}
+	line_ptr  GetPrompt();
+	line_ptr NextLine( size_t line );
+	map_ptr	GetMap();
 
-	key_model	GetKeyModel()
-	{
-		return key_;
-	}
-
-	cmd_model	GetCmdModel()
-	{
-		return cmd_;
-	}
-	
 private:
 
-	map_type	map_;
-	key_type	key_;
-	cmd_type	cmd_;
 };
 
 #endif
