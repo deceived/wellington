@@ -75,9 +75,9 @@ void StdScrMapController::DisplayKey()
 void StdScrMapController::DisplayCommand()
 {
 	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
-	StdScrModel::cmd_ptr model = model_->GetCmdModel();
+	StdScrModel::cmd_ptr command = model_->GetCmd();
 
-	line_ptr prompt = model->GetPrompt();
+	line_ptr prompt = command->GetPrompt();
 
 	view_->Put( 40, 0, prompt );
 }
@@ -93,8 +93,8 @@ void StdScrMapController::ClearCmd()
 StdScrMapController::line_ptr StdScrMapController::ReadCmd()
 {
 	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
-	StdScrModel::cmd_view view = view_->GetCmdView();
-	return view->Read();
+	StdScrModel::cmd_ptr command = model_->GetCmd();
+	return command->Read();
 }
 
 void StdScrMapController::UpdateMap()
