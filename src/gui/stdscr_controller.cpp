@@ -43,8 +43,8 @@ void StdScrMapController::LoadKey()
 void StdScrMapController::DisplayMap()
 {
 	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
-	map_ptr model = model_->GetMapModel();
-	map_view view = view_->GetMapView();
+	StdScrModel::map_ptr model = model_->GetMapModel();
+	StdScrModel::map_view view = view_->GetMapView();
 
 	size_t rows = model->LineCount();
 	for( size_t count = 0;
@@ -60,8 +60,8 @@ void StdScrMapController::DisplayMap()
 void StdScrMapController::DisplayKey()
 {
 	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
-	key_ptr model = model_->GetKeyModel();
-	key_view view = view_->GetKeyView();
+	StdScrModel::key_ptr model = model_->GetKeyModel();
+	StdScrModel::key_view view = view_->GetKeyView();
 
 	size_t rows = model->LineCount();
 	for( size_t count = 0;
@@ -77,8 +77,8 @@ void StdScrMapController::DisplayKey()
 void StdScrMapController::DisplayCommand()
 {
 	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
-	cmd_ptr model = model_->GetCmdModel();
-	cmd_view view = view_->GetCmdView();
+	StdScrModel::cmd_ptr model = model_->GetCmdModel();
+	StdScrModel::cmd_view view = view_->GetCmdView();
 
 	line_ptr prompt = model->GetPrompt();
 
@@ -88,7 +88,7 @@ void StdScrMapController::DisplayCommand()
 void StdScrMapController::ClearCmd()
 {
 	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
-	cmd_view view = view_->GetCmdView();
+	StdScrModel::cmd_view view = view_->GetCmdView();
 	view->ClearLine( 40, 0, 80 );
 
 	DisplayCommand();
@@ -97,7 +97,7 @@ void StdScrMapController::ClearCmd()
 StdScrMapController::line_ptr StdScrMapController::ReadCmd()
 {
 	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
-	cmd_view view = view_->GetCmdView();
+	StdScrModel::cmd_view view = view_->GetCmdView();
 	return view->Read();
 }
 

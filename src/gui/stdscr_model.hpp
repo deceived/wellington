@@ -12,6 +12,8 @@ class StdScrModel
 
 public:
 
+	typedef boost::shared_ptr< StdScrModel > model_ptr;
+
 	typedef boost::shared_ptr< std::string > line_ptr;
 
 	typedef boost::shared_ptr< Map > map_ptr;
@@ -41,7 +43,7 @@ public:
 
 	map_ptr	GetMap();
 	cmd_ptr GetCmd();
-	key_ptr GetCmd();
+	key_ptr GetKey();
 
 private:
 

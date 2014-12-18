@@ -12,6 +12,8 @@ class StdScrView
 
 public:
 
+	typedef boost::shared_ptr< StdScrView > view_ptr;
+
 	typedef boost::shared_ptr< std::string > line_ptr;
 
 	StdScrView();
