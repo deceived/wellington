@@ -48,6 +48,11 @@ public:
 		return keys_->size();
 	}
 
+	line_ptr NextLine( size_t count )
+	{
+		return (*keys_)[ count ]; 
+	}
+
 private:
 
 	unsigned int rows_;

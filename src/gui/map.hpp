@@ -10,6 +10,8 @@ class Map
 
 public:
 
+	typedef boost::shared_ptr< std::string > line_ptr;
+
 	Properties::ptr Load( const std::string& fileName )
 	{
 		return Properties::ReadJson( fileName ); 
@@ -28,6 +30,11 @@ public:
 	size_t LineCount()
 	{
 		return map_.size();
+	}
+
+	line_ptr NextLine( size_t count )
+	{
+		return line_ptr();
 	}
  
 private:
