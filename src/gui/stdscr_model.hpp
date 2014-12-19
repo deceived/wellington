@@ -41,9 +41,21 @@ public:
 	line_ptr GetPrompt();
 	line_ptr NextLine( size_t line );
 
-	map_ptr	GetMap();
-	cmd_ptr GetCmd();
-	key_ptr GetKey();
+	map_ptr	GetMap()
+	{
+		return map_;
+	}
+
+	cmd_ptr GetCmd()
+	{
+		return cmd_;
+	}
+
+	key_ptr GetKey()
+	{
+		return key_;
+	}
+
 
 private:
 
