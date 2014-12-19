@@ -43,6 +43,10 @@ public:
 		return (*keys_)[ index ];
 	}
 
+	size_t LineCount()
+	{
+		return keys_->size();
+	}
 
 private:
 

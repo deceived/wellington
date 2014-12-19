@@ -43,15 +43,15 @@ void StdScrMapController::LoadKey()
 void StdScrMapController::DisplayMap()
 {
 	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
-	StdScrModel::map_ptr model = model_->GetMap();
+	StdScrModel::map_ptr map = model_->GetMap();
 
-	size_t rows = model->LineCount();
+	size_t rows = map->LineCount();
 	for( size_t count = 0;
 			count < rows;
 			++count
 		)
 	{
-		line_ptr line = model->NextLine( count );
+		line_ptr line = map->NextLine( count );
 		view_->Put( count, 0, line );
 	}
 }
@@ -59,15 +59,15 @@ void StdScrMapController::DisplayMap()
 void StdScrMapController::DisplayKey()
 {
 	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
-	StdScrModel::key_ptr model = model_->GetKeyModel();
+	StdScrModel::key_ptr key = model_->GetKey();
 
-	size_t rows = model->LineCount();
+	size_t rows = key->LineCount();
 	for( size_t count = 0;
 			count < rows;
 			++count
 		)
 	{
-		line_ptr line = model->NextLine( count );
+		line_ptr line = key->NextLine( count );
 		view_->Put( count, 100, line );
 	}
 }

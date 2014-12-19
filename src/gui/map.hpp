@@ -24,6 +24,11 @@ public:
     {
         return map_[ y ][ x ];
     }
+
+	size_t LineCount()
+	{
+		return map_.size();
+	}
  
 private:
 
