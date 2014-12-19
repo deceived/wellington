@@ -6,7 +6,7 @@
 namespace src = boost::log::sources;
 
 #include "logger.hpp"
-#include "stdscr_map_controller.hpp"
+#include "stdscr_controller.hpp"
 
 namespace po = boost::program_options;
 po::options_description desc("Allowed options");
