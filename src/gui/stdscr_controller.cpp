@@ -6,9 +6,9 @@ void StdScrMapController::Init()
 {
 	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
  
-	view_->Init();
+	//view_->Init();
 
-	Reset();
+	//Reset();
 }
 
 void StdScrMapController::Terminate()
@@ -158,6 +158,7 @@ void StdScrMapController::LoadActor( const std::string actorName )
 void StdScrMapController::Run()
 {
 	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
+	return;
 	do
 	{
 		line_ptr command = ReadCmd();
