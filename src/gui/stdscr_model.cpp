@@ -17,7 +17,7 @@ key_ptr	StdScrModel::GetKey()
 	return key_;
 }
 
-key_ptr	StdScrModel::GetCmd()
+cmd_ptr	StdScrModel::GetCmd()
 {
 	return cmd_;
 }

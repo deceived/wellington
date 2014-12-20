@@ -17,10 +17,13 @@ public:
 	typedef boost::shared_ptr< std::string > line_ptr;
 
 	typedef boost::shared_ptr< Map > map_ptr;
-	typedef boost::shared_ptr< Command > cmd_ptr;
 	typedef boost::shared_ptr< Key > key_ptr;
+	typedef boost::shared_ptr< Command > cmd_ptr;
 
 	StdScrModel()
+		: map_( boost::make_shared< Map >() ),
+		  key_( boost::make_shared< Key >() ),
+          cmd_( boost::make_shared< Command >() )
 	{}
 
 	void LoadMap( const std::string& fileName )
@@ -60,8 +63,8 @@ public:
 private:
 
 	map_ptr map_;
-	cmd_ptr cmd_;
 	key_ptr key_;
+	cmd_ptr cmd_;
 
 };
 
