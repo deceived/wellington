@@ -3,9 +3,13 @@
 
 #include <boost/smart_ptr.hpp>
 
+#include "logger.hpp"
+
 #include "map.hpp"
 #include "key.hpp"
 #include "cmd.hpp"
+
+extern Log logger;
 
 class StdScrModel
 {
