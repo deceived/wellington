@@ -32,16 +32,20 @@ public:
 
 	void LoadMap( const std::string& fileName )
 	{
-		map_->Load( fileName );
+		logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
+		Properties::ptr map = map_->Load( fileName );
+		write_json( std::cout, *map );
 	}
 
 	void LoadKey( const std::string& fileName )
 	{
+		logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
 		key_->Load( fileName );
 	}
 
 	void LoadCmd( const std::string& fileName )
 	{
+		logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
 		cmd_->Load( fileName );
 	}
 
