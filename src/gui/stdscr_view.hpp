@@ -7,6 +7,10 @@
 
 #include <boost/smart_ptr.hpp>
 
+#include "logger.hpp"
+
+extern Log logger;
+
 class StdScrView
 {
 
