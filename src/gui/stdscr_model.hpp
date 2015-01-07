@@ -34,7 +34,23 @@ public:
 	{
 		logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
 		Properties::ptr map = map_->Load( fileName );
-		write_json( std::cout, *map );
+		//write_json( std::cout, *map );
+
+		std::cout << map->get<std::string>( "terrain.flat" ) << std::endl;
+		std::cout << map->get<std::string>( "terrain.hill" ) << std::endl;
+		std::cout << map->get<std::string>( "terrain.mountain" ) << std::endl;
+		std::cout << map->get<std::string>( "terrain.lake" ) << std::endl;
+		std::cout << map->get<std::string>( "terrain.stream" ) << std::endl;
+		std::cout << map->get<std::string>( "terrain.river" ) << std::endl;
+
+		std::cout << map->get<std::string>( "cover.grass" ) << std::endl;
+		std::cout << map->get<std::string>( "cover.marsh" ) << std::endl;
+		std::cout << map->get<std::string>( "cover.wood" ) << std::endl;
+		std::cout << map->get<std::string>( "cover.forest" ) << std::endl;
+		std::cout << map->get<std::string>( "cover.wall" ) << std::endl;
+		std::cout << map->get<std::string>( "cover.building" ) << std::endl;
+		std::cout << map->get<std::string>( "cover.road" ) << std::endl;
+	
 	}
 
 	void LoadKey( const std::string& fileName )
