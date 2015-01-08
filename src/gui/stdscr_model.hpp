@@ -40,6 +40,11 @@ public:
 		//write_json( std::cout, *map );
 
 		std::cout << map->get<std::string>( "terrain.flat" ) << std::endl;
+
+		int flat = map->get<int>( "terrain.flat" );
+
+		std::cout << flat << " (flat)" << std::endl;
+
 		std::cout << map->get<std::string>( "terrain.hill" ) << std::endl;
 		std::cout << map->get<std::string>( "terrain.mountain" ) << std::endl;
 		std::cout << map->get<std::string>( "terrain.lake" ) << std::endl;
