@@ -12,11 +12,6 @@ public:
 
 	typedef boost::shared_ptr< std::string > line_ptr;
 
-	Properties::ptr Load( const std::string& fileName )
-	{
-		return Properties::ReadJson( fileName ); 
-	}
- 
     void Add( Tile& tile )
     {
         map_[ tile.GetY() ][ tile.GetX() ] = tile;

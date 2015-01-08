@@ -10,6 +10,7 @@
 #include "map.hpp"
 #include "key.hpp"
 #include "cmd.hpp"
+#include "tile.hpp"
 
 extern Log logger;
 
@@ -35,7 +36,7 @@ public:
 	void LoadMap( const std::string& fileName )
 	{
 		logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
-		Properties::ptr map = map_->Load( fileName );
+		Properties::ptr map = Load( fileName );
 		//write_json( std::cout, *map );
 
 		std::cout << map->get<std::string>( "terrain.flat" ) << std::endl;
@@ -71,6 +72,11 @@ public:
 			}
 		} 
 	
+	}
+
+	Properties::ptr Load( const std::string& fileName )
+	{
+		return Properties::ReadJson( fileName ); 
 	}
 
 	void LoadKey( const std::string& fileName )
