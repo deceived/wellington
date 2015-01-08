@@ -62,6 +62,15 @@ public:
 				std::cout << cover.second.get<std::string>("") << std::endl;
 			}
 		} 
+
+		BOOST_FOREACH( boost::property_tree::ptree::value_type& tiles, map->get_child( "map." ) )
+		{
+			BOOST_FOREACH( boost::property_tree::ptree::value_type& row, tiles.second.get_child( "" ) )
+			{	
+				std::cout << row.second.get<std::string>("") << std::endl;
+			}
+		} 
+	
 	}
 
 	void LoadKey( const std::string& fileName )
