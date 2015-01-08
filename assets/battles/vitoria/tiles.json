@@ -26,37 +26,37 @@
 			{
 				"id": 1,
 				"terrain": 0,
-				"cover": 0
+				"cover": [ 0 ]
 			},
 
 			{
 				"id": 2,
 				"terrain": 1,
-				"cover": 0 
+				"cover": [ 0 ]
 			},
 
 			{
 				"id": 3,
 				"terrain": 5,
-				"cover": 0 
+				"cover": [ 0 ]
 			},
 
 			{
 				"id": 4,
 				"terrain": 0,
-				"cover": 6 
+				"cover": [ 6 ]
 			},
 
 			{
 				"id": 5,
 				"terrain": 1,
-				"cover": 6 
+				"cover": [ 6 ]
 			},
 
 			{
 				"id": 6,
 				"terrain": 0,
-				"cover": 5 
+				"cover": [ 5 ]
 			},
 
 			{
