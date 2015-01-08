@@ -2,6 +2,8 @@
 #define STDSCR_MODEL_HPP
 
 #include <boost/smart_ptr.hpp>
+#include <boost/foreach.hpp>
+#include <boost/property_tree/ptree.hpp>
 
 #include "logger.hpp"
 
@@ -50,7 +52,16 @@ public:
 		std::cout << map->get<std::string>( "cover.wall" ) << std::endl;
 		std::cout << map->get<std::string>( "cover.building" ) << std::endl;
 		std::cout << map->get<std::string>( "cover.road" ) << std::endl;
-	
+
+		BOOST_FOREACH( boost::property_tree::ptree::value_type& tiles, map->get_child( "tiles" ) )
+		{
+			std::cout << tiles.second.get<std::string>( "id" ) << std::endl;
+			std::cout << tiles.second.get<std::string>( "terrain" ) << std::endl;
+			BOOST_FOREACH( boost::property_tree::ptree::value_type& cover, tiles.second.get_child( "cover." ) )
+			{	
+				std::cout << cover.second.get<std::string>("") << std::endl;
+			}
+		} 
 	}
 
 	void LoadKey( const std::string& fileName )
