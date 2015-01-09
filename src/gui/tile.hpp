@@ -64,17 +64,14 @@ public:
     {
         Grass,
         Marsh,
-	Wood,
-	Forest,
-	Wall,
-	Building
+		Wood,
+		Forest,
+		Wall,
+		Building
     };
 
-    Tile( unsigned int id, terrain_t terrain, cover_t cover, Point& location )
-      : id_( id ),
-        terrain_( terrain ),
-		cover_( cover ),
-        location_( location )
+    Tile( unsigned int id )
+      : id_( id )
     {}
 
     int GetX()
@@ -87,11 +84,21 @@ public:
         return location_.GetY();
     }
 
+	void SetLocation( Point location )
+	{
+		location_ = location;
+	}
+
     enum terrain_t GetTerrain()
     {
         return terrain_;
     }
 
+	void SetTerrain( terrain_t terrain )
+	{
+		terrain_ = terrain;
+	}
+	
     enum cover_t GetCover()
     {
         return cover_;

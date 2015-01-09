@@ -70,7 +70,9 @@ public:
 
 		for( auto const& tiles : map->get_child( "tiles" ) )
 		{
-			std::cout << tiles.second.get<std::string>( "id" ) << std::endl;
+			int id = tiles.second.get<int>( "id" );
+		    auto tile = boost::make_shared< Tile >( id );
+
 			std::cout << tiles.second.get<std::string>( "terrain" ) << std::endl;
 
 			for( auto const& cover : tiles.second.get_child( "cover." ) ) 
