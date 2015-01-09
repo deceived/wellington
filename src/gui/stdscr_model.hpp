@@ -59,19 +59,20 @@ public:
 		std::cout << map->get<std::string>( "cover.building" ) << std::endl;
 		std::cout << map->get<std::string>( "cover.road" ) << std::endl;
 
-		BOOST_FOREACH( boost::property_tree::ptree::value_type& tiles, map->get_child( "tiles" ) )
+		for( auto const& tiles : map->get_child( "tiles" ) )
 		{
 			std::cout << tiles.second.get<std::string>( "id" ) << std::endl;
 			std::cout << tiles.second.get<std::string>( "terrain" ) << std::endl;
-			BOOST_FOREACH( boost::property_tree::ptree::value_type& cover, tiles.second.get_child( "cover." ) )
+
+			for( auto const& cover : tiles.second.get_child( "cover." ) ) 
 			{	
 				std::cout << cover.second.get<std::string>("") << std::endl;
 			}
 		} 
 
-		BOOST_FOREACH( boost::property_tree::ptree::value_type& tiles, map->get_child( "map." ) )
+		for( auto const& tiles : map->get_child( "map." ) )
 		{
-			BOOST_FOREACH( boost::property_tree::ptree::value_type& row, tiles.second.get_child( "" ) )
+			for( auto const& row : tiles.second.get_child( "" ) ) 
 			{	
 				std::cout << row.second.get<std::string>("") << std::endl;
 			}
