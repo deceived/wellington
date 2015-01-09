@@ -39,25 +39,34 @@ public:
 		Properties::ptr map = Load( fileName );
 		//write_json( std::cout, *map );
 
-		std::cout << map->get<std::string>( "terrain.flat" ) << std::endl;
 
 		int flat = map->get<int>( "terrain.flat" );
+		std::cout << flat << std::endl;
+		int hill = map->get<int>( "terrain.hill" );
+		std::cout << hill << std::endl;
+		int mountain = map->get<int>( "terrain.mountain" );
+		std::cout << mountain << std::endl;
+		int lake = map->get<int>( "terrain.lake" );
+		std::cout << lake << std::endl;
+		int stream = map->get<int>( "terrain.stream" );
+		std::cout << stream << std::endl;
+		int river = map->get<int>( "terrain.river" );
+		std::cout << river << std::endl;
 
-		std::cout << flat << " (flat)" << std::endl;
-
-		std::cout << map->get<std::string>( "terrain.hill" ) << std::endl;
-		std::cout << map->get<std::string>( "terrain.mountain" ) << std::endl;
-		std::cout << map->get<std::string>( "terrain.lake" ) << std::endl;
-		std::cout << map->get<std::string>( "terrain.stream" ) << std::endl;
-		std::cout << map->get<std::string>( "terrain.river" ) << std::endl;
-
-		std::cout << map->get<std::string>( "cover.grass" ) << std::endl;
-		std::cout << map->get<std::string>( "cover.marsh" ) << std::endl;
-		std::cout << map->get<std::string>( "cover.wood" ) << std::endl;
-		std::cout << map->get<std::string>( "cover.forest" ) << std::endl;
-		std::cout << map->get<std::string>( "cover.wall" ) << std::endl;
-		std::cout << map->get<std::string>( "cover.building" ) << std::endl;
-		std::cout << map->get<std::string>( "cover.road" ) << std::endl;
+		int grass = map->get<int>( "cover.grass" );
+		std::cout << grass << std::endl;
+		int marsh = map->get<int>( "cover.marsh" );
+		std::cout << marsh << std::endl;
+		int wood = map->get<int>( "cover.wood" );
+		std::cout << wood << std::endl;
+		int forest = map->get<int>( "cover.forest" );
+		std::cout << forest << std::endl;
+		int wall = map->get<int>( "cover.wall" );
+		std::cout <<  wall << std::endl;
+		int building = map->get<int>( "cover.building" );
+		std::cout << building << std::endl;
+		int road = map->get<int>( "cover.road" );
+		std::cout << road << std::endl;
 
 		for( auto const& tiles : map->get_child( "tiles" ) )
 		{

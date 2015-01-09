@@ -70,9 +70,10 @@ public:
 	Building
     };
 
-    Tile( unsigned int id, terrain_t terrain, Point& location )
+    Tile( unsigned int id, terrain_t terrain, cover_t cover, Point& location )
       : id_( id ),
         terrain_( terrain ),
+		cover_( cover ),
         location_( location )
     {}
 
