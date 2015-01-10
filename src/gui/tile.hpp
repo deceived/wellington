@@ -1,6 +1,8 @@
 #ifndef TILE_HPP
 #define TILE_HPP
 
+#include <vector>
+
 class Point
 {
 
@@ -99,17 +101,22 @@ public:
 		terrain_ = terrain;
 	}
 	
-    enum cover_t GetCover()
+    std::vector<enum cover_t> GetCover()
     {
         return cover_;
     }
+
+	void SetCover( cover_t cover )
+	{
+		cover_.push_back( cover );
+	}
 
 private:
 
     unsigned int id_;
 
     enum terrain_t terrain_;
-    enum cover_t cover_;
+	std::vector< enum cover_t> cover_;
 
     Point location_;
 
