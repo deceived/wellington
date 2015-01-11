@@ -24,32 +24,22 @@ Two classic books that should be read by anyone with any sort of
 power in business, politics, and not just military, are On War and The Art of
 War. 
 
-The musket and cannon era seems the easiest to automate. Movements were more
+The musket and cannon era is the easiest to automate. Movements were more
 restricted. Firepower was limited. 
 
 Some more recent references which might prove timely and useful.
 
-A company what does hex map based games including one on the Peninsular War. But
-mine will be better. :)
+A company what does hex map based games including one on the Peninsular War. Got
+to put an order in to sample the game play. 
 
 http://johntillersoftware.com/
 
-For creating hex maps there are a few things to look at. But tiled seems to be
-free and simple and worth trying.
+The tile editor tiled seems to be free and simple and worth trying.
 
 http://www.mapeditor.org
 
-For a cross platform application the choices are quite limited as far
-as I am concerned. wxWidgets and Qt is pretty much it. Not having any 
-experience of either, I will have to go by other's opinion. This seems
-split, but it looks like wxWidgets may just edge it. I will find out
-after I use it. It should be used for the map editor. It can't be mixed with
-a game library for a number of reasons.
+It definitely looks like the tile based map is the way to go. Makes sense. A good tutorial
+introduction can be found here.
 
-I forgot about Crazy Eddie's GUI. It is still going and can be found here:
+http://gamedevelopment.tutsplus.com/tutorials/an-introduction-to-creating-a-tile-map-engine--gamedev-10900
 
-cegui.org.uk
-
-This seems more active than any of the other's I have looked at. It also
-gets good comment and recommendations.
- 
