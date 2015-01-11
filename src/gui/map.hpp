@@ -37,7 +37,7 @@ private:
     int x_;
     int y_;
 
-	std::vector<Tile> map_;
+	std::vector< std::vector<Tile>> map_;
 
 };
 
