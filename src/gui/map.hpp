@@ -37,7 +37,8 @@ private:
     int x_;
     int y_;
 
-	int* map_[][]; 
+	std::vector<Tile> map_;
+
 };
 
 
