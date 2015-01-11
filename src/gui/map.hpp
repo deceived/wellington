@@ -12,6 +12,14 @@ public:
 
 	typedef boost::shared_ptr< std::string > line_ptr;
 
+	static const int MaxRows = 127;
+	static const int MaxCols = 127;
+
+//	Map( int rows, int cols )
+//		: rows_( rows ),
+//		  cols_( cols )
+//	{}
+
     void Add( Tile& tile )
     {
         map_[ tile.GetY() ][ tile.GetX() ] = tile;
@@ -37,8 +45,12 @@ private:
     int x_;
     int y_;
 
+	int rows_;
+	int cols_;
+
 	std::vector< std::vector<Tile>> map_;
 
+	int map_tiles[ MaxRows ][ MaxCols ];
 };
 
 
