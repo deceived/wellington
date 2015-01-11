@@ -45,14 +45,14 @@ void StdScrMapController::DisplayMap()
 	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
 	StdScrModel::map_ptr map = model_->GetMap();
 
-	size_t rows = map->LineCount();
+	size_t rows = map->rows_;
 	for( size_t count = 0;
 			count < rows;
 			++count
 		)
 	{
-		line_ptr line = map->NextLine( count );
-		view_->Put( count, 0, line );
+		//line_ptr line = map->NextLine( count );
+		//view_->Put( count, 0, line );
 	}
 }
 
