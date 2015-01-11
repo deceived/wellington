@@ -84,7 +84,7 @@ public:
 				tile->SetCover( (Tile::cover_t)c );
 			}
 	
-			tile_.push_back( tile ); 
+			tiles_.push_back( tile ); 
 		} 
 
 		int row_count = 0;
@@ -99,7 +99,6 @@ public:
 				++col_count;
 
 				std::cout << col.second.get<std::string>("") << std::endl;
-				map_->
 			}
 		} 
 	
@@ -147,7 +146,7 @@ private:
 	key_ptr key_;
 	cmd_ptr cmd_;
 
-	std::vector<tile_ptr> tiles_;
+	std::vector<Tile::tile_ptr> tiles_;
 
 };
 

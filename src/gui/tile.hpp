@@ -3,6 +3,8 @@
 
 #include <vector>
 
+#include <boost/smart_ptr.hpp>
+
 class Point
 {
 
@@ -51,6 +53,8 @@ class Tile
 {
 
 public:
+
+	typedef boost::shared_ptr< Tile > tile_ptr;
 
     enum terrain_t 
     {
