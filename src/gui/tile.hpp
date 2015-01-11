@@ -123,7 +123,6 @@ private:
 	std::vector< enum cover_t> cover_;
 
     Point location_;
-
 };
 
 #endif
