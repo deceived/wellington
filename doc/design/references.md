@@ -43,3 +43,7 @@ introduction can be found here.
 
 http://gamedevelopment.tutsplus.com/tutorials/an-introduction-to-creating-a-tile-map-engine--gamedev-10900
 
+Another interesting little snippet of advice is here:
+
+http://www.gamedev.net/page/resources/_/technical/game-programming/tile-based-games-faq-version-12-r728
+
