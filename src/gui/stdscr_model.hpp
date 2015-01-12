@@ -73,6 +73,9 @@ public:
 				map_->map_tiles[ row_count ][ col_count ] = tile;
 			}
 		} 
+
+		map_->rows_ = row_count;
+		map_->cols_ = col_count;
 	
 	}
 
