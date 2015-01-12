@@ -34,18 +34,26 @@ to put an order in to sample the game play.
 
 http://johntillersoftware.com/
 
+
 The tile editor tiled seems to be free and simple and worth trying.
 
 http://www.mapeditor.org
+
+And here is a tutorial on using it.
+
+http://gamedevelopment.tutsplus.com/tutorials/introduction-to-tiled-map-editor--gamedev-2838
+
 
 And another free editor. A bit more work but it might run under Mono.
 
 http://www.ogmoeditor.com
 
+
 It definitely looks like the tile based map is the way to go. Makes sense. A good tutorial
 introduction can be found here.
 
 http://gamedevelopment.tutsplus.com/tutorials/an-introduction-to-creating-a-tile-map-engine--gamedev-10900
+
 
 Another interesting little snippet of advice is here:
 
