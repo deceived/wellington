@@ -39,35 +39,6 @@ public:
 		Properties::ptr map = Load( fileName );
 		//write_json( std::cout, *map );
 
-
-		int flat = map->get<int>( "terrain.flat" );
-		std::cout << flat << std::endl;
-		int hill = map->get<int>( "terrain.hill" );
-		std::cout << hill << std::endl;
-		int mountain = map->get<int>( "terrain.mountain" );
-		std::cout << mountain << std::endl;
-		int lake = map->get<int>( "terrain.lake" );
-		std::cout << lake << std::endl;
-		int stream = map->get<int>( "terrain.stream" );
-		std::cout << stream << std::endl;
-		int river = map->get<int>( "terrain.river" );
-		std::cout << river << std::endl;
-
-		int grass = map->get<int>( "cover.grass" );
-		std::cout << grass << std::endl;
-		int marsh = map->get<int>( "cover.marsh" );
-		std::cout << marsh << std::endl;
-		int wood = map->get<int>( "cover.wood" );
-		std::cout << wood << std::endl;
-		int forest = map->get<int>( "cover.forest" );
-		std::cout << forest << std::endl;
-		int wall = map->get<int>( "cover.wall" );
-		std::cout <<  wall << std::endl;
-		int building = map->get<int>( "cover.building" );
-		std::cout << building << std::endl;
-		int road = map->get<int>( "cover.road" );
-		std::cout << road << std::endl;
-
 		for( auto const& tiles : map->get_child( "tiles" ) )
 		{
 			Tile tile;
@@ -98,7 +69,8 @@ public:
 			{	
 				++col_count;
 
-				std::cout << col.second.get<std::string>("") << std::endl;
+				int tile = col.second.get<int>("");
+				map_->map_tiles[ row_count ][ col_count ] = tile;
 			}
 		} 
 	
@@ -138,7 +110,6 @@ public:
 	{
 		return key_;
 	}
-
 
 private:
 
