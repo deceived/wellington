@@ -70,18 +70,18 @@ public:
 
 		for( auto const& tiles : map->get_child( "tiles" ) )
 		{
-			int id = tiles.second.get<int>( "id" );
-		    auto tile = boost::make_shared< Tile >( id );
+			Tile tile;
 
-			std::cout << tiles.second.get<std::string>( "terrain" ) << std::endl;
+			int id = tiles.second.get<int>( "id" );
+			tile.id_ = id;
+
 			int terrain = tiles.second.get<int>( "terrain" );
-			tile->SetTerrain( (Tile::terrain_t)terrain );
+			tile.terrain_ = terrain;
 
 			for( auto const& cover : tiles.second.get_child( "cover." ) ) 
 			{	
-				std::cout << cover.second.get<std::string>("") << std::endl;
 				int c = cover.second.get<int>( "" );
-				tile->SetCover( (Tile::cover_t)c );
+				tile.cover_.push_back( c );
 			}
 	
 			tiles_.push_back( tile ); 
@@ -146,7 +146,7 @@ private:
 	key_ptr key_;
 	cmd_ptr cmd_;
 
-	std::vector<Tile::tile_ptr> tiles_;
+	std::vector< Tile > tiles_;
 
 };
 
