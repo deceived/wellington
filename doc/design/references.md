@@ -38,6 +38,10 @@ The tile editor tiled seems to be free and simple and worth trying.
 
 http://www.mapeditor.org
 
+And another free editor. A bit more work but it might run under Mono.
+
+http://www.ogmoeditor.com
+
 It definitely looks like the tile based map is the way to go. Makes sense. A good tutorial
 introduction can be found here.
 
