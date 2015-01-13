@@ -23,7 +23,7 @@ void StdScrMapController::Reset()
 	LoadMap();
 	LoadKey();
 
-	//DisplayMap();
+	DisplayMap();
 	DisplayKey();
 	DisplayCommand();
 }
