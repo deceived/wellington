@@ -21,10 +21,10 @@ void StdScrMapController::Reset()
 {
 	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
 	LoadMap();
-	//LoadKey();
+	LoadKey();
 
 	//DisplayMap();
-	//DisplayKey();
+	DisplayKey();
 	DisplayCommand();
 }
 
