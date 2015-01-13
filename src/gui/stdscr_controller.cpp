@@ -25,7 +25,7 @@ void StdScrMapController::Reset()
 
 	//DisplayMap();
 	//DisplayKey();
-	//DisplayCommand();
+	DisplayCommand();
 }
 
 void StdScrMapController::LoadMap()
@@ -158,7 +158,7 @@ void StdScrMapController::LoadActor( const std::string actorName )
 void StdScrMapController::Run()
 {
 	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
-	return;
+
 	do
 	{
 		line_ptr command = ReadCmd();
