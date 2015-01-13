@@ -55,12 +55,14 @@ introduction can be found here.
 http://gamedevelopment.tutsplus.com/tutorials/an-introduction-to-creating-a-tile-map-engine--gamedev-10900
 
 
-Another interesting little snippet of advice is here:
+gamedev.net provides a lot of resources for this topic:
 
 http://www.gamedev.net/page/resources/_/technical/game-programming/tile-based-games-faq-version-12-r728
+http://www.gamedev.net/page/resources/_/technical/game-programming/coordinates-in-hexagon-based-tile-maps-r1800
 
 Written in a nauseating style but it might be worth a look.
 
 http://www.dreamincode.net/forums/topic/230524-c-tile-engine-from-scratch-part-1/
+
 
 
