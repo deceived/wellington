@@ -46,8 +46,8 @@ public:
 			int id = tiles.second.get<int>( "id" );
 			tile.id_ = id;
 
-			int terrain = tiles.second.get<int>( "terrain" );
-			tile.terrain_ = terrain;
+			tile.terrain_ = tiles.second.get<int>( "terrain" );
+			tile.terrain_representation_ = tiles.second.get<char>( "terrain" );
 
 			for( auto const& cover : tiles.second.get_child( "cover." ) ) 
 			{	
@@ -69,8 +69,7 @@ public:
 			{	
 				++col_count;
 
-				int tile = col.second.get<int>("");
-				map_->map_tiles[ row_count ][ col_count ] = tile;
+				map_->map_tiles[ row_count ][ col_count ] = col.second.get<int>( "" );
 			}
 		} 
 
@@ -113,6 +112,12 @@ public:
 	{
 		return key_;
 	}
+
+	std::vector<Tile> GetTiles()
+	{
+		return tiles_;
+	}
+
 
 private:
 

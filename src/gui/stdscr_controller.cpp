@@ -43,16 +43,21 @@ void StdScrMapController::LoadKey()
 void StdScrMapController::DisplayMap()
 {
 	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
-	StdScrModel::map_ptr map = model_->GetMap();
 
-	size_t rows = map->rows_;
-	for( size_t count = 0;
-			count < rows;
-			++count
+	StdScrModel::map_ptr map = model_->GetMap();
+	std::vector< Tile > tiles = model_->GetTiles();
+
+	for( size_t row = 0;
+		 row < map->rows_;
+		 ++row
 		)
 	{
-		//line_ptr line = map->NextLine( count );
-		//view_->Put( count, 0, line );
+		for( size_t col = 0;
+			 col < map->cols_;
+			 ++col )
+		{
+			view_->Put( row, col, tiles[ map->map_tiles[ row ][ col ] ].terrain_representation_ );
+		}
 	}
 }
 

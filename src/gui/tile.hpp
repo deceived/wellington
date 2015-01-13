@@ -12,6 +12,7 @@ struct Tile
     unsigned int id_;
 
     unsigned int terrain_;
+	char terrain_representation_;
 
 	std::vector<unsigned int > cover_;
 
