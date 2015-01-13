@@ -59,3 +59,8 @@ Another interesting little snippet of advice is here:
 
 http://www.gamedev.net/page/resources/_/technical/game-programming/tile-based-games-faq-version-12-r728
 
+Written in a nauseating style but it might be worth a look.
+
+http://www.dreamincode.net/forums/topic/230524-c-tile-engine-from-scratch-part-1/
+
+
