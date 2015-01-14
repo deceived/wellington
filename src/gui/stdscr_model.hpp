@@ -65,6 +65,9 @@ public:
 		for( auto const& row : map->get_child( "map." ) )
 		{
 			++row_count;
+			logger.Severity( severity_level::info, "row_count " + boost::lexical_cast<std::string>( row_count ) );
+
+			col_count = 0;
 
 			for( auto const& col : row.second.get_child( "" ) ) 
 			{	
