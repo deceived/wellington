@@ -2,6 +2,7 @@
 #define MAP_HPP
 
 #include <vector>
+#include <sstream>
 
 #include "tile.hpp"
 
@@ -15,6 +16,13 @@ struct Map
 	int cols_;
 
 	int map_tiles[ MaxRows ][ MaxCols ];
+
+	std::string ToString()
+	{
+		std::stringstream os;
+		os << "rows : " << rows_ << " cols : " << cols_;
+		return os.str();
+	}
 };
 
 

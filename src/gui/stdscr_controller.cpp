@@ -47,6 +47,12 @@ void StdScrMapController::DisplayMap()
 	StdScrModel::map_ptr map = model_->GetMap();
 	std::vector< Tile > tiles = model_->GetTiles();
 
+	logger.Severity( severity_level::info, map->ToString() );
+	for( int i = 0; i < tiles.size(); ++i )
+	{
+		logger.Severity( severity_level::info, tiles[i].ToString() );
+	}
+
 	for( size_t row = 0;
 		 row < map->rows_;
 		 ++row
