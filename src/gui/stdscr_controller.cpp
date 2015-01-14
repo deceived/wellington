@@ -56,7 +56,7 @@ void StdScrMapController::DisplayMap()
 			 col < map->cols_;
 			 ++col )
 		{
-			view_->Put( row, col, tiles[ map->map_tiles[ row ][ col ] ].terrain_representation_ );
+			view_->Put( row, col, tiles[ map->map_tiles[ row ][ col ] - 1 ].terrain_representation_ );
 		}
 	}
 }

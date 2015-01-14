@@ -56,6 +56,7 @@ public:
 			}
 	
 			tiles_.push_back( tile ); 
+			logger.Severity( severity_level::info, tile.ToString() );
 		} 
 
 		int row_count = 0;
