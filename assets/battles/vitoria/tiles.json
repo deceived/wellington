@@ -70,6 +70,20 @@
 				"terrain": 7,
 				"display": "B",
 				"cover": [ 5, 6 ]
+			},
+
+			{
+				"id": 8,
+				"terrain": 8,
+				"display": "|",
+				"cover": [ 5, 6 ]
+			},
+
+			{
+				"id": 9,
+				"terrain": 9,
+				"display": "/",
+				"cover": [ 5, 6 ]
 			}
 		],
 
