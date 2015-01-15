@@ -7,6 +7,7 @@
 
 #include "logger.hpp"
 
+#include "properties.hpp"
 #include "map.hpp"
 #include "key.hpp"
 #include "cmd.hpp"
@@ -27,102 +28,20 @@ public:
 	typedef boost::shared_ptr< Key > key_ptr;
 	typedef boost::shared_ptr< Command > cmd_ptr;
 
-	StdScrModel()
-		: map_( boost::make_shared< Map >() ),
-		  key_( boost::make_shared< Key >() ),
-          cmd_( boost::make_shared< Command >() )
-	{}
+	StdScrModel();
 
-	void LoadMap( const std::string& fileName )
-	{
-		logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
-		Properties::ptr map = Load( fileName );
-		//write_json( std::cout, *map );
+	void LoadMap( const std::string& fileName );
+	void LoadKey( const std::string& fileName );
+	void LoadCmd( const std::string& fileName );
 
-		for( auto const& tiles : map->get_child( "tiles" ) )
-		{
-			Tile tile;
+	Properties::ptr Load( const std::string& fileName );
 
-			int id = tiles.second.get<int>( "id" );
-			tile.id_ = id;
+	map_ptr	GetMap();
+	cmd_ptr GetCmd();
+	key_ptr GetKey();
 
-			tile.terrain_ = tiles.second.get<int>( "terrain" );
-
-			std::string display = tiles.second.get<std::string>( "display" );
-			tile.terrain_representation_ = display[0];
-
-			for( auto const& cover : tiles.second.get_child( "cover." ) ) 
-			{	
-				int c = cover.second.get<int>( "" );
-				tile.cover_.push_back( c );
-			}
-	
-			tiles_.push_back( tile ); 
-			logger.Severity( severity_level::info, tile.ToString() );
-		} 
-
-		int row_count = 0;
-		int col_count = 0;
-
-		for( auto const& row : map->get_child( "map." ) )
-		{
-			logger.Severity( severity_level::info, "row_count " + boost::lexical_cast<std::string>( row_count ) );
-
-			col_count = 0;
-
-			for( auto const& col : row.second.get_child( "" ) ) 
-			{	
-				map_->map_tiles[ row_count ][ col_count ] = col.second.get<int>( "" );
-				++col_count;
-			}
-			++row_count;
-		} 
-
-		map_->rows_ = row_count;
-		map_->cols_ = col_count;
-	
-	}
-
-	Properties::ptr Load( const std::string& fileName )
-	{
-		return Properties::ReadJson( fileName ); 
-	}
-
-	void LoadKey( const std::string& fileName )
-	{
-		logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
-		key_->Load( fileName );
-	}
-
-	void LoadCmd( const std::string& fileName )
-	{
-		logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
-		cmd_->Load( fileName );
-	}
-
+	std::vector<Tile> GetTiles();
 	line_ptr GetPrompt();
-	line_ptr NextLine( size_t line );
-
-	map_ptr	GetMap()
-	{
-		return map_;
-	}
-
-	cmd_ptr GetCmd()
-	{
-		return cmd_;
-	}
-
-	key_ptr GetKey()
-	{
-		return key_;
-	}
-
-	std::vector<Tile> GetTiles()
-	{
-		return tiles_;
-	}
-
 
 private:
 

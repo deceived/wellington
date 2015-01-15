@@ -1,25 +1,102 @@
 #include "stdscr_model.hpp"
 
 
-line_ptr StdScrModel::GetPrompt()
+
+StdScrModel::StdScrModel()
+	: map_( boost::make_shared< Map >() ),
+	  key_( boost::make_shared< Key >() ),
+      cmd_( boost::make_shared< Command >() )
+{}
+
+StdScrModel::line_ptr StdScrModel::GetPrompt()
 {
 	return boost::make_shared<std::string>( "Enter command: " );
 }
 
+void StdScrModel::LoadMap( const std::string& fileName )
+{
+	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
+	Properties::ptr map = Load( fileName );
+	//write_json( std::cout, *map );
 
-map_ptr	StdScrModel::GetMap()
+	for( auto const& tiles : map->get_child( "tiles" ) )
+	{
+		Tile tile;
+
+		int id = tiles.second.get<int>( "id" );
+		tile.id_ = id;
+
+		tile.terrain_ = tiles.second.get<int>( "terrain" );
+
+		std::string display = tiles.second.get<std::string>( "display" );
+		tile.terrain_representation_ = display[0];
+
+		for( auto const& cover : tiles.second.get_child( "cover." ) ) 
+		{	
+			int c = cover.second.get<int>( "" );
+			tile.cover_.push_back( c );
+		}
+	
+		tiles_.push_back( tile ); 
+		logger.Severity( severity_level::info, tile.ToString() );
+	} 
+
+	int row_count = 0;
+	int col_count = 0;
+
+	for( auto const& row : map->get_child( "map." ) )
+	{
+		logger.Severity( severity_level::info, "row_count " + boost::lexical_cast<std::string>( row_count ) );
+
+		col_count = 0;
+
+		for( auto const& col : row.second.get_child( "" ) ) 
+		{	
+			map_->map_tiles[ row_count ][ col_count ] = col.second.get<int>( "" );
+			++col_count;
+		}
+		++row_count;
+	} 
+
+	map_->rows_ = row_count;
+	map_->cols_ = col_count;
+	
+}
+
+Properties::ptr StdScrModel::Load( const std::string& fileName )
+{
+	return Properties::ReadJson( fileName ); 
+}
+
+void StdScrModel::LoadKey( const std::string& fileName )
+{
+	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
+	key_->Load( fileName );
+}
+
+void StdScrModel::LoadCmd( const std::string& fileName )
+{
+	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
+	cmd_->Load( fileName );
+}
+
+StdScrModel::map_ptr	StdScrModel::GetMap()
 {
 	return map_;
 }
 
-key_ptr	StdScrModel::GetKey()
-{
-	return key_;
-}
-
-cmd_ptr	StdScrModel::GetCmd()
+StdScrModel::cmd_ptr StdScrModel::GetCmd()
 {
 	return cmd_;
 }
 
+StdScrModel::key_ptr StdScrModel::GetKey()
+{
+	return key_;
+}
+
+std::vector<Tile> StdScrModel::GetTiles()
+{
+	return tiles_;
+}
 

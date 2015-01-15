@@ -13,8 +13,10 @@ INCLUDES = -I../io -I../log -I../actors -I../etc -I../xml -I../res
 
 SRC = 	cmd.cpp \
 		key.cpp \
+		map.cpp \
 		stdscr_controller.cpp \
-		stdscr_view.cpp
+		stdscr_view.cpp \
+		stdscr_model.cpp
  
 OBJ = $(SRC:.cpp=.o)
 OUT = gui.a
