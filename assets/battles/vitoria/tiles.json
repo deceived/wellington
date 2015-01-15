@@ -26,42 +26,49 @@
 			{
 				"id": 1,
 				"terrain": 1,
+				"display": " ",
 				"cover": [ 0 ]
 			},
 
 			{
 				"id": 2,
 				"terrain": 2,
+				"display": ".",
 				"cover": [ 0 ]
 			},
 
 			{
 				"id": 3,
 				"terrain": 3,
+				"display": "~",
 				"cover": [ 0 ]
 			},
 
 			{
 				"id": 4,
 				"terrain": 4,
+				"display": "_",
 				"cover": [ 6 ]
 			},
 
 			{
 				"id": 5,
 				"terrain": 5,
+				"display": "_",
 				"cover": [ 6 ]
 			},
 
 			{
 				"id": 6,
 				"terrain": 6,
+				"display": "_",
 				"cover": [ 5 ]
 			},
 
 			{
 				"id": 7,
 				"terrain": 7,
+				"display": "B",
 				"cover": [ 5, 6 ]
 			}
 		],
