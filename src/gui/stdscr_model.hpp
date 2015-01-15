@@ -47,8 +47,9 @@ public:
 			tile.id_ = id;
 
 			tile.terrain_ = tiles.second.get<int>( "terrain" );
-			std::string terrain = tiles.second.get<std::string>( "terrain" );
-			tile.terrain_representation_ = terrain[0];
+
+			std::string display = tiles.second.get<std::string>( "display" );
+			tile.terrain_representation_ = display[0];
 
 			for( auto const& cover : tiles.second.get_child( "cover." ) ) 
 			{	
