@@ -79,7 +79,6 @@ void StdScrView::ClearLine( unsigned int row, unsigned int column, unsigned int 
 
 void StdScrView::Put( unsigned int row, unsigned int col, char ch )
 {
-	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
 	mvaddch( row, col, ch );
 }
 
