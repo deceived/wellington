@@ -8,10 +8,6 @@ StdScrModel::StdScrModel()
       cmd_( boost::make_shared< Command >() )
 {}
 
-StdScrModel::line_ptr StdScrModel::GetPrompt()
-{
-	return boost::make_shared<std::string>( "Enter command: " );
-}
 
 void StdScrModel::LoadMap( const std::string& fileName )
 {

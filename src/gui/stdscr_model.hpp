@@ -41,7 +41,6 @@ public:
 	key_ptr GetKey();
 
 	std::vector<Tile> GetTiles();
-	line_ptr GetPrompt();
 
 private:
 
