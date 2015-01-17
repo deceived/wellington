@@ -8,6 +8,14 @@ StdScrMapController::StdScrMapController( boost::program_options::variables_map&
 		view_( boost::make_shared< StdScrView >() ),
 		options_( vm )
 {
+	if( vm.count("map" ) )
+	{
+		mapFileName_ = options_["map"].as<std::string>();
+	}
+	if( vm.count("key" ) )
+	{
+		mapKeyFileName_ = options_["map"].as<std::string>();
+	}
 }
 
 void StdScrMapController::Init()
@@ -56,14 +64,14 @@ void StdScrMapController::LoadMap()
 {
 	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
 
-	model_->LoadMap( options_["map"].as<std::string>() );
+	model_->LoadMap( mapFileName_ );
 }
 
 void StdScrMapController::LoadKey()
 {
 	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
 
-	model_->LoadKey( options_["key"].as<std::string>() );
+	model_->LoadKey( mapKeyFileName_ );
 }
 
 void StdScrMapController::DisplayMap()
