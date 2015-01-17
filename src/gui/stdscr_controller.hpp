@@ -35,6 +35,9 @@ public:
 	void ResetDisplay();
 	void Terminate();
 
+	void Load();
+	void Display();
+
 	void LoadMap();
 	void LoadKey();
 

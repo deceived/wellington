@@ -35,9 +35,19 @@ void StdScrMapController::ResetDisplay()
 {
 	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
 
+	Load();
+
+	Display();
+}
+
+void StdScrMapController::Load()
+{
 	LoadMap();
 	LoadKey();
+}
 
+void StdScrMapController::Display()
+{
 	DisplayMap();
 	DisplayKey();
 	DisplayCommand();
