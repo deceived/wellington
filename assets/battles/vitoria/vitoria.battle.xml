@@ -1,6 +1,6 @@
 <Battle>
   <Map>
-	<File>vitoria.txt</File>
+	<File>tiles.json</File>
 	<Key>map_key.txt</Key>
 	<Scale>0.25</Scale>
   </Map>
