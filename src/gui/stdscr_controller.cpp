@@ -167,7 +167,7 @@ void StdScrMapController::LoadResources()
 			logger.Severity( severity_level::info, std::string( "unit.child.value: "  ) + element.child_value() );
 			if( element.name() == std::string( "Actor" ) )
 			{
-				ActorPtr actor = actorFactory_.CreateActor( element.child_value() );
+				LoadActor( element.child_value() );
 			}
 			if( element.name() == std::string( "StartX" ) )
 			{
@@ -182,6 +182,8 @@ void StdScrMapController::LoadResources()
 void StdScrMapController::LoadActor( const std::string actorName )
 {
 	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
+
+	ActorPtr actor = actorFactory_.CreateActor( actorName );
 }
 
 void StdScrMapController::Run()
