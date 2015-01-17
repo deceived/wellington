@@ -32,6 +32,7 @@ public:
 
 	void Init();
 	void Reset();
+	void ResetDisplay();
 	void Terminate();
 
 	void LoadMap();
