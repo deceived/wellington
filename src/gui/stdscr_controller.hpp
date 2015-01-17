@@ -28,13 +28,7 @@ public:
 	typedef boost::shared_ptr< std::string > line_ptr;
 	typedef std::vector< std::string > split_vector_type;
 
-	StdScrMapController( boost::program_options::variables_map& vm )
-		: 	
-			model_( boost::make_shared< StdScrModel >() ),
-			view_( boost::make_shared< StdScrView >() ),
-			options_( vm )
-	{
-	}
+	StdScrMapController( boost::program_options::variables_map& vm );
 
 	void Init();
 	void Reset();
@@ -50,7 +44,7 @@ public:
 	void ClearCmd();
 
 	void Load( line_ptr command );
-	void InitialiseDisplay();
+	void LoadResources();
 	line_ptr ReadCmd();
 
 	void UpdateMap();

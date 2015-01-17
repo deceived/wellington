@@ -21,8 +21,8 @@ bool program_options( int argc, char** argv )
         po::options_description desc("Allowed options");
 		desc.add_options()
     		("help", "help message")
-    		("map", po::value<std::string>()->default_value( "tiles.json" ), "load current map")
-    		("key", po::value<std::string>()->default_value( "map_key.txt" ), "load current map key")
+    		("map", po::value<std::string>(), "load map")
+    		("key", po::value<std::string>(), "load map key")
     		;
 
         po::store( po::parse_command_line( argc, argv, desc ), vm );
@@ -54,14 +54,14 @@ bool program_options( int argc, char** argv )
 
 int main( int argc, char** argv )
 {
-	logger.Severity( severity_level::info, "starting..." );
+	logger.Severity( severity_level::info, "main()" );
+
 	if( !program_options( argc, argv ) )
 	{
 		exit(1);
 	}
 
 	StdScrMapController controller( vm );
-	controller.Init();
 
 	controller.Run();
 

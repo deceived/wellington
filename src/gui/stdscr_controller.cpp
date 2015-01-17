@@ -2,24 +2,33 @@
 
 
 
+StdScrMapController::StdScrMapController( boost::program_options::variables_map& vm )
+	: 	
+		model_( boost::make_shared< StdScrModel >() ),
+		view_( boost::make_shared< StdScrView >() ),
+		options_( vm )
+{
+}
+
 void StdScrMapController::Init()
 {
 	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
  
 	view_->Init();
-
 	Reset();
 }
 
 void StdScrMapController::Terminate()
 {
 	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
+
 	view_->Terminate();
 }
 
 void StdScrMapController::Reset()
 {
 	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
+
 	LoadMap();
 	LoadKey();
 
@@ -31,12 +40,14 @@ void StdScrMapController::Reset()
 void StdScrMapController::LoadMap()
 {
 	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
+
 	model_->LoadMap( options_["map"].as<std::string>() );
 }
 
 void StdScrMapController::LoadKey()
 {
 	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
+
 	model_->LoadKey( options_["key"].as<std::string>() );
 }
 
@@ -70,6 +81,7 @@ void StdScrMapController::DisplayMap()
 void StdScrMapController::DisplayKey()
 {
 	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
+
 	StdScrModel::key_ptr key = model_->GetKey();
 
 	size_t rows = key->LineCount();
@@ -86,25 +98,26 @@ void StdScrMapController::DisplayKey()
 void StdScrMapController::DisplayCommand()
 {
 	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
+
 	StdScrModel::cmd_ptr command = model_->GetCmd();
-
 	line_ptr prompt = command->GetPrompt();
-
 	view_->Put( 40, 0, prompt );
 }
 
 void StdScrMapController::ClearCmd()
 {
 	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
-	view_->ClearLine( 40, 0, 80 );
 
+	view_->ClearLine( 40, 0, 80 );
 	DisplayCommand();
 }
 
 StdScrMapController::line_ptr StdScrMapController::ReadCmd()
 {
 	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
+
 	StdScrModel::cmd_ptr command = model_->GetCmd();
+
 	return command->Read();
 }
 
@@ -116,19 +129,18 @@ void StdScrMapController::UpdateMap()
 void StdScrMapController::Load( line_ptr command )
 {
 	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
+
 	split_vector_type splits;
 	boost::split( splits, *command, boost::is_any_of( " " ) );
-
 	XmlDocResource::xml_resource_ptr resource = boost::make_shared< XmlDocResource >( "deployment", splits[ 1 ] );
-
 	resource->Load();
-
 	cache_.Add( resource );
 }
 
-void StdScrMapController::InitialiseDisplay()
+void StdScrMapController::LoadResources()
 {
 	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
+
 	XmlDocResource::xml_resource_ptr res = boost::static_pointer_cast< XmlDocResource >( cache_.Get( "deployment" ) );
 
 	Properties::pointer xml = res->Get();
@@ -170,6 +182,9 @@ void StdScrMapController::Run()
 {
 	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
 
+	view_->Init();
+	DisplayCommand();
+
 	do
 	{
 		line_ptr command = ReadCmd();
@@ -184,7 +199,8 @@ void StdScrMapController::Run()
 		if( command->find( "load" ) == 0 )
 		{
 			Load( command );
-			InitialiseDisplay();
+			LoadResources();
+			Init();
 		}
 
 		ClearCmd();
