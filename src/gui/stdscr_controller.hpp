@@ -68,6 +68,10 @@ private:
 
 	ResourceCache	cache_;
 
+	std::string	mapFileName_;
+	std::string mapKeyFileName_;
+	float scale_;
+
 };
 
 #endif

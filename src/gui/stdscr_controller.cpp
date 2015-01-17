@@ -36,7 +36,6 @@ void StdScrMapController::ResetDisplay()
 	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
 
 	Load();
-
 	Display();
 }
 
@@ -147,7 +146,9 @@ void StdScrMapController::Load( line_ptr command )
 	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
 
 	split_vector_type splits;
+
 	boost::split( splits, *command, boost::is_any_of( " " ) );
+
 	XmlDocResource::xml_resource_ptr resource = boost::make_shared< XmlDocResource >( "deployment", splits[ 1 ] );
 	resource->Load();
 	cache_.Add( resource );
@@ -165,6 +166,21 @@ void StdScrMapController::LoadResources()
 	for( pugi::xml_node child: map.children() )
 	{
 		logger.Severity( severity_level::info, std::string( "battle.map.child: " ) + child.name() );
+		logger.Severity( severity_level::info, std::string( "battle.map.child: " ) + child.child_value() );
+
+		if( child.name() == std::string( "File" ) )
+		{
+			mapFileName_ = child.child_value();
+		}
+		if( child.name() == std::string( "Key" ) )
+		{
+			mapKeyFileName_ = child.child_value();
+		}
+		if( child.name() == std::string( "Scale" ) )
+		{
+			scale_ = boost::lexical_cast<float>(child.child_value());
+		}
+
 	}
 
 	pugi::xml_node units = (*xml).child( "Battle" ).child( "Units" );
