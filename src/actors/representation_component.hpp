@@ -42,8 +42,18 @@ public:
     static ComponentId GetIdFromName( const std::string& name )
     {
         boost::hash<std::string> string_hash;
-	return string_hash( name );
+		return string_hash( name );
     }
+
+	void SetChar( char c )
+	{
+		char_ = c;
+	}
+
+	char GetChar()
+	{
+		return char_;
+	}
 
 private:
 
