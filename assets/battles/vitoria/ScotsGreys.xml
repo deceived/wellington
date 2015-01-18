@@ -9,6 +9,8 @@
       <Front>30</Front>
       <Normal>140</Normal>
       <Action>260</Action>
+	  <StartX>25</StartX>
+	  <StartY>25</StartY>
     </Component>
     <Component name="RepresentationComponent" >
       <Image>heavy-cavalry.png</Image>

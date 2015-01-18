@@ -9,7 +9,9 @@
       <Front>30</Front>
       <Normal>140</Normal>
       <Action>260</Action>
-    </Component>
+	  <StartX>20</StartX>
+	  <StartY>20</StartY>
+    </ComponenT>
     <Component name="RepresentationComponent" >
       <Image>95th-rifles.png</Image>
 	  <Char>R</Char>

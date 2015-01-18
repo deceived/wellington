@@ -22,6 +22,8 @@
         <Normal>40</Normal>
         <Action>NA</Action>
       </Square>
+	  <StartX>15</StartX>
+	  <StartY>15</StartY>
     </Component>
     <Component name="RepresentationComponent" >
       <Image>line-infantry-company.png</Image>

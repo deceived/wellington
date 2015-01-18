@@ -10,6 +10,8 @@
       <Front>30</Front>
       <Normal>140</Normal>
       <Action>260</Action>
+	  <StartX>30</StartX>
+	  <StartY>30</StartY>
     </Component>
     <Component name="RepresentationComponent" >
       <Image>general-c-in-c.png</Image>
