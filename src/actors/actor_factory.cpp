@@ -44,13 +44,11 @@ ActorPtr    ActorFactory::CreateActor( const std::string& actorResource )
         ActorComponentPtr cp( CreateComponent( component ) );
         if( cp )
         { 
-            logger.Severity( severity_level::info, "actor component ptr not null" );
             actor->AddComponent( cp );
             cp->SetOwner( actor );
         }
         else
         {
-            logger.Severity( severity_level::info, "actor ptr null (component ptr null)" );
             return ActorPtr();
         } 
     }
@@ -70,19 +68,15 @@ ActorComponentPtr ActorFactory::CreateComponent( pugi::xml_node  component )
     ActorComponentPtr   cp( componentFactory_.Create( ActorComponent::GetIdFromName( component.attribute("name").value() ) ) );
     if( cp )
     {
-    	logger.Severity( severity_level::info, "actor component ptr not null" );
         if( !cp->Init( component ) )
         {
-    	    logger.Severity( severity_level::info, "actor component ptr null(0)" );
             return ActorComponentPtr();
         }
     }
     else
     {
-    	logger.Severity( severity_level::info, "actor component ptr null(1)" );
         return ActorComponentPtr();
     }
-    logger.Severity( severity_level::info, "actor component ptr not null" );
     return cp;
 }
 
