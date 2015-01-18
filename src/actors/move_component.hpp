@@ -42,14 +42,37 @@ public:
     static ComponentId GetIdFromName( const std::string& name )
     {
         boost::hash<std::string> string_hash;
-	return string_hash( name );
+		return string_hash( name );
     }
+
+	void SetStartX( int value )
+	{
+		startX_ = value;
+	}
+
+	int GetStartX()
+	{
+		return startX_;
+	}
+
+	void SetStartY( int value )
+	{
+		startY_ = value;
+	}
+
+	int GetStartY()
+	{
+		return startY_;
+	}
 
 private:
 
     std::size_t front_;
     std::size_t normal_;
     std::size_t action_;
+
+	int startX_;
+	int startY_;
     
 };
 
