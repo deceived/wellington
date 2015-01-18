@@ -203,12 +203,6 @@ void StdScrMapController::LoadResources()
 			{
 				LoadActor( element.child_value() );
 			}
-			if( element.name() == std::string( "StartX" ) )
-			{
-			}
-			if( element.name() == std::string( "StartY" ) )
-			{
-			}
 		}
 	} 
 }
