@@ -130,6 +130,10 @@ void StdScrMapController::DisplayCommand()
 
 void StdScrMapController::DisplayUnits()
 {
+	for( ActorPtr actor: 	actors_ )
+	{
+		boost::weak_ptr<MoveComponent> move = actor->GetComponent<MoveComponent>( std::string( "MoveComponent" ) );
+	}
 }
 
 void StdScrMapController::ClearCmd()

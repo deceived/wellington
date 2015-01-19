@@ -14,6 +14,7 @@
 #include "resource_cache.hpp"
 
 #include "actor_factory.hpp"
+#include "move_component.hpp"
 
 #include "stdscr_model.hpp"
 #include "stdscr_view.hpp"
