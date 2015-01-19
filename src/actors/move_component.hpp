@@ -18,12 +18,12 @@ public:
 
     MoveComponent() 
     { 
-	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
+		logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
     }
 
     virtual ComponentId GetId() const 
     {
-	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
+		logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
         return GetIdFromName( GetName() ); 
     }
 
@@ -45,19 +45,9 @@ public:
 		return string_hash( name );
     }
 
-	void SetStartX( int value )
-	{
-		startX_ = value;
-	}
-
 	int GetStartX()
 	{
 		return startX_;
-	}
-
-	void SetStartY( int value )
-	{
-		startY_ = value;
 	}
 
 	int GetStartY()
