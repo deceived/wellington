@@ -58,6 +58,7 @@ void StdScrMapController::Display()
 	DisplayMap();
 	DisplayKey();
 	DisplayCommand();
+	DisplayUnits();
 }
 
 void StdScrMapController::LoadMap()
@@ -125,6 +126,10 @@ void StdScrMapController::DisplayCommand()
 	StdScrModel::cmd_ptr command = model_->GetCmd();
 	line_ptr prompt = command->GetPrompt();
 	view_->Put( 40, 0, prompt );
+}
+
+void StdScrMapController::DisplayUnits()
+{
 }
 
 void StdScrMapController::ClearCmd()
@@ -201,17 +206,11 @@ void StdScrMapController::LoadResources()
 			logger.Severity( severity_level::info, std::string( "unit.child.value: "  ) + element.child_value() );
 			if( element.name() == std::string( "Actor" ) )
 			{
-				LoadActor( element.child_value() );
+				ActorPtr actor = actorFactory_.CreateActor( element.child_value() );
+				actors_.push_back( actor );
 			}
 		}
 	} 
-}
-
-void StdScrMapController::LoadActor( const std::string actorName )
-{
-	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
-
-	ActorPtr actor = actorFactory_.CreateActor( actorName );
 }
 
 void StdScrMapController::Run()

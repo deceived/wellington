@@ -44,6 +44,7 @@ public:
 	void DisplayMap();
 	void DisplayKey();
 	void DisplayCommand();
+	void DisplayUnits();
 
 	void ClearCmd();
 
@@ -57,9 +58,9 @@ public:
 
 private:
 
-	void LoadActor( const std::string actorName );
-
 	ActorFactory	actorFactory_;
+
+	std::vector< ActorPtr > actors_;
 
 	StdScrModel::model_ptr model_;
 	StdScrView::view_ptr  view_;

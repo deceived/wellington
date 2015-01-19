@@ -52,13 +52,13 @@ public:
 
 	char GetChar()
 	{
-		return char_;
+		return char_[0];
 	}
 
 private:
 
     std::string image_;
-    std::string char_[0];
+    std::string char_;
 
 };
 
