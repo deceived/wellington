@@ -53,3 +53,10 @@ void Actor::AddComponent( ActorComponentPtr component )
     std::pair<ActorComponents::iterator, bool> success = components_.insert( std::make_pair( component->GetId(), component ) );
 }
 
+std::string Actor::ToXML()
+{
+	std::stringstream os;
+	os << "<Components>" << boost::lexical_cast<std::string>( components_.size() ) << "</Components>" << std::endl;
+	return os.str();
+}
+
