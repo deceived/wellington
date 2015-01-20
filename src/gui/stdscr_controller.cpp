@@ -131,12 +131,13 @@ void StdScrMapController::DisplayCommand()
 void StdScrMapController::DisplayUnits()
 {
 	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
+	logger.Severity( severity_level::info, std::string("actor count: ") + boost::lexical_cast<std::string>(actors_.size()) );
 
 	for( ActorPtr actor: 	actors_ )
 	{
-		boost::shared_ptr<MoveComponent> move( actor->GetComponent<MoveComponent>( std::string( "MoveComponent" ) ) );
-		int x = move->GetStartX();
-		int y = move->GetStartY();		
+		//boost::shared_ptr<MoveComponent> move( actor->GetComponent<MoveComponent>( std::string( "MoveComponent" ) ) );
+		//int x = move->GetStartX();
+		//int y = move->GetStartY();		
 	}
 }
 
