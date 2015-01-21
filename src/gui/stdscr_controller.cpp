@@ -131,12 +131,13 @@ void StdScrMapController::DisplayCommand()
 void StdScrMapController::DisplayUnits()
 {
 	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
+
 	logger.Severity( severity_level::info, std::string("actor count: ") + boost::lexical_cast<std::string>(actors_.size()) );
 
 	logger.Severity( severity_level::info, std::string("actor 1: ") + actors_[0]->ToXML() );
 	logger.Severity( severity_level::info, std::string("actor 2: ") + actors_[1]->ToXML() );
 	logger.Severity( severity_level::info, std::string("actor 3: ") + actors_[2]->ToXML() );
-//	logger.Severity( severity_level::info, std::string("actor 4: ") + actors_[3]->ToXML() );
+	logger.Severity( severity_level::info, std::string("actor 4: ") + actors_[3]->ToXML() );
 	
 	for( ActorPtr actor: 	actors_ )
 	{

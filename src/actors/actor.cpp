@@ -56,7 +56,7 @@ void Actor::AddComponent( ActorComponentPtr component )
 std::string Actor::ToXML()
 {
 	std::stringstream os;
-	os << "<Components>" << boost::lexical_cast<std::string>( components_.size() ) << "</Components>" << std::endl;
+	os << "<Components>" << boost::lexical_cast<std::string>( components_.size() ) << "</Components>";
 	return os.str();
 }
 
