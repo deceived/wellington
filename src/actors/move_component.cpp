@@ -40,6 +40,7 @@ bool MoveComponent::Init(pugi::xml_node data)
  //       	logger.Severity( severity_level::debug, std::string( "starty: " ) + boost::lexical_cast<std::string>( startY_ ) );
 //		}
     }
+	return true;
 }
 
 void MoveComponent::PostInit()
