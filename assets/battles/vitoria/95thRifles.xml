@@ -11,7 +11,7 @@
       <Action>260</Action>
 	  <StartX>20</StartX>
 	  <StartY>20</StartY>
-    </ComponenT>
+    </Component>
     <Component name="RepresentationComponent" >
       <Image>95th-rifles.png</Image>
 	  <Char>R</Char>
