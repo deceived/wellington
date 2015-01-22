@@ -146,6 +146,12 @@ void StdScrMapController::DisplayUnits()
 		int x = move->GetStartX();
 		int y = move->GetStartY();		
 
+		boost::shared_ptr<RepresentationComponent> representation( actor->GetComponent<RepresentationComponent>( std::string( "RepresentationComponent" ) ) );
+
+		char c = representation->GetChar();
+
+		view_->Put( x, y, c );
+
 		logger.Severity( severity_level::info, std::string("start x: ") + boost::lexical_cast<std::string>( x ) );
 		logger.Severity( severity_level::info, std::string("start y: ") + boost::lexical_cast<std::string>( y ) );
 
