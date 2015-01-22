@@ -134,20 +134,20 @@ void StdScrMapController::DisplayUnits()
 
 	logger.Severity( severity_level::info, std::string("actor count: ") + boost::lexical_cast<std::string>(actors_.size()) );
 
-	//logger.Severity( severity_level::info, std::string("actor 1: ") + actors_[0]->ToXML() );
-	//logger.Severity( severity_level::info, std::string("actor 2: ") + actors_[1]->ToXML() );
-	//logger.Severity( severity_level::info, std::string("actor 3: ") + actors_[2]->ToXML() );
-	//logger.Severity( severity_level::info, std::string("actor 4: ") + actors_[3]->ToXML() );
+	logger.Severity( severity_level::info, std::string("actor 1: ") + actors_[0]->ToXML() );
+	logger.Severity( severity_level::info, std::string("actor 2: ") + actors_[1]->ToXML() );
+	logger.Severity( severity_level::info, std::string("actor 3: ") + actors_[2]->ToXML() );
+	logger.Severity( severity_level::info, std::string("actor 4: ") + actors_[3]->ToXML() );
 	
 	for( ActorPtr actor: 	actors_ )
 	{
-		//boost::shared_ptr<MoveComponent> move( actor->GetComponent<MoveComponent>( std::string( "MoveComponent" ) ) );
+		boost::shared_ptr<MoveComponent> move( actor->GetComponent<MoveComponent>( std::string( "MoveComponent" ) ) );
 
-		//int x = move->GetStartX();
-		//int y = move->GetStartY();		
+		int x = move->GetStartX();
+		int y = move->GetStartY();		
 
-		//logger.Severity( severity_level::info, std::string("start x: ") + boost::lexical_cast<std::string>( x ) );
-		//logger.Severity( severity_level::info, std::string("start y: ") + boost::lexical_cast<std::string>( y ) );
+		logger.Severity( severity_level::info, std::string("start x: ") + boost::lexical_cast<std::string>( x ) );
+		logger.Severity( severity_level::info, std::string("start y: ") + boost::lexical_cast<std::string>( y ) );
 
 		
 	}
