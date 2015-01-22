@@ -18,12 +18,12 @@ public:
 
     RepresentationComponent()
     {
-	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
+		logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
     }
 
     virtual ComponentId GetId() const 
     {
-	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
+		logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
         return GetIdFromName( GetName() ); 
     }
 
@@ -44,11 +44,6 @@ public:
         boost::hash<std::string> string_hash;
 		return string_hash( name );
     }
-
-	void SetChar( char c )
-	{
-		char_ = c;
-	}
 
 	char GetChar()
 	{
