@@ -3,29 +3,33 @@
 
 SHELL = /bin/sh
 
-CXX = g++
+CC = gcc
 
-CXXFLAGS = -g -std=c++11
+CFLAGS = -g
 
 LDFLAGS	= -g
 
-INCLUDES = -I../io -I../log -I../actors -I../etc -I../xml -I../res
 
-SRC = 	cmd.cpp 
- 
-OBJ = $(SRC:.cpp=.o)
 OUT = cmd.a
 
 all: $(OUT) 
 
-.cpp.o:
-	$(CXX) $(INCLUDES) $(CXXFLAGS) -c $< -o $@
+command.tab.c : command.tab.h
+	touch $@
+
+command.tab.h : command.y
+	bison -v -t -d $<
+
+OBJ = command.tab.o
+
+.c.o:
+	$(CC) $(INCLUDES) $(CFLAGS) -c $< -o $@
 
 $(OUT): $(OBJ)
 	ar rcs $(OUT) $(OBJ)
 	cp $@ ../../lib
 
 clean:
-	@rm -f *.o *.a
+	@rm -f *.o *.a *.output *.c *.tab.h
 	@rm -f ../../lib/$(OUT)
 
