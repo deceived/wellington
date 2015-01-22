@@ -14,13 +14,13 @@ OUT = cmd.a
 
 all: $(OUT) 
 
-command.tab.c : command.tab.h
-	touch $@
+lex.yy.c : command.l
+	flex $<	
 
-command.tab.h : command.y
+command.tab.c : command.y
 	bison -v -t -d $<
 
-OBJ = command.tab.o
+OBJ = command.tab.o lex.yy.o
 
 .c.o:
 	$(CC) $(INCLUDES) $(CFLAGS) -c $< -o $@
