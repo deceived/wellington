@@ -33,6 +33,6 @@ $(OUT): $(OBJ)
 	cp $@ ../../lib
 
 clean:
-	@rm -f *.o *.a *.output *.c *.cc *.tab.h
+	@rm -f *.out *.o *.a *.output *.c *.cc *.tab.h
 	@rm -f ../../lib/$(OUT)
 
