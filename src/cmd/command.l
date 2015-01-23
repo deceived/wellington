@@ -13,6 +13,8 @@
 
 %}
 
+%option noyywrap
+
 ws              [ \t\n]+
 period			[\.]
  

@@ -3,9 +3,9 @@
 
 SHELL = /bin/sh
 
-CC = gcc
+CXX = g++
 
-CFLAGS = -g
+CXXFLAGS = -g -std=c++11
 
 LDFLAGS	= -g
 
@@ -14,22 +14,25 @@ OUT = cmd.a
 
 all: $(OUT) 
 
-lex.yy.c : command.l
-	flex $<	
+lex.yy.cc : command.l
+	flex -+ $<	
 
-command.tab.c : command.y
-	bison -v -t -d $<
+y.tab.c : command.y
+	bison++ -v -t -d $<
 
-OBJ = command.tab.o lex.yy.o
+OBJ = y.tab.o lex.yy.o
+
+.cc.o:
+	$(CXX) $(INCLUDES) $(CXXFLAGS) -c $< -o $@
 
 .c.o:
-	$(CC) $(INCLUDES) $(CFLAGS) -c $< -o $@
+	$(CXX) $(INCLUDES) $(CXXFLAGS) -c $< -o $@
 
 $(OUT): $(OBJ)
 	ar rcs $(OUT) $(OBJ)
 	cp $@ ../../lib
 
 clean:
-	@rm -f *.o *.a *.output *.c *.tab.h
+	@rm -f *.o *.a *.output *.c *.cc *.tab.h
 	@rm -f ../../lib/$(OUT)
 
