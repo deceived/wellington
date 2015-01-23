@@ -3,27 +3,25 @@
 
 SHELL = /bin/sh
 
-CC = gcc
+CXX = g++
 
-CFLAGS = -g
+INCDIRS = -I../cmd
+LIBDIRS = -L../../lib
 
-LDFLAGS	= -g
+CXXFLAGS = $(INCDIRS) -g -Wall -std=c++11
 
+LDFLAGS	= -g $(LIBDIRS) 
 
-OUT = cmd.a
+LIB = -l:cmd.a -lfl
 
-all: $(OUT) 
+SRC = test_flex.cpp
 
-lex.yy.c : command.l
-	flex $<	
+OBJ = (SRC:.cpp=.o)
 
-command.tab.c : command.y
-	bison -v -t -d $<
+all: test_flex 
 
-OBJ = command.tab.o lex.yy.o
-
-.c.o:
-	$(CC) $(INCLUDES) $(CFLAGS) -c $< -o $@
+test_flex: $(OBJ)
+	$(CXX) $(INCLUDES) -o $@ $(CXXFLAGS) $(OBJ) $(LIB) 
 
 $(OUT): $(OBJ)
 	ar rcs $(OUT) $(OBJ)
