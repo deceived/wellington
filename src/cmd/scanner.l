@@ -9,14 +9,31 @@
    defaults to copy stdin to stdout - useful to test rules
 */
 
-#include "scan.h"
+#include "scanner.h"
 
 %}
 
-%option noyywrap
 
-ws              [ \t\n]+
-period			[\.]
+
+%option c++
+
+%option debug
+
+%option stack
+
+%option batch
+
+%option yyclass="WellyFlexLexer"
+
+%option outfile="scanner.cpp" header-file="scanner.hpp"
+
+%option nounistd never-interactive reentrant noyywrap
+
+%option bison-bridge 
+
+PERIOD "."
+
+WS              [ \t\n]+
  
 %%
 
@@ -36,3 +53,27 @@ sw              { return( SW ); }
 ne              { return( NE ); }
 se              { return( SE ); }
 period			{ return( PERIOD ); }
+
+%%
+
+Scanner::Scanner( std::istream* in, std::ostream* out )
+	: WellyFlexLexer( in, out )
+{}
+
+Scanner::~Scanner()
+{}
+
+#ifdef yylex
+#undef yylex
+#endif
+
+int WellyFlexLexer::yylex()
+{
+	return 0;
+}
+
+int WellyFlexLexer::yywrap()
+{
+	return 1;
+}
+
