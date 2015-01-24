@@ -27,9 +27,7 @@
 
 %option outfile="scanner.cpp" header-file="scanner.hpp"
 
-%option nounistd never-interactive reentrant noyywrap
-
-%option bison-bridge 
+%option nounistd never-interactive noyywrap
 
 PERIOD "."
 
