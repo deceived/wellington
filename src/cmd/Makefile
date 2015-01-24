@@ -14,18 +14,15 @@ OUT = cmd.a
 
 all: $(OUT) 
 
-lex.yy.cc : scanner.l
+scanner.cpp : scanner.l
 	flex -+ $<	
 
-y.tab.c : parser.y
-	bison++ -v -t -d $<
+parser.tab.cpp : parser.ypp
+	bison -v -t -d $<
 
-OBJ = y.tab.o lex.yy.o
+OBJ = parser.tab.o scanner.o
 
-.cc.o:
-	$(CXX) $(INCLUDES) $(CXXFLAGS) -c $< -o $@
-
-.c.o:
+.cpp.o:
 	$(CXX) $(INCLUDES) $(CXXFLAGS) -c $< -o $@
 
 $(OUT): $(OBJ)
@@ -33,6 +30,6 @@ $(OUT): $(OBJ)
 	cp $@ ../../lib
 
 clean:
-	@rm -f *.out *.o *.a *.output *.c *.cc *.tab.h
+	@rm -f *.out *.o *.a *.output parser.tab.*pp scanner.*pp
 	@rm -f ../../lib/$(OUT)
 
