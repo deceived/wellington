@@ -14,10 +14,10 @@ OUT = cmd.a
 
 all: $(OUT) 
 
-lex.yy.cc : command.l
+lex.yy.cc : scanner.l
 	flex -+ $<	
 
-y.tab.c : command.y
+y.tab.c : parser.y
 	bison++ -v -t -d $<
 
 OBJ = y.tab.o lex.yy.o
