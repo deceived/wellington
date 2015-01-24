@@ -1,5 +1,9 @@
 #include "driver.hpp"
 
+Driver::Driver( boost::shared_ptr< Order > order )
+	: order_( order )
+{}
+
 bool Driver::ParseStream( std::istream& input, const std::string& name )
 {
 	Scanner scanner( input );
