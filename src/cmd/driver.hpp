@@ -15,6 +15,8 @@ class Driver
 
 public:
 
+	Driver( boost::shared_ptr< Order > order );
+
 	bool ParseFile( const std::string& name );
 	bool ParseStream( std::istream& input, const std::string& name );
 	bool ParseString( const std::string& input, const std::string& name );
@@ -27,6 +29,7 @@ private:
 
 	boost::scoped_ptr<Scanner> lexer_;
 
+	boost::shared_ptr< Order > order_;
 };
 
 
