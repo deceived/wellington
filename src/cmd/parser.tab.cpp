@@ -53,16 +53,17 @@
 #include "parser.tab.hpp"
 
 // User implementation prologue.
-#line 47 "parser.ypp" // lalr1.cc:407
+#line 48 "parser.ypp" // lalr1.cc:407
 
 
 #include "driver.hpp"
+#include "scanner.hpp"
 
 #undef yylex
 #define yylex driver.lexer_->lex
 
 
-#line 66 "parser.tab.cpp" // lalr1.cc:407
+#line 67 "parser.tab.cpp" // lalr1.cc:407
 
 
 #ifndef YY_
@@ -148,7 +149,7 @@
 
 
 namespace order {
-#line 152 "parser.tab.cpp" // lalr1.cc:474
+#line 153 "parser.tab.cpp" // lalr1.cc:474
 
   /* Return YYSTR after stripping away unnecessary quotes and
      backslashes, so that it's suitable for yyerror.  The heuristic is
@@ -595,7 +596,7 @@ namespace order {
           switch (yyn)
             {
 
-#line 599 "parser.tab.cpp" // lalr1.cc:847
+#line 600 "parser.tab.cpp" // lalr1.cc:847
             default:
               break;
             }
@@ -850,15 +851,15 @@ namespace order {
   }
 
 
-  const signed char  Parser ::yypact_ninf_ = -10;
+  const signed char  Parser ::yypact_ninf_ = -9;
 
   const signed char  Parser ::yytable_ninf_ = -1;
 
   const signed char
    Parser ::yypact_[] =
   {
-       2,     3,     9,     4,   -10,    -9,   -10,   -10,   -10,   -10,
-     -10,   -10,   -10,   -10,    -6,   -10
+       3,     4,     9,     5,    -9,    -8,    -9,    -9,    -9,    -9,
+      -9,    -9,    -9,    -9,    -5,    -9
   };
 
   const unsigned char
@@ -871,7 +872,7 @@ namespace order {
   const signed char
    Parser ::yypgoto_[] =
   {
-     -10,   -10,   -10
+      -9,    -9,    -9
   };
 
   const signed char
@@ -890,22 +891,22 @@ namespace order {
   const unsigned char
    Parser ::yycheck_[] =
   {
-       9,    10,    11,    12,    13,    14,    15,    16,     6,     0,
-       7,    17,     8
+       8,     9,    10,    11,    12,    13,    14,    15,     5,     0,
+       6,    16,     7
   };
 
   const unsigned char
    Parser ::yystos_[] =
   {
-       0,     6,    20,     7,     0,     8,     9,    10,    11,    12,
-      13,    14,    15,    16,    21,    17
+       0,     5,    19,     6,     0,     7,     8,     9,    10,    11,
+      12,    13,    14,    15,    20,    16
   };
 
   const unsigned char
    Parser ::yyr1_[] =
   {
-       0,    19,    20,    21,    21,    21,    21,    21,    21,    21,
-      21
+       0,    18,    19,    20,    20,    20,    20,    20,    20,    20,
+      20
   };
 
   const unsigned char
@@ -922,18 +923,17 @@ namespace order {
   const char*
   const  Parser ::yytname_[] =
   {
-  "\"end of file\"", "error", "$undefined", "\"end of line\"",
-  "\"integer\"", "\"string\"", "MOVE", "TO", "THE", "N", "S", "E", "W",
-  "NW", "NE", "SW", "SE", "PERIOD", "'.'", "$accept", "command",
-  "compass_direction", YY_NULLPTR
+  "\"end of file\"", "error", "$undefined", "\"integer\"", "\"string\"",
+  "MOVE", "TO", "THE", "N", "S", "E", "W", "NW", "NE", "SW", "SE",
+  "PERIOD", "'.'", "$accept", "move_order", "compass_direction", YY_NULLPTR
   };
 
 #if YYDEBUG
   const unsigned char
    Parser ::yyrline_[] =
   {
-       0,    58,    58,    61,    62,    63,    64,    65,    66,    67,
-      68
+       0,    60,    60,    63,    64,    65,    66,    67,    68,    69,
+      70
   };
 
   // Print the state stack on the debug stream.
@@ -978,7 +978,7 @@ namespace order {
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
-       2,     2,     2,     2,     2,     2,    18,     2,     2,     2,
+       2,     2,     2,     2,     2,     2,    17,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
@@ -1001,9 +1001,9 @@ namespace order {
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     1,     2,     3,     4,
        5,     6,     7,     8,     9,    10,    11,    12,    13,    14,
-      15,    16,    17
+      15,    16
     };
-    const unsigned int user_token_number_max_ = 272;
+    const unsigned int user_token_number_max_ = 271;
     const token_number_type undef_token_ = 2;
 
     if (static_cast<int>(t) <= yyeof_)

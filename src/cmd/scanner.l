@@ -16,15 +16,17 @@ typedef order::Parser::token_type token_type;
 %option stack
 %option batch
 %option prefix="Welly"
-%option yyclass="WellyFlexLexer"
 %option outfile="scanner.cpp"
-%option nounistd never-interactive noyywrap
+%option yywrap nounput
 
 
 %%
 
 
 %%
+
+namespace order
+{
 
 Scanner::Scanner( std::istream* in, std::ostream* out )
 	: WellyFlexLexer( in, out )
@@ -32,6 +34,8 @@ Scanner::Scanner( std::istream* in, std::ostream* out )
 
 Scanner::~Scanner()
 {}
+
+}
 
 #ifdef yylex
 #undef yylex

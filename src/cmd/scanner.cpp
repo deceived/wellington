@@ -381,7 +381,6 @@ void Wellyfree (void *  );
 
 /* %% [1.0] yytext/yyin/yyout/yy_state_type/yylineno etc. def's & init go here */
 /* Begin user sect3 */
-#define YY_SKIP_YYWRAP
 
 #define FLEX_DEBUG
 
@@ -390,15 +389,6 @@ typedef unsigned char YY_CHAR;
 #define yytext_ptr yytext
 
 #include <FlexLexer.h>
-
-int yyFlexLexer::yywrap() { return 1; }
-int yyFlexLexer::yylex()
-	{
-	LexerError( "yyFlexLexer::yylex invoked but %option yyclass used" );
-	return 0;
-	}
-
-#define YY_DECL int WellyFlexLexer::yylex()
 
 /* %if-c-only Standard (non-C++) definition */
 /* %endif */
@@ -509,8 +499,7 @@ typedef order::Parser::token_type token_type;
 
 #define yyterminate() return token::END
 
-#define YY_NO_UNISTD_H 1
-#line 514 "scanner.cpp"
+#line 503 "scanner.cpp"
 
 #define INITIAL 0
 
@@ -672,11 +661,11 @@ YY_DECL
 	register int yy_act;
     
 /* %% [7.0] user's declarations go here */
-#line 24 "scanner.l"
+#line 23 "scanner.l"
 
 
 
-#line 680 "scanner.cpp"
+#line 669 "scanner.cpp"
 
 	if ( !(yy_init) )
 		{
@@ -787,10 +776,10 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 27 "scanner.l"
+#line 26 "scanner.l"
 ECHO;
 	YY_BREAK
-#line 794 "scanner.cpp"
+#line 783 "scanner.cpp"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1489,6 +1478,8 @@ int yyFlexLexer::yy_get_next_buffer()
 
 /* %if-c++-only */
 
+extern "C" int isatty (int );
+
 /* %endif */
 
 /* Initializes or reinitializes a buffer.
@@ -1837,9 +1828,12 @@ void Wellyfree (void * ptr )
 
 /* %ok-for-header */
 
-#line 27 "scanner.l"
+#line 26 "scanner.l"
 
 
+
+namespace order
+{
 
 Scanner::Scanner( std::istream* in, std::ostream* out )
 	: WellyFlexLexer( in, out )
@@ -1847,6 +1841,8 @@ Scanner::Scanner( std::istream* in, std::ostream* out )
 
 Scanner::~Scanner()
 {}
+
+}
 
 #ifdef yylex
 #undef yylex
