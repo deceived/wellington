@@ -1,14 +1,11 @@
 #ifndef DRIVER_HPP
 #define DRIVER_HPP
 
-#include <ftream>
+#include <fstream>
 #include <sstream>
 #include <string>
 
 #include <boost/smart_ptr.hpp>
-
-#include <driver.hpp>
-#include <scanner.hpp>
 
 class Driver
 {
@@ -27,7 +24,7 @@ private:
 
 	std::string name_;
 
-	boost::scoped_ptr<Scanner> lexer_;
+	Scanner& lexer_;
 
 	boost::shared_ptr< Order > order_;
 };

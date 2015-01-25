@@ -20,7 +20,7 @@ scanner.cpp : scanner.l
 parser.tab.cpp : parser.ypp
 	bison -v -t -d $<
 
-OBJ = parser.tab.o scanner.o
+OBJ = scanner.o parser.tab.o
 
 .cpp.o:
 	$(CXX) $(INCLUDES) $(CXXFLAGS) -c $< -o $@
@@ -30,6 +30,6 @@ $(OUT): $(OBJ)
 	cp $@ ../../lib
 
 clean:
-	@rm -f *.out *.o *.a *.output parser.tab.*pp scanner.*pp
+	@rm -f *.out *.o *.a *.output *.hh parser.tab.*pp scanner.*pp
 	@rm -f ../../lib/$(OUT)
 

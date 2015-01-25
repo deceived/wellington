@@ -27,9 +27,10 @@
 }
 
 %token  			END		0 "end of file"
-%token  			EOL		  "end of line"
 %token <integerVal> INTEGER   "integer"
 %token <stringVal>  STRING    "string"
+
+%type <Order>		move_order
 
 %token  	MOVE
 %token      TO
@@ -44,9 +45,19 @@
 %token      SE
 %token		PERIOD '.'
 
+%{
+
+#include "driver.hpp"
+#include "scanner.hpp"
+
+#undef yylex
+#define yylex driver.lexer_->lex
+
+%}
+
 %%
 
-command             :   MOVE TO THE compass_direction PERIOD
+move_order             :   MOVE TO THE compass_direction PERIOD
                     ;
 
 compass_direction   :   N

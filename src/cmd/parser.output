@@ -1,0 +1,177 @@
+Terminals unused in grammar
+
+   "end of line"
+   "integer"
+   "string"
+   '.'
+
+
+Grammar
+
+    0 $accept: command "end of file"
+
+    1 command: MOVE TO THE compass_direction PERIOD
+
+    2 compass_direction: N
+    3                  | S
+    4                  | E
+    5                  | W
+    6                  | NW
+    7                  | NE
+    8                  | SW
+    9                  | SE
+
+
+Terminals, with rules where they appear
+
+"end of file" (0) 0
+'.' (46)
+error (256)
+"end of line" (258)
+"integer" (259)
+"string" (260)
+MOVE (261) 1
+TO (262) 1
+THE (263) 1
+N (264) 2
+S (265) 3
+E (266) 4
+W (267) 5
+NW (268) 6
+NE (269) 7
+SW (270) 8
+SE (271) 9
+PERIOD (272) 1
+
+
+Nonterminals, with rules where they appear
+
+$accept (19)
+    on left: 0
+command (20)
+    on left: 1, on right: 0
+compass_direction (21)
+    on left: 2 3 4 5 6 7 8 9, on right: 1
+
+
+State 0
+
+    0 $accept: . command "end of file"
+
+    MOVE  shift, and go to state 1
+
+    command  go to state 2
+
+
+State 1
+
+    1 command: MOVE . TO THE compass_direction PERIOD
+
+    TO  shift, and go to state 3
+
+
+State 2
+
+    0 $accept: command . "end of file"
+
+    "end of file"  shift, and go to state 4
+
+
+State 3
+
+    1 command: MOVE TO . THE compass_direction PERIOD
+
+    THE  shift, and go to state 5
+
+
+State 4
+
+    0 $accept: command "end of file" .
+
+    $default  accept
+
+
+State 5
+
+    1 command: MOVE TO THE . compass_direction PERIOD
+
+    N   shift, and go to state 6
+    S   shift, and go to state 7
+    E   shift, and go to state 8
+    W   shift, and go to state 9
+    NW  shift, and go to state 10
+    NE  shift, and go to state 11
+    SW  shift, and go to state 12
+    SE  shift, and go to state 13
+
+    compass_direction  go to state 14
+
+
+State 6
+
+    2 compass_direction: N .
+
+    $default  reduce using rule 2 (compass_direction)
+
+
+State 7
+
+    3 compass_direction: S .
+
+    $default  reduce using rule 3 (compass_direction)
+
+
+State 8
+
+    4 compass_direction: E .
+
+    $default  reduce using rule 4 (compass_direction)
+
+
+State 9
+
+    5 compass_direction: W .
+
+    $default  reduce using rule 5 (compass_direction)
+
+
+State 10
+
+    6 compass_direction: NW .
+
+    $default  reduce using rule 6 (compass_direction)
+
+
+State 11
+
+    7 compass_direction: NE .
+
+    $default  reduce using rule 7 (compass_direction)
+
+
+State 12
+
+    8 compass_direction: SW .
+
+    $default  reduce using rule 8 (compass_direction)
+
+
+State 13
+
+    9 compass_direction: SE .
+
+    $default  reduce using rule 9 (compass_direction)
+
+
+State 14
+
+    1 command: MOVE TO THE compass_direction . PERIOD
+
+    PERIOD  shift, and go to state 15
+
+
+State 15
+
+    1 command: MOVE TO THE compass_direction PERIOD .
+
+    $default  reduce using rule 1 (command)
