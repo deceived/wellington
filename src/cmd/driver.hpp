@@ -12,7 +12,7 @@ class Driver
 
 public:
 
-	Driver( boost::shared_ptr< Order > order );
+	Driver( class Order& order );
 
 	bool ParseFile( const std::string& name );
 	bool ParseStream( std::istream& input, const std::string& name );
@@ -20,13 +20,11 @@ public:
 
 	void Error( const std::string& message );
 
-private:
-
 	std::string name_;
 
-	Scanner& lexer_;
+	class Scanner* lexer_;
 
-	boost::shared_ptr< Order > order_;
+	class Order& order_;
 };
 
 

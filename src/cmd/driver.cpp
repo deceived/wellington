@@ -1,6 +1,6 @@
 #include "driver.hpp"
 
-Driver::Driver( boost::shared_ptr< Order > order )
+Driver::Driver( class Order& order )
 	: order_( order )
 {}
 
