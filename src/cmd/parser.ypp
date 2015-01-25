@@ -30,7 +30,7 @@
 %token <integerVal> INTEGER   "integer"
 %token <stringVal>  STRING    "string"
 
-%type <Order>		move_order
+%type <order>		move_order
 
 %token  	MOVE
 %token      TO
