@@ -1,15 +1,48 @@
-%token  MOVE
-        TO
-        THE
-        N
-        S
-        E
-        W
-        NW
-        NE
-        SW
-        SE
-		PERIOD
+%{
+
+#include "order.hpp"
+
+%}
+
+%debug
+
+%defines
+
+%skeleton "lalr1.cc"
+
+%name-prefix "order"
+
+%define "parser_class_name" { Parser }
+
+%locations
+
+%parse-param { class Driver& driver }
+
+%error-verbose
+
+%union {
+	int	integerVal;
+	std::string* stringVal;
+	class Order* order;
+}
+
+%token  			END		0 "end of file"
+%token  			EOL		  "end of line"
+%token <integerVal> INTEGER   "integer"
+%token <stringVal>  STRING    "string"
+
+%token  	MOVE
+%token      TO
+%token      THE
+%token      N
+%token      S
+%token      E
+%token      W
+%token      NW
+%token      NE
+%token      SW
+%token      SE
+%token		PERIOD '.'
 
 %%
 
