@@ -17,10 +17,10 @@ all: $(OUT)
 scanner.cpp : scanner.l
 	flex -+ $<	
 
-parser.tab.cpp : parser.ypp
-	bison -v -t -d $<
+parser.cpp : parser.ypp
+	bison -v -t -d -oparser.cpp $<
 
-OBJ = scanner.o parser.tab.o
+OBJ = scanner.o parser.o
 
 .cpp.o:
 	$(CXX) $(INCLUDES) $(CXXFLAGS) -c $< -o $@

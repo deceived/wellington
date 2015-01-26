@@ -1,5 +1,8 @@
 #include "driver.hpp"
 
+namespace order
+{
+
 Driver::Driver( class Order& order )
 	: order_( order )
 {}
@@ -28,4 +31,6 @@ bool Driver::ParseFile( const std::string& name )
 
 void Driver::Error( const std::string& message )
 {
+}
+
 }

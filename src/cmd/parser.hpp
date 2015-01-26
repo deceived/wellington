@@ -31,14 +31,14 @@
 // version 2.2 of Bison.
 
 /**
- ** \file parser.tab.hpp
+ ** \file parser.hpp
  ** Define the order::parser class.
  */
 
 // C++ LALR(1) parser skeleton written by Akim Demaille.
 
-#ifndef YY_ORDER_PARSER_TAB_HPP_INCLUDED
-# define YY_ORDER_PARSER_TAB_HPP_INCLUDED
+#ifndef YY_ORDER_PARSER_HPP_INCLUDED
+# define YY_ORDER_PARSER_HPP_INCLUDED
 
 
 # include <vector>
@@ -109,7 +109,7 @@
 
 
 namespace order {
-#line 113 "parser.tab.hpp" // lalr1.cc:372
+#line 113 "parser.hpp" // lalr1.cc:372
 
 
 
@@ -129,7 +129,7 @@ namespace order {
 	std::string* stringVal;
 	class Order* order;
 
-#line 133 "parser.tab.hpp" // lalr1.cc:372
+#line 133 "parser.hpp" // lalr1.cc:372
     };
 #else
     typedef YYSTYPE semantic_type;
@@ -150,21 +150,20 @@ namespace order {
       enum yytokentype
       {
         END = 0,
-        EOL = 258,
-        INTEGER = 259,
-        STRING = 260,
-        MOVE = 261,
-        TO = 262,
-        THE = 263,
-        N = 264,
-        S = 265,
-        E = 266,
-        W = 267,
-        NW = 268,
-        NE = 269,
-        SW = 270,
-        SE = 271,
-        PERIOD = 272
+        INTEGER = 258,
+        STRING = 259,
+        MOVE = 260,
+        TO = 261,
+        THE = 262,
+        N = 263,
+        S = 264,
+        E = 265,
+        W = 266,
+        NW = 267,
+        NE = 268,
+        SW = 269,
+        SE = 270,
+        PERIOD = 271
       };
     };
 
@@ -461,7 +460,7 @@ namespace order {
       yyfinal_ = 4, ///< Termination state number.
       yyterror_ = 1,
       yyerrcode_ = 256,
-      yyntokens_ = 19  ///< Number of tokens.
+      yyntokens_ = 18  ///< Number of tokens.
     };
 
 
@@ -472,9 +471,9 @@ namespace order {
 
 
 } // order
-#line 476 "parser.tab.hpp" // lalr1.cc:372
+#line 475 "parser.hpp" // lalr1.cc:372
 
 
 
 
-#endif // !YY_ORDER_PARSER_TAB_HPP_INCLUDED
+#endif // !YY_ORDER_PARSER_HPP_INCLUDED

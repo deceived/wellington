@@ -7,6 +7,9 @@
 
 #include <boost/smart_ptr.hpp>
 
+namespace order
+{
+
 class Driver
 {
 
@@ -27,6 +30,7 @@ public:
 	class Order& order_;
 };
 
+}
 
 #endif
 
