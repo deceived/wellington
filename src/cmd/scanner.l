@@ -35,6 +35,10 @@ typedef order::Parser::token_type token_type;
 	return token::INTEGER;
 }
 
+[ \t\r]+ {
+	yylloc->step();
+}
+
 %%
 
 namespace order
