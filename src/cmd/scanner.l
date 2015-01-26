@@ -19,6 +19,10 @@ typedef order::Parser::token_type token_type;
 %option outfile="scanner.cpp"
 %option yywrap nounput
 
+/* track locations in yylex */
+%{
+#define YY_USER_ACTION yylloc->columns( yyleng );
+%}
 
 %%
 

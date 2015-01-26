@@ -499,7 +499,9 @@ typedef order::Parser::token_type token_type;
 
 #define yyterminate() return token::END
 
-#line 503 "scanner.cpp"
+#line 23 "scanner.l"
+#define YY_USER_ACTION yylloc->columns( yyleng );
+#line 505 "scanner.cpp"
 
 #define INITIAL 0
 
@@ -661,11 +663,11 @@ YY_DECL
 	register int yy_act;
     
 /* %% [7.0] user's declarations go here */
-#line 23 "scanner.l"
+#line 26 "scanner.l"
 
 
 
-#line 669 "scanner.cpp"
+#line 671 "scanner.cpp"
 
 	if ( !(yy_init) )
 		{
@@ -776,10 +778,10 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 26 "scanner.l"
+#line 29 "scanner.l"
 ECHO;
 	YY_BREAK
-#line 783 "scanner.cpp"
+#line 785 "scanner.cpp"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1828,7 +1830,7 @@ void Wellyfree (void * ptr )
 
 /* %ok-for-header */
 
-#line 26 "scanner.l"
+#line 29 "scanner.l"
 
 
 
