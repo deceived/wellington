@@ -44,6 +44,10 @@ typedef order::Parser::token_type token_type;
 	yylloc->step();
 	return token::EOL;
 }
+
+. {
+	return static_cast<token_type>( *yytext );
+}
  
 %%
 
