@@ -53,7 +53,7 @@
 #include "parser.hpp"
 
 // User implementation prologue.
-#line 48 "parser.ypp" // lalr1.cc:407
+#line 49 "parser.ypp" // lalr1.cc:407
 
 
 #include "driver.hpp"
@@ -851,15 +851,15 @@ namespace order {
   }
 
 
-  const signed char  Parser ::yypact_ninf_ = -9;
+  const signed char  Parser ::yypact_ninf_ = -10;
 
   const signed char  Parser ::yytable_ninf_ = -1;
 
   const signed char
    Parser ::yypact_[] =
   {
-       3,     4,     9,     5,    -9,    -8,    -9,    -9,    -9,    -9,
-      -9,    -9,    -9,    -9,    -5,    -9
+       2,     3,     9,     4,   -10,    -9,   -10,   -10,   -10,   -10,
+     -10,   -10,   -10,   -10,    -6,   -10
   };
 
   const unsigned char
@@ -872,7 +872,7 @@ namespace order {
   const signed char
    Parser ::yypgoto_[] =
   {
-      -9,    -9,    -9
+     -10,   -10,   -10
   };
 
   const signed char
@@ -891,22 +891,22 @@ namespace order {
   const unsigned char
    Parser ::yycheck_[] =
   {
-       8,     9,    10,    11,    12,    13,    14,    15,     5,     0,
-       6,    16,     7
+       9,    10,    11,    12,    13,    14,    15,    16,     6,     0,
+       7,    17,     8
   };
 
   const unsigned char
    Parser ::yystos_[] =
   {
-       0,     5,    19,     6,     0,     7,     8,     9,    10,    11,
-      12,    13,    14,    15,    20,    16
+       0,     6,    20,     7,     0,     8,     9,    10,    11,    12,
+      13,    14,    15,    16,    21,    17
   };
 
   const unsigned char
    Parser ::yyr1_[] =
   {
-       0,    18,    19,    20,    20,    20,    20,    20,    20,    20,
-      20
+       0,    19,    20,    21,    21,    21,    21,    21,    21,    21,
+      21
   };
 
   const unsigned char
@@ -923,17 +923,18 @@ namespace order {
   const char*
   const  Parser ::yytname_[] =
   {
-  "\"end of file\"", "error", "$undefined", "\"integer\"", "\"string\"",
-  "MOVE", "TO", "THE", "N", "S", "E", "W", "NW", "NE", "SW", "SE",
-  "PERIOD", "'.'", "$accept", "move_order", "compass_direction", YY_NULLPTR
+  "\"end of file\"", "error", "$undefined", "\"end of line\"",
+  "\"integer\"", "\"string\"", "MOVE", "TO", "THE", "N", "S", "E", "W",
+  "NW", "NE", "SW", "SE", "PERIOD", "'.'", "$accept", "move_order",
+  "compass_direction", YY_NULLPTR
   };
 
 #if YYDEBUG
   const unsigned char
    Parser ::yyrline_[] =
   {
-       0,    60,    60,    63,    64,    65,    66,    67,    68,    69,
-      70
+       0,    61,    61,    64,    65,    66,    67,    68,    69,    70,
+      71
   };
 
   // Print the state stack on the debug stream.
@@ -978,7 +979,7 @@ namespace order {
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
-       2,     2,     2,     2,     2,     2,    17,     2,     2,     2,
+       2,     2,     2,     2,     2,     2,    18,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
@@ -1001,9 +1002,9 @@ namespace order {
        2,     2,     2,     2,     2,     2,     2,     2,     2,     2,
        2,     2,     2,     2,     2,     2,     1,     2,     3,     4,
        5,     6,     7,     8,     9,    10,    11,    12,    13,    14,
-      15,    16
+      15,    16,    17
     };
-    const unsigned int user_token_number_max_ = 271;
+    const unsigned int user_token_number_max_ = 272;
     const token_number_type undef_token_ = 2;
 
     if (static_cast<int>(t) <= yyeof_)
@@ -1016,4 +1017,4 @@ namespace order {
 
 
 } // order
-#line 1020 "parser.cpp" // lalr1.cc:1155
+#line 1021 "parser.cpp" // lalr1.cc:1155

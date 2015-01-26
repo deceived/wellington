@@ -39,6 +39,12 @@ typedef order::Parser::token_type token_type;
 	yylloc->step();
 }
 
+\r {
+	yylloc->lines( yyleng );
+	yylloc->step();
+	return token::EOL;
+}
+ 
 %%
 
 namespace order

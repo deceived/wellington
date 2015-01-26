@@ -150,20 +150,21 @@ namespace order {
       enum yytokentype
       {
         END = 0,
-        INTEGER = 258,
-        STRING = 259,
-        MOVE = 260,
-        TO = 261,
-        THE = 262,
-        N = 263,
-        S = 264,
-        E = 265,
-        W = 266,
-        NW = 267,
-        NE = 268,
-        SW = 269,
-        SE = 270,
-        PERIOD = 271
+        EOL = 258,
+        INTEGER = 259,
+        STRING = 260,
+        MOVE = 261,
+        TO = 262,
+        THE = 263,
+        N = 264,
+        S = 265,
+        E = 266,
+        W = 267,
+        NW = 268,
+        NE = 269,
+        SW = 270,
+        SE = 271,
+        PERIOD = 272
       };
     };
 
@@ -460,7 +461,7 @@ namespace order {
       yyfinal_ = 4, ///< Termination state number.
       yyterror_ = 1,
       yyerrcode_ = 256,
-      yyntokens_ = 18  ///< Number of tokens.
+      yyntokens_ = 19  ///< Number of tokens.
     };
 
 
@@ -471,7 +472,7 @@ namespace order {
 
 
 } // order
-#line 475 "parser.hpp" // lalr1.cc:372
+#line 476 "parser.hpp" // lalr1.cc:372
 
 
 

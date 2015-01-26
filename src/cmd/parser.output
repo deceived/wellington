@@ -1,5 +1,6 @@
 Terminals unused in grammar
 
+   "end of line"
    "integer"
    "string"
    '.'
@@ -26,29 +27,30 @@ Terminals, with rules where they appear
 "end of file" (0) 0
 '.' (46)
 error (256)
-"integer" (258)
-"string" (259)
-MOVE (260) 1
-TO (261) 1
-THE (262) 1
-N (263) 2
-S (264) 3
-E (265) 4
-W (266) 5
-NW (267) 6
-NE (268) 7
-SW (269) 8
-SE (270) 9
-PERIOD (271) 1
+"end of line" (258)
+"integer" (259)
+"string" (260)
+MOVE (261) 1
+TO (262) 1
+THE (263) 1
+N (264) 2
+S (265) 3
+E (266) 4
+W (267) 5
+NW (268) 6
+NE (269) 7
+SW (270) 8
+SE (271) 9
+PERIOD (272) 1
 
 
 Nonterminals, with rules where they appear
 
-$accept (18)
+$accept (19)
     on left: 0
-move_order (19)
+move_order (20)
     on left: 1, on right: 0
-compass_direction (20)
+compass_direction (21)
     on left: 2 3 4 5 6 7 8 9, on right: 1
 
 
