@@ -30,6 +30,15 @@ typedef order::Parser::token_type token_type;
 	yylloc->step();
 %}
 
+[MmOoVvEe] {
+}
+
+[TtOo] {
+}
+
+[TtHhEe] {
+}
+
 [0-9]+ {
 	yylval->integerVal = atoi( yytext );
 	return token::INTEGER;
