@@ -150,12 +150,12 @@ namespace order {
       enum yytokentype
       {
         END = 0,
-        EOL = 258,
-        INTEGER = 259,
-        STRING = 260,
-        MOVE = 261,
-        TO = 262,
-        THE = 263,
+        MOVE = 258,
+        TO = 259,
+        THE = 260,
+        EOL = 261,
+        INTEGER = 262,
+        STRING = 263,
         N = 264,
         S = 265,
         E = 266,

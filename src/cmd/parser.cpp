@@ -53,7 +53,7 @@
 #include "parser.hpp"
 
 // User implementation prologue.
-#line 49 "parser.ypp" // lalr1.cc:407
+#line 53 "parser.ypp" // lalr1.cc:407
 
 
 #include "driver.hpp"
@@ -858,7 +858,7 @@ namespace order {
   const signed char
    Parser ::yypact_[] =
   {
-       2,     3,     9,     4,   -10,    -9,   -10,   -10,   -10,   -10,
+       5,     6,     9,     7,   -10,    -9,   -10,   -10,   -10,   -10,
      -10,   -10,   -10,   -10,    -6,   -10
   };
 
@@ -891,14 +891,14 @@ namespace order {
   const unsigned char
    Parser ::yycheck_[] =
   {
-       9,    10,    11,    12,    13,    14,    15,    16,     6,     0,
-       7,    17,     8
+       9,    10,    11,    12,    13,    14,    15,    16,     3,     0,
+       4,    17,     5
   };
 
   const unsigned char
    Parser ::yystos_[] =
   {
-       0,     6,    20,     7,     0,     8,     9,    10,    11,    12,
+       0,     3,    20,     4,     0,     5,     9,    10,    11,    12,
       13,    14,    15,    16,    21,    17
   };
 
@@ -923,9 +923,9 @@ namespace order {
   const char*
   const  Parser ::yytname_[] =
   {
-  "\"end of file\"", "error", "$undefined", "\"end of line\"",
-  "\"integer\"", "\"string\"", "MOVE", "TO", "THE", "N", "S", "E", "W",
-  "NW", "NE", "SW", "SE", "PERIOD", "'.'", "$accept", "move_order",
+  "\"end of file\"", "error", "$undefined", "\"move\"", "\"to\"",
+  "\"the\"", "\"end of line\"", "\"integer\"", "\"string\"", "N", "S", "E",
+  "W", "NW", "NE", "SW", "SE", "PERIOD", "'.'", "$accept", "move_order",
   "compass_direction", YY_NULLPTR
   };
 
@@ -933,8 +933,8 @@ namespace order {
   const unsigned char
    Parser ::yyrline_[] =
   {
-       0,    61,    61,    64,    65,    66,    67,    68,    69,    70,
-      71
+       0,    65,    65,    68,    69,    70,    71,    72,    73,    74,
+      75
   };
 
   // Print the state stack on the debug stream.

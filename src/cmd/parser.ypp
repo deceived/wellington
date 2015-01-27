@@ -26,6 +26,10 @@
 	class Order* order;
 }
 
+%token				MOVE	  "move"
+%token				TO		  "to"
+%token				THE		  "the"
+ 
 %token  			END		0 "end of file"
 %token				EOL		  "end of line"
 %token <integerVal> INTEGER   "integer"

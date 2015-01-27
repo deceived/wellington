@@ -31,12 +31,18 @@ typedef order::Parser::token_type token_type;
 %}
 
 [MmOoVvEe] {
+	yylval->stringVal = new std::string( yytext, yyleng );
+	return token::MOVE;
 }
 
 [TtOo] {
+	yylval->stringVal = new std::string( yytext, yyleng );
+	return token::TO;
 }
 
 [TtHhEe] {
+	yylval->stringVal = new std::string( yytext, yyleng );
+	return token::THE;
 }
 
 [0-9]+ {
