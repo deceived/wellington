@@ -7,6 +7,9 @@
 
 #include <boost/smart_ptr.hpp>
 
+#include "order.hpp"
+#include "scanner.hpp"
+
 namespace order
 {
 

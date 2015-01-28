@@ -1,4 +1,4 @@
-#!/usr/bin/make
+#/usr/bin/make
 #
 
 SHELL = /bin/sh
@@ -12,6 +12,10 @@ LDFLAGS	= -g
 
 OUT = cmd.a
 
+SRC = driver.cpp scanner.cpp parser.cpp
+OBJ = (SRC:.cpp.o)
+
+
 all: $(OUT) 
 
 scanner.cpp : scanner.l
@@ -20,7 +24,7 @@ scanner.cpp : scanner.l
 parser.cpp : parser.ypp
 	bison -v -t -d -oparser.cpp $<
 
-OBJ = scanner.o parser.o
+OBJ = driver.o scanner.o parser.o
 
 .cpp.o:
 	$(CXX) $(INCLUDES) $(CXXFLAGS) -c $< -o $@

@@ -9,12 +9,12 @@ Driver::Driver( class Order& order )
 
 bool Driver::ParseStream( std::istream& input, const std::string& name )
 {
-	Scanner scanner( input );
+	Scanner scanner( &input );
 	lexer_ = &scanner;
 
 	Parser parser( *this );
 	
-	return parser.Parse() == 0;
+	return parser.parse() == 0;
 }
 
 bool Driver::ParseString( const std::string& input, const std::string& name )
