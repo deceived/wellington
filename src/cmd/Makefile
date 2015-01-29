@@ -34,6 +34,6 @@ $(OUT): $(OBJ)
 	cp $@ ../../lib
 
 clean:
-	@rm -f *.out *.o *.a *.output parser.tab.*pp 
+	@rm -f *.o *.a   
 	@rm -f ../../lib/$(OUT)
 
