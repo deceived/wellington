@@ -1,177 +1,252 @@
 Terminals unused in grammar
 
-   "end of line"
    "integer"
    "string"
-   '.'
 
 
 Grammar
 
-    0 $accept: move_order "end of file"
+    0 $accept: start "end of file"
 
-    1 move_order: "move" "to" "the" compass_direction PERIOD
+    1 start: %empty
+    2      | start '.'
+    3      | start "end of line"
+    4      | start order '.'
+    5      | start order "end of line"
+    6      | start order "end of file"
 
-    2 compass_direction: N
-    3                  | S
-    4                  | E
-    5                  | W
-    6                  | NW
-    7                  | NE
-    8                  | SW
-    9                  | SE
+    7 order: move_order
+
+    8 move_order: "move" "to" "the" compass_direction PERIOD
+
+    9 compass_direction: N
+   10                  | S
+   11                  | E
+   12                  | W
+   13                  | NW
+   14                  | NE
+   15                  | SW
+   16                  | SE
 
 
 Terminals, with rules where they appear
 
-"end of file" (0) 0
-'.' (46)
+"end of file" (0) 0 6
+'.' (46) 2 4
 error (256)
-"move" (258) 1
-"to" (259) 1
-"the" (260) 1
-"end of line" (261)
+"move" (258) 8
+"to" (259) 8
+"the" (260) 8
+"end of line" (261) 3 5
 "integer" (262)
 "string" (263)
-N (264) 2
-S (265) 3
-E (266) 4
-W (267) 5
-NW (268) 6
-NE (269) 7
-SW (270) 8
-SE (271) 9
-PERIOD (272) 1
+N (264) 9
+S (265) 10
+E (266) 11
+W (267) 12
+NW (268) 13
+NE (269) 14
+SW (270) 15
+SE (271) 16
+PERIOD (272) 8
 
 
 Nonterminals, with rules where they appear
 
 $accept (19)
     on left: 0
-move_order (20)
-    on left: 1, on right: 0
-compass_direction (21)
-    on left: 2 3 4 5 6 7 8 9, on right: 1
+start (20)
+    on left: 1 2 3 4 5 6, on right: 0 2 3 4 5 6
+order (21)
+    on left: 7, on right: 4 5 6
+move_order (22)
+    on left: 8, on right: 7
+compass_direction (23)
+    on left: 9 10 11 12 13 14 15 16, on right: 8
 
 
 State 0
 
-    0 $accept: . move_order "end of file"
+    0 $accept: . start "end of file"
 
-    "move"  shift, and go to state 1
+    $default  reduce using rule 1 (start)
 
-    move_order  go to state 2
+    start  go to state 1
 
 
 State 1
 
-    1 move_order: "move" . "to" "the" compass_direction PERIOD
+    0 $accept: start . "end of file"
+    2 start: start . '.'
+    3      | start . "end of line"
+    4      | start . order '.'
+    5      | start . order "end of line"
+    6      | start . order "end of file"
 
-    "to"  shift, and go to state 3
+    "end of file"  shift, and go to state 2
+    "move"         shift, and go to state 3
+    "end of line"  shift, and go to state 4
+    '.'            shift, and go to state 5
+
+    order       go to state 6
+    move_order  go to state 7
 
 
 State 2
 
-    0 $accept: move_order . "end of file"
-
-    "end of file"  shift, and go to state 4
-
-
-State 3
-
-    1 move_order: "move" "to" . "the" compass_direction PERIOD
-
-    "the"  shift, and go to state 5
-
-
-State 4
-
-    0 $accept: move_order "end of file" .
+    0 $accept: start "end of file" .
 
     $default  accept
 
 
+State 3
+
+    8 move_order: "move" . "to" "the" compass_direction PERIOD
+
+    "to"  shift, and go to state 8
+
+
+State 4
+
+    3 start: start "end of line" .
+
+    $default  reduce using rule 3 (start)
+
+
 State 5
 
-    1 move_order: "move" "to" "the" . compass_direction PERIOD
+    2 start: start '.' .
 
-    N   shift, and go to state 6
-    S   shift, and go to state 7
-    E   shift, and go to state 8
-    W   shift, and go to state 9
-    NW  shift, and go to state 10
-    NE  shift, and go to state 11
-    SW  shift, and go to state 12
-    SE  shift, and go to state 13
-
-    compass_direction  go to state 14
+    $default  reduce using rule 2 (start)
 
 
 State 6
 
-    2 compass_direction: N .
+    4 start: start order . '.'
+    5      | start order . "end of line"
+    6      | start order . "end of file"
 
-    $default  reduce using rule 2 (compass_direction)
+    "end of file"  shift, and go to state 9
+    "end of line"  shift, and go to state 10
+    '.'            shift, and go to state 11
 
 
 State 7
 
-    3 compass_direction: S .
+    7 order: move_order .
 
-    $default  reduce using rule 3 (compass_direction)
+    $default  reduce using rule 7 (order)
 
 
 State 8
 
-    4 compass_direction: E .
+    8 move_order: "move" "to" . "the" compass_direction PERIOD
 
-    $default  reduce using rule 4 (compass_direction)
+    "the"  shift, and go to state 12
 
 
 State 9
 
-    5 compass_direction: W .
+    6 start: start order "end of file" .
 
-    $default  reduce using rule 5 (compass_direction)
+    $default  reduce using rule 6 (start)
 
 
 State 10
 
-    6 compass_direction: NW .
+    5 start: start order "end of line" .
 
-    $default  reduce using rule 6 (compass_direction)
+    $default  reduce using rule 5 (start)
 
 
 State 11
 
-    7 compass_direction: NE .
+    4 start: start order '.' .
 
-    $default  reduce using rule 7 (compass_direction)
+    $default  reduce using rule 4 (start)
 
 
 State 12
 
-    8 compass_direction: SW .
+    8 move_order: "move" "to" "the" . compass_direction PERIOD
 
-    $default  reduce using rule 8 (compass_direction)
+    N   shift, and go to state 13
+    S   shift, and go to state 14
+    E   shift, and go to state 15
+    W   shift, and go to state 16
+    NW  shift, and go to state 17
+    NE  shift, and go to state 18
+    SW  shift, and go to state 19
+    SE  shift, and go to state 20
+
+    compass_direction  go to state 21
 
 
 State 13
 
-    9 compass_direction: SE .
+    9 compass_direction: N .
 
     $default  reduce using rule 9 (compass_direction)
 
 
 State 14
 
-    1 move_order: "move" "to" "the" compass_direction . PERIOD
+   10 compass_direction: S .
 
-    PERIOD  shift, and go to state 15
+    $default  reduce using rule 10 (compass_direction)
 
 
 State 15
 
-    1 move_order: "move" "to" "the" compass_direction PERIOD .
+   11 compass_direction: E .
 
-    $default  reduce using rule 1 (move_order)
+    $default  reduce using rule 11 (compass_direction)
+
+
+State 16
+
+   12 compass_direction: W .
+
+    $default  reduce using rule 12 (compass_direction)
+
+
+State 17
+
+   13 compass_direction: NW .
+
+    $default  reduce using rule 13 (compass_direction)
+
+
+State 18
+
+   14 compass_direction: NE .
+
+    $default  reduce using rule 14 (compass_direction)
+
+
+State 19
+
+   15 compass_direction: SW .
+
+    $default  reduce using rule 15 (compass_direction)
+
+
+State 20
+
+   16 compass_direction: SE .
+
+    $default  reduce using rule 16 (compass_direction)
+
+
+State 21
+
+    8 move_order: "move" "to" "the" compass_direction . PERIOD
+
+    PERIOD  shift, and go to state 22
+
+
+State 22
+
+    8 move_order: "move" "to" "the" compass_direction PERIOD .
+
+    $default  reduce using rule 8 (move_order)

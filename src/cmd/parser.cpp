@@ -851,69 +851,72 @@ namespace order {
   }
 
 
-  const signed char  Parser ::yypact_ninf_ = -10;
+  const signed char  Parser ::yypact_ninf_ = -14;
 
   const signed char  Parser ::yytable_ninf_ = -1;
 
   const signed char
    Parser ::yypact_[] =
   {
-       5,     6,     9,     7,   -10,    -9,   -10,   -10,   -10,   -10,
-     -10,   -10,   -10,   -10,    -6,   -10
+     -14,     0,   -14,    -2,   -14,   -14,     1,   -14,    11,   -14,
+     -14,   -14,    -1,   -14,   -14,   -14,   -14,   -14,   -14,   -14,
+     -14,   -13,   -14
   };
 
   const unsigned char
    Parser ::yydefact_[] =
   {
-       0,     0,     0,     0,     1,     0,     3,     4,     5,     6,
-       7,     8,     9,    10,     0,     2
+       2,     0,     1,     0,     4,     3,     0,     8,     0,     7,
+       6,     5,     0,    10,    11,    12,    13,    14,    15,    16,
+      17,     0,     9
   };
 
   const signed char
    Parser ::yypgoto_[] =
   {
-     -10,   -10,   -10
+     -14,   -14,   -14,   -14,   -14
   };
 
   const signed char
    Parser ::yydefgoto_[] =
   {
-      -1,     2,    14
+      -1,     1,     6,     7,    21
   };
 
   const unsigned char
    Parser ::yytable_[] =
   {
-       6,     7,     8,     9,    10,    11,    12,    13,     1,     4,
-       3,    15,     5
+       2,     9,     8,     3,    22,     0,     4,    10,    13,    14,
+      15,    16,    17,    18,    19,    20,    12,     0,     5,    11
   };
 
-  const unsigned char
+  const signed char
    Parser ::yycheck_[] =
   {
-       9,    10,    11,    12,    13,    14,    15,    16,     3,     0,
-       4,    17,     5
+       0,     0,     4,     3,    17,    -1,     6,     6,     9,    10,
+      11,    12,    13,    14,    15,    16,     5,    -1,    18,    18
   };
 
   const unsigned char
    Parser ::yystos_[] =
   {
-       0,     3,    20,     4,     0,     5,     9,    10,    11,    12,
-      13,    14,    15,    16,    21,    17
+       0,    20,     0,     3,     6,    18,    21,    22,     4,     0,
+       6,    18,     5,     9,    10,    11,    12,    13,    14,    15,
+      16,    23,    17
   };
 
   const unsigned char
    Parser ::yyr1_[] =
   {
-       0,    19,    20,    21,    21,    21,    21,    21,    21,    21,
-      21
+       0,    19,    20,    20,    20,    20,    20,    20,    21,    22,
+      23,    23,    23,    23,    23,    23,    23,    23
   };
 
   const unsigned char
    Parser ::yyr2_[] =
   {
-       0,     2,     5,     1,     1,     1,     1,     1,     1,     1,
-       1
+       0,     2,     0,     2,     2,     3,     3,     3,     1,     5,
+       1,     1,     1,     1,     1,     1,     1,     1
   };
 
 
@@ -925,16 +928,16 @@ namespace order {
   {
   "\"end of file\"", "error", "$undefined", "\"move\"", "\"to\"",
   "\"the\"", "\"end of line\"", "\"integer\"", "\"string\"", "N", "S", "E",
-  "W", "NW", "NE", "SW", "SE", "PERIOD", "'.'", "$accept", "move_order",
-  "compass_direction", YY_NULLPTR
+  "W", "NW", "NE", "SW", "SE", "PERIOD", "'.'", "$accept", "start",
+  "order", "move_order", "compass_direction", YY_NULLPTR
   };
 
 #if YYDEBUG
   const unsigned char
    Parser ::yyrline_[] =
   {
-       0,    65,    65,    68,    69,    70,    71,    72,    73,    74,
-      75
+       0,    65,    65,    66,    67,    68,    69,    70,    73,    76,
+      79,    80,    81,    82,    83,    84,    85,    86
   };
 
   // Print the state stack on the debug stream.
@@ -1017,8 +1020,8 @@ namespace order {
 
 
 } // order
-#line 1021 "parser.cpp" // lalr1.cc:1155
-#line 78 "parser.ypp" // lalr1.cc:1156
+#line 1024 "parser.cpp" // lalr1.cc:1155
+#line 89 "parser.ypp" // lalr1.cc:1156
 
 
 void order::Parser::error(  const Parser::location_type& l,

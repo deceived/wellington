@@ -62,6 +62,17 @@
 
 %%
 
+start				:	
+					|	start '.'
+					|	start EOL
+					|	start order '.'
+					|	start order EOL
+					|	start order END
+					;
+					
+order				:	move_order
+					;
+ 
 move_order             :   MOVE TO THE compass_direction PERIOD
                     ;
 
