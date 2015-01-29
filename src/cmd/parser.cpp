@@ -1018,3 +1018,12 @@ namespace order {
 
 } // order
 #line 1021 "parser.cpp" // lalr1.cc:1155
+#line 78 "parser.ypp" // lalr1.cc:1156
+
+
+void order::Parser::error(  const Parser::location_type& l,
+							const std::string& m )
+{
+	driver.Error( l, m );
+}
+

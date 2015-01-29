@@ -10,7 +10,7 @@ Grammar
 
     0 $accept: move_order "end of file"
 
-    1 move_order: MOVE TO THE compass_direction PERIOD
+    1 move_order: "move" "to" "the" compass_direction PERIOD
 
     2 compass_direction: N
     3                  | S
@@ -27,12 +27,12 @@ Terminals, with rules where they appear
 "end of file" (0) 0
 '.' (46)
 error (256)
-"end of line" (258)
-"integer" (259)
-"string" (260)
-MOVE (261) 1
-TO (262) 1
-THE (263) 1
+"move" (258) 1
+"to" (259) 1
+"the" (260) 1
+"end of line" (261)
+"integer" (262)
+"string" (263)
 N (264) 2
 S (265) 3
 E (266) 4
@@ -58,16 +58,16 @@ State 0
 
     0 $accept: . move_order "end of file"
 
-    MOVE  shift, and go to state 1
+    "move"  shift, and go to state 1
 
     move_order  go to state 2
 
 
 State 1
 
-    1 move_order: MOVE . TO THE compass_direction PERIOD
+    1 move_order: "move" . "to" "the" compass_direction PERIOD
 
-    TO  shift, and go to state 3
+    "to"  shift, and go to state 3
 
 
 State 2
@@ -79,9 +79,9 @@ State 2
 
 State 3
 
-    1 move_order: MOVE TO . THE compass_direction PERIOD
+    1 move_order: "move" "to" . "the" compass_direction PERIOD
 
-    THE  shift, and go to state 5
+    "the"  shift, and go to state 5
 
 
 State 4
@@ -93,7 +93,7 @@ State 4
 
 State 5
 
-    1 move_order: MOVE TO THE . compass_direction PERIOD
+    1 move_order: "move" "to" "the" . compass_direction PERIOD
 
     N   shift, and go to state 6
     S   shift, and go to state 7
@@ -165,13 +165,13 @@ State 13
 
 State 14
 
-    1 move_order: MOVE TO THE compass_direction . PERIOD
+    1 move_order: "move" "to" "the" compass_direction . PERIOD
 
     PERIOD  shift, and go to state 15
 
 
 State 15
 
-    1 move_order: MOVE TO THE compass_direction PERIOD .
+    1 move_order: "move" "to" "the" compass_direction PERIOD .
 
     $default  reduce using rule 1 (move_order)

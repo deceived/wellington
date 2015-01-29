@@ -24,6 +24,7 @@ public:
 	bool ParseStream( std::istream& input, const std::string& name );
 	bool ParseString( const std::string& input, const std::string& name );
 
+	void Error( const class location& l, const std::string& m );
 	void Error( const std::string& message );
 
 	std::string name_;

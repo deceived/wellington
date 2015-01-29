@@ -75,4 +75,11 @@ compass_direction   :   N
                     |   SE
                     ;
 
+%%
+
+void order::Parser::error(  const Parser::location_type& l,
+							const std::string& m )
+{
+	driver.Error( l, m );
+}
 
