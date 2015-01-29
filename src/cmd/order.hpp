@@ -44,5 +44,14 @@ public:
 
 };
 
+class OrderContext
+{
+
+public:
+
+	std::map< std::string, std::string >	orders_;
+
+};
+ 
 #endif
 
