@@ -18,7 +18,7 @@ class Driver
 
 public:
 
-	Driver( class Order& order );
+	Driver( class OrderContext& order );
 
 	bool ParseFile( const std::string& name );
 	bool ParseStream( std::istream& input, const std::string& name );
@@ -31,7 +31,7 @@ public:
 
 	class Scanner* lexer_;
 
-	class Order& order_;
+	class OrderContext& orders_;
 };
 
 }

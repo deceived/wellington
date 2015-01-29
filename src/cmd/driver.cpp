@@ -3,8 +3,8 @@
 namespace order
 {
 
-Driver::Driver( class Order& order )
-	: order_( order )
+Driver::Driver( class OrderContext& orders )
+	: orders_( orders )
 {}
 
 bool Driver::ParseStream( std::istream& input, const std::string& name )

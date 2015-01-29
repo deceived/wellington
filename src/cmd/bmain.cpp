@@ -11,9 +11,9 @@ int main( int argc, char** argv )
 
 	std::string move_1( "MOVE TO THE NW." );
 
-	Order order;
+	OrderContext orders;
 
-	Driver* driver = new Driver( order );
+	Driver* driver = new Driver( orders );
 
 	driver->ParseString( move_1, "move" );
 	
