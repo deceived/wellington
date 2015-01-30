@@ -24,33 +24,64 @@ typedef order::Parser::token_type token_type;
 #define YY_USER_ACTION yylloc->columns( yyleng );
 %}
 
+INTEGER	[0-9]+
+WS      [ \t\r]+ 
+
+MOVE	[MmOoVvEe]
+TO		[TtOo]
+THE		[TtHhEe]
+N		WS[Nn]WS
+S		WS[Ss]WS
+E		WS[Ee]WS
+W		WS[Ww]WS
+
 %%
 
 %{
 	yylloc->step();
 %}
 
-[MmOoVvEe] {
+MOVE {
 	yylval->stringVal = new std::string( yytext, yyleng );
 	return token::MOVE;
 }
 
-[TtOo] {
+TO {
 	yylval->stringVal = new std::string( yytext, yyleng );
 	return token::TO;
 }
 
-[TtHhEe] {
+THE {
 	yylval->stringVal = new std::string( yytext, yyleng );
 	return token::THE;
 }
 
-[0-9]+ {
+N {
+	yylval->stringVal = new std::string( yytext, yyleng );
+	return token::N;
+}
+
+S {
+	yylval->stringVal = new std::string( yytext, yyleng );
+	return token::S;
+}
+
+E {
+	yylval->stringVal = new std::string( yytext, yyleng );
+	return token::E;
+}
+
+W {
+	yylval->stringVal = new std::string( yytext, yyleng );
+	return token::W;
+}
+
+INTEGER {
 	yylval->integerVal = atoi( yytext );
 	return token::INTEGER;
 }
 
-[ \t\r]+ {
+WS {
 	yylloc->step();
 }
 
