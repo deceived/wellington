@@ -34,6 +34,10 @@ N		WS[Nn]WS
 S		WS[Ss]WS
 E		WS[Ee]WS
 W		WS[Ww]WS
+NW		WS[NnWw]WS
+SW		WS[SsWw]WS
+NE		WS[NnEe]WS
+SE		WS[SsEe]WS
 
 %%
 
@@ -75,6 +79,27 @@ W {
 	yylval->stringVal = new std::string( yytext, yyleng );
 	return token::W;
 }
+
+NW {
+	yylval->stringVal = new std::string( yytext, yyleng );
+	return token::NW;
+}
+
+SW {
+	yylval->stringVal = new std::string( yytext, yyleng );
+	return token::SW;
+}
+
+NE {
+	yylval->stringVal = new std::string( yytext, yyleng );
+	return token::NE;
+}
+
+SE {
+	yylval->stringVal = new std::string( yytext, yyleng );
+	return token::SE;
+}
+
 
 INTEGER {
 	yylval->integerVal = atoi( yytext );
