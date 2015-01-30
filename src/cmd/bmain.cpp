@@ -7,15 +7,23 @@ using namespace order;
 int main( int argc, char** argv )
 {
 
-	std::cout << "starting...." << std::endl;
+	std::cout << "starting order input test program...." << std::endl;
 
-	std::string move_1( "MOVE TO THE NW." );
+	do
+	{
+		std::string order;
+		std::cout << "input order ";	
+		getline( std::cin, order );	
+		if( order == "end" )
+		{
+			break;
+		}
 
-	OrderContext orders;
+		OrderContext orders;
+		Driver* driver = new Driver( orders );
+		driver->ParseString( order, "order" );
 
-	Driver* driver = new Driver( orders );
-
-	driver->ParseString( move_1, "move" );
+	} while( true );
 	
 	return 0;
 }
