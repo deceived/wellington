@@ -1987,8 +1987,12 @@ Scanner::Scanner( std::istream* in, std::ostream* out )
 Scanner::~Scanner()
 {}
 
+void Scanner::set_debug( bool flag )
+{
+	yy_flex_debug = flag;
 }
 
+}
 #ifdef yylex
 #undef yylex
 #endif

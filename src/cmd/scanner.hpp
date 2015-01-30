@@ -37,6 +37,8 @@ public:
 			Parser::location_type* yylloc
 			);
 
+	void	set_debug( bool flag );
+
 };
 
 }
