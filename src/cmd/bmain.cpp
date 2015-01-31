@@ -36,9 +36,14 @@ int main( int argc, char** argv )
 				bool result = driver.ParseStream( infile, argv[ai] );
 				if ( result )
 				{
-					return 0;
+					std::cout << "orders: " << std::endl;
+					for( int o = 0; o < orders_.orders_.size(); ++o )
+					{
+						orders_.orders_[o]->Print( std::cout );
+					}
 				}	
 			}
+			return 0;
 		}	
 	}
 
