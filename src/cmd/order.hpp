@@ -49,6 +49,11 @@ class OrderContext
 
 public:
 
+	void Clear()
+	{
+		orders_.clear();
+	}
+
 	std::map< std::string, std::string >	orders_;
 
 };
