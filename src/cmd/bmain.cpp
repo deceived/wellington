@@ -12,6 +12,36 @@ int main( int argc, char** argv )
 	OrderContext orders;
 	Driver driver( orders );
 
+	if( argc > 1 )
+	{
+		for( int i = argc; i < argc; ++i )
+		{
+			if( argv[i] == std::string( "-p" ) )
+			{
+				driver.trace_parsing = true;
+			}
+			else if( argv[i] == std::string( "-s" ) )
+			{
+				driver.trace_scanning = true;
+			}
+			else
+			{
+				std::fstream infile( argv[i] );
+				if( !infile.good() )
+				{
+					std::cout << "cannot open input file : [" << argv[i] << "]" << std::endl;
+					return 0;
+				}
+				orders.Clear();
+				bool result = driver.ParseStream( infile, argv[ai] );
+				if ( result )
+				{
+					return 0;
+				}	
+			}
+		}	
+	}
+
 	do
 	{
 		std::string order;
