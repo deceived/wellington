@@ -32,6 +32,10 @@ public:
 	class Scanner* lexer_;
 
 	class OrderContext& orders_;
+
+	bool traceParsing_;
+	bool traceScanning_;
+
 };
 
 }

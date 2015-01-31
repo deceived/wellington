@@ -9,8 +9,8 @@ int main( int argc, char** argv )
 
 	std::cout << "starting order input test program...." << std::endl;
 
-
 	OrderContext orders;
+	Driver driver( orders );
 
 	do
 	{
@@ -28,8 +28,7 @@ int main( int argc, char** argv )
 		}
 
 		orders.Clear();
-		Driver* driver = new Driver( orders );
-		driver->ParseString( order, "order" );
+		driver.ParseString( order, "order" );
 
 	} while( true );
 	

@@ -4,7 +4,9 @@ namespace order
 {
 
 Driver::Driver( class OrderContext& orders )
-	: orders_( orders )
+	: 	orders_( orders ),
+		traceParsing_( false ),
+		traceScanning_( false )
 {}
 
 bool Driver::ParseStream( std::istream& input, const std::string& name )
@@ -13,6 +15,8 @@ bool Driver::ParseStream( std::istream& input, const std::string& name )
 	lexer_ = &scanner;
 
 	Parser parser( *this );
+
+	parser.set_debug_level( traceParsing_ );
 	
 	return parser.parse() == 0;
 }
