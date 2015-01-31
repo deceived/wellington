@@ -63,7 +63,15 @@ int main( int argc, char** argv )
 		}
 
 		orders.Clear();
-		driver.ParseString( order, "order" );
+		bool result = driver.ParseString( order, "order" );
+		if ( result )
+		{
+			std::cout << "orders: " << std::endl;
+			for( int o = 0; o < orders_.orders_.size(); ++o )
+			{
+				orders_.orders_[o]->Print( std::cout );
+			}
+		}	
 
 	} while( true );
 	
