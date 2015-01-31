@@ -2,6 +2,7 @@
 #define ORDER_HPP
 
 #include <map>
+#include <vector>
 #include <iostream>
 #include <sstream>
 
@@ -14,7 +15,10 @@ public:
 	{}
 
 	void Add( const std::string& key, const std::string& value );
-	std::string Get( const std::string& key );
+	std::string Get( const std::string& key )
+	{
+		return meanings_[ key ];
+	}
 
 	virtual void Print( std::ostream& os ) = 0;
 	virtual std::string ToString() = 0;
@@ -54,7 +58,7 @@ public:
 		orders_.clear();
 	}
 
-	std::map< std::string, std::string >	orders_;
+	std::vector< Order* > orders_;
 
 };
  
