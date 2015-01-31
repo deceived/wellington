@@ -17,15 +17,15 @@ public:
 	void Add( const std::string& key, const std::string& value );
 	std::string Get( const std::string& key )
 	{
-		return meanings_[ key ];
+		return details_[ key ];
 	}
 
 	virtual void Print( std::ostream& os ) = 0;
 	virtual std::string ToString() = 0;
 
-private:
+protected:
 
-	std::map< std::string, std::string > meanings_;
+	std::map< std::string, std::string > details_;
 
 };
 
@@ -33,6 +33,11 @@ class MoveOrder : public Order
 {
 
 public:
+
+	MoveOrder( const std::string& direction )
+	{
+		details_[ "direction" ] = direction;
+	}
 
 	virtual void Print( std::ostream& os )
 	{

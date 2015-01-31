@@ -53,7 +53,7 @@
 #include "parser.hpp"
 
 // User implementation prologue.
-#line 49 "parser.ypp" // lalr1.cc:407
+#line 50 "parser.ypp" // lalr1.cc:407
 
 
 #include "driver.hpp"
@@ -596,7 +596,7 @@ namespace order {
           switch (yyn)
             {
   case 5:
-#line 65 "parser.ypp" // lalr1.cc:847
+#line 66 "parser.ypp" // lalr1.cc:847
     {
 							driver.orders_.orders_.push_back( (yystack_[1].value.order) );
 						}
@@ -604,7 +604,7 @@ namespace order {
     break;
 
   case 6:
-#line 69 "parser.ypp" // lalr1.cc:847
+#line 70 "parser.ypp" // lalr1.cc:847
     {
 							driver.orders_.orders_.push_back( (yystack_[1].value.order) );
 						}
@@ -612,7 +612,7 @@ namespace order {
     break;
 
   case 7:
-#line 73 "parser.ypp" // lalr1.cc:847
+#line 74 "parser.ypp" // lalr1.cc:847
     {
 							driver.orders_.orders_.push_back( (yystack_[1].value.order) );
 						}
@@ -620,7 +620,7 @@ namespace order {
     break;
 
   case 8:
-#line 79 "parser.ypp" // lalr1.cc:847
+#line 80 "parser.ypp" // lalr1.cc:847
     {
 							(yylhs.value.order) = (yystack_[0].value.order);
 						}
@@ -628,9 +628,9 @@ namespace order {
     break;
 
   case 9:
-#line 85 "parser.ypp" // lalr1.cc:847
+#line 86 "parser.ypp" // lalr1.cc:847
     {
-							(yylhs.value.order) = new MoveOrder();
+							(yylhs.value.order) = new MoveOrder( *(yystack_[1].value.stringVal) );
 						}
 #line 636 "parser.cpp" // lalr1.cc:847
     break;
@@ -976,8 +976,8 @@ namespace order {
   const unsigned char
    Parser ::yyrline_[] =
   {
-       0,    61,    61,    62,    63,    64,    68,    72,    78,    84,
-      90,    91,    92,    93,    94,    95,    96,    97
+       0,    62,    62,    63,    64,    65,    69,    73,    79,    85,
+      91,    92,    93,    94,    95,    96,    97,    98
   };
 
   // Print the state stack on the debug stream.
@@ -1061,7 +1061,7 @@ namespace order {
 
 } // order
 #line 1064 "parser.cpp" // lalr1.cc:1155
-#line 100 "parser.ypp" // lalr1.cc:1156
+#line 101 "parser.ypp" // lalr1.cc:1156
 
 
 void order::Parser::error(  const Parser::location_type& l,
