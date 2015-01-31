@@ -28,6 +28,6 @@ $(OUT): $(OBJ)
 	cp $@ ../../lib
 
 clean:
-	@rm -f *.o *.a *.output *.c *.tab.h
+	@rm -f *.o *.a 
 	@rm -f ../../lib/$(OUT)
 

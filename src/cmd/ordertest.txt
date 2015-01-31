@@ -1,7 +1,7 @@
-move to the n
-move to the s
-move to the nw
-move to the se
+move to the n.
+move to the s.
+move to the nw.
+move to the se.
 MOVE TO THE W
 MOVE TO THE E
 
