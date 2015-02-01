@@ -54,6 +54,8 @@ public:
 	void LoadResources();
 	line_ptr ReadCmd();
 
+	void EnterMove();
+
 	void UpdateMap();
 
 	void Run();

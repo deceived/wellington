@@ -240,6 +240,10 @@ void StdScrMapController::LoadResources()
 	} 
 }
 
+void StdScrMapController::EnterMove()
+{
+}
+
 void StdScrMapController::Run()
 {
 	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
@@ -264,6 +268,11 @@ void StdScrMapController::Run()
 			LoadResources();
 			Init();
 			Reset();
+		}
+		if( *command == "move" )
+		{
+			EnterMove();
+			ClearCmd();
 		}
 
 		ClearCmd();
