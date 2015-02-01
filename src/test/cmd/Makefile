@@ -14,13 +14,13 @@ LDFLAGS	= -g $(LIBDIRS)
 
 LIB = -l:cmd.a -lfl
 
-SRC = test_flex.cpp
+SRC = bmain.cpp
 
 OBJ = (SRC:.cpp=.o)
 
-all: test_flex 
+all: test_cmd 
 
-test_flex: $(OBJ)
+test_cmd: $(OBJ)
 	$(CXX) $(INCLUDES) -o $@ $(CXXFLAGS) $(OBJ) $(LIB) 
 
 $(OUT): $(OBJ)
