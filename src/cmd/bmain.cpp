@@ -42,8 +42,8 @@ int main( int argc, char** argv )
 						orders_.orders_[o]->Print( std::cout );
 					}
 				}	
+				return 0;
 			}
-			return 0;
 		}	
 	}
 
