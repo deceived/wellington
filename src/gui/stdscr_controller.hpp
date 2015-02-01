@@ -20,6 +20,8 @@
 #include "stdscr_model.hpp"
 #include "stdscr_view.hpp"
 
+#include "driver.hpp"
+
 extern Log logger;
 
 class StdScrMapController

@@ -8,7 +8,7 @@ srcdir = .
 CXX = g++
 
 DEFS = 
-INCDIRS  = -I../io -I../etc -I../xml -I../gui -I../res -I../actors -I../log
+INCDIRS  = -I../cmd -I../io -I../etc -I../xml -I../gui -I../res -I../actors -I../log
 LIBDIRS  = -L../../lib
 CXXFLAGS = $(INCDIRS) -g -Wall -std=c++11
 

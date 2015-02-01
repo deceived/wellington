@@ -1,6 +1,6 @@
 #include "stdscr_controller.hpp"
 
-
+using namespace order;
 
 StdScrMapController::StdScrMapController( boost::program_options::variables_map& vm )
 	: 	
@@ -242,6 +242,27 @@ void StdScrMapController::LoadResources()
 
 void StdScrMapController::EnterMove()
 {
+	OrderContext orders;
+	Driver driver( orders );
+
+	do
+	{
+		line_ptr order = ReadCmd();
+
+		if( *order == "end" )
+		{
+			break;
+		}
+		if( order->empty() )
+		{
+			break;
+		}
+
+		orders.Clear();
+		bool result = driver.ParseString( *order, "order" );
+		ClearCmd();
+
+	} while( true );
 }
 
 void StdScrMapController::Run()
@@ -272,7 +293,6 @@ void StdScrMapController::Run()
 		if( *command == "move" )
 		{
 			EnterMove();
-			ClearCmd();
 		}
 
 		ClearCmd();

@@ -9,7 +9,7 @@ CXXFLAGS = -g -std=c++11
 
 LDFLAGS	= -g
 
-INCLUDES = -I../io -I../log -I../actors -I../etc -I../xml -I../res
+INCLUDES = -I../cmd -I../io -I../log -I../actors -I../etc -I../xml -I../res
 
 SRC = 	cmd.cpp \
 		stdscr_controller.cpp \
