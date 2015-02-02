@@ -240,7 +240,7 @@ void StdScrMapController::LoadResources()
 	} 
 }
 
-void StdScrMapController::EnterMove()
+void StdScrMapController::EnterOrders()
 {
 	OrderContext orders;
 	Driver driver( orders );
@@ -255,7 +255,7 @@ void StdScrMapController::EnterMove()
 		}
 		if( order->empty() )
 		{
-			break;
+			continue;
 		}
 
 		orders.Clear();
@@ -290,9 +290,9 @@ void StdScrMapController::Run()
 			Init();
 			Reset();
 		}
-		if( *command == "move" )
+		if( *command == "orders" )
 		{
-			EnterMove();
+			EnterOrders();
 		}
 
 		ClearCmd();
