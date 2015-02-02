@@ -15,6 +15,10 @@
 %define "parser_class_name" { Parser }
 
 %locations
+%initial-action
+{
+	@$.begin.filename = @$.end.filename = &driver.name_;
+}
 
 %parse-param { class Driver& driver }
 

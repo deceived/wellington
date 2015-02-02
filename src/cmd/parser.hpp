@@ -123,7 +123,7 @@ namespace order {
     /// Symbol semantic values.
     union semantic_type
     {
-    #line 23 "parser.ypp" // lalr1.cc:372
+    #line 27 "parser.ypp" // lalr1.cc:372
 
 	int	integerVal;
 	std::string* stringVal;

@@ -27,9 +27,11 @@ typedef order::Parser::token_type token_type;
 INTEGER	[0-9]+
 WS      [ \t\r]+ 
 
+/*
 MOVE	[MmOoVvEe]
 TO		[TtOo]
 THE		[TtHhEe]
+*/
 N		WS[Nn]WS
 S		WS[Ss]WS
 E		WS[Ee]WS
