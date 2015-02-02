@@ -5,29 +5,32 @@ SHELL = /bin/sh
 
 CXX = g++
 
-INCDIRS = -I../cmd
-LIBDIRS = -L../../lib
+INCDIRS = -I../../cmd
+LIBDIRS = -L../../../lib
 
 CXXFLAGS = $(INCDIRS) -g -Wall -std=c++11
+CFLAG = $(INCDIRS) $(CXXFLAGS)
 
 LDFLAGS	= -g $(LIBDIRS) 
 
-LIB = -l:cmd.a -lfl
+LIB = -l:cmd.a
 
-SRC = bmain.cpp
+prefix = ../../../test
 
-OBJ = (SRC:.cpp=.o)
+SRCS = bmain.cpp
+OBJS = $(SRCS:.cpp=.o)
+OUT = test_cmd
 
-all: test_cmd 
+all: $(OUT) 
 
-test_cmd: $(OBJ)
-	$(CXX) $(INCLUDES) -o $@ $(CXXFLAGS) $(OBJ) $(LIB) 
+$(OUT): $(OBJS)
+	$(CXX) $(CFLAGS) -o $@ $(LDFLAGS) $(OBJS) $(LIBS) 
 
-$(OUT): $(OBJ)
-	ar rcs $(OUT) $(OBJ)
-	cp $@ ../../lib
+install: all
+	cp $(OUT) $(prefix)
 
 clean:
-	@rm -f *.o *.a 
-	@rm -f ../../lib/$(OUT)
+	@rm -f *.o *.a $(OUT)
 
+uninstall:
+	@rm -f $(prefix)/$(OUT)

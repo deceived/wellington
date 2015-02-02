@@ -18,11 +18,11 @@ int main( int argc, char** argv )
 		{
 			if( argv[i] == std::string( "-p" ) )
 			{
-				driver.trace_parsing = true;
+				driver.traceParsing_ = true;
 			}
 			else if( argv[i] == std::string( "-s" ) )
 			{
-				driver.trace_scanning = true;
+				driver.traceScanning_ = true;
 			}
 			else
 			{
@@ -33,13 +33,13 @@ int main( int argc, char** argv )
 					return 0;
 				}
 				orders.Clear();
-				bool result = driver.ParseStream( infile, argv[ai] );
+				bool result = driver.ParseStream( infile, argv[i] );
 				if ( result )
 				{
 					std::cout << "orders: " << std::endl;
-					for( int o = 0; o < orders_.orders_.size(); ++o )
+					for( unsigned int o = 0; o < driver.orders_.orders_.size(); ++o )
 					{
-						orders_.orders_[o]->Print( std::cout );
+						driver.orders_.orders_[o]->Print( std::cout );
 					}
 				}	
 				return 0;
@@ -67,9 +67,9 @@ int main( int argc, char** argv )
 		if ( result )
 		{
 			std::cout << "orders: " << std::endl;
-			for( int o = 0; o < orders_.orders_.size(); ++o )
+			for( unsigned int o = 0; o < driver.orders_.orders_.size(); ++o )
 			{
-				orders_.orders_[o]->Print( std::cout );
+				driver.orders_.orders_[o]->Print( std::cout );
 			}
 		}	
 
