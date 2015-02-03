@@ -63,32 +63,29 @@
 
 %%
 
-start				:	
-					|	start '.'
-					|	start EOL
-					|	start order '.'
+start				:	order '.'
 						{
-							driver.orders_.orders_.push_back( $2 );
+							driver.orders_.orders_.push_back( $1 );
 						}
-					|	start order EOL
+					|	order EOL
 						{
-							driver.orders_.orders_.push_back( $2 );
+							driver.orders_.orders_.push_back( $1 );
 						}
-					|	start order END
+					|	order END
 						{
-							driver.orders_.orders_.push_back( $2 );
+							driver.orders_.orders_.push_back( $1 );
 						}
 					;
-					
+				
 order				:	move_order
 						{
 							$$ = $1;
 						}
 					;
- 
-move_order          :   MOVE TO THE compass_direction PERIOD
+	
+move_order          :   MOVE compass_direction PERIOD
 						{
-							$$ = new MoveOrder( *$4 );
+							$$ = new MoveOrder( *$2 );
 						}
                     ;
 

@@ -24,22 +24,7 @@ typedef order::Parser::token_type token_type;
 #define YY_USER_ACTION yylloc->columns( yyleng );
 %}
 
-INTEGER	[0-9]+
-WS      [ \t\r]+ 
-
-/*
-MOVE	[MmOoVvEe]
-TO		[TtOo]
-THE		[TtHhEe]
-*/
-N		WS[Nn]WS
-S		WS[Ss]WS
-E		WS[Ee]WS
-W		WS[Ww]WS
-NW		WS[NnWw]WS
-SW		WS[SsWw]WS
-NE		WS[NnEe]WS
-SE		WS[SsEe]WS
+WS      [ \t\n]+ 
 
 %%
 
@@ -49,37 +34,8 @@ SE		WS[SsEe]WS
 
 MOVE {
 	yylval->stringVal = new std::string( yytext, yyleng );
+	yylloc->step();
 	return token::MOVE;
-}
-
-TO {
-	yylval->stringVal = new std::string( yytext, yyleng );
-	return token::TO;
-}
-
-THE {
-	yylval->stringVal = new std::string( yytext, yyleng );
-	return token::THE;
-}
-
-N {
-	yylval->stringVal = new std::string( yytext, yyleng );
-	return token::N;
-}
-
-S {
-	yylval->stringVal = new std::string( yytext, yyleng );
-	return token::S;
-}
-
-E {
-	yylval->stringVal = new std::string( yytext, yyleng );
-	return token::E;
-}
-
-W {
-	yylval->stringVal = new std::string( yytext, yyleng );
-	return token::W;
 }
 
 NW {
@@ -102,26 +58,10 @@ SE {
 	return token::SE;
 }
 
-
-INTEGER {
-	yylval->integerVal = atoi( yytext );
-	return token::INTEGER;
-}
-
 WS {
 	yylloc->step();
 }
 
-\r {
-	yylloc->lines( yyleng );
-	yylloc->step();
-	return token::EOL;
-}
-
-. {
-	return static_cast<token_type>( *yytext );
-}
- 
 %%
 
 namespace order
