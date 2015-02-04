@@ -1,1 +1,8 @@
-MOVE NW.
+MOVE NW
+
+MOVE SE
+
+MOVE SW
+
+MOVE NE
+

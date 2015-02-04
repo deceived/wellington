@@ -458,10 +458,10 @@ namespace order {
       yylast_ = 18,     ///< Last index in yytable_.
       yynnts_ = 5,  ///< Number of nonterminal symbols.
       yyempty_ = -2,
-      yyfinal_ = 14, ///< Termination state number.
+      yyfinal_ = 2, ///< Termination state number.
       yyterror_ = 1,
       yyerrcode_ = 256,
-      yyntokens_ = 19  ///< Number of tokens.
+      yyntokens_ = 18  ///< Number of tokens.
     };
 
 

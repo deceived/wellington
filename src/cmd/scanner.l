@@ -25,6 +25,7 @@ typedef order::Parser::token_type token_type;
 %}
 
 WS      [ \t\n]+ 
+PERIOD	+
 
 %%
 
@@ -64,6 +65,12 @@ SE {
 
 WS {
 	yylloc->step();
+}
+
+PERIOD {
+	yylloc->step();
+	yylval->stringVal = new std::string( yytext, yyleng );
+	return token::PERIOD;
 }
 
 %%
