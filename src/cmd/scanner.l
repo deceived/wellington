@@ -33,27 +33,31 @@ WS      [ \t\n]+
 %}
 
 MOVE {
-	yylval->stringVal = new std::string( yytext, yyleng );
 	yylloc->step();
+	yylval->stringVal = new std::string( yytext, yyleng );
 	return token::MOVE;
 }
 
 NW {
+	yylloc->step();
 	yylval->stringVal = new std::string( yytext, yyleng );
 	return token::NW;
 }
 
 SW {
+	yylloc->step();
 	yylval->stringVal = new std::string( yytext, yyleng );
 	return token::SW;
 }
 
 NE {
+	yylloc->step();
 	yylval->stringVal = new std::string( yytext, yyleng );
 	return token::NE;
 }
 
 SE {
+	yylloc->step();
 	yylval->stringVal = new std::string( yytext, yyleng );
 	return token::SE;
 }

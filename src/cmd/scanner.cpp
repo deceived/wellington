@@ -488,7 +488,7 @@ static yyconst flex_int16_t yy_chk[32] =
 
 static yyconst flex_int16_t yy_rule_linenum[7] =
     {   0,
-       35,   41,   46,   51,   56,   61
+       35,   41,   47,   53,   59,   65
     } ;
 
 /* The intent behind this definition is that it'll catch
@@ -794,8 +794,8 @@ case 1:
 YY_RULE_SETUP
 #line 35 "scanner.l"
 {
-	yylval->stringVal = new std::string( yytext, yyleng );
 	yylloc->step();
+	yylval->stringVal = new std::string( yytext, yyleng );
 	return token::MOVE;
 }
 	YY_BREAK
@@ -803,47 +803,51 @@ case 2:
 YY_RULE_SETUP
 #line 41 "scanner.l"
 {
+	yylloc->step();
 	yylval->stringVal = new std::string( yytext, yyleng );
 	return token::NW;
 }
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 46 "scanner.l"
+#line 47 "scanner.l"
 {
+	yylloc->step();
 	yylval->stringVal = new std::string( yytext, yyleng );
 	return token::SW;
 }
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 51 "scanner.l"
+#line 53 "scanner.l"
 {
+	yylloc->step();
 	yylval->stringVal = new std::string( yytext, yyleng );
 	return token::NE;
 }
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 56 "scanner.l"
+#line 59 "scanner.l"
 {
+	yylloc->step();
 	yylval->stringVal = new std::string( yytext, yyleng );
 	return token::SE;
 }
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 61 "scanner.l"
+#line 65 "scanner.l"
 {
 	yylloc->step();
 }
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 65 "scanner.l"
+#line 69 "scanner.l"
 ECHO;
 	YY_BREAK
-#line 847 "scanner.cpp"
+#line 851 "scanner.cpp"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1892,7 +1896,7 @@ void Wellyfree (void * ptr )
 
 /* %ok-for-header */
 
-#line 65 "scanner.l"
+#line 69 "scanner.l"
 
 
 
