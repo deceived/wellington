@@ -1,15 +1,3 @@
-%{
-
-#include "scanner.hpp"
-
-
-typedef order::Parser::token token;
-typedef order::Parser::token_type token_type;
-
-#define yyterminate() return token::END
-
-%}
-
 
 %option c++
 %option debug
@@ -19,11 +7,6 @@ typedef order::Parser::token_type token_type;
 %option outfile="scanner.cpp"
 %option yywrap nounput
 
-/* track locations in yylex */
-%{
-#define YY_USER_ACTION yylloc->columns( yyleng );
-%}
-
 WS      [ \t\r\n]+ 
 PERIOD	.
 WORD	[a-zA-Z]+
@@ -32,40 +15,18 @@ DOUBLE	[0-9]+"."[0-9]+
 
 %%
 
-%{
-	yylloc->step();
-%}
+INTEGER  ;
 
-INTEGER {
-	yylloc->step();
-	yylval->integerVal = atoi( yytext );
-	return token::INTEGER;
-}
+DOUBLE  ;
 
-DOUBLE {
-	yylloc->step();
-	yylval->doubleVal = atof( yytext );
-	return token::DOUBLE;
-}
+WORD  ;
 
-WORD {
-	yylloc->step();
-	yylval->wordVal = new std::string( yytext, yyleng );
-	return token::WORD;
-}
+PERIOD  ;
 
-WS {
-	yylloc->step();
-}
-
-PERIOD {
-	yylloc->step();
-	yylval->wordVal = new std::string( yytext, yyleng );
-	return token::PERIOD;
-}
+WS  ;
 
 %%
-
+/***
 namespace order
 {
 
@@ -95,4 +56,4 @@ int WellyFlexLexer::yywrap()
 {
 	return 1;
 }
-
+***/

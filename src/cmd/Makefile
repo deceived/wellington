@@ -21,10 +21,7 @@ all: $(OUT)
 scanner.cpp : scanner.l
 	flex -+ $<	
 
-parser.cpp : parser.ypp
-	bison -v -t -d -oparser.cpp $<
-
-OBJ = driver.o scanner.o parser.o
+OBJ = driver.o scanner.o
 
 .cpp.o:
 	$(CXX) $(INCLUDES) $(CXXFLAGS) -c $< -o $@
@@ -34,6 +31,6 @@ $(OUT): $(OBJ)
 	cp $@ ../../lib
 
 clean:
-	@rm -f *.o *.a a.out parser.output parser.hpp parser.cpp scanner.cpp
+	@rm -f *.o *.a a.out 
 	@rm -f ../../lib/$(OUT)
 
