@@ -36,3 +36,14 @@ you want them to deliver the message, so either is ok.
 The orders do not have to be free format entry. They can be 
 pre-canned. Many of the above would make sense in multiple
 situations. 
+
+Having spent a little time tinkering with the order definition
+and using bison it feels very much that using bison makes the 
+orders too tied in with a formal layout. It would be nicer to 
+permit more free format entry and not hard code meaning and format 
+in the same component.
+
+I think I will experiment with this approach and see where it
+goes. The flex scanner can still be used to break the input into
+words and a more loose parser will have to be hand carved.
+
