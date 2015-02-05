@@ -34,6 +34,6 @@ $(OUT): $(OBJ)
 	cp $@ ../../lib
 
 clean:
-	@rm -f *.o *.a a.out 
+	@rm -f *.o *.a a.out parser.output parser.hpp parser.cpp scanner.cpp
 	@rm -f ../../lib/$(OUT)
 

@@ -24,8 +24,11 @@ typedef order::Parser::token_type token_type;
 #define YY_USER_ACTION yylloc->columns( yyleng );
 %}
 
-WS      [ \t\n]+ 
-PERIOD	+
+WS      [ \t\r\n]+ 
+PERIOD	.
+WORD	[a-zA-Z]+
+INTEGER	[0-9]+
+DOUBLE	[0-9]+"."[0-9]+	
 
 %%
 
@@ -33,34 +36,22 @@ PERIOD	+
 	yylloc->step();
 %}
 
-MOVE {
+INTEGER {
 	yylloc->step();
-	yylval->stringVal = new std::string( yytext, yyleng );
-	return token::MOVE;
+	yylval->integerVal = atoi( yytext );
+	return token::INTEGER;
 }
 
-NW {
+DOUBLE {
 	yylloc->step();
-	yylval->stringVal = new std::string( yytext, yyleng );
-	return token::NW;
+	yylval->doubleVal = atof( yytext );
+	return token::DOUBLE;
 }
 
-SW {
+WORD {
 	yylloc->step();
-	yylval->stringVal = new std::string( yytext, yyleng );
-	return token::SW;
-}
-
-NE {
-	yylloc->step();
-	yylval->stringVal = new std::string( yytext, yyleng );
-	return token::NE;
-}
-
-SE {
-	yylloc->step();
-	yylval->stringVal = new std::string( yytext, yyleng );
-	return token::SE;
+	yylval->wordVal = new std::string( yytext, yyleng );
+	return token::WORD;
 }
 
 WS {
@@ -69,7 +60,7 @@ WS {
 
 PERIOD {
 	yylloc->step();
-	yylval->stringVal = new std::string( yytext, yyleng );
+	yylval->wordVal = new std::string( yytext, yyleng );
 	return token::PERIOD;
 }
 

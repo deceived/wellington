@@ -126,10 +126,11 @@ namespace order {
     #line 27 "parser.ypp" // lalr1.cc:372
 
 	int	integerVal;
-	std::string* stringVal;
+	double doubleVal;
+	std::string* wordVal;
 	class Order* order;
 
-#line 133 "parser.hpp" // lalr1.cc:372
+#line 134 "parser.hpp" // lalr1.cc:372
     };
 #else
     typedef YYSTYPE semantic_type;
@@ -150,21 +151,11 @@ namespace order {
       enum yytokentype
       {
         END = 0,
-        EOL = 258,
-        INTEGER = 259,
-        STRING = 260,
-        MOVE = 261,
-        TO = 262,
-        THE = 263,
-        N = 264,
-        S = 265,
-        E = 266,
-        W = 267,
-        NW = 268,
-        NE = 269,
-        SW = 270,
-        SE = 271,
-        PERIOD = 272
+        INTEGER = 258,
+        DOUBLE = 259,
+        WORD = 260,
+        PERIOD = 261,
+        WS = 262
       };
     };
 
@@ -340,7 +331,7 @@ namespace order {
   // number is the opposite.  If YYTABLE_NINF, syntax error.
   static const unsigned char yytable_[];
 
-  static const signed char yycheck_[];
+  static const unsigned char yycheck_[];
 
   // YYSTOS[STATE-NUM] -- The (internal number of the) accessing
   // symbol of state STATE-NUM.
@@ -455,13 +446,13 @@ namespace order {
     enum
     {
       yyeof_ = 0,
-      yylast_ = 18,     ///< Last index in yytable_.
-      yynnts_ = 5,  ///< Number of nonterminal symbols.
+      yylast_ = 5,     ///< Last index in yytable_.
+      yynnts_ = 3,  ///< Number of nonterminal symbols.
       yyempty_ = -2,
-      yyfinal_ = 2, ///< Termination state number.
+      yyfinal_ = 5, ///< Termination state number.
       yyterror_ = 1,
       yyerrcode_ = 256,
-      yyntokens_ = 18  ///< Number of tokens.
+      yyntokens_ = 8  ///< Number of tokens.
     };
 
 
@@ -472,7 +463,7 @@ namespace order {
 
 
 } // order
-#line 476 "parser.hpp" // lalr1.cc:372
+#line 467 "parser.hpp" // lalr1.cc:372
 
 
 

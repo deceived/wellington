@@ -26,30 +26,18 @@
 
 %union {
 	int	integerVal;
-	std::string* stringVal;
+	double doubleVal;
+	std::string* wordVal;
 	class Order* order;
 }
 
 %token  			END		0 "end of file"
-%token				EOL		  "end of line"
 %token <integerVal> INTEGER   "integer"
-%token <stringVal>  STRING    "string"
+%token <doubleVal>  DOUBLE    "double"
+%token <wordVal>    WORD      "word"
 
-%type <order>		move_order order
-%type <stringVal>	compass_direction N S E W NW NE SW SE
-
-%token  	MOVE
-%token      TO
-%token      THE
-%token      N
-%token      S
-%token      E
-%token      W
-%token      NW
-%token      NE
-%token      SW
-%token      SE
-%token		PERIOD 
+%token				PERIOD 
+%token				WS
 
 %{
 
@@ -63,44 +51,18 @@
 
 %%
 
-start				:	
-					|	start PERIOD 
-					|	start EOL
-					|   start order PERIOD 
+start				:	order PERIOD END
 						{
-							driver.orders_.orders_.push_back( $2 );
 						}
-					|	start order EOL
-						{
-							driver.orders_.orders_.push_back( $2 );
-						}
-					|	start order END
-						{
-							driver.orders_.orders_.push_back( $2 );
-						}
-					;
-				
-order				:	move_order
-						{
-							$$ = $1;
-						}
-					;
-	
-move_order          :   MOVE compass_direction
-						{
-							$$ = new MoveOrder( *$2 );
-						}
-                    ;
 
-compass_direction   :   N
-                    |   S
-                    |   E
-                    |   W
-                    |   NW
-                    |   NE
-                    |   SW
-                    |   SE
-                    ;
+
+order				:	WORD
+						{
+						}
+					|	WORD WS order
+						{
+						}
+					;
 
 %%
 
