@@ -12,16 +12,13 @@ LDFLAGS	= -g
 
 OUT = cmd.a
 
-SRC = driver.cpp scanner.cpp parser.cpp
+SRC = driver.cpp scanner.cpp 
 OBJ = (SRC:.cpp.o)
 
 
 all: $(OUT) 
 
-scanner.cpp : scanner.l
-	flex -+ $<	
-
-OBJ = driver.o scanner.o
+OBJ = driver.o
 
 .cpp.o:
 	$(CXX) $(INCLUDES) $(CXXFLAGS) -c $< -o $@
