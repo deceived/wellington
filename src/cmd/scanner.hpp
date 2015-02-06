@@ -3,6 +3,8 @@
 
 #include <istream>
 
+#include "scan.h"
+
 class	ScannerStream
 {
 
@@ -68,7 +70,7 @@ public:
 		return c;
 	}
 
-	void NextToken()
+	symbolclass NextToken()
 	{
 		int c = ifstream_.Get();
 
@@ -89,6 +91,7 @@ public:
 					}
 					token_.push_back( '\0' );
 					ifstream_.Unput();
+					return WORD;
 					break;
 
 				case DIGIT:
@@ -99,12 +102,15 @@ public:
 					}	
 					token_.push_back( '\0' );
 					ifstream_.Unput();
+					return INTEGER;
 					break;
 
 				case '.':
+					return PERIOD;
 					break;
 			}
-		}		
+		}
+		return EOFSY;
 	}
 
 private:
