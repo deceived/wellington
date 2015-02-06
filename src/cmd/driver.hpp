@@ -8,7 +8,7 @@
 #include <boost/smart_ptr.hpp>
 
 #include "order.hpp"
-//#include "scanner.hpp"
+#include "scanner.hpp"
 
 namespace order
 {
@@ -29,7 +29,7 @@ public:
 
 	std::string name_;
 
-//	class Scanner* lexer_;
+	class Scanner* lexer_;
 
 	class OrderContext& orders_;
 

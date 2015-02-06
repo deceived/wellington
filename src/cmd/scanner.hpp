@@ -5,45 +5,6 @@
 
 #include "scan.h"
 
-class	ScannerStream
-{
-
-public:
-
-	ScannerStream( const std::string& filename )
-		filename_( filename )
-	{
-		input_.open( filename_, std::ifstream::in );
-	}
-
-	~ScannerStream()
-	{
-		input_.close();
-	}
-
-	int Get()
-	{
-		if( !input_.eof() )
-		{
-			return input_.get();
-		}
-	}
-
-	void Unput()
-	{
-		if( !input_.eof() )
-		{
-			input_.unget();
-		}
-	}
-
-
-private:
-
-	std::string filename_;
-	std::ifstream input_;
-	
-};
 
 class Scanner
 {
@@ -53,8 +14,8 @@ public:
 	const static int ALPHA = 'a';
 	const static int DIGIT = '0';
 
-	Scanner( const std::string& filename )
-		: ifstream( filename )
+	Scanner( std::istream& in )
+		: ifstream_( in )
 	{}
 
 	int Class( int c )
@@ -113,9 +74,25 @@ public:
 		return EOFSY;
 	}
 
+	int Get()
+	{
+		if( !ifstream_.eof() )
+		{
+			return ifstream_.get();
+		}
+	}
+
+	void Unput()
+	{
+		if( !ifstream_.eof() )
+		{
+			ifstream_.unget();
+		}
+	}
+
 private:
 
-	ScannerStream	ifstream_;
+	std::istream&	ifstream_;
 	std::string		token_;
 
 };
