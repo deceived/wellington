@@ -82,9 +82,23 @@ public:
 					break;
 
 				case ALPHA:
+					for( int j = 0; isalpha( c ); ++j )
+					{
+						token_.push_back( c );
+						c = ifstream_.Get();	
+					}
+					token_.push_back( '\0' );
+					ifstream_.Unput();
 					break;
 
 				case DIGIT:
+					for( int j = 0; isdigit( c ); ++j )
+					{
+						token_.push_back( c );
+						c = ifstream_.Get();	
+					}	
+					token_.push_back( '\0' );
+					ifstream_.Unput();
 					break;
 
 				case '.':
@@ -96,6 +110,7 @@ public:
 private:
 
 	ScannerStream	ifstream_;
+	std::string		token_;
 
 };
 
