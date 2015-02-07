@@ -14,44 +14,17 @@ public:
 	virtual ~Order()
 	{}
 
-	void Add( const std::string& key, const std::string& value );
-	std::string Get( const std::string& key )
+	void Add( const std::string& value )
 	{
-		return details_[ key ];
+		sentence_.push_back( value );
 	}
-
-	virtual void Print( std::ostream& os ) = 0;
-	virtual std::string ToString() = 0;
 
 protected:
 
-	std::map< std::string, std::string > details_;
+	std::vector< std::string > sentence_;
 
 };
 
-class MoveOrder : public Order
-{
-
-public:
-
-	MoveOrder( const std::string& direction )
-	{
-		details_[ "direction" ] = direction;
-	}
-
-	virtual void Print( std::ostream& os )
-	{
-		os << ToString() << std::endl;
-	}
-
-	virtual std::string ToString()
-	{
-		std::stringstream os;
-		os << "MOVE " << "TO " << "THE " << Get( "direction" ) << "." << std::endl;
-		return os.str();
-	}
-
-};
 
 class OrderContext
 {
