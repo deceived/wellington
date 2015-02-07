@@ -33,7 +33,7 @@ public:
 
 	symbolclass NextToken()
 	{
-		int c = ifstream_.Get();
+		int c = ifstream_.get();
 
 		while( c != EOF )
 		{
@@ -48,10 +48,10 @@ public:
 					for( int j = 0; isalpha( c ); ++j )
 					{
 						token_.push_back( c );
-						c = ifstream_.Get();	
+						c = ifstream_.get();	
 					}
 					token_.push_back( '\0' );
-					ifstream_.Unput();
+					ifstream_.unget();
 					return WORD;
 					break;
 
@@ -59,10 +59,10 @@ public:
 					for( int j = 0; isdigit( c ); ++j )
 					{
 						token_.push_back( c );
-						c = ifstream_.Get();	
+						c = ifstream_.get();	
 					}	
 					token_.push_back( '\0' );
-					ifstream_.Unput();
+					ifstream_.unget();
 					return INTEGER;
 					break;
 

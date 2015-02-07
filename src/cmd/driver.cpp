@@ -9,7 +9,7 @@ Driver::Driver( class OrderContext& orders )
 
 bool Driver::ParseStream( std::istream& input, const std::string& name )
 {
-	Scanner scanner( &input );
+	Scanner scanner( input );
 	lexer_ = &scanner;
 	return true;
 }
