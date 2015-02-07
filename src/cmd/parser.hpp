@@ -15,6 +15,8 @@ public:
 		: driver_( driver )
 	{}
 
+	bool	parse();
+
 private:
 
 	Driver&	driver_;
