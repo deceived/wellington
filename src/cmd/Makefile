@@ -12,7 +12,7 @@ LDFLAGS	= -g
 
 OUT = cmd.a
 
-SRC = driver.cpp scanner.cpp 
+SRC = driver.cpp scanner.cpp parser.cpp
 OBJ = (SRC:.cpp.o)
 
 
