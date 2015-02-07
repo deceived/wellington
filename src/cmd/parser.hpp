@@ -3,6 +3,9 @@
 
 #include "driver.hpp"
 
+namespace order
+{
+
 class	Parser
 {
 
@@ -17,6 +20,8 @@ private:
 	Driver&	driver_;
 
 };
+
+}
 
 #endif
 

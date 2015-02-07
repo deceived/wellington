@@ -4,6 +4,7 @@
 #include <istream>
 
 #include "scan.h"
+#include "parser.hpp"
 
 
 class Scanner
