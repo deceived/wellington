@@ -18,7 +18,7 @@ OBJ = (SRC:.cpp.o)
 
 all: $(OUT) 
 
-OBJ = driver.o
+OBJ = driver.o parser.o
 
 .cpp.o:
 	$(CXX) $(INCLUDES) $(CXXFLAGS) -c $< -o $@

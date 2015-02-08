@@ -11,9 +11,6 @@ class Order
 
 public:
 
-	virtual ~Order()
-	{}
-
 	void Add( const std::string& value )
 	{
 		sentence_.push_back( value );
