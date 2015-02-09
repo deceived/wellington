@@ -75,20 +75,9 @@ public:
 		return EOFSY;
 	}
 
-	int Get()
+	std::string GetToken()
 	{
-		if( !ifstream_.eof() )
-		{
-			return ifstream_.get();
-		}
-	}
-
-	void Unput()
-	{
-		if( !ifstream_.eof() )
-		{
-			ifstream_.unget();
-		}
+		return token_;
 	}
 
 private:
