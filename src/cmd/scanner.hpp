@@ -36,6 +36,8 @@ public:
 	{
 		int c = ifstream_.get();
 
+		token_.clear();
+
 		while( c != EOF )
 		{
 			switch( Class( c ) )
@@ -43,6 +45,7 @@ public:
 				case ' ':
 				case '\t':
 				case '\n':
+					c = ifstream_.get();	
 					break;
 
 				case ALPHA:
