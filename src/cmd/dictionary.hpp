@@ -1,6 +1,9 @@
 #ifndef DICTIONARY_HPP
 #define DICTIONARY_HPP
 
+#include <string>
+#include <map>
+
 struct Entry
 {
 };

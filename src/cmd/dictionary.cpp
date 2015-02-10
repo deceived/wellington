@@ -4,13 +4,13 @@
 
 Dictionary::Dictionary()
 {
-	dictionary_[ "attack" ] = null;
-	dictionary_[ "move"   ] = null;
-	dictionary_[ "defend" ] = null;
-	dictionary_[ "support"] = null;
-	dictionary_[ "advance"] = null;
-	dictionary_[ "occupy" ] = null;
-	dictionary_[ "hold"   ] = null;
+	dictionary_[ "attack" ] = *new Entry;
+	dictionary_[ "move"   ] = *new Entry;
+	dictionary_[ "defend" ] = *new Entry;
+	dictionary_[ "support"] = *new Entry;
+	dictionary_[ "advance"] = *new Entry;
+	dictionary_[ "occupy" ] = *new Entry;
+	dictionary_[ "hold"   ] = *new Entry;
 }
 
 Entry Dictionary::Get( std::string )
