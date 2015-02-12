@@ -5,33 +5,42 @@
 #include <map>
 
 
+enum Speech
+{
+	Verb = 1,
+	Noun
+};
+
+enum Action
+{
+	Attack = 1,
+	Neutral,
+	Defend
+};
+
+enum Strength
+{
+	Weak = 1,
+	Medium,
+	Strong
+};
 
 struct Entry
 {
-	static const unsigned int Verb = 0x1;
-	static const unsigned int Noun = 0x2;
-
-	static const unsigned int Neutral = 0x1;
-	static const unsigned int Defend = 0x2;
-	static const unsigned int Attack = 0x4;
-
-	static const unsigned int Strong = 5;
-	static const unsigned int Neutral = 3;
-	static const unsigned int Weak = 1;
 
 	Entry( 	const std::string& value, 
-			unsigned int speech,
-			unsigned int action,
-			unsigned int strength )
+			enum Speech speech,
+			enum Action action,
+			enum Strength strength )
 		: 	value_( value ),
 			speech_( speech ),
 			action_( action ),
 			strength_( strength )
 	{}
 
-	unsigned int speech_;
-	unsigned int action_;
-	unsigned int strength_;
+	enum Speech speech_;
+	enum Action action_;
+	enum Strength strength_;
 
 	const std::string value_;
 };

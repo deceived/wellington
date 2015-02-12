@@ -6,6 +6,8 @@
 #include <iostream>
 #include <sstream>
 
+#include "dictionary.hpp"
+
 class Order 
 {
 
@@ -14,6 +16,11 @@ public:
 	void Add( const std::string& value )
 	{
 		sentence_.push_back( value );
+	}
+
+	void Add( Entry* entry )
+	{
+		entries_.push_back( entry );
 	}
 
 private:
