@@ -16,8 +16,9 @@ public:
 		sentence_.push_back( value );
 	}
 
-protected:
+private:
 
+	std::vector< Entry* > entries_; 
 	std::vector< std::string > sentence_;
 
 };
