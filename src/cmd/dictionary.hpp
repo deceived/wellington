@@ -52,7 +52,7 @@ class Dictionary
 
 public:
 
-	typedef std::map< std::string, Entry > dictionary_type;
+	typedef std::map< std::string, Entry* > dictionary_type;
 
 	Dictionary();
 
