@@ -13,7 +13,8 @@ Dictionary::Dictionary()
 	dictionary_[ "hold"   ] = new Entry( std::string( "hold" ), Verb, Defend, Medium );
 }
 
-Entry Dictionary::Get( std::string )
+Entry* Dictionary::Get( const std::string& token )
 {
+	return dictionary_[ token ];
 }
 

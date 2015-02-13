@@ -23,8 +23,14 @@ public:
 		entries_.push_back( entry );
 	}
 
-	void Analyse()
+	void Transform()
 	{
+		for( std::vector< std::string >::iterator it = sentence_.begin();
+				it != sentence_.end();
+				++it )
+		{
+				
+		}
 	}
 
 private:
@@ -34,13 +40,16 @@ private:
 
 };
 
-struct OrderAnalysis
+struct OrdeTransform
 {
 	void operator()( Order* order )
 	{
-		order->Analyse();
+		order->Transform();
 	}
-} Analysis;
+
+	Dictionary	dictionary_;
+
+} Transform;
 
 class OrderContext
 {
@@ -54,7 +63,7 @@ public:
 
 	void Analyse()
 	{
-		std::for_each( orders_.begin(), orders_.end(), Analysis );
+		std::for_each( orders_.begin(), orders_.end(), Transform );
 	}
 
 	std::vector< Order* > orders_;

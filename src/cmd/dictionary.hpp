@@ -55,7 +55,7 @@ public:
 
 	Dictionary();
 
-	Entry Get( std::string );	
+	Entry* Get( const std::string& token);	
 
 private:
 
