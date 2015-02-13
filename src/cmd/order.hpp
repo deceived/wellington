@@ -23,6 +23,10 @@ public:
 		entries_.push_back( entry );
 	}
 
+	void Analyse()
+	{
+	}
+
 private:
 
 	std::vector< Entry* > entries_; 
@@ -30,6 +34,13 @@ private:
 
 };
 
+struct OrderAnalysis
+{
+	void operator()( Order* order )
+	{
+		order->Analyse();
+	}
+} Analysis;
 
 class OrderContext
 {
@@ -39,6 +50,11 @@ public:
 	void Clear()
 	{
 		orders_.clear();
+	}
+
+	void Analyse()
+	{
+		std::for_each( orders_.begin(), orders_.end(), Analysis );
 	}
 
 	std::vector< Order* > orders_;
