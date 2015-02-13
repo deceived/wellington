@@ -38,11 +38,10 @@ struct Entry
 			strength_( strength )
 	{}
 
+	const std::string value_;
 	enum Speech speech_;
 	enum Action action_;
 	enum Strength strength_;
-
-	const std::string value_;
 };
 
 
