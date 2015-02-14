@@ -21,9 +21,7 @@ bool program_options( int argc, char** argv )
         po::options_description desc("Allowed options");
 		desc.add_options()
     		("help", "help message")
- //   		("map", po::value<std::string>()->default_value( "tiles.json" ), "load map")
     		("map", po::value<std::string>(), "load map")
- //   		("key", po::value<std::string>()->default_value( "map_key.txt" ), "load map key")
     		("key", po::value<std::string>(), "load map key")
     		;
 
