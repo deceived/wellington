@@ -14,22 +14,22 @@ int main( int argc, char** argv )
 
 	if( argc > 1 )
 	{
-	std::fstream infile( argv[1] );
-	if( !infile.good() )
-	{
-		std::cout << "cannot open input file : [" << argv[1] << "]" << std::endl;
-		return 0;
-	}
-	orders.Clear();
-	bool result = driver.ParseStream( infile, argv[1] );
-	if ( result )
-	{
-		std::cout << "orders: " << std::endl;
-		for( unsigned int o = 0; o < driver.orders_.orders_.size(); ++o )
+		std::fstream infile( argv[1] );
+		if( !infile.good() )
 		{
+			std::cout << "cannot open input file : [" << argv[1] << "]" << std::endl;
+			return 0;
 		}
-	}	
-	return 0;
+		orders.Clear();
+		bool result = driver.ParseStream( infile, argv[1] );
+		if ( result )
+		{
+			std::cout << "orders: " << std::endl;
+			for( unsigned int o = 0; o < driver.orders_.orders_.size(); ++o )
+			{
+			}
+		}	
+		return 0;
 	}
 
 	do
