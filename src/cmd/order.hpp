@@ -23,7 +23,7 @@ public:
 		entries_.push_back( entry );
 	}
 
-	void Transform()
+	void Convert()
 	{
 		for( std::vector< std::string >::iterator it = sentence_.begin();
 				it != sentence_.end();
@@ -40,11 +40,11 @@ private:
 
 };
 
-struct OrdeTransform
+struct OrderTransform
 {
 	void operator()( Order* order )
 	{
-		order->Transform();
+		order->Convert();
 	}
 
 	Dictionary	dictionary_;
