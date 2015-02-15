@@ -26,7 +26,7 @@ public:
 		entries_.push_back( entry );
 	}
 
-	void Transform()
+	void Translate()
 	{
 		for( std::vector< std::string >::iterator it = sentence_.begin();
 				it != sentence_.end();
@@ -43,23 +43,15 @@ private:
 
 };
 
-#if 0
-struct OrderTransform
-{
-	void operator()( Order* order )
-	{
-		order->Transform();
-	}
-
-	Dictionary	dictionary_;
-
-} Convert;
-#endif
-
 class OrderContext
 {
 
 public:
+
+	static void Translate( Order* order )
+	{
+		order->Translate();
+	}
 
 	void Clear()
 	{
@@ -68,10 +60,12 @@ public:
 
 	void Analyse()
 	{
-//		std::for_each( orders_.begin(), orders_.end(), Convert );
+		std::for_each( orders_.begin(), orders_.end(), OrderContext::Translate );
 	}
 
 	std::vector< Order* > orders_;
+
+	Dictionary	dictionary_;
 
 };
 
