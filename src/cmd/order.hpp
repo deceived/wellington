@@ -8,6 +8,9 @@
 
 #include "dictionary.hpp"
 
+namespace order
+{
+
 class Order 
 {
 
@@ -23,7 +26,7 @@ public:
 		entries_.push_back( entry );
 	}
 
-	void Convert()
+	void Transform()
 	{
 		for( std::vector< std::string >::iterator it = sentence_.begin();
 				it != sentence_.end();
@@ -40,16 +43,18 @@ private:
 
 };
 
+#if 0
 struct OrderTransform
 {
 	void operator()( Order* order )
 	{
-		order->Convert();
+		order->Transform();
 	}
 
 	Dictionary	dictionary_;
 
-} Transform;
+} Convert;
+#endif
 
 class OrderContext
 {
@@ -63,12 +68,14 @@ public:
 
 	void Analyse()
 	{
-		std::for_each( orders_.begin(), orders_.end(), Transform );
+//		std::for_each( orders_.begin(), orders_.end(), Convert );
 	}
 
 	std::vector< Order* > orders_;
 
 };
+
+}
  
 #endif
 
