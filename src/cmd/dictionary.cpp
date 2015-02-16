@@ -1,6 +1,8 @@
 #include "dictionary.hpp"
 
 
+namespace order
+{
 
 Dictionary::Dictionary()
 {
@@ -18,3 +20,4 @@ Entry* Dictionary::Get( const std::string& token )
 	return dictionary_[ token ];
 }
 
+}

@@ -53,6 +53,10 @@ public:
 		order->Translate();
 	}
 
+	OrderContext( const Dictionary& dictionary )
+		: dictionary_( dictionary )
+	{}
+
 	void Clear()
 	{
 		orders_.clear();
@@ -65,7 +69,7 @@ public:
 
 	std::vector< Order* > orders_;
 
-	Dictionary	dictionary_;
+	const Dictionary&	dictionary_;
 
 };
 

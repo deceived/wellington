@@ -5,6 +5,9 @@
 #include <map>
 
 
+namespace order
+{
+
 enum Speech
 {
 	Verb = 1,
@@ -62,5 +65,7 @@ private:
 	dictionary_type	dictionary_;
 
 };
+
+}
 
 #endif

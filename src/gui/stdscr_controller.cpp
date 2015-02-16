@@ -242,7 +242,8 @@ void StdScrMapController::LoadResources()
 
 void StdScrMapController::EnterOrders()
 {
-	OrderContext orders;
+	Dictionary dictionary;
+	OrderContext orders( dictionary );
 	Driver driver( orders );
 
 	do
