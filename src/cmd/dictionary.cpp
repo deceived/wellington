@@ -13,6 +13,9 @@ Dictionary::Dictionary()
 	dictionary_[ "advance"] = new Entry( std::string( "advance" ), Verb, Attack, Medium );
 	dictionary_[ "occupy" ] = new Entry( std::string( "occupy" ), Verb, Neutral, Weak );
 	dictionary_[ "hold"   ] = new Entry( std::string( "hold" ), Verb, Defend, Medium );
+
+	dictionary_[ "town"   ] = new Entry( std::string( "town" ), Noun, Neutral, Weak );
+	
 }
 
 Entry* Dictionary::Get( const std::string& token )
