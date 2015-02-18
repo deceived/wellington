@@ -43,6 +43,7 @@ struct Entry
 	{}
 
 	const std::string value_;
+
 	enum Speech speech_;
 	enum Action action_;
 	enum Strength strength_;
