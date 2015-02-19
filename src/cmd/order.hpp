@@ -21,7 +21,7 @@ public:
 		sentence_.push_back( value );
 	}
 
-	void Add( Entry* entry )
+	void Add( Dictionary::entry_ptr entry )
 	{
 		entries_.push_back( entry );
 	}
@@ -38,7 +38,7 @@ public:
 
 private:
 
-	std::vector< Entry* > entries_; 
+	std::vector< Dictionary::entry_ptr > entries_; 
 	std::vector< std::string > sentence_;
 
 };
