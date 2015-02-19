@@ -5,6 +5,7 @@
 #include <map>
 
 #include <boost/algorithm/string.hpp>
+#include <boost/smart_ptr.hpp>
 
 namespace order
 {
@@ -56,11 +57,12 @@ class Dictionary
 
 public:
 
-	typedef std::map< std::string, Entry* > dictionary_type;
+	typedef boost::shared_ptr< Entry > entry_ptr;
+	typedef std::map< std::string, entry_ptr > dictionary_type;
 
 	Dictionary();
 
-	Entry* Get( const std::string& token);	
+	entry_ptr Get( const std::string& token);	
 
 private:
 
