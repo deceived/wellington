@@ -6,7 +6,7 @@
 #include <iostream>
 #include <sstream>
 
-#include "dictionary.hpp"
+#include "order_dictionary.hpp"
 
 namespace order
 {

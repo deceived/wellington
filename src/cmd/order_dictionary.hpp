@@ -1,5 +1,5 @@
-#ifndef DICTIONARY_HPP
-#define DICTIONARY_HPP
+#ifndef ORDER_DICTIONARY_HPP
+#define ORDER_DICTIONARY_HPP
 
 #include <string>
 #include <map>
