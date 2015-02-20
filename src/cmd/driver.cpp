@@ -29,12 +29,4 @@ bool Driver::ParseFile( const std::string& name )
 	return ParseStream( input, name );
 }
 
-void Driver::Error( const class location& l, const std::string& message )
-{
-}
-
-void Driver::Error( const std::string& message )
-{
-}
-
 }
