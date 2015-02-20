@@ -28,16 +28,6 @@ public:
 		entries_.push_back( entry );
 	}
 
-	void Translate()
-	{
-		for( std::vector< std::string >::iterator it = sentence_.begin();
-				it != sentence_.end();
-				++it )
-		{
-				
-		}
-	}
-
 private:
 
 	std::vector< Dictionary::entry_ptr > entries_; 
@@ -50,11 +40,6 @@ class OrderContext
 
 public:
 
-	static void Translate( Order::order_ptr order )
-	{
-		order->Translate();
-	}
-
 	OrderContext( const Dictionary& dictionary )
 		: dictionary_( dictionary )
 	{}
@@ -66,7 +51,12 @@ public:
 
 	void Analyse()
 	{
-		std::for_each( orders_.begin(), orders_.end(), OrderContext::Translate );
+		for( 	std::vector< Order::order_ptr >::iterator it = orders_.begin();
+				it != orders_.end();
+				++it )
+		{
+			
+		}
 	}
 
 	std::vector< Order::order_ptr > orders_;
