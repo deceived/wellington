@@ -7,7 +7,7 @@ bool Parser::parse()
 {
 	std::string text;
 
-	Order* order = new Order();
+	Order::order_ptr order = boost::make_shared<Order>();
 	symbolclass token = driver_.lexer_->NextToken();
 	while( EOFSY != token )
 	{
@@ -23,7 +23,7 @@ bool Parser::parse()
 				break;
 			case PERIOD :
 				driver_.orders_.orders_.push_back( order );	
-				order = new Order();
+				order = boost::make_shared<Order>();
 				break;
 		}
 		token = driver_.lexer_->NextToken();

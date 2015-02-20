@@ -16,6 +16,8 @@ class Order
 
 public:
 
+	typedef boost::shared_ptr< Order > order_ptr;
+
 	void Add( const std::string& value )
 	{
 		sentence_.push_back( value );
@@ -48,7 +50,7 @@ class OrderContext
 
 public:
 
-	static void Translate( Order* order )
+	static void Translate( Order::order_ptr order )
 	{
 		order->Translate();
 	}
@@ -67,7 +69,7 @@ public:
 		std::for_each( orders_.begin(), orders_.end(), OrderContext::Translate );
 	}
 
-	std::vector< Order* > orders_;
+	std::vector< Order::order_ptr > orders_;
 
 	const Dictionary&	dictionary_;
 
