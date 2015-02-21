@@ -16,7 +16,8 @@ SRC = 	actor.cpp \
 	identity_component.cpp \
 	move_component.cpp \
 	representation_component.cpp \
-	fire_component.cpp
+	fire_component.cpp \
+	order_component.cpp
 
 OBJ = $(SRC:.cpp=.o)
 OUT = actors.a
