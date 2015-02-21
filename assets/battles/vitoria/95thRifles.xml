@@ -12,6 +12,8 @@
 	  <StartX>20</StartX>
 	  <StartY>20</StartY>
     </Component>
+	<Component name="OrderComponent">
+	</Component>
     <Component name="RepresentationComponent" >
       <Image>95th-rifles.png</Image>
 	  <Char>R</Char>

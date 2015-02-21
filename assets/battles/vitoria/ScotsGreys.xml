@@ -12,6 +12,8 @@
 	  <StartX>25</StartX>
 	  <StartY>25</StartY>
     </Component>
+	<Component name="OrderComponent">
+	</Component>
     <Component name="RepresentationComponent" >
       <Image>heavy-cavalry.png</Image>
 	  <Char>S</Char>

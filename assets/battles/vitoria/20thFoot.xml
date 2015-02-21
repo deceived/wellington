@@ -25,6 +25,8 @@
 	  <StartX>15</StartX>
 	  <StartY>15</StartY>
     </Component>
+	<Component name="OrderComponent">
+	</Component>
     <Component name="RepresentationComponent" >
       <Image>line-infantry-company.png</Image>
 	  <Char>F</Char>
