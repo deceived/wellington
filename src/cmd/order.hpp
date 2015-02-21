@@ -17,6 +17,7 @@ class Order
 public:
 
 	typedef boost::shared_ptr< Order > order_ptr;
+	typedef std::vector< std::string > order_data;
 
 	void Add( const std::string& value )
 	{
@@ -26,6 +27,11 @@ public:
 	void Add( Dictionary::entry_ptr entry )
 	{
 		entries_.push_back( entry );
+	}
+
+	order_data Get()
+	{
+		return sentence_;
 	}
 
 private:
@@ -40,7 +46,9 @@ class OrderContext
 
 public:
 
-	OrderContext( const Dictionary& dictionary )
+	typedef std::vector< Order::order_ptr > orders_data;
+
+	OrderContext( Dictionary& dictionary )
 		: dictionary_( dictionary )
 	{}
 
@@ -51,17 +59,24 @@ public:
 
 	void Analyse()
 	{
-		for( 	std::vector< Order::order_ptr >::iterator it = orders_.begin();
+		for( 	orders_data::iterator it = orders_.begin();
 				it != orders_.end();
 				++it )
 		{
-			
+			Order::order_data sentence = (*it)->Get();
+			for( 	Order::order_data::iterator oi = sentence.begin();
+					oi != sentence.end();
+					++oi )
+			{
+				Dictionary::entry_ptr entry = dictionary_.Get( (*oi) );
+				(*it)->Add( entry );
+			}	 
 		}
 	}
 
 	std::vector< Order::order_ptr > orders_;
 
-	const Dictionary&	dictionary_;
+	Dictionary&	dictionary_;
 
 };
 
