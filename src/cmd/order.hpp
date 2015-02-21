@@ -57,7 +57,7 @@ public:
 		orders_.clear();
 	}
 
-	void Analyse()
+	void Translate()
 	{
 		for( 	orders_data::iterator it = orders_.begin();
 				it != orders_.end();
