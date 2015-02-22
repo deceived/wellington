@@ -14,6 +14,9 @@ bool OrderComponent::Init(pugi::xml_node data)
     {
         logger.Severity( severity_level::debug, std::string( "child name: " ) + child.name() );
         logger.Severity( severity_level::debug, std::string( "child value: " ) + child.child_value() );
+		if( child.name() == "Order" )
+		{
+		}
     }
 	return true;
 }
