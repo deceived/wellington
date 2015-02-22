@@ -18,6 +18,7 @@ public:
 
 	typedef boost::shared_ptr< Order > order_ptr;
 	typedef std::vector< std::string > order_data;
+	typedef std::vector< Dictionary::entry_ptr > entry_data;
 
 	void Add( const std::string& value )
 	{
@@ -29,9 +30,14 @@ public:
 		entries_.push_back( entry );
 	}
 
-	order_data Get()
+	order_data GetSentence()
 	{
 		return sentence_;
+	}
+
+	entry_data GetEntries()
+	{
+		return entries_;
 	}
 
 private:
@@ -63,7 +69,7 @@ public:
 				it != orders_.end();
 				++it )
 		{
-			Order::order_data sentence = (*it)->Get();
+			Order::order_data sentence = (*it)->GetSentence();
 			for( 	Order::order_data::iterator oi = sentence.begin();
 					oi != sentence.end();
 					++oi )
