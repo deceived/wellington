@@ -13,6 +13,7 @@
 	  <StartY>25</StartY>
     </Component>
 	<Component name="OrderComponent">
+	  <Order>Take position await orders</Order>
 	</Component>
     <Component name="RepresentationComponent" >
       <Image>heavy-cavalry.png</Image>
