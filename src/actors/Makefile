@@ -9,7 +9,7 @@ CXXFLAGS = -g -std=c++11
 
 LDFLAGS	= -g
 
-INCLUDES = -I../log -I../etc -I../xml -I../res
+INCLUDES = -I../cmd -I../log -I../etc -I../xml -I../res
 
 SRC = 	actor.cpp \
 	actor_factory.cpp \
