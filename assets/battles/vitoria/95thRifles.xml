@@ -13,7 +13,7 @@
 	  <StartY>20</StartY>
     </Component>
 	<Component name="OrderComponent">
-	  <Order>Take position await orders</Order>
+	  <Order>Wait orders</Order>
 	</Component>
     <Component name="RepresentationComponent" >
       <Image>95th-rifles.png</Image>

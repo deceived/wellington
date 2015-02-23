@@ -14,7 +14,8 @@ Dictionary::Dictionary()
 	dictionary_[ "occupy" ] = boost::make_shared<Entry>( std::string( "occupy" ), Verb, Neutral, Weak );
 	dictionary_[ "hold"   ] = boost::make_shared<Entry>( std::string( "hold" ), Verb, Defend, Medium );
 	dictionary_[ "clear"   ] = boost::make_shared<Entry>( std::string( "clear" ), Verb, Attack, Medium );
-
+	dictionary_[ "defeat"   ] = boost::make_shared<Entry>( std::string( "defeat" ), Verb, Neutral, Medium );
+	
 	dictionary_[ "town"   ] = boost::make_shared<Entry>( std::string( "town" ), Noun, Neutral, Strong );
 	dictionary_[ "hill"   ] = boost::make_shared<Entry>( std::string( "hill" ), Noun, Neutral, Strong );
 	dictionary_[ "village"   ] = boost::make_shared<Entry>( std::string( "village" ), Noun, Neutral, Strong );
@@ -37,6 +38,9 @@ Dictionary::Dictionary()
 	dictionary_[ "sw"   ] = boost::make_shared<Entry>( std::string( "sw" ), Noun, Neutral, Medium );
 	dictionary_[ "ne"   ] = boost::make_shared<Entry>( std::string( "ne" ), Noun, Neutral, Medium );
 	dictionary_[ "nw"   ] = boost::make_shared<Entry>( std::string( "nw" ), Noun, Neutral, Medium );
+
+	dictionary_[ "napolean"   ] = boost::make_shared<Entry>( std::string( "napolean" ), Noun, Neutral, Strong );
+
 }
 
 Dictionary::entry_ptr Dictionary::Get( const std::string& token )

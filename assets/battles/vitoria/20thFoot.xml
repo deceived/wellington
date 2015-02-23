@@ -26,7 +26,7 @@
 	  <StartY>15</StartY>
     </Component>
 	<Component name="OrderComponent">
-	  <Order>Take position await orders</Order>
+	  <Order>Wait orders</Order>
 	</Component>
     <Component name="RepresentationComponent" >
       <Image>line-infantry-company.png</Image>
