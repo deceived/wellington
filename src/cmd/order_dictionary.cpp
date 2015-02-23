@@ -15,6 +15,7 @@ Dictionary::Dictionary()
 	dictionary_[ "hold"   ] = boost::make_shared<Entry>( std::string( "hold" ), Verb, Defend, Medium );
 	dictionary_[ "clear"   ] = boost::make_shared<Entry>( std::string( "clear" ), Verb, Attack, Medium );
 	dictionary_[ "defeat"   ] = boost::make_shared<Entry>( std::string( "defeat" ), Verb, Neutral, Medium );
+	dictionary_[ "wait"   ] = boost::make_shared<Entry>( std::string( "wait" ), Verb, Neutral, Medium );
 	
 	dictionary_[ "town"   ] = boost::make_shared<Entry>( std::string( "town" ), Noun, Neutral, Strong );
 	dictionary_[ "hill"   ] = boost::make_shared<Entry>( std::string( "hill" ), Noun, Neutral, Strong );
@@ -40,6 +41,7 @@ Dictionary::Dictionary()
 	dictionary_[ "nw"   ] = boost::make_shared<Entry>( std::string( "nw" ), Noun, Neutral, Medium );
 
 	dictionary_[ "napolean"   ] = boost::make_shared<Entry>( std::string( "napolean" ), Noun, Neutral, Strong );
+	dictionary_[ "orders"  ] = boost::make_shared<Entry>( std::string( "orders" ), Noun, Neutral, Strong );
 
 }
 
