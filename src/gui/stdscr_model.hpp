@@ -13,6 +13,9 @@
 #include "cmd.hpp"
 #include "tile.hpp"
 
+#include "actor_factory.hpp"
+#include "resource_cache.hpp"
+
 extern Log logger;
 
 class StdScrModel
@@ -49,7 +52,16 @@ private:
 	cmd_ptr cmd_;
 
 	std::vector< Tile > tiles_;
+	std::vector< ActorPtr > actors_;
 
+	ActorFactory actorFactory_;
+
+	ResourceCache cache_;
+	
+	std::string mapFilename_;
+	std::string mapKeyFilename_;
+	float scale_;
+	
 };
 
 #endif
