@@ -3,6 +3,7 @@
 
 #include <boost/smart_ptr.hpp>
 #include <boost/foreach.hpp>
+#include <boost/program_options.hpp>
 #include <boost/property_tree/ptree.hpp>
 
 #include "logger.hpp"
@@ -61,6 +62,8 @@ private:
 	std::string mapFilename_;
 	std::string mapKeyFilename_;
 	float scale_;
+
+	boost::shared_ptr< boost::program_options::variables_map > options_;
 	
 };
 
