@@ -96,3 +96,15 @@ std::vector<Tile> StdScrModel::GetTiles()
 	return tiles_;
 }
 
+void StdScrModel::EnterOrders()
+{
+}
+
+void StdScrModel::ClearCommand()
+{
+}
+
+StdScrModel::line_ptr StdScrModel::ReadCommand()
+{
+}
+

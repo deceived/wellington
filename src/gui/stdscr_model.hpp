@@ -46,6 +46,10 @@ public:
 
 	std::vector<Tile> GetTiles();
 
+	void EnterOrders();
+	void ClearCommand();
+	line_ptr ReadCommand();
+
 private:
 
 	map_ptr map_;
