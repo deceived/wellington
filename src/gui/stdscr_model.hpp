@@ -29,6 +29,12 @@ class StdScrModel
 
 public:
 
+	enum State
+	{
+		Initial,
+		OrderEntry
+	};
+
 	typedef boost::shared_ptr< StdScrModel > model_ptr;
 
 	typedef boost::shared_ptr< std::string > line_ptr;
