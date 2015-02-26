@@ -16,8 +16,13 @@
 
 #include "actor_factory.hpp"
 #include "resource_cache.hpp"
+#include "stdscr_view.hpp"
+
+
 
 extern Log logger;
+
+
 
 class StdScrModel
 {
@@ -68,7 +73,9 @@ private:
 	float scale_;
 
 	boost::shared_ptr< boost::program_options::variables_map > options_;
-	
+
+	StdScrView::view_ptr view_;
+
 };
 
 #endif
