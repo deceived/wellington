@@ -39,7 +39,6 @@ public:
 
 	StdScrModel();
 
-
 	void Init();
 	void Reset();
 	void ResetDisplay();

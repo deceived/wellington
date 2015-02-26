@@ -9,6 +9,46 @@ StdScrModel::StdScrModel()
 {}
 
 
+
+void StdScrModel::Init()
+{}
+
+void StdScrModel::Reset()
+{}
+
+void StdScrModel::ResetDisplay()
+{}
+
+void StdScrModel::Terminate()
+{}
+
+void StdScrModel::Load()
+{}
+
+void StdScrModel::Display()
+{}
+
+void StdScrModel::LoadMap()
+{}
+
+void StdScrModel::LoadKey()
+{}
+
+void StdScrModel::DisplayMap()
+{}
+
+void StdScrModel::DisplayKey()
+{}
+
+void StdScrModel::DisplayCommand()
+{}
+
+void StdScrModel::DisplayUnits()
+{}
+
+void StdScrModel::ClearCmd()
+{}
+
 void StdScrModel::LoadMap( const std::string& fileName )
 {
 	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
