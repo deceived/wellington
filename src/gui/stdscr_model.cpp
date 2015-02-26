@@ -14,19 +14,32 @@ void StdScrModel::Init()
 {}
 
 void StdScrModel::Reset()
-{}
+{
+	ResetDisplay();
+}
 
 void StdScrModel::ResetDisplay()
-{}
+{
+	Load();
+	Display();
+}
 
 void StdScrModel::Terminate()
 {}
 
 void StdScrModel::Load()
-{}
+{
+	LoadMap();
+	LoadKey();
+}
 
 void StdScrModel::Display()
-{}
+{
+	DisplayMap();
+	DisplayKey();
+	DisplayCommand();
+	DisplayUnits();
+}
 
 void StdScrModel::LoadMap()
 {}
