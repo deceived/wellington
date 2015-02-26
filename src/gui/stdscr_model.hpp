@@ -39,6 +39,24 @@ public:
 
 	StdScrModel();
 
+
+	void Init();
+	void Reset();
+	void ResetDisplay();
+	void Terminate();
+
+	void Load();
+	void Display();
+
+	void LoadMap();
+	void LoadKey();
+
+	void DisplayMap();
+	void DisplayKey();
+	void DisplayCommand();
+	void DisplayUnits();
+
+	void ClearCmd();
 	void LoadMap( const std::string& fileName );
 	void LoadKey( const std::string& fileName );
 	void LoadCmd( const std::string& fileName );
