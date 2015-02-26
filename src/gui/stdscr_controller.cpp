@@ -176,11 +176,6 @@ StdScrMapController::line_ptr StdScrMapController::ReadCmd()
 	return command->Read();
 }
 
-void StdScrMapController::UpdateMap()
-{
-	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
-}
-
 void StdScrMapController::Load( line_ptr command )
 {
 	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );

@@ -58,8 +58,6 @@ public:
 
 	void EnterOrders();
 
-	void UpdateMap();
-
 	void Run();
 
 private:
