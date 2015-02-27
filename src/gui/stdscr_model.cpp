@@ -123,12 +123,6 @@ void StdScrModel::LoadKey( const std::string& fileName )
 	key_->Load( fileName );
 }
 
-void StdScrModel::LoadCmd( const std::string& fileName )
-{
-	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
-	cmd_->Load( fileName );
-}
-
 StdScrModel::map_ptr	StdScrModel::GetMap()
 {
 	return map_;

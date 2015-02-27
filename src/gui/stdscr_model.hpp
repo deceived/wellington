@@ -64,7 +64,6 @@ public:
 	void ClearCmd();
 	void LoadMap( const std::string& fileName );
 	void LoadKey( const std::string& fileName );
-	void LoadCmd( const std::string& fileName );
 
 	Properties::ptr Load( const std::string& fileName );
 
