@@ -11,6 +11,7 @@ class Command
 
 public:
 
+	typedef boost::shared_ptr< Command > command_ptr; 
 	typedef boost::shared_ptr< std::string > line_ptr;
 
 	void Load( const std::string& fileName );

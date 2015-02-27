@@ -21,8 +21,11 @@
 #include "stdscr_view.hpp"
 
 #include "driver.hpp"
+#include "cmd.hpp"
+
 
 extern Log logger;
+
 
 class StdScrMapController
 {
@@ -62,12 +65,14 @@ public:
 
 private:
 
+	StdScrModel::model_ptr model_;
+	StdScrView::view_ptr  view_;
+
+	Command::command_ptr command_;
+	
 	ActorFactory	actorFactory_;
 
 	std::vector< ActorPtr > actors_;
-
-	StdScrModel::model_ptr model_;
-	StdScrView::view_ptr  view_;
 
 	boost::program_options::variables_map& options_;
 
