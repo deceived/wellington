@@ -6,10 +6,6 @@ Command::line_ptr Command::GetPrompt()
 	return boost::make_shared<std::string>( "Enter command: " );
 }
 
-void Command::Load( const std::string& fileName )
-{
-}
-
 void Command::Put( unsigned int row, unsigned int col, Command::line_ptr line )
 {
 	mvprintw( row, col, (*line).c_str() );

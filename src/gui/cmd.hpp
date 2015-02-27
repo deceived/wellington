@@ -14,7 +14,6 @@ public:
 	typedef boost::shared_ptr< Command > command_ptr; 
 	typedef boost::shared_ptr< std::string > line_ptr;
 
-	void Load( const std::string& fileName );
 	line_ptr  GetPrompt();
 	void Put( unsigned int row, unsigned int col, Command::line_ptr line );
 	void ClearLine( unsigned int row, unsigned int col, unsigned int length );
