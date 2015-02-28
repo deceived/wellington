@@ -29,7 +29,8 @@ void StdScrMapController::Reset()
 {
 	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
  
-	ResetDisplay();
+	Load();
+	Display();
 }
 
 void StdScrMapController::Terminate()
@@ -37,14 +38,6 @@ void StdScrMapController::Terminate()
 	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
 
 	view_->Terminate();
-}
-
-void StdScrMapController::ResetDisplay()
-{
-	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
-
-	Load();
-	Display();
 }
 
 void StdScrMapController::Load()
