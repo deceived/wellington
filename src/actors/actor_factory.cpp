@@ -4,7 +4,7 @@
 #include "move_component.hpp"
 #include "representation_component.hpp"
 #include "fire_component.hpp"
-
+#include "order_component.hpp"
 
 
 ActorFactory::ActorFactory()
@@ -15,6 +15,7 @@ ActorFactory::ActorFactory()
     componentFactory_.Register< MoveComponent >( ActorComponent::GetIdFromName( MoveComponent::name_ ) );
     componentFactory_.Register< RepresentationComponent >( ActorComponent::GetIdFromName( RepresentationComponent::name_ ) );
     componentFactory_.Register< FireComponent >( ActorComponent::GetIdFromName( FireComponent::name_ ) );
+    componentFactory_.Register< OrderComponent >( ActorComponent::GetIdFromName( OrderComponent::name_ ) );
 }
 
 
