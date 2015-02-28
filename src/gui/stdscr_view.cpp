@@ -10,6 +10,14 @@ StdScrView::StdScrView()
 	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
 }
 
+StdScrView::StdScrView( StdScrIModel::imodel_ptr model )
+	:	imodel_( model ),
+		rows_( LINES ),
+		columns_( COLS )
+{
+	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
+}
+
 StdScrView::~StdScrView()
 {
 	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );

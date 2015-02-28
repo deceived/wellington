@@ -24,6 +24,7 @@ public:
 	typedef boost::shared_ptr< std::string > line_ptr;
 
 	StdScrView();
+	StdScrView( StdScrIModel::imodel_ptr model );
 	~StdScrView();
 
 	virtual void Init();
