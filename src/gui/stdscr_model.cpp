@@ -15,11 +15,6 @@ void StdScrModel::Init()
 
 void StdScrModel::Reset()
 {
-	ResetDisplay();
-}
-
-void StdScrModel::ResetDisplay()
-{
 	Load();
 	Display();
 }
