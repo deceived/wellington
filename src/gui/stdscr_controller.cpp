@@ -6,6 +6,7 @@ StdScrMapController::StdScrMapController( boost::program_options::variables_map&
 	: 	
 		model_( boost::make_shared< StdScrModel >() ),
 		view_( boost::make_shared< StdScrView >() ),
+		command_( boost::make_shared< Command >() ),
 		options_( vm )
 {
 	if( vm.count("map" ) )
@@ -152,9 +153,7 @@ StdScrMapController::line_ptr StdScrMapController::ReadCmd()
 {
 	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
 
-	StdScrModel::cmd_ptr command = model_->GetCmd();
-
-	return command->Read();
+	return command_->Read();
 }
 
 void StdScrMapController::Load( line_ptr command )
