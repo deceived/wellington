@@ -14,7 +14,7 @@
 
 extern Log logger;
 
-class StdScrView
+class StdScrView : public StdScrIView
 {
 
 public:
@@ -26,16 +26,16 @@ public:
 	StdScrView();
 	~StdScrView();
 
-	void Init();
-	void Terminate();
+	virtual void Init();
+	virtual void Terminate();
 
 	
-	void Display();
+	virtual void Display();
 
-	void DisplayMap();
-	void DisplayKey();
-	void DisplayCommand();
-	void DisplayUnits();
+	virtual void DisplayMap();
+	virtual void DisplayKey();
+	virtual void DisplayCommand();
+	virtual void DisplayUnits();
 
 	void DisplayLine( unsigned int row, unsigned int column, std::string& line );
 
