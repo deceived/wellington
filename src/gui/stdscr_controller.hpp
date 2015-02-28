@@ -45,9 +45,6 @@ public:
 	void Load();
 	void Display();
 
-	void LoadMap();
-	void LoadKey();
-
 	void DisplayMap();
 	void DisplayKey();
 	void DisplayCommand();

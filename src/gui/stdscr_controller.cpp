@@ -49,8 +49,10 @@ void StdScrMapController::ResetDisplay()
 
 void StdScrMapController::Load()
 {
-	LoadMap();
-	LoadKey();
+	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
+
+	model_->LoadMap( mapFileName_ );
+	model_->LoadKey( mapKeyFileName_ );
 }
 
 void StdScrMapController::Display()
@@ -59,20 +61,6 @@ void StdScrMapController::Display()
 	DisplayKey();
 	DisplayCommand();
 	DisplayUnits();
-}
-
-void StdScrMapController::LoadMap()
-{
-	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
-
-	model_->LoadMap( mapFileName_ );
-}
-
-void StdScrMapController::LoadKey()
-{
-	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
-
-	model_->LoadKey( mapKeyFileName_ );
 }
 
 void StdScrMapController::DisplayMap()
