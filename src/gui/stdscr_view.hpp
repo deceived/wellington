@@ -49,6 +49,8 @@ public:
 
 private:
 
+	StdScrIModel::imodel_ptr imodel_;
+
 	int rows_;
 	int columns_;
 };

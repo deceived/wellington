@@ -8,6 +8,8 @@ class StdScrIModel
 
 public:
 
+	typedef boost::shared_ptr< StdScrIModel > imodel_ptr;
+
 	virtual void Init() = 0;
 	virtual void Reset() = 0;
 	virtual void Terminate() = 0;
