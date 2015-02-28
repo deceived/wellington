@@ -38,6 +38,35 @@ void StdScrView::Terminate()
 	endwin();
 }
 
+
+void StdScrView::Display()
+{
+	DisplayMap();
+	DisplayKey();
+	DisplayCommand();
+	DisplayUnits();
+}
+
+void StdScrView::DisplayMap()
+{
+	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
+}
+
+void StdScrView::DisplayKey()
+{
+	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
+}
+
+void StdScrView::DisplayCommand()
+{
+	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
+}
+
+void StdScrView::DisplayUnits()
+{
+	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
+}
+
 void StdScrView::DisplayLine( unsigned int row, unsigned int column, std::string& line )
 {
 	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );

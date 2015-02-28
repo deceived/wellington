@@ -26,6 +26,14 @@ public:
 	void Init();
 	void Terminate();
 
+	
+	void Display();
+
+	void DisplayMap();
+	void DisplayKey();
+	void DisplayCommand();
+	void DisplayUnits();
+
 	void DisplayLine( unsigned int row, unsigned int column, std::string& line );
 
 	void Put( unsigned int row, unsigned int col, line_ptr line );
