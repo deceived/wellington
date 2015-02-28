@@ -5,7 +5,7 @@ using namespace order;
 StdScrMapController::StdScrMapController( boost::program_options::variables_map& vm )
 	: 	
 		model_( boost::make_shared< StdScrModel >() ),
-		view_( boost::make_shared< StdScrView >() ),
+		view_( boost::make_shared< StdScrView >( model_ ) ),
 		command_( boost::make_shared< Command >() ),
 		options_( vm )
 {
