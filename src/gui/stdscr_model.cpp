@@ -54,9 +54,6 @@ void StdScrModel::DisplayCommand()
 void StdScrModel::DisplayUnits()
 {}
 
-void StdScrModel::ClearCmd()
-{}
-
 void StdScrModel::LoadMap( const std::string& fileName )
 {
 	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );

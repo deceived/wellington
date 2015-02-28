@@ -45,24 +45,23 @@ public:
 
 	StdScrModel();
 
-	void Init();
-	void Reset();
-	void Terminate();
+	virtual void Init();
+	virtual void Reset();
+	virtual void Terminate();
 
-	void Load();
-	void Display();
+	virtual void Load();
+	virtual void Display();
 
-	void LoadMap();
-	void LoadKey();
+	virtual void LoadMap();
+	virtual void LoadKey();
 
-	void DisplayMap();
-	void DisplayKey();
-	void DisplayCommand();
-	void DisplayUnits();
+	virtual void DisplayMap();
+	virtual void DisplayKey();
+	virtual void DisplayCommand();
+	virtual void DisplayUnits();
 
-	void ClearCmd();
-	void LoadMap( const std::string& fileName );
-	void LoadKey( const std::string& fileName );
+	virtual void LoadMap( const std::string& fileName );
+	virtual void LoadKey( const std::string& fileName );
 
 	Properties::ptr Load( const std::string& fileName );
 
