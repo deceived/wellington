@@ -7,6 +7,9 @@
 
 #include <boost/smart_ptr.hpp>
 
+#include "stdscr_imodel.hpp"
+#include "stdscr_iview.hpp"
+
 #include "logger.hpp"
 
 extern Log logger;
