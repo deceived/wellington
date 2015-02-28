@@ -17,14 +17,14 @@
 #include "actor_factory.hpp"
 #include "resource_cache.hpp"
 #include "stdscr_view.hpp"
-
+#include "stdscr_imodel.hpp"
 
 
 extern Log logger;
 
 
 
-class StdScrModel
+class StdScrModel : public StdScrIModel
 {
 
 public:
