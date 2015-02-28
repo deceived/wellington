@@ -106,6 +106,7 @@ void StdScrMapController::DisplayCommand()
 	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
 
 	line_ptr prompt = command_->GetPrompt();
+	view_->ClearLine( 40, 0, 80 );
 	view_->Put( 40, 0, prompt );
 }
 
@@ -138,14 +139,6 @@ void StdScrMapController::DisplayUnits()
 
 		
 	}
-}
-
-void StdScrMapController::ClearCmd()
-{
-	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
-
-	view_->ClearLine( 40, 0, 80 );
-	DisplayCommand();
 }
 
 StdScrMapController::line_ptr StdScrMapController::ReadCmd()
@@ -235,7 +228,7 @@ void StdScrMapController::EnterOrders()
 
 		orders.Clear();
 		bool result = driver.ParseString( *order, "order" );
-		ClearCmd();
+		DisplayCommand();
 
 	} while( true );
 }
@@ -270,7 +263,7 @@ void StdScrMapController::Run()
 			EnterOrders();
 		}
 
-		ClearCmd();
+		DisplayCommand();
 	}
 	while ( true );
 }

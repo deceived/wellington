@@ -49,8 +49,6 @@ public:
 	void DisplayCommand();
 	void DisplayUnits();
 
-	void ClearCmd();
-
 	void Load( line_ptr command );
 	void LoadResources();
 	line_ptr ReadCmd();
