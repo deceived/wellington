@@ -51,7 +51,6 @@ public:
 
 	void Load( line_ptr command );
 	void LoadResources();
-	line_ptr ReadCmd();
 
 	void EnterOrders();
 

@@ -141,13 +141,6 @@ void StdScrMapController::DisplayUnits()
 	}
 }
 
-StdScrMapController::line_ptr StdScrMapController::ReadCmd()
-{
-	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
-
-	return command_->Read();
-}
-
 void StdScrMapController::Load( line_ptr command )
 {
 	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
@@ -215,7 +208,7 @@ void StdScrMapController::EnterOrders()
 
 	do
 	{
-		line_ptr order = ReadCmd();
+		line_ptr order = command_->Read();
 
 		if( *order == "end" )
 		{
@@ -242,7 +235,7 @@ void StdScrMapController::Run()
 
 	do
 	{
-		line_ptr command = ReadCmd();
+		line_ptr command = command_->Read();
 		if( *command == "end" )
 		{
 			break;
