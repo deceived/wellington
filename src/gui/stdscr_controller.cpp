@@ -105,8 +105,7 @@ void StdScrMapController::DisplayCommand()
 {
 	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
 
-	StdScrModel::cmd_ptr command = model_->GetCmd();
-	line_ptr prompt = command->GetPrompt();
+	line_ptr prompt = command_->GetPrompt();
 	view_->Put( 40, 0, prompt );
 }
 
