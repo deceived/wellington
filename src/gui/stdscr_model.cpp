@@ -139,10 +139,6 @@ void StdScrModel::EnterOrders()
 {
 }
 
-void StdScrModel::ClearCommand()
-{
-}
-
 StdScrModel::line_ptr StdScrModel::ReadCommand()
 {
 }
