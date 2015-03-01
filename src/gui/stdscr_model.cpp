@@ -125,9 +125,9 @@ StdScrModel::cmd_ptr StdScrModel::GetCmd()
 	return cmd_;
 }
 
-StdScrModel::key_ptr StdScrModel::GetKey()
+stdscr_ikey_ptr StdScrModel::GetKey()
 {
-	return key_;
+	return boost::dynamic_pointer_cast< IKey >( key_ );
 }
 
 std::vector<Tile> StdScrModel::GetTiles()

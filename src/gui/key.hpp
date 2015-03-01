@@ -10,7 +10,7 @@
 
 #include "file_reader.hpp"
 
-class Key 
+class Key : public IKey
 {
 
 public:

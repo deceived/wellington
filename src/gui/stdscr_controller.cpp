@@ -88,7 +88,7 @@ void StdScrMapController::DisplayKey()
 {
 	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
 
-	StdScrModel::key_ptr key = model_->GetKey();
+	stdscr_ikey_ptr key = model_->GetKey();
 
 	size_t rows = key->LineCount();
 	for( size_t count = 0;

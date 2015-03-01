@@ -7,8 +7,9 @@
 
 #include <boost/smart_ptr.hpp>
 
-#include "stdscr_imodel.hpp"
+#include "stdscr_ikey.hpp"
 #include "stdscr_iview.hpp"
+#include "stdscr_imodel.hpp"
 
 #include "logger.hpp"
 
@@ -21,10 +22,8 @@ public:
 
 	typedef boost::shared_ptr< StdScrView > view_ptr;
 
-	typedef boost::shared_ptr< std::string > line_ptr;
-
 	StdScrView();
-	StdScrView( StdScrIModel::imodel_ptr model );
+	StdScrView( stdscr_imodel_ptr model );
 	~StdScrView();
 
 	virtual void Init();
@@ -50,7 +49,7 @@ public:
 
 private:
 
-	StdScrIModel::imodel_ptr imodel_;
+	stdscr_imodel_ptr imodel_;
 
 	int rows_;
 	int columns_;

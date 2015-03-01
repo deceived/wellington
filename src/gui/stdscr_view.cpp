@@ -10,7 +10,7 @@ StdScrView::StdScrView()
 	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
 }
 
-StdScrView::StdScrView( StdScrIModel::imodel_ptr model )
+StdScrView::StdScrView( stdscr_imodel_ptr model )
 	:	imodel_( model ),
 		rows_( LINES ),
 		columns_( COLS )
@@ -63,6 +63,17 @@ void StdScrView::DisplayMap()
 void StdScrView::DisplayKey()
 {
 	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
+	stdscr_ikey_ptr key = imodel_->GetKey();
+
+	size_t rows = key->LineCount();
+	for( size_t count = 0;
+			count < rows;
+			++count
+		)
+	{
+		line_ptr line = key->NextLine( count );
+		Put( count, 100, line );
+	}
 }
 
 void StdScrView::DisplayCommand()
@@ -89,7 +100,7 @@ void StdScrView::Put( unsigned int row, unsigned int col, line_ptr line )
 	mvprintw( row, col, (*line).c_str() );
 }
 
-StdScrView::line_ptr StdScrView::Read( unsigned int row, unsigned int col )
+line_ptr StdScrView::Read( unsigned int row, unsigned int col )
 {
 	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
 
@@ -101,7 +112,7 @@ StdScrView::line_ptr StdScrView::Read( unsigned int row, unsigned int col )
 	return boost::make_shared<std::string>( cmd );
 }
 
-StdScrView::line_ptr StdScrView::Read()
+line_ptr StdScrView::Read()
 {
 	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
 

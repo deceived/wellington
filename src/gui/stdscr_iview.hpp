@@ -1,6 +1,8 @@
 #ifndef STDSCR_IVIEW_HPP
 #define STDSCR_IVIEW_HPP
 
+#include "types.hpp"
+
 class StdScrIView
 {
 
@@ -18,5 +20,6 @@ public:
 
 };
 
+typedef boost::shared_ptr< StdScrIView > stdscr_iview_ptr;
 
 #endif

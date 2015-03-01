@@ -6,6 +6,9 @@
 #include <boost/program_options.hpp>
 #include <boost/property_tree/ptree.hpp>
 
+#include "stdscr_ikey.hpp"
+#include "stdscr_imodel.hpp"
+
 #include "logger.hpp"
 
 #include "properties.hpp"
@@ -17,11 +20,9 @@
 #include "actor_factory.hpp"
 #include "resource_cache.hpp"
 #include "stdscr_view.hpp"
-#include "stdscr_imodel.hpp"
 
 
 extern Log logger;
-
 
 
 class StdScrModel : public StdScrIModel
@@ -67,7 +68,7 @@ public:
 
 	map_ptr	GetMap();
 	cmd_ptr GetCmd();
-	key_ptr GetKey();
+	virtual stdscr_ikey_ptr GetKey();
 
 	std::vector<Tile> GetTiles();
 
