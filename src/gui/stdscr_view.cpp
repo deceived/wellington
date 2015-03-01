@@ -79,6 +79,11 @@ void StdScrView::DisplayKey()
 void StdScrView::DisplayCommand()
 {
 	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
+
+// this should be acquired through the model
+//	line_ptr prompt = command_->GetPrompt();
+	ClearLine( 40, 0, 80 );
+//	Put( 40, 0, prompt );
 }
 
 void StdScrView::DisplayUnits()
