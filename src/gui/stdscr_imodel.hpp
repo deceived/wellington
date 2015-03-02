@@ -2,6 +2,7 @@
 #define STDSCR_IMODEL_HPP
 
 #include "types.hpp"
+#include "interfaces.h"
 
 class StdScrIModel
 {
@@ -31,6 +32,7 @@ public:
 	virtual stdscr_ikey_ptr GetKey() = 0;
 
 	virtual std::vector< Tile > GetTiles() = 0;
+	virtual std::vector< ActorPtr > GetActors() = 0;
 };
 
 typedef boost::shared_ptr< StdScrIModel > stdscr_imodel_ptr;

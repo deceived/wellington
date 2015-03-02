@@ -118,9 +118,11 @@ void StdScrView::DisplayUnits()
 	logger.Severity( severity_level::info, std::string("actor 2: ") + actors_[1]->ToXML() );
 	logger.Severity( severity_level::info, std::string("actor 3: ") + actors_[2]->ToXML() );
 	logger.Severity( severity_level::info, std::string("actor 4: ") + actors_[3]->ToXML() );
-	
-	for( ActorPtr actor: 	actors_ )
+#endif
+
+	for( ActorPtr actor: 	imodel_->GetActors() )
 	{
+#if 0	
 		boost::shared_ptr<MoveComponent> move( actor->GetComponent<MoveComponent>( std::string( "MoveComponent" ) ) );
 
 		int x = move->GetStartX();
@@ -134,8 +136,8 @@ void StdScrView::DisplayUnits()
 
 		logger.Severity( severity_level::info, std::string("start x: ") + boost::lexical_cast<std::string>( x ) );
 		logger.Severity( severity_level::info, std::string("start y: ") + boost::lexical_cast<std::string>( y ) );
-	}
 #endif
+	}
 }
 
 void StdScrView::DisplayLine( unsigned int row, unsigned int column, std::string& line )

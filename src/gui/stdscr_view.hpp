@@ -11,6 +11,8 @@
 #include "stdscr_iview.hpp"
 #include "stdscr_imodel.hpp"
 
+#include "interfaces.h"
+
 #include "logger.hpp"
 
 extern Log logger;
