@@ -71,6 +71,7 @@ public:
 	virtual stdscr_ikey_ptr GetKey();
 
 	virtual std::vector<Tile> GetTiles();
+	virtual std::vector< ActorPtr > GetActors();
 
 	void EnterOrders();
 	line_ptr ReadCommand();

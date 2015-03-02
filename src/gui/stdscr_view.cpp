@@ -111,6 +111,31 @@ void StdScrView::DisplayCommand()
 void StdScrView::DisplayUnits()
 {
 	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
+#if 0
+	logger.Severity( severity_level::info, std::string("actor count: ") + boost::lexical_cast<std::string>(actors_.size()) );
+
+	logger.Severity( severity_level::info, std::string("actor 1: ") + actors_[0]->ToXML() );
+	logger.Severity( severity_level::info, std::string("actor 2: ") + actors_[1]->ToXML() );
+	logger.Severity( severity_level::info, std::string("actor 3: ") + actors_[2]->ToXML() );
+	logger.Severity( severity_level::info, std::string("actor 4: ") + actors_[3]->ToXML() );
+	
+	for( ActorPtr actor: 	actors_ )
+	{
+		boost::shared_ptr<MoveComponent> move( actor->GetComponent<MoveComponent>( std::string( "MoveComponent" ) ) );
+
+		int x = move->GetStartX();
+		int y = move->GetStartY();		
+
+		boost::shared_ptr<RepresentationComponent> representation( actor->GetComponent<RepresentationComponent>( std::string( "RepresentationComponent" ) ) );
+
+		char c = representation->GetChar();
+
+		view_->Put( x, y, c );
+
+		logger.Severity( severity_level::info, std::string("start x: ") + boost::lexical_cast<std::string>( x ) );
+		logger.Severity( severity_level::info, std::string("start y: ") + boost::lexical_cast<std::string>( y ) );
+	}
+#endif
 }
 
 void StdScrView::DisplayLine( unsigned int row, unsigned int column, std::string& line )

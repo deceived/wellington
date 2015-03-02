@@ -135,6 +135,11 @@ std::vector<Tile> StdScrModel::GetTiles()
 	return tiles_;
 }
 
+std::vector< ActorPtr > StdScrModel::GetActors()
+{
+	return actors_;
+}
+
 void StdScrModel::EnterOrders()
 {
 }
