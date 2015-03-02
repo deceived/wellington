@@ -66,11 +66,11 @@ public:
 
 	Properties::ptr Load( const std::string& fileName );
 
-	map_ptr	GetMap();
+	virtual map_ptr	GetMap();
 	virtual cmd_ptr GetCmd();
 	virtual stdscr_ikey_ptr GetKey();
 
-	std::vector<Tile> GetTiles();
+	virtual std::vector<Tile> GetTiles();
 
 	void EnterOrders();
 	line_ptr ReadCommand();

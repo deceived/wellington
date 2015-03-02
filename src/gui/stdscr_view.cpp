@@ -58,6 +58,31 @@ void StdScrView::Display()
 void StdScrView::DisplayMap()
 {
 	logger.Severity( severity_level::info, __PRETTY_FUNCTION__ );
+
+	map_ptr map = imodel_->GetMap();
+
+	std::vector< Tile > tiles = imodel_->GetTiles();
+
+#if 0
+	logger.Severity( severity_level::info, map->ToString() );
+	for( int i = 0; i < tiles.size(); ++i )
+	{
+		logger.Severity( severity_level::info, tiles[i].ToString() );
+	}
+
+	for( size_t row = 0;
+		 row < map->rows_;
+		 ++row
+		)
+	{
+		for( size_t col = 0;
+			 col < map->cols_;
+			 ++col )
+		{
+			view_->Put( row, col, tiles[ map->map_tiles[ row ][ col ] - 1 ].terrain_representation_ );
+		}
+	}
+#endif
 }
 
 void StdScrView::DisplayKey()

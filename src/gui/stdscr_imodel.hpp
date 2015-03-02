@@ -26,8 +26,11 @@ public:
 	virtual void LoadMap( const std::string& fileName ) = 0;
 	virtual void LoadKey( const std::string& fileName ) = 0;
 
+	virtual map_ptr GetMap() = 0;
 	virtual cmd_ptr GetCmd() = 0;
 	virtual stdscr_ikey_ptr GetKey() = 0;
+
+	virtual std::vector< Tile > GetTiles() = 0;
 };
 
 typedef boost::shared_ptr< StdScrIModel > stdscr_imodel_ptr;
