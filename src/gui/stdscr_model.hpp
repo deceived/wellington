@@ -42,7 +42,7 @@ public:
 
 	typedef boost::shared_ptr< Map > map_ptr;
 	typedef boost::shared_ptr< Key > key_ptr;
-	typedef boost::shared_ptr< Command > cmd_ptr;
+	//typedef boost::shared_ptr< Command > cmd_ptr;
 
 	StdScrModel();
 
@@ -67,7 +67,7 @@ public:
 	Properties::ptr Load( const std::string& fileName );
 
 	map_ptr	GetMap();
-	cmd_ptr GetCmd();
+	virtual cmd_ptr GetCmd();
 	virtual stdscr_ikey_ptr GetKey();
 
 	std::vector<Tile> GetTiles();

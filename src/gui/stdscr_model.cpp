@@ -120,7 +120,7 @@ StdScrModel::map_ptr	StdScrModel::GetMap()
 	return map_;
 }
 
-StdScrModel::cmd_ptr StdScrModel::GetCmd()
+cmd_ptr StdScrModel::GetCmd()
 {
 	return cmd_;
 }

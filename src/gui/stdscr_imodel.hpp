@@ -26,6 +26,7 @@ public:
 	virtual void LoadMap( const std::string& fileName ) = 0;
 	virtual void LoadKey( const std::string& fileName ) = 0;
 
+	virtual cmd_ptr GetCmd() = 0;
 	virtual stdscr_ikey_ptr GetKey() = 0;
 };
 
