@@ -122,8 +122,8 @@ void StdScrView::DisplayUnits()
 
 	for( ActorPtr actor: 	imodel_->GetActors() )
 	{
-#if 0	
 		boost::shared_ptr<MoveComponent> move( actor->GetComponent<MoveComponent>( std::string( "MoveComponent" ) ) );
+#if 0	
 
 		int x = move->GetStartX();
 		int y = move->GetStartY();		
