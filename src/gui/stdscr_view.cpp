@@ -63,7 +63,6 @@ void StdScrView::DisplayMap()
 
 	std::vector< Tile > tiles = imodel_->GetTiles();
 
-#if 0
 	logger.Severity( severity_level::info, map->ToString() );
 	for( int i = 0; i < tiles.size(); ++i )
 	{
@@ -79,10 +78,9 @@ void StdScrView::DisplayMap()
 			 col < map->cols_;
 			 ++col )
 		{
-			view_->Put( row, col, tiles[ map->map_tiles[ row ][ col ] - 1 ].terrain_representation_ );
+			Put( row, col, tiles[ map->map_tiles[ row ][ col ] - 1 ].terrain_representation_ );
 		}
 	}
-#endif
 }
 
 void StdScrView::DisplayKey()
