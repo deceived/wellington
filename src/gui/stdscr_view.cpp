@@ -128,15 +128,13 @@ void StdScrView::DisplayUnits()
 		int y = move->GetStartY();		
 
 		boost::shared_ptr<RepresentationComponent> representation( actor->GetComponent<RepresentationComponent>( std::string( "RepresentationComponent" ) ) );
-#if 0	
 
 		char c = representation->GetChar();
 
-		view_->Put( x, y, c );
+		Put( x, y, c );
 
 		logger.Severity( severity_level::info, std::string("start x: ") + boost::lexical_cast<std::string>( x ) );
 		logger.Severity( severity_level::info, std::string("start y: ") + boost::lexical_cast<std::string>( y ) );
-#endif
 	}
 }
 
