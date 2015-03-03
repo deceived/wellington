@@ -15,6 +15,7 @@
 
 #include "actor_factory.hpp"
 #include "move_component.hpp"
+#include "representation_component.hpp"
 
 #include "logger.hpp"
 

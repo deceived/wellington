@@ -126,9 +126,9 @@ void StdScrView::DisplayUnits()
 
 		int x = move->GetStartX();
 		int y = move->GetStartY();		
-#if 0	
 
 		boost::shared_ptr<RepresentationComponent> representation( actor->GetComponent<RepresentationComponent>( std::string( "RepresentationComponent" ) ) );
+#if 0	
 
 		char c = representation->GetChar();
 
