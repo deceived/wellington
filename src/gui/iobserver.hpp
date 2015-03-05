@@ -10,10 +10,10 @@ public:
 
 	typedef boost::shared_ptr< IObserver > observer_ptr;
 
-	void Register( observer_ptr observer ) = 0;
-	void Unregister( observer_ptr observer ) = 0;
+	virtual void Register( observer_ptr observer ) = 0;
+	virtual void Unregister( observer_ptr observer ) = 0;
 
-	void Notify() = 0;
+	virtual void Notify() = 0;
 
 };
 
