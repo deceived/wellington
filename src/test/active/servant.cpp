@@ -11,6 +11,7 @@ Servant::~Servant()
 
 void Servant::Put( const Message& message )
 {
+	messages_.push_back( message );
 }
 
 Message Servant::Get()

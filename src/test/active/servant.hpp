@@ -2,6 +2,7 @@
 #define SERVANT_HPP
 
 #include <cstddef>
+#include <list>
 
 #include "message.hpp"
 
@@ -24,6 +25,8 @@ public:
 	void Command();
 
 private:
+
+	std::list< Message > messages_;
 
 };
 
