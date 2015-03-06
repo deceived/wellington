@@ -1,6 +1,8 @@
 #ifndef PROXY_HPP
 #define PROXY_HPP
 
+#include "servant.hpp"
+
 class Proxy
 {
 
