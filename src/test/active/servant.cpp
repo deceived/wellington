@@ -2,6 +2,7 @@
 
 
 Servant::Servant( std::size_t size )
+	: size_( size )
 {
 }
 
@@ -21,12 +22,12 @@ Message Servant::Get()
 
 bool Servant::Empty() const
 {
-	return false;
+	return messages_.empty();
 }
 
 bool Servant::Full() const
 {
-	return false;
+	return messages_.size() < size_ ? false : true;
 }
 
 void Servant::Move()

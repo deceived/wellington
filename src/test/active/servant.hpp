@@ -26,6 +26,8 @@ public:
 
 private:
 
+	std::size_t	size_;
+
 	std::list< Message > messages_;
 
 };
