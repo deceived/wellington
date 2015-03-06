@@ -77,9 +77,9 @@ public:
 	void EnterOrders();
 	line_ptr ReadCommand();
 
-	virtual void NotifyObservers() {};
-	virtual void Register( IObserver::observer_ptr observer ) {};
-	virtual void Unregister( IObserver::observer_ptr observer ) {};
+	virtual void NotifyObservers();
+	virtual void Register( IObserver::observer_ptr observer );
+	virtual void Unregister( IObserver::observer_ptr observer );
 
 private:
 
@@ -102,6 +102,8 @@ private:
 
 	StdScrView::view_ptr view_;
 
+	ISubject::observer_data observers_;
+	
 };
 
 #endif

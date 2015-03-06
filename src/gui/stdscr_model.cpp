@@ -148,3 +148,21 @@ StdScrModel::line_ptr StdScrModel::ReadCommand()
 {
 }
 
+
+void StdScrModel::NotifyObservers()
+{
+	for( IObserver::observer_ptr observer: observers_ )
+	{
+		observer->Notify();
+	}
+}
+
+void StdScrModel::Register( IObserver::observer_ptr observer )
+{
+	observers_.push_back( observer );
+}
+
+void StdScrModel::Unregister( IObserver::observer_ptr observer )
+{
+	observers_.remove( observer );
+}
