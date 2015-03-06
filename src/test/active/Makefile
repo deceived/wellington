@@ -13,7 +13,7 @@ CFLAG = $(INCDIRS) $(CXXFLAGS)
 
 LDFLAGS	= -g $(LIBDIRS) 
 
-LIBS = -l:cmd.a
+LIBS = 
 
 prefix = ../../../test
 
