@@ -1,12 +1,16 @@
 #ifndef SERVANT_HPP
 #define SERVANT_HPP
 
+#include <cstddef>
+
+#include "message.hpp"
+
 class Servant
 {
 
 public:
 
-	Servant( size_t size );
+	Servant( std::size_t size );
 	~Servant();
 
 	void Put( const Message& message );
@@ -14,6 +18,10 @@ public:
 
 	bool Empty() const;
 	bool Full() const;
+
+	void Move();
+	void Fight();
+	void Command();
 
 private:
 
