@@ -33,6 +33,7 @@ public:
 
 	virtual std::vector< Tile > GetTiles() = 0;
 	virtual std::vector< ActorPtr > GetActors() = 0;
+
 };
 
 typedef boost::shared_ptr< StdScrIModel > stdscr_imodel_ptr;

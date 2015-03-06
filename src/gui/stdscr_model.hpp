@@ -8,6 +8,7 @@
 
 #include "stdscr_ikey.hpp"
 #include "stdscr_imodel.hpp"
+#include "iobserver.hpp"
 
 #include "logger.hpp"
 
@@ -25,7 +26,7 @@
 extern Log logger;
 
 
-class StdScrModel : public StdScrIModel
+class StdScrModel : public StdScrIModel, public ISubject
 {
 
 public:
@@ -75,6 +76,10 @@ public:
 
 	void EnterOrders();
 	line_ptr ReadCommand();
+
+	virtual void NotifyObservers() {};
+	virtual void Register( IObserver::observer_ptr observer ) {};
+	virtual void Unregister( IObserver::observer_ptr observer ) {};
 
 private:
 
