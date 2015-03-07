@@ -1,17 +1,21 @@
 #ifndef REQUEST_HPP
 #define REQUEST_HPP
 
+#include <boost/smart_ptr.hpp>
+
 class Request
 {
 
 public:
+
+	typedef boost::shared_ptr< Request > request_ptr;
 
 	virtual void CanRun() const = 0;
 	virtual void Call() = 0;
 
 };
 
-class Move : public Request
+class MoveRequest : public Request
 {
 
 public:
