@@ -11,38 +11,25 @@ public:
 
 };
 
-class Get : public Request
+class Move : public Request
 {
 
 public:
 
-	Get( Servant* rep, const Future& future )
+	Move( Servant* rep, const Future& future )
 		: servant_( rep ),
 		  result_( future )
 	{}
 
-	virtual bool CanRun() const;
-	virtual void Call();
+	virtual bool CanRun() const
+	{
+		return true;
+	}
 
-private:
-
-	Servant* servant_;
-	Future result_;
-
-};
-
-class Put : public Request
-{
-
-public:
-
-	Put( Servant* rep, const Future& future )
-		: servant_( rep ),
-		  result_( future )
-	{}
-
-	virtual bool CanRun() const;
-	virtual void Call();
+	virtual void Call()
+	{
+		result_ = servant_->Move();
+	}
 
 private:
 
