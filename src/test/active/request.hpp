@@ -3,6 +3,9 @@
 
 #include <boost/smart_ptr.hpp>
 
+#include "servant.hpp"
+#include "future.hpp"
+
 class Request
 {
 
@@ -10,7 +13,7 @@ public:
 
 	typedef boost::shared_ptr< Request > request_ptr;
 
-	virtual void CanRun() const = 0;
+	virtual bool CanRun() const = 0;
 	virtual void Call() = 0;
 
 };
@@ -20,7 +23,7 @@ class MoveRequest : public Request
 
 public:
 
-	Move( Servant* rep, const Future& future )
+	MoveRequest( Servant::servant_ptr rep, Future::future_ptr future )
 		: servant_( rep ),
 		  result_( future )
 	{}
@@ -32,13 +35,13 @@ public:
 
 	virtual void Call()
 	{
-		result_ = servant_->Move();
+		//result_ = servant_->Move();
 	}
 
 private:
 
-	Servant* servant_;
-	Future result_;
+	Servant::servant_ptr servant_;
+	Future::future_ptr result_;
 
 };
 

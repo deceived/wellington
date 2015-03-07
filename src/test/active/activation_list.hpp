@@ -13,12 +13,10 @@ class ActivationList
 
 public:
 
-	typedef std::list< boost::shared_ptr< MethodRequest > > activation_data;
-	typedef boost::shared_ptr< boost::posix_time::time_duration> > timeout_ptr;
+	typedef std::list< boost::shared_ptr< Request > > activation_data;
+	typedef boost::shared_ptr< boost::posix_time::time_duration > timeout_ptr;
 
 	enum { INFINITE = -1 };
-
-	typedef ActivationListIterator iterator;
 
 	ActivationList( std::size_t high_water_mark );
 
