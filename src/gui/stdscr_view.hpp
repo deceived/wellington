@@ -43,8 +43,6 @@ public:
 	virtual void DisplayCommand();
 	virtual void DisplayUnits();
 
-private:
-
 	void DisplayLine( unsigned int row, unsigned int column, std::string& line );
 
 	void Put( unsigned int row, unsigned int col, line_ptr line );
@@ -55,6 +53,7 @@ private:
 	line_ptr Read( unsigned int row, unsigned int col );
 	line_ptr Read();
 
+private:
 
 	stdscr_imodel_ptr imodel_;
 
