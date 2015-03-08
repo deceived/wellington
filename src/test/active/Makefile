@@ -17,7 +17,7 @@ LIBS =
 
 prefix = ../../../test
 
-SRCS = main.cpp servant.cpp activation_list.cpp
+SRCS = main.cpp servant.cpp activation_list.cpp scheduler.cpp
 OBJS = $(SRCS:.cpp=.o)
 OUT = test_active
 

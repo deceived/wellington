@@ -23,6 +23,8 @@ class MoveRequest : public Request
 
 public:
 
+	typedef boost::shared_ptr< MoveRequest > move_request_ptr;
+
 	MoveRequest( Servant::servant_ptr rep, Future::future_ptr future )
 		: servant_( rep ),
 		  result_( future )
