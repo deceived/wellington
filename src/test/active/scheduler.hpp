@@ -3,6 +3,8 @@
 
 #include <cstddef>
 
+#include <boost/thread.hpp>
+
 #include "request.hpp"
 
 class Scheduler
