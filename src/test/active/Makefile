@@ -13,7 +13,7 @@ CFLAG = $(INCDIRS) $(CXXFLAGS)
 
 LDFLAGS	= -g $(LIBDIRS) 
 
-LIBS = 
+LIBS = -l:libboost_thread.a -l:libboost_system.a -lpthread
 
 prefix = ../../../test
 

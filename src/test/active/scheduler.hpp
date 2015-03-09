@@ -7,6 +7,14 @@
 
 #include "request.hpp"
 
+class Run
+{
+
+public:
+
+	void operator()() {}
+};
+
 class Scheduler
 {
 
@@ -22,7 +30,9 @@ private:
 
 	//ActivationList activationList_;
 
-	static void* Run( void* args );
+	//static void Run();
+
+	boost::thread thread_;
 
 };
 
