@@ -12,7 +12,19 @@ class Run
 
 public:
 
-	void operator()() {}
+	void operator()() 
+	{
+	/***
+		check the list
+		if not empty
+		{
+			check next entry (priority)
+			if ready to run
+				get entry
+				invoke subject method
+		}
+	***/
+	}
 };
 
 class Scheduler
