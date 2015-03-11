@@ -2,6 +2,7 @@
 #define REQUEST_HPP
 
 #include <boost/smart_ptr.hpp>
+#include <boost/function.hpp>
 
 #include "servant.hpp"
 #include "future.hpp"
@@ -13,10 +14,25 @@ public:
 
 	typedef boost::shared_ptr< Request > request_ptr;
 
-	virtual bool CanRun() const = 0;
-	virtual void Call() = 0;
+	typedef boost::function<bool()> ready_function_type;
+	typedef boost::function<void()> run_function_type;
+
+	template <  typename ReadyFunctor,
+				typename RunFunctor >
+	Request( ReadyFunctor ready, RunFunctor run )
+		: ready_( ready ),
+		  run_( run )
+	{}
+
+	//virtual bool CanRun() const = 0;
+	//virtual void Call() = 0;
+
+	ready_function_type	ready_;
+	run_function_type run_;
 
 };
+
+#if 0 
 
 class MoveRequest : public Request
 {
@@ -46,5 +62,6 @@ private:
 	Future::future_ptr result_;
 
 };
+#endif
 
 #endif

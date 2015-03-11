@@ -4,6 +4,7 @@
 #include <cstddef>
 
 #include <boost/thread.hpp>
+#include <boost/asio.hpp>
 
 #include "request.hpp"
 
@@ -32,7 +33,9 @@ class Scheduler
 
 public:
 
-	Scheduler( size_t high_water_mark );
+	typedef boost::mutex mutex_type;
+
+	Scheduler( std::size_t maxThreads, std::size_t maxRequests );
 
 	void Insert( Request::request_ptr request );
 
@@ -45,6 +48,16 @@ private:
 	//static void Run();
 
 	boost::thread thread_;
+
+	boost::asio::io_service ioService_;
+	boost::asio::io_service::work work_;
+
+	std::size_t maxThreads_;
+
+	std::size_t maxRequests_;
+	std::size_t requestCount_;
+
+	mutex_type mutex_;
 
 };
 
