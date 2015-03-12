@@ -36,6 +36,7 @@ public:
 	typedef boost::mutex mutex_type;
 
 	Scheduler( std::size_t maxThreads, std::size_t maxRequests );
+	~Scheduler();
 
 	void Insert( Request::request_ptr request );
 
@@ -47,12 +48,10 @@ private:
 
 	//static void Run();
 
-	boost::thread thread_;
+	boost::thread_group threads_;
 
 	boost::asio::io_service ioService_;
 	boost::asio::io_service::work work_;
-
-	std::size_t maxThreads_;
 
 	std::size_t maxRequests_;
 	std::size_t requestCount_;
