@@ -40,6 +40,12 @@ public:
 
 	void Insert( Request::request_ptr request );
 
+	template< typename ReadyFunctor,
+			  typename RunFunctor >
+	boost::unique_future< typename boost::result_of< RunFunctor() >::type >
+	Insert( const ReadyFunctor& ready_function,
+			const RunFunctor& run_function );
+
 	virtual void Dispatch();
 
 	void Cancel();
