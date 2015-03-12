@@ -17,6 +17,15 @@ Scheduler::~Scheduler()
 	threads_.join_all();
 }
 
+template< 	typename ReadyFunctor,
+			typename RunFunctor >
+	boost::unique_future< typename boost::result_of< RunFunctor() >::type >
+Scheduler::Insert( 	const ReadyFunctor& ready_function,
+					const RunFunctor& run_function )
+{
+	boost::unique_lock<mutex_type> lock( mutex_ );
+}
+
 void Scheduler::Insert( Request::request_ptr request )
 {}
 
