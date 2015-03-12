@@ -20,5 +20,12 @@ Scheduler::~Scheduler()
 void Scheduler::Insert( Request::request_ptr request )
 {}
 
+void Scheduler::Cancel()
+{
+	boost::unique_lock<mutex_type> lock( mutex_ );
+	//activationList_.clear();
+	requestCount_ = 0;
+}
+
 void Scheduler::Dispatch()
 {}

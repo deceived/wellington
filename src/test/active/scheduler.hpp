@@ -42,6 +42,8 @@ public:
 
 	virtual void Dispatch();
 
+	void Cancel();
+
 private:
 
 	//ActivationList activationList_;
