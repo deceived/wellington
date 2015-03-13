@@ -33,6 +33,12 @@ Scheduler::Insert( 	const ReadyFunctor& ready_function,
 		return future_type();
 	}
 
+	++requestCount_;
+
+	typedef boost::packaged_task<result_type> task_type;
+
+	boost::shared_ptr< task_type > task = boost::make_shared< task_type >( run_function );
+
 }
 
 void Scheduler::Insert( Request::request_ptr request )
