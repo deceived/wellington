@@ -52,6 +52,24 @@ public:
 
 private:
 
+	struct method_request
+	{
+		typedef boost::function<bool()> ready_func_type;
+		typedef boost::function<void()> run_func_type;
+
+		template< typename ReadyFunctor,
+				  typename RunFunctor >
+		method_request( ReadyFunctor ready,
+						RunFunctor run )
+			: ready_( ready ),
+			  run_( run )
+		{}
+
+		ready_func_type ready_;
+		run_func_type run_;
+
+	};
+
 	//ActivationList activationList_;
 
 	//static void Run();

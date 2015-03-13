@@ -39,6 +39,8 @@ Scheduler::Insert( 	const ReadyFunctor& ready_function,
 
 	boost::shared_ptr< task_type > task = boost::make_shared< task_type >( run_function );
 
+	boost::shared_ptr< method_request > request =
+		boost::make_shared< method_request >( ready_function, boost::bind( &task_type::operator(), request ) );
 }
 
 void Scheduler::Insert( Request::request_ptr request )
