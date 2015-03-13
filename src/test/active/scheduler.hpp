@@ -125,5 +125,7 @@ private:
 
 };
 
+typedef Scheduler< unsigned int, std::greater< unsigned int > > priority_scheduler;
+ 
 #endif
 

@@ -17,7 +17,7 @@ LIBS = -l:libboost_thread.a -l:libboost_system.a -lpthread
 
 prefix = ../../../test
 
-SRCS = main.cpp servant.cpp activation_list.cpp scheduler.cpp
+SRCS = main.cpp servant.cpp scheduler.cpp
 OBJS = $(SRCS:.cpp=.o)
 OUT = test_active
 
