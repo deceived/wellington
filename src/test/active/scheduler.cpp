@@ -23,7 +23,16 @@ template< 	typename ReadyFunctor,
 Scheduler::Insert( 	const ReadyFunctor& ready_function,
 					const RunFunctor& run_function )
 {
+	typedef typename boost::result_of<RunFunctor()>::type result_type;
+	typedef boost::unique_future<result_type> future_type;
+
 	boost::unique_lock<mutex_type> lock( mutex_ );
+
+	if( maxRequests_ && requestCount_ == maxRequests_ )
+	{
+		return future_type();
+	}
+
 }
 
 void Scheduler::Insert( Request::request_ptr request )

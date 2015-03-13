@@ -55,6 +55,7 @@ private:
 	//ActivationList activationList_;
 
 	//static void Run();
+	//void Dispatch();
 
 	boost::thread_group threads_;
 
