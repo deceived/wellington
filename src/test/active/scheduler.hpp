@@ -49,6 +49,11 @@ private:
 		return pair.second->ready();
 	}
 
+	static bool always_ready() 
+	{
+		return true;
+	}
+
 public:
 
 	Scheduler( std::size_t maxThreads, std::size_t maxRequests )
@@ -101,6 +106,29 @@ public:
 		return task->get_future();
 
 	}
+
+#if 0
+	template< typename ReadyFunctor, typename RunFunc >
+		boost::unique_future< typename boost::result_of<RunFunctor()>::type>
+	Insert( priority_type priority, const ReadyFunctor& ready_function, const RunFunctor& run_function )
+	{
+		return Insert( priority_type(), ready_function, run_function );
+	}
+
+	template< typename RunFunctor >
+		boost::unique_future< typename boost::result_of<RunFunctor()>::type>
+	Insert( priority_type priority, const RunFunctor& run_function )
+	{
+		return Insert( priority, &always_ready, run_function );
+	}
+
+	template< typename RunFunctor >
+		boost::unique_future< typename boost::result_of<RunFunctor()>::type>
+	Insert( const RunFunctor& run_function )
+	{
+		return Insert( &always_ready, run_function );
+	}
+#endif
 
 	void Cancel()
 	{
