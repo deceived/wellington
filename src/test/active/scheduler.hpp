@@ -44,6 +44,10 @@ private:
 
 	typedef std::pair< priority_type, boost::shared_ptr<method_request> > pair_type;
 
+	static bool is_method_ready( const pair_type& pair )
+	{
+		return pair.second->ready();
+	}
 
 public:
 
@@ -67,7 +71,8 @@ public:
 	template< 	typename ReadyFunctor,
 				typename RunFunctor >
 		boost::unique_future< typename boost::result_of< RunFunctor() >::type >
-	Insert( 	const ReadyFunctor& ready_function,
+	Insert( 	priority_type priority,
+				const ReadyFunctor& ready_function,
 				const RunFunctor& run_function )
 	{
 		typedef typename boost::result_of<RunFunctor()>::type result_type;
@@ -88,6 +93,13 @@ public:
 
 		boost::shared_ptr< method_request > request =
 			boost::make_shared< method_request >( ready_function, boost::bind( &task_type::operator(), request ) );
+
+		activationList_.insert( activationList_.end(), pair_type( priority, request ) );
+
+		ioService_.post( boost::bind( &Scheduler::Dispatch, this ) );
+
+		return task->get_future();
+
 	}
 
 	void Cancel()
@@ -98,6 +110,35 @@ public:
 	}
 
 private:
+
+	void Dispatch()
+	{
+		boost::unique_lock<mutex_type> lock( mutex_ );
+
+		if( activationList_.empty() )
+		{
+			return;
+		}
+
+		typedef typename activation_list_type::iterator iterator;
+		iterator end = activationList_.end();
+		iterator result = std::find_if( activationList_.begin(), end, &is_method_ready );
+
+		if( end == result )
+		{
+			ioService_post( boost::bind( &Scheduler::Dispatch, this ) );
+			return;
+		}
+
+		boost::shared_ptr< method_request > method = result->second;
+		activationList_.erase( result );
+
+		lock.unlock();
+		method->run();
+		lock.lock();
+
+		--requestCount_;
+	}
 
 	typedef boost::multi_index_container<
 		pair_type,
